@@ -17,16 +17,22 @@ public class MemoryRepository {
                            String role, Instant occurredAt) { }
     public record MemoryView(UUID id, MemoryType type, String content, AssertionOrigin origin,
                              MemoryStatus status, Sensitivity sensitivity, Instant occurredAt,
-                             List<Evidence> evidence) { }
+                             List<Evidence> evidence, String temporalScope,
+                             String extractorVersion, String modelId, List<UUID> conflicts) { }
 
     private final JdbcTemplate jdbc;
     public MemoryRepository(JdbcTemplate jdbc) { this.jdbc = jdbc; }
 
     public Stored save(UUID owner, UUID sourceId, MemoryCandidate candidate) {
         MemoryStatus targetStatus = MemoryPolicy.initialStatus(
-                candidate.origin(), candidate.sensitivity());
-        String dedupe = Hashing.sha256(candidate.type() + "\n"
-                + candidate.content().strip().replaceAll("\\s+", " "));
+                candidate.type(), candidate.origin(), candidate.sensitivity());
+        jdbc.queryForObject("SELECT pg_advisory_xact_lock(hashtextextended(?::text,0))", Object.class, owner.toString());
+        String canonical = MemoryNormalization.canonical(candidate.content());
+        List<String> previous = jdbc.query("SELECT dedupe_key,content FROM memory_item WHERE owner_id=? AND memory_type=?",
+                (rs,row) -> MemoryNormalization.canonical(rs.getString("content")).equals(canonical)
+                        ? rs.getString("dedupe_key") : null, owner, candidate.type().name()).stream()
+                .filter(java.util.Objects::nonNull).toList();
+        String dedupe = previous.isEmpty() ? Hashing.sha256(candidate.type() + "\n" + canonical) : previous.getFirst();
         List<UUID> created = jdbc.query("""
                 INSERT INTO memory_item
                     (id,owner_id,memory_type,content,assertion_origin,status,sensitivity,
@@ -69,6 +75,7 @@ public class MemoryRepository {
         if (max < 1 || max > 200) throw new IllegalArgumentException("limit must be between 1 and 200");
         String sql = """
                 SELECT id,memory_type,content,assertion_origin,status,sensitivity,occurred_at
+                ,temporal_scope,extractor_version,model_id
                 FROM memory_item WHERE owner_id=?
                 """ + (status == null ? "" : " AND status=? ") +
                 " ORDER BY created_at DESC,id LIMIT ?";
@@ -97,6 +104,7 @@ public class MemoryRepository {
         args.add(limit);
         String sql = """
                 SELECT id,memory_type,content,assertion_origin,status,sensitivity,occurred_at,
+                temporal_scope,extractor_version,model_id,
                 """ + String.join(" + ", cases) + " AS score " + """
                 FROM memory_item WHERE owner_id=? AND status='ACTIVE' AND (
                 """ + String.join(" OR ", filters) + ") ORDER BY score DESC, created_at DESC LIMIT ?";
@@ -133,7 +141,8 @@ public class MemoryRepository {
                 AssertionOrigin.valueOf(rs.getString("assertion_origin")),
                 MemoryStatus.valueOf(rs.getString("status")),
                 Sensitivity.valueOf(rs.getString("sensitivity")),
-                at == null ? null : at.toInstant(), List.of());
+                at == null ? null : at.toInstant(), List.of(), rs.getString("temporal_scope"),
+                rs.getString("extractor_version"), rs.getString("model_id"), List.of());
     }
 
     private List<MemoryView> withEvidence(UUID owner, List<MemoryView> memories) {
@@ -152,7 +161,12 @@ public class MemoryRepository {
             }, memory.id(), owner);
             populated.add(new MemoryView(memory.id(), memory.type(), memory.content(),
                     memory.origin(), memory.status(), memory.sensitivity(),
-                    memory.occurredAt(), evidence));
+                    memory.occurredAt(), evidence, memory.temporalScope(), memory.extractorVersion(), memory.modelId(),
+                    jdbc.query("""
+                        SELECT CASE WHEN from_memory_id=? THEN to_memory_id ELSE from_memory_id END
+                        FROM memory_relation WHERE owner_id=? AND relation_type='CONTRADICTS'
+                          AND (from_memory_id=? OR to_memory_id=?)
+                        """, (rs,row)->rs.getObject(1,UUID.class),memory.id(),owner,memory.id(),memory.id())));
         }
         return populated;
     }
