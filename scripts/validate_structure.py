@@ -19,5 +19,5 @@ expected = [
 for table in expected:
     assert re.search(r"CREATE TABLE " + table + r"\b", schema), table
 assert "owner_id=?" in (ROOT / "src/main/java/com/mirrorself/memory/MemoryRepository.java").read_text()
-assert 'model-egress-enabled: false' in (ROOT / 'src/main/resources/application.yml').read_text()
+assert 'model-egress-enabled: ${MIRROR_MODEL_EGRESS_ENABLED:false}' in (ROOT / 'src/main/resources/application.yml').read_text()
 print(f"STRUCTURAL CHECK PASSED: {len(expected)} tables, valid pom and example JSON")
