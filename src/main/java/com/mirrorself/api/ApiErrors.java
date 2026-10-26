@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ApiErrors {
+    @ExceptionHandler(com.mirrorself.model.ModelFailure.class)
+    public ResponseEntity<Map<String,String>> modelFailure(com.mirrorself.model.ModelFailure ex) {
+        return ResponseEntity.status(ex.code()==com.mirrorself.model.ModelFailure.Code.EGRESS_DENIED
+                ?HttpStatus.FORBIDDEN:HttpStatus.BAD_GATEWAY).body(Map.of("error",ex.code().name()));
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, String>> badRequest(IllegalArgumentException ex) {
         return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));

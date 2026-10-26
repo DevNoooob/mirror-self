@@ -12,6 +12,8 @@ public final class SensitiveDetector {
                     "性生活|性取向|家人|伴侣|家庭住址|住址|电话号码)");
     private SensitiveDetector() { }
     public static Sensitivity classify(String text) {
+        if (Pattern.compile("(?i)(密码|密钥|api.?key|access.?token|secret|password|private.?key)").matcher(text).find())
+            return Sensitivity.SECRET;
         return FLAG.matcher(text).find() ? Sensitivity.SENSITIVE : Sensitivity.NORMAL;
     }
 }
