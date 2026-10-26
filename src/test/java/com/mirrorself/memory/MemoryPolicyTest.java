@@ -13,6 +13,11 @@ class MemoryPolicyTest {
                 AssertionOrigin.USER_EXPLICIT, Sensitivity.SECRET));
     }
 
+    @Test void cognitiveSelfDescriptionsAlsoRequireReview() {
+        assertEquals(MemoryStatus.PENDING_REVIEW,MemoryPolicy.initialStatus(MemoryType.THOUGHT_PROCESS,
+                AssertionOrigin.USER_EXPLICIT,Sensitivity.NORMAL));
+    }
+
     @Test void reviewIsOneWay() {
         assertEquals(MemoryStatus.REJECTED,
                 MemoryPolicy.reviewed(MemoryStatus.PENDING_REVIEW, ReviewDecision.REJECT));

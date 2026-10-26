@@ -11,7 +11,22 @@ import org.springframework.stereotype.Component;
  * Works only on the user's original message. No inferred traits.
  */
 @Component
-public class RuleBasedExtractor {
+public class RuleBasedExtractor implements MemoryExtractor {
+    @Override public String version() { return "rule-0.2.0"; }
+    @Override public String model() { return "none"; }
+    @Override public List<ExtractedMemory> extract(java.util.UUID owner,
+            List<com.mirrorself.ingestion.SourceRepository.SourceView> messages, java.util.UUID grantId) {
+        List<ExtractedMemory> result = new ArrayList<>();
+        for (var message : messages) {
+            for (var candidate : extract(message.role(), message.text(), message.occurredAt())) {
+                result.add(new ExtractedMemory(candidate.type(), candidate.content(), candidate.origin(),
+                        candidate.sensitivity(), ExtractedMemory.TemporalScope.SOURCE_TIME,
+                        List.of(new ExtractedMemory.EvidenceRef(message.id(), candidate.exactEvidence()))));
+            }
+        }
+        return result;
+    }
+
     private static final Pattern LEARNING = Pattern.compile(
         "^我(?:正在|现在在|最近在|目前在|一直在)(?:学习|学|研究).+");
     private static final Pattern GOAL = Pattern.compile(
