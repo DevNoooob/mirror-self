@@ -47,3 +47,10 @@
 ```
 
 **版本边界**：没有开放的第三方分享、聊天会话持久化或消息发送 API；它们属于后续版本。API 不接受调用者任意指定 `owner_id`；未来加多用户时必须先引入标准认证、租户隔离和表级访问策略。
+
+
+## V0.2 扩展
+
+新增来源元数据列表、提取任务执行/查询、逐来源模型出站授权/撤销。
+原有导入计数字段保留，新增 extractionJobIds；记忆读取追加 temporalScope、extractorVersion、modelId、conflicts。
+完整请求、状态与授权步骤见 [V0.2 API 使用说明](V0.2_MEMORY_ENGINE.md#api-使用)。

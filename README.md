@@ -1,20 +1,21 @@
-# Mirror Self / 镜像自我 — V0.1
+# Mirror Self / 镜像自我 — V0.2 第一阶段
 
-> **第一个可运行的记忆垂直切片**：保存 ChatGPT 原始消息 → 从用户原话提取少量候选记忆 → 保存 L0 证据关联 → 分级审核 → 本地检索 / 摘录式回答。
+> **第一个可运行的记忆垂直切片**：保存 ChatGPT 原始消息 → 规则或 LLM 多轮提取候选记忆 → 保存 L0 证据关联 → 分级审核 → 本地检索 / 摘录式回答。
 
 这是个人数字认知孪生系统的后端 **M1/M2 起步工程**，不是已经能够完整模拟你人格的 AI 产品。
 
 ## 运行环境
 
 - Java 21、Maven 3.9+（本地运行时），或 Docker + Docker Compose（推荐）。
-- PostgreSQL 17 + pgvector 0.8.6、Spring Boot 4.0.8、Spring AI BOM 2.0.1（预留模型网关）。
-- 默认完全离线处理个人资料：**当前没有实现云端模型调用，也不会调用外部 LLM**。
+- PostgreSQL 17 + pgvector 0.8.6、Spring Boot 4.0.8、Spring AI 2.0.1（实际 OpenAI-compatible 模型适配）。
+- 默认离线处理个人资料：`RULE`，不会调用外部 LLM；显式切换模型模式并授权后才调用。
 - 本版 API 只支持单个用户，不支持第三方授权访问。所有非健康检查 API 都要求访问令牌。
 
 ## Docker 一键运行
 
 ```bash
-cp .env.example .env
+# 仅首次安装且 .env 不存在时执行，升级时不要覆盖已有 .env
+cp -n .env.example .env
 # 修改 .env 中 POSTGRES_PASSWORD 和 MIRROR_OWNER_TOKEN（随机、唯一、至少32字符）
 docker compose up --build -d
 curl http://127.0.0.1:8080/api/v1/health
@@ -86,24 +87,43 @@ curl -sS -X DELETE http://127.0.0.1:8080/api/v1/sources/UUID \
 
 ## 当前实现范围
 
-✅ PostgreSQL/Flyway；原始节点 JSON 存储；幂等导入；user/assistant 分离；规则提取；证据关联；状态审核；敏感内容启发式阻断；时间字段；owner-only HTTP API；硬删除来源及孤立衍生记忆；中文关键词/子串检索；本地摘录式回答；审计事件；AI 框架边界接口。
+✅ V0.2：多轮 LLM 提取、严格 JSON/原文校验、独立语义验证、逐来源出站授权、批处理、提取任务、确定性去重、基础矛盾标记；PostgreSQL/Flyway；原始节点 JSON 存储；幂等导入；user/assistant 分离；规则提取；证据关联；状态审核；敏感内容启发式阻断；时间字段；owner-only HTTP API；硬删除来源及孤立衍生记忆；中文关键词/子串检索；本地摘录式回答；审计事件；AI 框架边界接口。
 
-🚧 尚未实现：真正的 LLM 智能记忆提取、向量生成与混合检索（虽然 Schema 已预留 pgvector）、用户界面、九维画像的自动生成、可信思维模拟、持续后台调度、多种文件格式、公开共享/第三方登录、云端隐私授权、完整的秘密检测和跨版本人格评估。
+🚧 尚未实现：向量生成与混合检索（虽然 Schema 已预留 pgvector）、用户界面、九维画像的自动生成、可信思维模拟、持续后台调度、多种文件格式、公开共享/第三方登录、复杂语义合并、完整的秘密检测和跨版本人格评估。
 
-**敏感内容检测只是简单词表，不是可靠的隐私分类器。请在真实数据导入之前检查文件，避免包含 API Key、密码和不希望存储的内容。** V0.1 存储未加应用级字段加密，需使用操作系统磁盘加密、加密备份和严格的文件权限。
+**敏感内容检测只是简单词表，不是可靠的隐私分类器。请在真实数据导入之前检查文件，避免包含 API Key、密码和不希望存储的内容。** 存储未加应用级字段加密，需使用操作系统磁盘加密、加密备份和严格的文件权限。
 
 ## 测试
 
 ```bash
-mvn test                       # 领域/解码器单元测试
-mvn -Dtest=PostgresMemoryIT test  # PostgreSQL 集成测试，需要 Docker
+mvn test                       # 单元测试，含本地模拟 HTTP 模型服务
+mvn verify                     # 单元 + PostgreSQL/pgvector 集成测试，需要 Docker
 bash scripts/smoke-domain.sh   # 无 Maven 也能运行的 JDK21 纯领域验证
 ```
 
 注意：集成测试启用了 `disabledWithoutDocker=true`，没有 Docker 时会跳过；不能把跳过误认为 PostgreSQL 测试通过。
 
+## 启用 V0.2 智能提取
+
+默认无需配置模型，原有导入、检索和 `/ask` 均保持可用；`/ask` 仍为本地摘录式回答。
+
+```bash
+export MIRROR_EXTRACTION_MODE=LLM
+export MIRROR_LLM_MODEL='你的提供商支持的模型标识'
+export MIRROR_LLM_BASE_URL='https://你的模型服务/v1'
+# MIRROR_LLM_API_KEY 通过部署环境或安全配置注入，不写进源码或日志
+export MIRROR_MODEL_EGRESS_ENABLED=true
+```
+
+云端模式导入先保存 L0，提取任务初始会因未授权而 `BLOCKED`。通过 `GET /api/v1/sources`
+找到目标对话的来源 ID，为实际要发送的完整上下文（含 assistant）创建短期授权，再调用
+`POST /api/v1/extractions`。详细请求及本地模型配置见 [V0.2 使用说明](docs/V0.2_MEMORY_ENGINE.md)。
+Spring Boot 本地启动不会自动读取 `.env`；Compose 会读取它的变量。
+
 ## 设计文档
 
+- [V0.2 模块设计、配置与 API 使用](docs/V0.2_MEMORY_ENGINE.md)
+- [本次验证记录](docs/VERIFICATION.md)
 - [架构决策 ADR](docs/ADR.md)
 - [数据库设计 Schema](docs/DATABASE.md)
 - [记忆处理与状态机](docs/MEMORY_PIPELINE.md)
