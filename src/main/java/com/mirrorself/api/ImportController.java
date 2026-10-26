@@ -43,6 +43,12 @@ public class ImportController {
         return importer.load(properties.ownerId(), name, file.getInputStream());
     }
 
+    @GetMapping("/sources")
+    public java.util.List<SourceRepository.SourceSummary> listSources(
+            @RequestParam(defaultValue="100") int limit,@RequestParam(defaultValue="0") int offset) {
+        return sources.list(properties.ownerId(),limit,offset);
+    }
+
     @GetMapping("/sources/{id}")
     public SourceRepository.SourceView getSource(@PathVariable UUID id) {
         return sources.get(properties.ownerId(), id);

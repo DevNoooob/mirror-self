@@ -1,32 +1,23 @@
 package com.mirrorself.ingestion;
 
-import com.mirrorself.memory.MemoryService;
-import com.mirrorself.memory.RuleBasedExtractor;
+import com.mirrorself.memory.MemoryExtractionService;
+import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-/** A message and its derived L1 memories commit atomically. */
+/** Backward-compatible single-message entry point; full imports use conversation paths. */
 @Service
 public class IngestionUnitService {
-    public record SavedUnit(boolean newSource, int newMemories) { }
-    private final SourceRepository sourceRepo;
-    private final RuleBasedExtractor extractor;
-    private final MemoryService memories;
-
-    public IngestionUnitService(SourceRepository sourceRepo, RuleBasedExtractor extractor,
-                                MemoryService memories) {
-        this.sourceRepo = sourceRepo;
-        this.extractor = extractor;
-        this.memories = memories;
+    public record SavedUnit(boolean newSource,int newMemories) { }
+    private final SourceRepository sources;
+    private final MemoryExtractionService extraction;
+    public IngestionUnitService(SourceRepository sources,MemoryExtractionService extraction) {
+        this.sources=sources; this.extraction=extraction;
     }
-
-    @Transactional
-    public SavedUnit ingest(UUID owner, SourceInput input) {
-        SourceRepository.Stored source = sourceRepo.save(owner, input);
-        if (!source.inserted()) return new SavedUnit(false, 0);
-        int created = memories.addCandidates(owner, source.id(), extractor.extract(
-                input.role(), input.text(), input.occurredAt()));
-        return new SavedUnit(true, created);
+    public SavedUnit ingest(UUID owner,SourceInput input) {
+        var stored=sources.save(owner,input);
+        if(!stored.inserted()) return new SavedUnit(false,0);
+        var job=extraction.extract(owner,List.of(stored.id()),null);
+        return new SavedUnit(true,job.newMemories());
     }
 }

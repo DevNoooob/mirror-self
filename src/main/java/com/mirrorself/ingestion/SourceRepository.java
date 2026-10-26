@@ -52,6 +52,19 @@ public class SourceRepository {
         return sources.getFirst();
     }
 
+    public record SourceSummary(UUID id,String sourceSystem,String locator,String role,Instant occurredAt,
+            String nodeId,String parentNodeId) { }
+    public List<SourceSummary> list(UUID owner,int limit,int offset) {
+        if(limit<1||limit>500||offset<0) throw new IllegalArgumentException("limit must be 1-500 and offset nonnegative");
+        return jdbc.query("""
+            SELECT id,source_system,source_locator,role,occurred_at,
+                raw_message->>'id' AS node_id,raw_message->>'parent' AS parent_node_id
+            FROM source_record WHERE owner_id=? ORDER BY imported_at,id LIMIT ? OFFSET ?
+            """,(rs,row)->new SourceSummary(rs.getObject("id",UUID.class),rs.getString("source_system"),
+                rs.getString("source_locator"),rs.getString("role"),readTime(rs.getObject("occurred_at",OffsetDateTime.class)),
+                rs.getString("node_id"),rs.getString("parent_node_id")),owner,limit,offset);
+    }
+
     public List<UUID> linkedMemories(UUID owner, UUID sourceId) {
         return jdbc.query("""
                 SELECT DISTINCT me.memory_id FROM memory_evidence me
