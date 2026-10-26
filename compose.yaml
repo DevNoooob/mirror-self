@@ -1,0 +1,33 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.6-pg17
+    environment:
+      POSTGRES_DB: mirror_self
+      POSTGRES_USER: mirror
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U mirror -d mirror_self']
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+  api:
+    build: .
+    environment:
+      SERVER_ADDRESS: 0.0.0.0
+      MIRROR_DB_URL: jdbc:postgresql://db:5432/mirror_self
+      MIRROR_DB_USER: mirror
+      MIRROR_DB_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      MIRROR_OWNER_ID: ${MIRROR_OWNER_ID:-11111111-1111-4111-8111-111111111111}
+      MIRROR_OWNER_TOKEN: ${MIRROR_OWNER_TOKEN:?Set MIRROR_OWNER_TOKEN in .env}
+    ports:
+      - '127.0.0.1:8080:8080'
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  pgdata:
