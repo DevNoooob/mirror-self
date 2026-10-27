@@ -22,6 +22,7 @@ class EvaluationSelectionTest {
             var ex=assertThrows(IllegalArgumentException.class,()->EvaluationSelection.reviewed(full,requested,IDS,true));
             assertFalse(ex.getMessage().contains("PRIVATE_SCOPE_SENTINEL"));
         }
+        assertThrows(IllegalArgumentException.class,()->EvaluationSelection.reviewed(full,"MISSING","MISSING",true));
         assertThrows(IllegalArgumentException.class,()->EvaluationSelection.reviewed(full,IDS,"MQ001",true));
         assertThrows(IllegalStateException.class,()->EvaluationSelection.reviewed(full,IDS,IDS,false));
     }

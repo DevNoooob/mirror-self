@@ -57,13 +57,17 @@ abstract class EvaluationIntegrationSupport {
                 "true".equals(System.getenv("MIRROR_EVALUATION_GOLD_REVIEWED")));
         String folder=mode==MemoryEvaluationService.Mode.OFFLINE_MOCK?"offline-mock":mode==MemoryEvaluationService.Mode.OFFLINE_RULE?"offline-rule":"live";
         var writer=new EvaluationReportWriter();
-        Path baseline=Path.of(System.getProperty("evaluation.baseline","evaluation/baselines/"+folder+"-v1.json"));
+        String defaultBaseline=folder.equals("offline-mock")?"evaluation/baselines/offline-mock-v0.2.1-a.json"
+                :"evaluation/baselines/"+folder+"-v1.json";
+        Path baseline=Path.of(System.getProperty("evaluation.baseline",defaultBaseline));
         if(Files.exists(baseline)) {
             report=new BaselineComparator().attach(report,writer.read(baseline));
 
         }
         Path output=Path.of(System.getProperty("evaluation.output","target/evaluation/"+folder));
         writer.write(report,output);
+        if(mode!=MemoryEvaluationService.Mode.LIVE&&System.getProperty("evaluation.baseline")==null)
+            assertTrue(Files.exists(baseline),"Default offline baseline is missing; report saved");
         assertEquals(0,gateway.budgetDenied(),"Approved call budget exhausted; partial report saved, do not freeze as a complete baseline");
         if(Files.exists(baseline)) {
             var comparison=report.comparison();
