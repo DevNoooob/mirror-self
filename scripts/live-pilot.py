@@ -9,20 +9,28 @@ from pathlib import Path
 import subprocess
 import sys
 
+ACTIVE_PLAN = 'evaluation/plans/deepseek-flash-nine-v1.1.json'
+
 PILOT_IDS = ('MQ001','MQ019','MQ022','MQ025','MQ032','MQ043','MQ045','MQ047','MQ054')
 
 class PreflightError(Exception):
     pass
 
 def load_plan(root):
-    plan = json.loads((root / 'evaluation/plans/deepseek-flash-nine-v1.json').read_text())
-    if (plan.get('planVersion') != '1.0' or tuple(plan.get('caseIds', [])) != PILOT_IDS
+    plan = json.loads((root / ACTIVE_PLAN).read_text())
+    if (plan.get('planVersion') != '1.1' or tuple(plan.get('caseIds', [])) != PILOT_IDS
             or plan.get('model') != 'deepseek-flash' or plan.get('baseUrl') != 'https://api.deepseek.com/v1'
             or plan.get('maxModelCalls') != 36 or plan.get('batchChars') != 16000 or plan.get('batchMessages') != 30):
         raise PreflightError('Pilot scope differs from the review proposal; review a new plan first.')
     dataset = (root / plan['datasetPath']).resolve()
     if dataset.parent != (root / 'evaluation/datasets').resolve():
         raise PreflightError('Pilot dataset must be an explicit evaluation dataset.')
+    if (plan.get('datasetPath') != 'evaluation/datasets/memory-quality-v1.1.json'
+            or plan.get('datasetVersion') != 'memory-quality-v1.1'
+            or plan.get('planId') != 'deepseek-flash-nine-v1.1'
+            or plan.get('reportDirectory') != 'target/evaluation/live-pilot/deepseek-flash-nine-v1.1'
+            or plan.get('baselinePath') != 'evaluation/baselines/live-deepseek-flash-nine-v1.1.json'):
+        raise PreflightError('Active pilot must use the finalized v1.1 dataset and separate report paths.')
     raw = dataset.read_bytes()
     if hashlib.sha256(raw).hexdigest() != plan['datasetSha256']:
         raise PreflightError('Dataset changed; obtain review and approval for a new digest.')
@@ -34,6 +42,30 @@ def load_plan(root):
         raise PreflightError('Pilot cases are missing.')
     if any(cases[i]['repeatExtractions'] != 2 for i in PILOT_IDS):
         raise PreflightError('Pilot replay scope changed.')
+    record_path = (root / plan['goldReviewRecordPath']).resolve()
+    if record_path.parent != (root / 'evaluation/reviews').resolve():
+        raise PreflightError('Explicit scoped human review record is required.')
+    review = json.loads(record_path.read_text())
+    if (review.get('reviewStatus') != 'APPROVED_NINE_CASES_ONLY'
+            or review.get('reviewBasis') != 'EXPLICIT_USER_PERSONAL_REVIEW_CONFIRMATION'
+            or review.get('datasetPath') != plan['datasetPath']
+            or review.get('datasetVersion') != plan['datasetVersion']
+            or review.get('datasetSha256') != plan['datasetSha256']
+            or tuple(review.get('reviewedCaseIds', [])) != PILOT_IDS
+            or review.get('reviewedCaseCount') != 9 or review.get('corpusCaseCount') != len(cases)
+            or review.get('corpusHumanReviewComplete') is not False
+            or len(review.get('unreviewedCaseIds', [])) != 57
+            or set(review['unreviewedCaseIds']) != set(cases) - set(PILOT_IDS)
+            or data.get('humanReviewStatus') != 'PENDING_HUMAN_REVIEW'):
+        raise PreflightError('Human review applies only to the nine approved cases, not the entire corpus.')
+    auth = review.get('authorization', {})
+    if (auth.get('goldFinalization') is not True
+            or any(auth.get(field) is not False for field in ('modelDataEgress','paidModelCalls','formalDeployment','businessDatabaseModification'))
+            or plan.get('status') != 'GOLD_REVIEWED_AWAITING_LIVE_AUTHORIZATION'
+            or plan.get('goldReviewStatus') != 'APPROVED_NINE_CASES_ONLY'
+            or plan.get('corpusHumanReviewComplete') is not False
+            or plan.get('liveAuthorization') != {'status':'NOT_AUTHORIZED','grantedByGoldReview':False,'requiresSeparateApproval':True}):
+        raise PreflightError('Gold finalization does not grant model, deployment or database authorization.')
     return plan
 
 def ids(value):
@@ -87,7 +119,10 @@ def main(argv=None, root=None, env=None):
             print(json.dumps({'mode':'PREFLIGHT_ONLY','datasetSha256':plan['datasetSha256'],
                 'datasetVersion':plan['datasetVersion'],'caseIds':plan['caseIds'],'model':plan['model'],
                 'maxModelCalls':plan['maxModelCalls'],'replaysPerCase':2,
-                'humanApproval':'PENDING_INDEPENDENT_HUMAN_REVIEW','liveExecuted':False,
+                'humanApproval':plan['goldReviewStatus'],'reviewedCaseIds':plan['caseIds'],
+                'unreviewedCaseCount':57,'corpusHumanReviewComplete':False,
+                'datasetHumanReviewStatus':'PENDING_HUMAN_REVIEW',
+                'liveAuthorization':plan['liveAuthorization']['status'],'liveExecuted':False,
                 'reportPattern':plan['reportDirectory']+'/<UTC_RUN_ID>/report.{json,md}'},ensure_ascii=False,indent=2))
             return 0
         require_approval(plan, env)
@@ -105,7 +140,7 @@ def main(argv=None, root=None, env=None):
             'MIRROR_LLM_BATCH_MESSAGES':str(plan['batchMessages'])}
         command = ['bash', str(root / 'scripts/evaluate-memory.sh'), 'live',
             '-Devaluation.output='+str(output),
-            '-Devaluation.baseline=evaluation/baselines/live-deepseek-flash-nine-v1.json']
+            '-Devaluation.baseline='+plan['baselinePath']]
         print('Launching the existing evaluator; report directory: '+str(output),flush=True)
         result = subprocess.run(command,cwd=root,env=child_env,check=False)
         if result.returncode != 0:

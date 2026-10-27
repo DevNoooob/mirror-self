@@ -30,7 +30,11 @@ class LivePilotTests(unittest.TestCase):
         with patch.object(pilot.subprocess,'run') as run:
             status,out,err = self.invoke([],self.valid_env())
             self.assertEqual(0,status);run.assert_not_called()
-            self.assertFalse(json.loads(out)['liveExecuted']);self.assertNotIn('FICTIONAL-UNIT',out+err)
+            info=json.loads(out)
+            self.assertFalse(info['liveExecuted']);self.assertNotIn('FICTIONAL-UNIT',out+err)
+            self.assertEqual('APPROVED_NINE_CASES_ONLY',info['humanApproval'])
+            self.assertEqual('NOT_AUTHORIZED',info['liveAuthorization'])
+            self.assertEqual(57,info['unreviewedCaseCount']);self.assertFalse(info['corpusHumanReviewComplete'])
     def test_each_missing_approval_stops_before_subprocess(self):
         for field in ['MIRROR_EVALUATION_GOLD_REVIEWED','MIRROR_EVALUATION_LIVE_ENABLED','MIRROR_MODEL_EGRESS_ENABLED',
                       'MIRROR_EVALUATION_APPROVED_DATASET_SHA256','MIRROR_EVALUATION_APPROVED_CASE_IDS','MIRROR_EVALUATION_MAX_MODEL_CALLS']:
@@ -51,7 +55,7 @@ class LivePilotTests(unittest.TestCase):
     def test_authorized_launcher_delegates_only_to_existing_evaluator(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
-            for name in ['evaluation/plans/deepseek-flash-nine-v1.json','evaluation/datasets/memory-quality-v1.json']:
+            for name in [pilot.ACTIVE_PLAN,'evaluation/datasets/memory-quality-v1.1.json','evaluation/reviews/memory-quality-v1.1-human-review.json']:
                 dest=root/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,dest)
             def fake_maven(command,**kwargs):
                 output=Path(next(a.split('=',1)[1] for a in command if a.startswith('-Devaluation.output=')))
@@ -76,6 +80,24 @@ class LivePilotTests(unittest.TestCase):
             run.return_value.returncode=0
             status,out,err=self.invoke(['--execute'],self.valid_env())
             self.assertEqual(2,status);self.assertIn('no fresh report',err)
+    def test_v1_digest_cannot_authorize_v11(self):
+        env=self.valid_env()
+        env['MIRROR_EVALUATION_APPROVED_DATASET_SHA256']='b5801339e5a182dacbfd1563a67b86e66a4a6520c64d02757d3c986ac756a652'
+        with patch.object(pilot.subprocess,'run') as run:
+            self.assertEqual(2,self.invoke(['--execute'],env)[0]);run.assert_not_called()
+    def test_gold_review_alone_never_launches_live(self):
+        with patch.object(pilot.subprocess,'run') as run:
+            self.assertEqual(2,self.invoke(['--execute'],{})[0]);run.assert_not_called()
+    def test_overbroad_human_review_record_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for name in [pilot.ACTIVE_PLAN,'evaluation/datasets/memory-quality-v1.1.json','evaluation/reviews/memory-quality-v1.1-human-review.json']:
+                dest=root/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,dest)
+            path=root/'evaluation/reviews/memory-quality-v1.1-human-review.json';original=json.loads(path.read_text())
+            for change in [{'reviewedCaseIds':list(pilot.PILOT_IDS)+['MQ002']},{'corpusHumanReviewComplete':True}]:
+                path.write_text(json.dumps({**original,**change}))
+                with self.subTest(change=change):
+                    self.assertRaises(pilot.PreflightError,pilot.load_plan,root)
     def test_bad_arguments_are_not_echoed(self):
         status,out,err=self.invoke(['PRIVATE_ARGUMENT_SENTINEL'],{})
         self.assertEqual(2,status);self.assertNotIn('PRIVATE_ARGUMENT_SENTINEL',out+err)
