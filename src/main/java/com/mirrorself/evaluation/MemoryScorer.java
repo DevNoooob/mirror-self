@@ -11,8 +11,9 @@ public final class MemoryScorer {
 
     public CaseResult score(EvaluationDataset.Case c, EvaluationObservation observation) {
         List<Finding> findings = new ArrayList<>();
-        var raw = scoreStage(c, observation.extracted(), observation.selectedMessageIds(), "EXTRACTION", findings);
-        var stored = scoreStage(c, observation.persisted(), observation.selectedMessageIds(), "PERSISTENCE", findings);
+        List<CandidateAudit> audit = new ArrayList<>();
+        var raw = scoreStage(c, observation.extracted(), observation.selectedMessageIds(), "EXTRACTION", findings,audit);
+        var stored = scoreStage(c, observation.persisted(), observation.selectedMessageIds(), "PERSISTENCE", findings,audit);
         Map<String,Integer> rejected = new TreeMap<>();
         for (var rejection : observation.rejections()) {
             rejected.merge(rejection.stage().name(), 1, Integer::sum);
@@ -39,11 +40,11 @@ public final class MemoryScorer {
                 && expectedFailureOnly && observation.unauthorizedCalls() == 0;
         return new CaseResult(c.caseId(), c.categories(), raw, stored, List.copyOf(findings), rejected,
                 observation.replayChecks(), observation.successfulReplays(), observation.modelCalls(),
-                observation.unauthorizedCalls(), observation.elapsedMs(), correctEmpty);
+                observation.unauthorizedCalls(), observation.elapsedMs(), correctEmpty,List.copyOf(audit));
     }
 
     private StageScore scoreStage(EvaluationDataset.Case c, List<EvaluationObservation.Prediction> predictions,
-            Set<String> selected, String stage, List<Finding> findings) {
+            Set<String> selected, String stage, List<Finding> findings,List<CandidateAudit> audit) {
         Map<String,EvaluationDataset.Message> messages = new HashMap<>();
         c.messages().forEach(m -> messages.put(m.messageId(), m));
         List<List<Integer>> semantics = new ArrayList<>(), edges = new ArrayList<>();
@@ -109,16 +110,25 @@ public final class MemoryScorer {
                 }
             }
             if(p.status()==MemoryStatus.ACTIVE && p.sensitivity()!=Sensitivity.NORMAL) errors.add(SENSITIVE_DATA_VIOLATION);
-            if(goldForPrediction[i]>=0) tp++;
-            else if(!edges.get(i).isEmpty()) { fp++;errors.add(DUPLICATE_MEMORY); }
+            CandidateOutcome outcome;
+            if(goldForPrediction[i]>=0) { tp++;outcome=CandidateOutcome.CONFIRMED_TP; }
+            else if(!edges.get(i).isEmpty()) { fp++;errors.add(DUPLICATE_MEMORY);outcome=CandidateOutcome.CONFIRMED_FP; }
             else if(errors.isEmpty() && semantic.isEmpty()) {
-                pending++;errors.add(PENDING_HUMAN_REVIEW);
+                pending++;errors.add(PENDING_HUMAN_REVIEW);outcome=CandidateOutcome.PENDING_HUMAN_REVIEW;
                 for(int target=0;target<c.expectedMemories().size();target++)
                     if(expectedEvidence(p,c.expectedMemories().get(target)))possiblePendingGold.add(target);
-            } else fp++;
+            } else { fp++;outcome=CandidateOutcome.CONFIRMED_FP; }
             if(unsupportedClaim)unsupported++;
             if(errors.contains(WRONG_ATTRIBUTION))attribution++;
             if(errors.contains(SENSITIVE_DATA_VIOLATION))sensitive++;
+            var pointers=p.evidence()==null?List.<EvidencePointer>of():p.evidence().stream().map(e->{
+                var source=messages.get(e.messageId());
+                int start=source==null||e.quote()==null||e.quote().isEmpty()?-1:source.text().indexOf(e.quote());
+                return new EvidencePointer(source==null?"unknown":source.messageId(),source==null?"unknown":source.role(),
+                        start,start<0?-1:start+e.quote().length(),source!=null&&selected.contains(source.messageId()));
+            }).toList();
+            audit.add(new CandidateAudit(stage,i,outcome,gold==null?null:gold.memoryId(),p.type(),p.origin(),
+                    p.temporalScope(),p.status(),pointers,List.copyOf(errors)));
             for(var error:errors)findings.add(new Finding(stage,error,gold==null?null:gold.memoryId(),i));
         }
         int fn=0;

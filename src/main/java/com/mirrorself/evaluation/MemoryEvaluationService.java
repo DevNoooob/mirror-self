@@ -33,7 +33,15 @@ public final class MemoryEvaluationService {
     }
     public EvaluationReport run(DatasetLoader.Loaded loaded, Mode mode, boolean liveEnabled,
             String approvedDatasetSha, String codeVersion, boolean dirty) throws IOException {
-        if(mode==Mode.LIVE) EvaluationSafety.requireLiveConsent(loaded,liveEnabled,approvedDatasetSha);
+        return run(loaded,mode,liveEnabled,approvedDatasetSha,codeVersion,dirty,false);
+    }
+    public EvaluationReport run(DatasetLoader.Loaded loaded, Mode mode, boolean liveEnabled,
+            String approvedDatasetSha, String codeVersion, boolean dirty,boolean reviewAttested) throws IOException {
+        if(mode==Mode.LIVE) {
+            EvaluationSafety.requireLiveConsent(loaded,liveEnabled,approvedDatasetSha);
+            if(!reviewAttested)throw new IllegalStateException("Live evaluation needs explicit Gold review attestation");
+            if(calls.callLimit()==null)throw new IllegalStateException("Live evaluation needs an approved call limit");
+        }
         EvaluationSafety.requireIsolatedDatabase(jdbc);
         if((mode==Mode.OFFLINE_RULE)!=(properties.mode()==ExtractionProperties.Mode.RULE))
             throw new IllegalArgumentException("evaluation mode and configured extractor differ");
@@ -99,9 +107,9 @@ public final class MemoryEvaluationService {
         var dataset=loaded.dataset();
         var run=new Run(mode.name(),dataset.datasetVersion(),loaded.sha256(),dataset.goldProvenance(),dataset.humanReviewStatus(),
                 model,extractorVersion,safeCodeVersion(codeVersion),dirty,started,elapsed(clock),calls.calls()-initialCalls,
-                null,null,"not_exposed_by_ModelGateway");
+                null,null,"not_exposed_by_ModelGateway",calls.callLimit(),calls.budgetDenied(),mode==Mode.LIVE&&reviewAttested);
         var overall=scorer.aggregate(results);
-        return new EvaluationReport("1.0",MemoryScorer.METRIC_VERSION,run,overall,categories,List.copyOf(results),
+        return new EvaluationReport("1.1",MemoryScorer.METRIC_VERSION,run,overall,categories,List.copyOf(results),
                 new BaselineComparison(false,"baseline_not_supplied",Map.of(),Map.of(),List.of(),List.of()),priorities(overall));
     }
     private static long elapsed(long started) { return TimeUnit.NANOSECONDS.toMillis(System.nanoTime()-started); }

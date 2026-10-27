@@ -32,6 +32,10 @@ jobs:
           cache: maven
       - name: Require Docker for integration coverage
         run: docker info --format '{{.ServerVersion}}'
+      - name: Verify preflight is offline and approval guards fail closed
+        run: |
+          python3 -m unittest discover -s scripts/tests -p 'test_live_pilot.py'
+          python3 scripts/live-pilot.py --dry-run
       - name: Verify existing features and offline quality baselines
         run: mvn --batch-mode --no-transfer-progress verify
       - name: Keep fictional evaluation reports

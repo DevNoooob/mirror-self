@@ -47,12 +47,22 @@ public class MemoryValidator {
             int before=start-1,end=start+quote.length();
             while(before>=0&&Character.isWhitespace(source.charAt(before))) before--;
             while(end<source.length()&&Character.isWhitespace(source.charAt(end))) end++;
-            boolean starts=before<0||boundaries.indexOf(source.charAt(before))>=0;
+            boolean starts=before<0||boundaries.indexOf(source.charAt(before))>=0||asciiSentenceBoundary(source,before);
             boolean ends=end==source.length()||"。.!！\n\r".indexOf(source.charAt(end))>=0
                     ||"。.!！\n\r".indexOf(quote.charAt(quote.length()-1))>=0;
             if(starts&&ends&&!quote.endsWith("?")&&!quote.endsWith("？")) return true;
         }
         return false;
+    }
+    /** A spaced ASCII period is a boundary; decimals, initials and common abbreviations are not. */
+    private static boolean asciiSentenceBoundary(String source,int before) {
+        if(before<0||source.charAt(before)!='.'||before+1>=source.length()
+                ||!Character.isWhitespace(source.charAt(before+1)))return false;
+        int start=before-1;
+        while(start>=0&&(Character.isLetterOrDigit(source.charAt(start))||source.charAt(start)=='.'))start--;
+        String token=source.substring(start+1,before).toLowerCase(Locale.ROOT);
+        if(token.matches("[a-z]")||Set.of("mr","mrs","ms","dr","prof","sr","jr","vs","etc","e.g","i.e").contains(token))return false;
+        return true;
     }
     /** Independent entailment check, in addition to exact quotations; no tools or side effects. */
     public Set<Integer> supported(UUID owner, UUID grant, List<SourceView> batch, List<ExtractedMemory> proposals) {

@@ -7,3 +7,5 @@
 *.zip
 /data/
 /secrets/
+__pycache__/
+*.py[cod]

@@ -1,0 +1,26 @@
+{
+  "planVersion": "1.0",
+  "planId": "deepseek-flash-nine-v1",
+  "status": "PENDING_HUMAN_REVIEW",
+  "datasetPath": "evaluation/datasets/memory-quality-v1.json",
+  "datasetVersion": "memory-quality-v1",
+  "datasetSha256": "b5801339e5a182dacbfd1563a67b86e66a4a6520c64d02757d3c986ac756a652",
+  "caseIds": [
+    "MQ001",
+    "MQ019",
+    "MQ022",
+    "MQ025",
+    "MQ032",
+    "MQ043",
+    "MQ045",
+    "MQ047",
+    "MQ054"
+  ],
+  "model": "deepseek-flash",
+  "baseUrl": "https://api.deepseek.com/v1",
+  "maxModelCalls": 36,
+  "batchChars": 16000,
+  "batchMessages": 30,
+  "reportDirectory": "target/evaluation/live-pilot/deepseek-flash-nine-v1",
+  "humanApproval": null
+}

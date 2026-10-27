@@ -27,6 +27,17 @@ GitHub PR 与 main 推送会通过 `.github/workflows/memory-quality.yml` 自动
 
 临时 pgvector PostgreSQL 数据库名固定以 `mirror_self_evaluation_` 开头；业务数据库名会被运行器拒绝。新数据库自动执行现有 Flyway V1/V2，结束后由 Testcontainers 回收，不执行业务数据删除或重置。
 
+## V0.2.1-A 九例审查与预检
+
+[九例 Gold 审核表](reviews/v0.2.1-a-gold-review.md)逐项列出原文、分支、偏移和争议；[v1.1 差异提案](reviews/memory-quality-v1.1-proposal.json)尚未应用。当前数据集仍待独立人工审核；AI 辅助复核不代表人工完成。
+
+```bash
+# Mac 可安全执行：无模型、无 Docker、无数据库、无环境开关修改
+python3 scripts/live-pilot.py --dry-run
+```
+
+九例限定、36 次调用上限、隔离 Linux 执行与分析流程见 [V0.2.1-A 指南](../docs/V0.2.1-A_LIVE_PILOT.md)。不要以预检成功或 PR 合并代替人工审核和付费授权。
+
 ## 独立审核与 Live
 
 逐条检查原始消息、所选分支、expectedMemories、forbiddenClaims、引文偏移、时间和审核状态。修订标注时递增 datasetVersion，并经另一位评审确认。确认当前整个数据文件适合外发后，手工提供其 SHA-256，作为该次运行的外发审核凭据；内置 `PENDING_HUMAN_REVIEW` 不会被工具伪装成已审核。
@@ -44,10 +55,15 @@ export MIRROR_EVALUATION_LIVE_ENABLED=true
 shasum -a 256 evaluation/datasets/memory-quality-v1.json
 # 审核后手工填写上一步摘要；脚本不会替你自动同意
 export MIRROR_EVALUATION_APPROVED_DATASET_SHA256='审核后的64位摘要'
-# 可选：先只评估少量稳定案例；同一数据集不同选择不能互比 Baseline
+# 审核和模型调用都获明确批准后，操作者才设置以下确认；工具不会自动同意
+export MIRROR_EVALUATION_GOLD_REVIEWED=true
 export MIRROR_EVALUATION_CASE_IDS=MQ001,MQ002
+export MIRROR_EVALUATION_APPROVED_CASE_IDS=MQ001,MQ002
+export MIRROR_EVALUATION_MAX_MODEL_CALLS=8
 bash scripts/evaluate-memory.sh live
 ```
+
+Live 未设置案例时现在会拒绝，不会默认跑全量；未知、重复、不匹配批准范围的案例同样拒绝。调用限额耗尽前停止外发，保留部分报告并使该次运行失败，不能将不完整结果冻结为可信基线。人工确认环境变量只是操作者的声明，不是系统已验证独立人工审核的证明。
 
 Live 仍通过现有 Spring AI ModelGateway、全局出站开关、逐来源短期授权及 SECRET/RESTRICTED 阻断。敏感案例只能在数据集声明 SENSITIVE_GRANT 时获取敏感授权；NO_GRANT 不创建授权。没有绕过生产隐私策略。只生成隔离 owner 的评估记忆，不创建新的 HTTP API。
 
@@ -65,3 +81,9 @@ bash scripts/evaluate-memory.sh rules -Devaluation.output=target/evaluation/rule
 默认离线 CI 比较仓库内 Baseline 的总体/分类指标及失败签名，忽略时长、运行时间和随机数据库 UUID。报告先落盘，再执行回归断言。Live 默认只报告，不套用离线基线或示例门槛；明确提供 Live baseline/thresholds 后再比较。
 
 需要接纳新的离线基线时，先把 `-Devaluation.baseline` 指向不存在的新文件运行，检查每个差异、变更原因和测试结果，再将实际报告复制到对应 Baseline 并提交评审。不要静默重写预期值。
+
+## V0.2.1-A 的基线迁移
+
+MQ045 句界修复后，默认 Mock 回归使用新增的 `baselines/offline-mock-v0.2.1-a.json`，来自 GitHub Actions 实际执行；只改变 MQ045 的存储结果，不改变 Gold 或 Mock 快照。旧 `offline-mock-v1.json` 和 `offline-rule-v1.json` 保留，规则仍使用原基线。指定旧 Mock 基线会输出真实差异并按确定性门槛失败，这是有意的兼容性变化，不代表付费模型测量。
+
+指标口径保持 memory-quality-1.0；报告 1.1 的审计元数据不作为评分算法变化。数据集 v1.1 尚为未应用提案，不纳入此次基线。

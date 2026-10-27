@@ -16,7 +16,7 @@ class BaselineAndReportTest {
                 MemoryScorerTest.observation(correct?List.of(MemoryScorerTest.prediction(MemoryScorerTest.TEXT)):List.of()));
         var aggregate=scorer.aggregate(List.of(result));
         return new EvaluationReport("1.0",metricVersion,new Run("OFFLINE_MOCK","test-v1",sha,"ENGINEERING_CURATED",
-                "PENDING_HUMAN_REVIEW","fixture-v1","llm-v1","0123456",false,Instant.parse("2026-01-01T00:00:00Z"),1,1,null,null,"unavailable"),
+                "PENDING_HUMAN_REVIEW","fixture-v1","llm-v1","0123456",false,Instant.parse("2026-01-01T00:00:00Z"),1,1,null,null,"unavailable",null,0,false),
                 aggregate,Map.of("facts",aggregate),List.of(result),
                 new BaselineComparison(false,"baseline_not_supplied",Map.of(),Map.of(),List.of(),List.of()),List.of("Inspect missing facts"));
     }

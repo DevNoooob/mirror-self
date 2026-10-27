@@ -26,6 +26,9 @@ public final class EvaluationReportWriter {
                 .append("Code: `").append(r.run().codeVersion()).append("`; dirty: ").append(r.run().workingTreeDirty()).append("\n\n")
                 .append("Started: ").append(r.run().startedAt()).append("; elapsed: ").append(r.run().elapsedMs()).append("ms; calls: ")
                 .append(r.run().modelCalls()).append("; tokens: N/A (").append(r.run().usageAvailability()).append(")\n\n");
+        out.append("Call limit: ").append(r.run().modelCallLimit()==null?"not recorded / unlimited":r.run().modelCallLimit())
+                .append("; budget denials: ").append(r.run().budgetDenied()).append("; operator review attested: ")
+                .append(r.run().operatorReviewAttested()).append(". This flag records an operator attestation, not an AI declaration of human approval.\n\n");
         out.append("Precision/recall/F1 are conservative confirmed-match scores; pending matches are reported, not silently labeled FP. Zero denominators are N/A.\n\n");
         out.append("| Metric | Extracted numerator/denominator | Extracted | Persisted numerator/denominator | Persisted |\n|---|---:|---:|---:|---:|\n");
         r.overall().extracted().metrics().forEach((name,m)->{
@@ -49,6 +52,23 @@ public final class EvaluationReportWriter {
         for(var c:r.cases())out.append("| ").append(c.caseId()).append(" | ").append(c.extracted().counts().predictions()).append(" | ")
                 .append(c.persisted().counts().predictions()).append(" | ").append(c.rejectedByStage()).append(" | ")
                 .append(c.findings().stream().map(f->f.stage()+":"+f.kind()).distinct().toList()).append(" |\n");
+        int evidenceRejected=r.cases().stream().mapToInt(c->c.rejectedByStage().getOrDefault("EVIDENCE_VALIDATION",0)).sum();
+        int semanticRejected=r.cases().stream().mapToInt(c->c.rejectedByStage().getOrDefault("SEMANTIC_VALIDATION",0)).sum();
+        out.append("\nFirst-extraction validation rejections: evidence=").append(evidenceRejected)
+                .append("; semantic=").append(semanticRejected).append(". Replay calls are included only in call/dedup counters.\n\n");
+        out.append("## Candidate audit (reference metadata only)\n\n")
+                .append("A reference ID on FP means a related Gold, not a confirmed match. Pending content requires protected manual inspection; generated text is deliberately absent.\n\n")
+                .append("| Case | Stage/index | Outcome | Reference | Type/origin | Scope/status | Evidence UTF-16 | Rejected at | Errors |\n|---|---|---|---|---|---|---|---|---|\n");
+        for(var c:r.cases())if(c.candidates()!=null)for(var a:c.candidates()) {
+            var rejected=a.stage().equals("EXTRACTION")?c.findings().stream()
+                    .filter(f->f.kind()==EvaluationError.VALIDATOR_REJECTION&&Objects.equals(f.predictionIndex(),a.index()))
+                    .map(Finding::stage).distinct().toList():List.<String>of();
+            out.append("| ").append(c.caseId()).append(" | ").append(a.stage()).append('/').append(a.index()).append(" | ")
+                    .append(a.outcome()).append(" | ").append(a.referenceMemoryId()).append(" | ").append(a.type()).append('/').append(a.origin())
+                    .append(" | ").append(a.temporalScope()).append('/').append(a.status()).append(" | ")
+                    .append(a.evidence().stream().map(e->e.messageId()+":"+e.role()+"["+e.start()+","+e.end()+") selected="+e.selected()).toList())
+                    .append(" | ").append(rejected).append(" | ").append(a.errors()).append(" |\n");
+        }
         out.append("\n## Baseline comparison\n\nComparable: ").append(r.comparison().comparable()).append("; reason: `")
                 .append(r.comparison().reason()).append("`\n\n");
         out.append("| Metric | Delta |\n|---|---:|\n");

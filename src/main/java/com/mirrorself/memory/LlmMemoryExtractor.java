@@ -37,7 +37,7 @@ public class LlmMemoryExtractor implements MemoryExtractor {
     public LlmMemoryExtractor(ModelGateway gateway, ExtractionProperties properties) {
         this.gateway = gateway; this.properties = properties;
     }
-    @Override public String version() { return "llm-0.2.0-prompt1-validator1"; }
+    @Override public String version() { return "llm-0.2.0-prompt1-validator2"; }
     @Override public String model() { return properties.model(); }
     @Override public List<ExtractedMemory> extract(UUID owner, List<SourceView> messages, UUID grantId) {
         String response = gateway.generate(owner, grantId, INSTRUCTIONS, context(messages), messages);

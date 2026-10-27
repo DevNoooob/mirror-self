@@ -15,7 +15,8 @@ import com.mirrorself.model.SpringAiModelGateway;
 class MemoryEvaluationLiveIT extends EvaluationIntegrationSupport {
     @TestConfiguration(proxyBeanMethods=false)
     static class LiveConfiguration {
-        @Bean @Primary EvaluationGateway liveModel(SpringAiModelGateway model) {return new EvaluationGateway(model);}
+        @Bean @Primary EvaluationGateway liveModel(SpringAiModelGateway model) {return new EvaluationGateway(model,EvaluationSafety.approvedCallLimit(
+                System.getenv("MIRROR_EVALUATION_MAX_MODEL_CALLS")));}
     }
     @Test void evaluateOnlyExplicitlyApprovedFictionalSources() throws Exception {
         evaluate(MemoryEvaluationService.Mode.LIVE);

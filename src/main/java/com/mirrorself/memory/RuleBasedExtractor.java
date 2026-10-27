@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class RuleBasedExtractor implements MemoryExtractor {
-    @Override public String version() { return "rule-0.2.0"; }
+    @Override public String version() { return "rule-0.2.0-validator2"; }
     @Override public String model() { return "none"; }
     @Override public List<ExtractedMemory> extract(java.util.UUID owner,
             List<com.mirrorself.ingestion.SourceRepository.SourceView> messages, java.util.UUID grantId) {
