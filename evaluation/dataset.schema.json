@@ -1,0 +1,364 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "datasetVersion": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+    },
+    "fictional": {
+      "const": true
+    },
+    "goldProvenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "humanReviewStatus": {
+      "enum": [
+        "PENDING_HUMAN_REVIEW",
+        "HUMAN_REVIEWED"
+      ]
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/case"
+      },
+      "minItems": 1,
+      "maxItems": 500
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "datasetVersion",
+    "fictional",
+    "goldProvenance",
+    "humanReviewStatus",
+    "cases"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mirror-self:evaluation:dataset:1.0",
+  "$defs": {
+    "message": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "role": {
+          "enum": [
+            "user",
+            "assistant",
+            "system",
+            "tool"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12000
+        },
+        "statedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parentId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "messageId",
+        "role",
+        "text",
+        "statedAt",
+        "parentId"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "role": {
+          "enum": [
+            "user"
+          ]
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "messageId",
+        "role",
+        "quote",
+        "start",
+        "end"
+      ]
+    },
+    "gold": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "memoryId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "type": {
+          "enum": [
+            "FACT",
+            "EVENT",
+            "KNOWLEDGE",
+            "OPINION",
+            "GOAL",
+            "THOUGHT_PROCESS"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "USER_EXPLICIT",
+            "OBSERVED",
+            "MODEL_INFERRED"
+          ]
+        },
+        "semantic": {
+          "type": "string",
+          "minLength": 1
+        },
+        "acceptedContents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "requiredConceptGroups": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "excludedConcepts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "expectedEvidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1
+        },
+        "evidencePolicy": {
+          "enum": [
+            "ANY",
+            "ALL"
+          ]
+        },
+        "expectedTemporalScope": {
+          "enum": [
+            "SOURCE_TIME",
+            "HISTORICAL"
+          ]
+        },
+        "sensitivity": {
+          "enum": [
+            "NORMAL",
+            "SENSITIVE",
+            "SECRET"
+          ]
+        },
+        "expectedReviewStatus": {
+          "enum": [
+            "CANDIDATE",
+            "PENDING_REVIEW",
+            "ACTIVE",
+            "REJECTED",
+            "SUPERSEDED",
+            "RETRACTED"
+          ]
+        }
+      },
+      "required": [
+        "memoryId",
+        "type",
+        "origin",
+        "semantic",
+        "acceptedContents",
+        "requiredConceptGroups",
+        "excludedConcepts",
+        "expectedEvidence",
+        "evidencePolicy",
+        "expectedTemporalScope",
+        "sensitivity",
+        "expectedReviewStatus"
+      ]
+    },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "caseId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+          },
+          "minItems": 1
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/message"
+          },
+          "minItems": 2,
+          "maxItems": 100
+        },
+        "selectedLeaf": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expectedMemories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gold"
+          }
+        },
+        "forbiddenClaims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "claimId": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+              },
+              "kind": {
+                "enum": [
+                  "MISSING_MEMORY",
+                  "UNSUPPORTED_CLAIM",
+                  "WRONG_ATTRIBUTION",
+                  "WRONG_TEMPORAL_SCOPE",
+                  "WRONG_MEMORY_TYPE",
+                  "WRONG_ASSERTION_ORIGIN",
+                  "INVALID_EVIDENCE",
+                  "REVIEW_POLICY_VIOLATION",
+                  "SENSITIVE_DATA_VIOLATION",
+                  "DUPLICATE_MEMORY",
+                  "MODEL_FORMAT_ERROR",
+                  "MODEL_UNAVAILABLE",
+                  "VALIDATOR_REJECTION",
+                  "VALIDATOR_FORMAT_ERROR",
+                  "PERSISTENCE_ERROR",
+                  "PENDING_HUMAN_REVIEW",
+                  "WRONG_BRANCH",
+                  "MISSING_CONFLICT",
+                  "UNEXPECTED_BLOCK"
+                ]
+              },
+              "phrases": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "claimId",
+              "kind",
+              "phrases"
+            ]
+          }
+        },
+        "egress": {
+          "enum": [
+            "NORMAL_GRANT",
+            "SENSITIVE_GRANT",
+            "NO_GRANT",
+            "RESTRICTED_SOURCE"
+          ]
+        },
+        "expectBlocked": {
+          "type": "boolean"
+        },
+        "expectConflict": {
+          "type": "boolean"
+        },
+        "repeatExtractions": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      },
+      "required": [
+        "caseId",
+        "categories",
+        "messages",
+        "selectedLeaf",
+        "expectedMemories",
+        "forbiddenClaims",
+        "egress",
+        "expectBlocked",
+        "expectConflict",
+        "repeatExtractions"
+      ]
+    }
+  }
+}

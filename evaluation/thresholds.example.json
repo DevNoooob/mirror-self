@@ -1,0 +1,14 @@
+{
+  "minimum": {
+    "precision": 0.8,
+    "recall": 0.6,
+    "evidenceAccuracy": 1.0,
+    "reviewPolicyAccuracy": 1.0
+  },
+  "maximum": {
+    "attributionErrorRate": 0.0,
+    "unsupportedMemoryRate": 0.0
+  },
+  "maxPolicyViolations": 0,
+  "maxPendingReview": 5
+}
