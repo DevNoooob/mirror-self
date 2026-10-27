@@ -59,6 +59,21 @@ def require_approval(plan, env):
     if env.get('MIRROR_LLM_LOCAL','false') != 'false' or not env.get('MIRROR_LLM_API_KEY','').strip():
         raise PreflightError('Inject valid cloud configuration through a secure environment.')
 
+def require_result(plan, output):
+    path = output / 'report.json'
+    if not path.is_file():
+        raise PreflightError('Live produced no fresh report; skipped tests are not successful evaluation.')
+    report = json.loads(path.read_text())
+    run = report.get('run', {})
+    case_ids = [c.get('caseId') for c in report.get('cases', [])]
+    if (run.get('mode') != 'LIVE' or run.get('datasetSha256') != plan['datasetSha256']
+            or run.get('datasetVersion') != plan['datasetVersion'] or run.get('model') != plan['model']
+            or len(case_ids) != len(PILOT_IDS) or set(case_ids) != set(PILOT_IDS)
+            or run.get('operatorReviewAttested') is not True or run.get('modelCallLimit') != plan['maxModelCalls']
+            or run.get('budgetDenied') != 0 or not 0 < run.get('modelCalls',0) <= plan['maxModelCalls']):
+        raise PreflightError('Report mode, scope, digest or call accounting differs from the authorized pilot.')
+    # No score threshold: bad model quality remains visible for independent analysis.
+
 def main(argv=None, root=None, env=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     root = Path(__file__).resolve().parents[1] if root is None else Path(root)
@@ -92,7 +107,12 @@ def main(argv=None, root=None, env=None):
             '-Devaluation.output='+str(output),
             '-Devaluation.baseline=evaluation/baselines/live-deepseek-flash-nine-v1.json']
         print('Launching the existing evaluator; report directory: '+str(output),flush=True)
-        return subprocess.run(command,cwd=root,env=child_env,check=False).returncode
+        result = subprocess.run(command,cwd=root,env=child_env,check=False)
+        if result.returncode != 0:
+            return result.returncode
+        require_result(plan, output)
+        print('Fresh scoped LIVE report saved; no baseline was automatically frozen.')
+        return 0
     except PreflightError as ex:
         print(str(ex),file=sys.stderr)
         return 2

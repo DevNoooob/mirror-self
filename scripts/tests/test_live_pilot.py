@@ -4,6 +4,8 @@ import io
 import json
 from pathlib import Path
 import unittest
+import tempfile
+import shutil
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -47,14 +49,33 @@ class LivePilotTests(unittest.TestCase):
         with patch.object(pilot.platform,'system',return_value='Darwin'),patch.object(pilot.subprocess,'run') as run:
             self.assertEqual(2,self.invoke(['--execute'],self.valid_env())[0]);run.assert_not_called()
     def test_authorized_launcher_delegates_only_to_existing_evaluator(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for name in ['evaluation/plans/deepseek-flash-nine-v1.json','evaluation/datasets/memory-quality-v1.json']:
+                dest=root/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,dest)
+            def fake_maven(command,**kwargs):
+                output=Path(next(a.split('=',1)[1] for a in command if a.startswith('-Devaluation.output=')))
+                output.mkdir(parents=True)
+                plan=pilot.load_plan(root)
+                report={'run':{'mode':'LIVE','datasetSha256':plan['datasetSha256'],'datasetVersion':plan['datasetVersion'],
+                    'model':plan['model'],'operatorReviewAttested':True,'modelCallLimit':36,'budgetDenied':0,'modelCalls':18},
+                    'cases':[{'caseId':i} for i in pilot.PILOT_IDS]}
+                (output/'report.json').write_text(json.dumps(report))
+                return type('Result',(),{'returncode':0})()
+            with patch.object(pilot.platform,'system',return_value='Linux'),patch.object(pilot.subprocess,'run',side_effect=fake_maven) as run:
+                out,err=io.StringIO(),io.StringIO()
+                with contextlib.redirect_stdout(out),contextlib.redirect_stderr(err):
+                    self.assertEqual(0,pilot.main(['--execute'],root=root,env=self.valid_env()))
+                command=run.call_args.args[0];env=run.call_args.kwargs['env']
+                self.assertIn('evaluate-memory.sh',command[1]);self.assertEqual('live',command[2])
+                self.assertEqual(','.join(pilot.PILOT_IDS),env['MIRROR_EVALUATION_CASE_IDS'])
+                self.assertEqual('false',env['MIRROR_RUN_LIVE_LLM'])
+                self.assertFalse(any('FICTIONAL-UNIT' in arg for arg in command))
+    def test_zero_maven_exit_with_no_report_is_not_evaluation_success(self):
         with patch.object(pilot.platform,'system',return_value='Linux'),patch.object(pilot.subprocess,'run') as run:
             run.return_value.returncode=0
-            self.assertEqual(0,self.invoke(['--execute'],self.valid_env())[0])
-            command=run.call_args.args[0];env=run.call_args.kwargs['env']
-            self.assertIn('evaluate-memory.sh',command[1]);self.assertEqual('live',command[2])
-            self.assertEqual(','.join(pilot.PILOT_IDS),env['MIRROR_EVALUATION_CASE_IDS'])
-            self.assertEqual('false',env['MIRROR_RUN_LIVE_LLM'])
-            self.assertFalse(any('FICTIONAL-UNIT' in arg for arg in command))
+            status,out,err=self.invoke(['--execute'],self.valid_env())
+            self.assertEqual(2,status);self.assertIn('no fresh report',err)
     def test_bad_arguments_are_not_echoed(self):
         status,out,err=self.invoke(['PRIVATE_ARGUMENT_SENTINEL'],{})
         self.assertEqual(2,status);self.assertNotIn('PRIVATE_ARGUMENT_SENTINEL',out+err)
