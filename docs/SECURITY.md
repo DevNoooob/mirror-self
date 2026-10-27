@@ -2,8 +2,8 @@
 
 ## 已落实
 
-- 所有 API（健康检查除外）使用 Owner Token 验证，时间安全字节比较；服务默认只监听 `127.0.0.1`。
-- Docker Compose 仅发布 `127.0.0.1:8080/5432`，数据库具有独立密码；镜像运行非 root 用户。
+- 所有 API（健康检查除外）使用 Owner Token 验证，时间安全字节比较；非容器直接启动的默认监听地址为 `127.0.0.1`，当前 Ubuntu Compose 容器内部监听与宿主机端口发布的区别见 [部署指南](DEPLOYMENT.md#mac-通过-ssh-访问-api)。
+- Docker Compose 仅在 **Ubuntu 宿主机**发布 `127.0.0.1:8080/5432`，数据库具有独立密码；镜像运行非 root 用户。Mac 经 SSH 隧道访问，不擅自开放校园网/公网端口、修改防火墙或暴露 Docker Engine API；见 [远程部署与数据保护](DEPLOYMENT.md)。
 - 默认 RULE、禁止云端外发；LLM 云端请求同时检查全局开关、指定来源的有效 grant、提供商和模型、敏感等级。Embedding 仍未实现。
 - 所有读写 API 由服务端绑定固定 `owner_id`；检索在 SQL 层过滤 owner 和 ACTIVE 状态。
 - 直接证据仅来自 **user**；assistant 作为上下文。原文、字段和语义分别验证，推断仅作为待审核候选。

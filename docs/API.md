@@ -2,6 +2,8 @@
 
 **Base URL**：`http://127.0.0.1:8080/api/v1`
 
+正式 API 运行在 Ubuntu，宿主机仅绑定 loopback。Mac 使用此地址前需保持 [SSH 端口转发](DEPLOYMENT.md#mac-通过-ssh-访问-api) 运行；如 Mac 转发端口选择 18080，同步调整 Base URL，不改变 Ubuntu 端口或防火墙。
+
 认证：除 `/health` 外的每个请求均须带 `X-Mirror-Token: <MIRROR_OWNER_TOKEN>`。这是单用户开发版本的令牌方案，不是多用户 OAuth。所有 API 始终绑定后端 `MIRROR_OWNER_ID`，客户端不能覆盖 owner。
 
 | Method | Path | 功能 | 输入/备注 |

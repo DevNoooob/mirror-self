@@ -1,5 +1,7 @@
 # V0.2 验证记录（2026-10-26，Asia/Shanghai）
 
+> 历史验证记录：下述容器构建、挂载与测试结果仅描述当时环境，不代表现行部署方式或本次已重新执行。当前统一遵循 [Mac → Ubuntu 远程部署与测试约定](DEPLOYMENT.md)，禁止据此自动启动 Mac Docker Desktop 或更改正式业务库。
+
 对原仓库 `/Users/devnoob/project/mirror-self` 的最终代码执行验证。
 
 - 运行时：Java 21.0.10（maven:3.9.13-eclipse-temurin-21），Spring Boot 4.0.8，Spring AI 2.0.1。
@@ -64,7 +66,9 @@ V1→V2 升级测试先写入虚构旧来源、旧记忆、旧证据，再迁移
 
 验证实例使用新建命名数据卷和随机 localhost 端口。验收后仅清理本次验证项目，未操作原 pgdata 卷。
 
-## 复现
+## 验证命令与现行执行环境
+
+Mac 可运行普通单元测试及纯领域检查；`mvn verify` 只在 CI 或已确认隔离配置与 Engine 访问的 Ubuntu 测试进程执行。Testcontainers 不一定继承 Mac CLI Context。
 
 ```bash
 mvn test
@@ -73,6 +77,6 @@ python3 scripts/validate_structure.py
 bash scripts/smoke-domain.sh
 ```
 
-本次使用 Docker 的 Java21 Maven 容器挂载原源码及 Maven缓存，提供 Docker socket 和 TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal。
+历史验证当时使用 Docker 的 Java21 Maven 容器挂载原源码及 Maven缓存，提供 Docker socket 和 TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal。
 默认测试的虚构数据只进入临时数据库和本地模拟服务，未导出真实私人历史。
 真实模型验收需显式设置相应模型配置及 MIRROR_RUN_LIVE_LLM=true，见 V0.2_MEMORY_ENGINE.md。
