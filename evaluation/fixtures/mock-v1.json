@@ -1,0 +1,1212 @@
+{
+  "fixtureVersion": "offline-fixture-v1",
+  "fictional": true,
+  "cases": {
+    "MQ001": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我住在星海城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我住在星海城"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ002": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我在虚构的木叶工坊工作",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我在虚构的木叶工坊工作"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ003": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我养了一只叫团子的虚构小猫",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我养了一只叫团子的虚构小猫"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ004": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我每周六去社区图书室",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我每周六去社区图书室"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ005": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "EVENT",
+          "content": "我去年参加过星光编程节",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "HISTORICAL",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我去年参加过星光编程节"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ006": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "EVENT",
+          "content": "我以前做过校园志愿者",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "HISTORICAL",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我以前做过校园志愿者"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ007": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Java 后端开发",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我正在学习 Java 后端开发"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ008": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我目前在研究 PostgreSQL 查询优化",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我目前在研究 PostgreSQL 查询优化"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ009": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Python 数据分析",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我正在学习 Python 数据分析"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ010": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我最近在学习 Docker 容器网络",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我最近在学习 Docker 容器网络"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ011": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我喜欢绿茶",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我喜欢绿茶"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ012": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "相比直接获得答案，我更喜欢先自己推导",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "相比直接获得答案，我更喜欢先自己推导"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ013": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我认为测试应该覆盖失败路径",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我认为测试应该覆盖失败路径"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ014": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "I prefer writing small design notes before coding",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "I prefer writing small design notes before coding"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ015": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我的目标是写出一个本地知识库",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我的目标是写出一个本地知识库"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ016": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我计划下个月参加虚构的青禾读书会",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我计划下个月参加虚构的青禾读书会"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ017": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我希望提升 Java 并发编程能力",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我希望提升 Java 并发编程能力"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ018": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我打算明年学习基础统计学",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我打算明年学习基础统计学"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ019": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我并不喜欢重复性工作",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我并不喜欢重复性工作"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ020": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我参加过虚构的蓝鲸马拉松",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我没有参加过虚构的蓝鲸马拉松"
+            }
+          ],
+          "supported": false
+        }
+      ]
+    },
+    "MQ021": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我不打算离开目前的城市",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我不打算离开目前的城市"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ022": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我已经在虚构的云港工作",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "如果以后有机会，我可能考虑去虚构的云港工作"
+            }
+          ],
+          "supported": false
+        }
+      ]
+    },
+    "MQ023": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ024": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ025": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我已经参加虚构的蓝桥编程赛",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m2",
+              "quote": "我建议你参加虚构的蓝桥编程赛。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ026": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我已经学会钢琴",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m2",
+              "quote": "你可以试试钢琴，也许你会喜欢。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ027": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ028": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我喜欢围棋",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我喜欢围棋"
+            }
+          ],
+          "supported": false
+        }
+      ]
+    },
+    "MQ029": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "虚构的林同学认为早起最好，但我更喜欢晚上学习。",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "虚构的林同学认为早起最好，但我更喜欢晚上学习。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ030": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "THOUGHT_PROCESS",
+          "content": "可能长期缺乏自信",
+          "origin": "MODEL_INFERRED",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "今天考试没发挥好，我感觉自己什么都做不好。"
+            }
+          ],
+          "supported": false
+        }
+      ]
+    },
+    "MQ031": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ032": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我两年前学习过 Python",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "HISTORICAL",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我两年前学习过 Python"
+            }
+          ],
+          "supported": true
+        },
+        {
+          "type": "KNOWLEDGE",
+          "content": "我现在主要使用 Java",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我现在主要使用 Java"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ033": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我以前更想做硬件设计",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "HISTORICAL",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我以前更想做硬件设计"
+            }
+          ],
+          "supported": true
+        },
+        {
+          "type": "GOAL",
+          "content": "我现在更偏向后端开发",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我现在更偏向后端开发"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ034": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我曾经学过一点吉他，具体哪年记不清了",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "HISTORICAL",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我曾经学过一点吉他，具体哪年记不清了"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ035": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "EVENT",
+          "content": "几年前我在虚构的晴川书店做过短期志愿服务",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "几年前我在虚构的晴川书店做过短期志愿服务"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ036": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我住在虚构的星河城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我住在虚构的星河城"
+            }
+          ],
+          "supported": false
+        },
+        {
+          "type": "FACT",
+          "content": "更正一下，我住在虚构的雾港城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "更正一下，我住在虚构的雾港城"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ037": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我住在虹湾城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我住在虹湾城"
+            }
+          ],
+          "supported": true
+        },
+        {
+          "type": "FACT",
+          "content": "我住在霜谷城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我住在霜谷城"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ038": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我喜欢咖啡",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我喜欢咖啡"
+            }
+          ],
+          "supported": true
+        },
+        {
+          "type": "OPINION",
+          "content": "我不喜欢咖啡",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我不喜欢咖啡"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ039": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Rust",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我正在学习 Rust"
+            }
+          ],
+          "supported": true
+        },
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Rust",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我正在学习 Rust"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ040": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我的目标是完成虚构的星桥小工具",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我的目标是完成虚构的星桥小工具"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ041": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我更喜欢先读原理再动手的那一种",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我更喜欢先读原理再动手的那一种"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ042": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ043": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我目前居住于虚构的风铃城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我住在虚构的风铃城"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ044": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Java concurrency，并尝试理解 happens-before",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我正在学习 Java concurrency，并尝试理解 happens-before"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ045": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "I do not enjoy repetitive tasks",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "I do not enjoy repetitive tasks"
+            }
+          ],
+          "supported": true
+        },
+        {
+          "type": "OPINION",
+          "content": "我更喜欢探索新问题",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我更喜欢探索新问题"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ046": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "THOUGHT_PROCESS",
+          "content": "可能倾向于通过追问理解底层原理",
+          "origin": "MODEL_INFERRED",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "每次讨论技术问题，我都会追问底层原理。"
+            },
+            {
+              "messageId": "m3",
+              "quote": "我会先把机制推导清楚再接受结论。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ047": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我自认为性格偏内向",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我自认为性格偏内向"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ048": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "THOUGHT_PROCESS",
+          "content": "可能倾向于权衡多方理由后决策",
+          "origin": "MODEL_INFERRED",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我做决定前通常会列出支持和反对理由。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ049": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "EVENT",
+          "content": "我在虚构的纸鸢医院接受过诊断",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我在虚构的纸鸢医院接受过诊断"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ050": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "EVENT",
+          "content": "我在虚构的纸鸢医院接受过诊断",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我在虚构的纸鸢医院接受过诊断"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ051": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ052": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Go",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我正在学习 Go"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ053": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "OPINION",
+          "content": "我喜欢研究图论",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我喜欢研究图论"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ054": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我已经成为宇航员",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m2",
+              "quote": "你已经成为宇航员。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ055": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习图形学",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "quote": "我正在学习图形学"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ056": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ057": {
+      "responseMode": "JSON",
+      "predictions": []
+    },
+    "MQ058": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Java",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m2a",
+              "quote": "我正在学习 Java"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ059": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习 Go",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m2b",
+              "quote": "我正在学习 Go"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ060": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我住在虚构的青岚城",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "missing",
+              "quote": "我住在虚构的青岚城"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ061": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "KNOWLEDGE",
+          "content": "我正在学习高级作曲",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我正在学习高级作曲"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ062": {
+      "responseMode": "MALFORMED",
+      "predictions": []
+    },
+    "MQ063": {
+      "responseMode": "UNAVAILABLE",
+      "predictions": []
+    },
+    "MQ064": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "FACT",
+          "content": "我更喜欢无糖饮料",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我更喜欢无糖饮料"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ065": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "THOUGHT_PROCESS",
+          "content": "可能采用结构映射的方式组织问题",
+          "origin": "MODEL_INFERRED",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "遇到新问题时，我会画出关系图帮助理解。"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    },
+    "MQ066": {
+      "responseMode": "JSON",
+      "predictions": [
+        {
+          "type": "GOAL",
+          "content": "我计划明年到虚构的雪松城读书",
+          "origin": "USER_EXPLICIT",
+          "sensitivity": "NORMAL",
+          "temporalScope": "SOURCE_TIME",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "quote": "我计划明年到虚构的雪松城读书"
+            }
+          ],
+          "supported": true
+        }
+      ]
+    }
+  }
+}
