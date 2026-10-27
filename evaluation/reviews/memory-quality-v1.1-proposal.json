@@ -1,7 +1,7 @@
 {
   "proposalVersion": "1.0",
-  "status": "PROPOSED_NOT_APPLIED",
-  "reviewBasis": "AI_ASSISTED_REVIEW_NOT_INDEPENDENT_HUMAN_APPROVAL",
+  "status": "APPLIED_TO_NEW_DATASET",
+  "reviewBasis": "EXPLICIT_USER_PERSONAL_REVIEW_CONFIRMATION",
   "sourceDataset": "evaluation/datasets/memory-quality-v1.json",
   "sourceSha256": "b5801339e5a182dacbfd1563a67b86e66a4a6520c64d02757d3c986ac756a652",
   "proposedDatasetVersion": "memory-quality-v1.1",
@@ -39,5 +39,24 @@
     "MQ047 USER_EXPLICIT/PENDING_REVIEW",
     "old datasets and all old baselines"
   ],
-  "humanApproval": null
+  "humanApproval": {
+    "reviewedOn": "2026-10-28",
+    "scope": "NINE_CASE_GOLD_ONLY",
+    "reviewedCaseIds": [
+      "MQ001",
+      "MQ019",
+      "MQ022",
+      "MQ025",
+      "MQ032",
+      "MQ043",
+      "MQ045",
+      "MQ047",
+      "MQ054"
+    ],
+    "recordPath": "evaluation/reviews/memory-quality-v1.1-human-review.json",
+    "liveOrPaidCallsAuthorized": false
+  },
+  "initialReviewBasis": "AI_ASSISTED_REVIEW_NOT_INDEPENDENT_HUMAN_APPROVAL",
+  "appliedDataset": "evaluation/datasets/memory-quality-v1.1.json",
+  "appliedDatasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0"
 }

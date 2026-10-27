@@ -1,0 +1,34 @@
+{
+  "planVersion": "1.1",
+  "planId": "deepseek-flash-nine-v1.1",
+  "status": "GOLD_REVIEWED_AWAITING_LIVE_AUTHORIZATION",
+  "datasetPath": "evaluation/datasets/memory-quality-v1.1.json",
+  "datasetVersion": "memory-quality-v1.1",
+  "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+  "caseIds": [
+    "MQ001",
+    "MQ019",
+    "MQ022",
+    "MQ025",
+    "MQ032",
+    "MQ043",
+    "MQ045",
+    "MQ047",
+    "MQ054"
+  ],
+  "model": "deepseek-flash",
+  "baseUrl": "https://api.deepseek.com/v1",
+  "maxModelCalls": 36,
+  "batchChars": 16000,
+  "batchMessages": 30,
+  "reportDirectory": "target/evaluation/live-pilot/deepseek-flash-nine-v1.1",
+  "baselinePath": "evaluation/baselines/live-deepseek-flash-nine-v1.1.json",
+  "goldReviewRecordPath": "evaluation/reviews/memory-quality-v1.1-human-review.json",
+  "goldReviewStatus": "APPROVED_NINE_CASES_ONLY",
+  "corpusHumanReviewComplete": false,
+  "liveAuthorization": {
+    "status": "NOT_AUTHORIZED",
+    "grantedByGoldReview": false,
+    "requiresSeparateApproval": true
+  }
+}

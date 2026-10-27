@@ -1,9 +1,10 @@
 # Memory Quality Evaluation v1
 
-66 个虚构多轮案例、34 个场景标签。标准答案与固定 Mock 预测分别存储；运行时不会用标准答案构造模型响应。标准答案为工程参考标注，**尚待用户/领域人员独立审核**，不是经人工验收的权威事实，也不是被评估模型的自评结果。所有测试姓名、城市、经历及敏感场景均为虚构。
+66 个虚构多轮案例、34 个场景标签。标准答案与固定 Mock 预测分别存储；运行时不会用标准答案构造模型响应。标准答案为工程参考标注；v1.1 中的指定九例已由用户亲自审核，**其余 57 例仍未声明人工审核**。审核仅代表标注结论，不授权模型外发；不是被评估模型的自评结果。所有测试姓名、城市、经历及敏感场景均为虚构。
 
 - 数据契约：[dataset.schema.json](dataset.schema.json)，运行前另有 Java 交叉字段校验。
-- 标准数据：[datasets/memory-quality-v1.json](datasets/memory-quality-v1.json)。
+- 旧标准数据：[datasets/memory-quality-v1.json](datasets/memory-quality-v1.json)，原文件保留。
+- 正式 v1.1：[datasets/memory-quality-v1.1.json](datasets/memory-quality-v1.1.json)；[九例审核范围与结论](reviews/memory-quality-v1.1-reviewed.md)。
 - 固定、故意包含错误的 Mock：[fixtures/mock-v1.json](fixtures/mock-v1.json)。
 - 首次实测 Baseline：[baselines/](baselines/)，由真实执行生成，不能通过修改 Mock 来掩盖退化。
 - 完整定义与命令：[V0.2.1 设计和使用说明](../docs/V0.2.1_MEMORY_EVALUATION.md)。
@@ -29,7 +30,7 @@ GitHub PR 与 main 推送会通过 `.github/workflows/memory-quality.yml` 自动
 
 ## V0.2.1-A 九例审查与预检
 
-[九例 Gold 审核表](reviews/v0.2.1-a-gold-review.md)逐项列出原文、分支、偏移和争议；[v1.1 差异提案](reviews/memory-quality-v1.1-proposal.json)尚未应用。当前数据集仍待独立人工审核；AI 辅助复核不代表人工完成。
+[v1.1 九例人工审核记录](reviews/memory-quality-v1.1-reviewed.md)已按用户 2026-10-28 的明确批准定稿；[原提案](reviews/memory-quality-v1.1-proposal.json)已应用到新文件，v1 原件保留。审核范围只有这九例，顶层 PENDING_HUMAN_REVIEW 不被改成全体已审核。Live 和付费调用仍未授权。
 
 ```bash
 # Mac 可安全执行：无模型、无 Docker、无数据库、无环境开关修改
@@ -40,7 +41,7 @@ python3 scripts/live-pilot.py --dry-run
 
 ## 独立审核与 Live
 
-逐条检查原始消息、所选分支、expectedMemories、forbiddenClaims、引文偏移、时间和审核状态。修订标注时递增 datasetVersion，并经另一位评审确认。确认当前整个数据文件适合外发后，手工提供其 SHA-256，作为该次运行的外发审核凭据；内置 `PENDING_HUMAN_REVIEW` 不会被工具伪装成已审核。
+九例 v1.1 标注审核已完成，不需要重复宣称待人审；其余 57 例没有获得该结论。后续模型外发仍需独立批准数据摘要、案例范围、目标模型和预算；文件指纹不是外发许可。新的语义修订需新增数据版本及相应审核，不能更改旧数据掩盖指标。
 
 以下 Live 命令仅用于另行明确授权的隔离测试进程，不部署正式 API，也不能连接业务库。普通 PR CI 仍关闭 Live，不为其注入正式部署或模型密钥。
 
@@ -52,15 +53,15 @@ export MIRROR_LLM_MODEL=deepseek-flash
 # MIRROR_LLM_API_KEY 仅通过安全环境注入，不放在命令历史、报告或源码中
 export MIRROR_MODEL_EGRESS_ENABLED=true
 export MIRROR_EVALUATION_LIVE_ENABLED=true
-shasum -a 256 evaluation/datasets/memory-quality-v1.json
+shasum -a 256 evaluation/datasets/memory-quality-v1.1.json
 # 审核后手工填写上一步摘要；脚本不会替你自动同意
 export MIRROR_EVALUATION_APPROVED_DATASET_SHA256='审核后的64位摘要'
 # 审核和模型调用都获明确批准后，操作者才设置以下确认；工具不会自动同意
 export MIRROR_EVALUATION_GOLD_REVIEWED=true
-export MIRROR_EVALUATION_CASE_IDS=MQ001,MQ002
-export MIRROR_EVALUATION_APPROVED_CASE_IDS=MQ001,MQ002
-export MIRROR_EVALUATION_MAX_MODEL_CALLS=8
-bash scripts/evaluate-memory.sh live
+export MIRROR_EVALUATION_CASE_IDS=MQ001,MQ019,MQ022,MQ025,MQ032,MQ043,MQ045,MQ047,MQ054
+export MIRROR_EVALUATION_APPROVED_CASE_IDS=MQ001,MQ019,MQ022,MQ025,MQ032,MQ043,MQ045,MQ047,MQ054
+export MIRROR_EVALUATION_MAX_MODEL_CALLS=36
+python3 scripts/live-pilot.py --execute
 ```
 
 Live 未设置案例时现在会拒绝，不会默认跑全量；未知、重复、不匹配批准范围的案例同样拒绝。调用限额耗尽前停止外发，保留部分报告并使该次运行失败，不能将不完整结果冻结为可信基线。人工确认环境变量只是操作者的声明，不是系统已验证独立人工审核的证明。
@@ -86,4 +87,4 @@ bash scripts/evaluate-memory.sh rules -Devaluation.output=target/evaluation/rule
 
 MQ045 句界修复后，默认 Mock 回归使用新增的 `baselines/offline-mock-v0.2.1-a.json`，来自 GitHub Actions 实际执行；只改变 MQ045 的存储结果，不改变 Gold 或 Mock 快照。旧 `offline-mock-v1.json` 和 `offline-rule-v1.json` 保留，规则仍使用原基线。指定旧 Mock 基线会输出真实差异并按确定性门槛失败，这是有意的兼容性变化，不代表付费模型测量。
 
-指标口径保持 memory-quality-1.0；报告 1.1 的审计元数据不作为评分算法变化。数据集 v1.1 尚为未应用提案，不纳入此次基线。
+指标口径保持 memory-quality-1.0；报告 1.1 的审计元数据不作为评分算法变化。数据集 v1.1 已单独定稿，但这些旧基线仍属于 v1，不改写或冒充为 v1.1 的性能成绩。不同数据 SHA 的比较将被标为不兼容，不输出模型改进 delta。
