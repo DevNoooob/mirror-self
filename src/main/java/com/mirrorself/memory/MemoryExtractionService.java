@@ -27,6 +27,10 @@ public class MemoryExtractionService {
         this.authorization=authorization; this.validator=validator; this.memories=memories; this.jobs=jobs; this.properties=properties;
     }
     public ExtractionJobRepository.Job extract(UUID owner,List<UUID> ids,UUID grant) {
+        return extract(owner, ids, grant, ExtractionObserver.NONE);
+    }
+    public ExtractionJobRepository.Job extract(UUID owner,List<UUID> ids,UUID grant,ExtractionObserver observer) {
+        Objects.requireNonNull(observer, "observer");
         if (ids==null || ids.isEmpty()) throw new IllegalArgumentException("source IDs required");
         List<SourceView> messages=new ArrayList<>();
         for (UUID id:new LinkedHashSet<>(ids)) messages.add(sources.get(owner,id));
@@ -37,30 +41,40 @@ public class MemoryExtractionService {
         Set<String> errors=new LinkedHashSet<>();
         boolean blocked=false;
         for (var batch:ConversationBatcher.batches(messages,properties)) {
+            ExtractionObserver.Stage stage = ExtractionObserver.Stage.AUTHORIZATION;
             try {
                 if(properties.mode()==ExtractionProperties.Mode.LLM) authorization.check(owner,grant,batch);
+                stage = ExtractionObserver.Stage.EXTRACTION;
                 List<ExtractedMemory> proposals=extractor.extract(owner,batch,grant);
+                observer.extracted(batch, List.copyOf(proposals));
+                stage = ExtractionObserver.Stage.EVIDENCE_VALIDATION;
                 List<ExtractedMemory> checked=new ArrayList<>();
                 for (var memory:proposals) {
                     if (validator.evidenceValid(owner,memory,batch)) checked.add(memory);
-                    else { rejected++; errors.add("INVALID_EVIDENCE"); }
+                    else { rejected++; errors.add("INVALID_EVIDENCE"); observer.rejected(stage, memory); }
                 }
+                stage = ExtractionObserver.Stage.SEMANTIC_VALIDATION;
                 Set<Integer> supported=properties.mode()==ExtractionProperties.Mode.LLM
                         ?validator.supported(owner,grant,batch,checked):java.util.stream.IntStream.range(0,checked.size())
                                 .boxed().collect(java.util.stream.Collectors.toSet());
                 List<ExtractedMemory> valid=new ArrayList<>();
                 for(int i=0;i<checked.size();i++) {
                     if(supported.contains(i)) valid.add(checked.get(i));
-                    else { rejected++; errors.add("UNSUPPORTED_CLAIM"); }
+                    else { rejected++; errors.add("UNSUPPORTED_CLAIM"); observer.rejected(stage, checked.get(i)); }
                 }
-                created+=memories.persistValidated(owner,job,extractor.version(),extractor.model(),valid,batch);
+                stage = ExtractionObserver.Stage.PERSISTENCE;
+                int inserted = memories.persistValidated(owner,job,extractor.version(),extractor.model(),valid,batch);
+                created += inserted;
+                observer.persisted(List.copyOf(valid), inserted);
                 accepted+=valid.size(); completed++;
             } catch (ModelFailure ex) {
+                observer.failed(stage, ex.code());
                 errors.add(ex.code().name()); blocked=ex.code()==ModelFailure.Code.EGRESS_DENIED;
                 log.warn("Extraction job {}: {}",job,ex.code());
                 // Stop on authorization failures; do not send any later batch.
                 if(blocked) break;
             } catch (RuntimeException ex) {
+                observer.failed(stage, ModelFailure.Code.STORAGE_FAILED);
                 errors.add("STORAGE_FAILED"); log.warn("Extraction job {}: STORAGE_FAILED",job); break;
             }
         }
