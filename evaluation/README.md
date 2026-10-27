@@ -19,6 +19,8 @@ bash scripts/evaluate-memory.sh rules
 mvn verify
 ```
 
+GitHub PR 与 main 推送会通过 `.github/workflows/memory-quality.yml` 自动执行 Java 21 / Maven verify。CI 显式关闭两个 Live 开关，并先检查 Docker；结束后上传虚构数据评估报告，保留 14 天。
+
 报告在 `target/evaluation/offline-mock/`、`target/evaluation/offline-rule/`，每种均有 `report.json` 与 `report.md`。默认不读取 `.env`，不需要模型 Key，不调用付费服务。集成测试在 Docker 不可用时会被跳过，跳过不是通过。
 
 本机 Maven 没有 Java 21 时，可显式选本机 Docker context；以下命令不会使用当前默认的远程 context：

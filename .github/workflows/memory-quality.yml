@@ -1,0 +1,44 @@
+name: Memory quality regression
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: memory-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MIRROR_RUN_LIVE_LLM: 'false'
+      MIRROR_EVALUATION_LIVE_ENABLED: 'false'
+      MIRROR_MODEL_EGRESS_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Require Docker for integration coverage
+        run: docker info --format '{{.ServerVersion}}'
+      - name: Verify existing features and offline quality baselines
+        run: mvn --batch-mode --no-transfer-progress verify
+      - name: Keep fictional evaluation reports
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: memory-quality-reports
+          path: target/evaluation/
+          retention-days: 14
+          if-no-files-found: warn
