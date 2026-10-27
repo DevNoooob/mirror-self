@@ -6,39 +6,47 @@
 
 ## 运行环境
 
-- Java 21、Maven 3.9+（本地运行时），或 Docker + Docker Compose（推荐）。
+- Mac：IntelliJ IDEA / Codex / Git / Java 21 / Maven 开发；Docker CLI / Compose 与 SSH 远程管理。
+- Ubuntu VMware 虚拟机：唯一正式运行环境，Docker Engine 构建并运行 API、PostgreSQL + pgvector；正式数据及 Volume 均在 Ubuntu。
+- GitHub Actions：隔离 Docker 测试环境，不承担正式部署；Mac 不再使用 Docker Desktop 运行本项目服务。
 - PostgreSQL 17 + pgvector 0.8.6、Spring Boot 4.0.8、Spring AI 2.0.1（实际 OpenAI-compatible 模型适配）。
 - 默认离线处理个人资料：`RULE`，不会调用外部 LLM；显式切换模型模式并授权后才调用。
 - 本版 API 只支持单个用户，不支持第三方授权访问。所有非健康检查 API 都要求访问令牌。
 
-## Docker 一键运行
+## Mac → Ubuntu 远程部署入口
+
+长期开发、测试和部署规则见根目录 [AGENTS.md](AGENTS.md)，完整步骤见 [远程部署与环境指南](docs/DEPLOYMENT.md)。没有明确部署要求时，不更新正式服务，不启动 Mac Docker Desktop。
+
+从 **Mac 当前仓库根目录**只读确认目标；项目约定默认 Context 为 `mirror-ubuntu`，仍需每次现查并显式指定：
 
 ```bash
-# 仅首次安装且 .env 不存在时执行，升级时不要覆盖已有 .env
-cp -n .env.example .env
-# 修改 .env 中 POSTGRES_PASSWORD 和 MIRROR_OWNER_TOKEN（随机、唯一、至少32字符）
-docker compose up --build -d
+docker context show
+docker --context mirror-ubuntu compose ps
+```
+
+仅在已明确授权部署、核对 Engine/现有项目/配置并完成必要备份后：
+
+```bash
+docker --context mirror-ubuntu compose up --build -d
+```
+
+Compose 使用 **Mac 的源码与现有 `.env`** 作为输入，实际镜像构建与容器运行在 **Ubuntu Engine**。不要假设 Ubuntu 有相同目录或 `.env`；不要覆盖现有配置、重置数据库或删除 Volume。远程不可用时报告原因，不自动回退到 Mac 本地 Docker。
+
+API 8080 和数据库 5432 只绑定 **Ubuntu 的 `127.0.0.1`**。Mac 访问 API 时，先保持 SSH 隧道运行，再在另一终端检查健康：
+
+```bash
+ssh -N -o ExitOnForwardFailure=yes \
+  -L 127.0.0.1:8080:127.0.0.1:8080 Ubuntu用户名@VM_IP
+# 另一 Mac 终端：
 curl http://127.0.0.1:8080/api/v1/health
 ```
 
-Docker Compose 只将数据库和 API 发布到 **127.0.0.1**，不对局域网直接暴露服务。切勿直接把开发版部署到公网。
-
-若在 Mac 上已经安装 PostgreSQL，亦可在启动数据库后执行：
-
-```bash
-export MIRROR_DB_URL=jdbc:postgresql://127.0.0.1:5432/mirror_self
-export MIRROR_DB_USER=mirror
-export MIRROR_DB_PASSWORD='你的数据库密码'
-export MIRROR_OWNER_TOKEN='至少32字符的独立随机令牌'
-mvn spring-boot:run
-```
-
-注意：本地方式需自行创建带 pgvector 扩展的数据库，Flyway 会自动执行迁移。
+不要为调试开放校园网/公网端口或擅自修改防火墙。隧道端口冲突、测试隔离、备份与迁移要求详见 [部署指南](docs/DEPLOYMENT.md)。
 
 ## 第一个演示：导入 → 记忆 → 查询
 
 ```bash
-# 在已完成 docker compose up 并配置 .env 后运行：
+# 在已授权的 Ubuntu 部署完成、Mac 配置就绪且 SSH API 隧道保持运行后，从 Mac 执行：
 export MIRROR_OWNER_TOKEN='填入和.env一致的令牌'
 
 # 1. 导入虚构的 ChatGPT 样例
@@ -95,13 +103,23 @@ curl -sS -X DELETE http://127.0.0.1:8080/api/v1/sources/UUID \
 
 ## 测试
 
+Mac 使用 Java 21 / Maven 运行普通单元测试和纯领域验证，先确认 `mvn -v`：
+
 ```bash
-mvn test                       # 单元测试，含本地模拟 HTTP 模型服务
-mvn verify                     # 单元 + PostgreSQL/pgvector 集成测试，需要 Docker
+mvn -v
+mvn test                       # 单元测试，含本机模拟 HTTP 模型服务
 bash scripts/smoke-domain.sh   # 无 Maven 也能运行的 JDK21 纯领域验证
 ```
 
-注意：集成测试启用了 `disabledWithoutDocker=true`，没有 Docker 时会跳过；不能把跳过误认为 PostgreSQL 测试通过。
+PostgreSQL/pgvector 集成测试优先使用 [GitHub Actions](.github/workflows/memory-quality.yml)。以下完整测试仅在 **CI 或已确认 Engine 与隔离配置的 Ubuntu 测试进程**执行：
+
+```bash
+MIRROR_RUN_LIVE_LLM=false MIRROR_EVALUATION_LIVE_ENABLED=false mvn verify
+```
+
+Testcontainers 不一定继承 CLI 的 `mirror-ubuntu` Context，不要直接假定 Mac Maven 已连上远程 Engine，也不要为测试启动 Docker Desktop。环境约定见 [部署指南](docs/DEPLOYMENT.md#测试与-cicd)。
+
+集成测试启用了 `disabledWithoutDocker=true`，没有 Docker 时会跳过；必须分别报告通过、失败、错误与跳过，不能把跳过误认为 PostgreSQL 测试通过。
 
 ## 启用 V0.2 智能提取
 
@@ -118,9 +136,11 @@ export MIRROR_MODEL_EGRESS_ENABLED=true
 云端模式导入先保存 L0，提取任务初始会因未授权而 `BLOCKED`。通过 `GET /api/v1/sources`
 找到目标对话的来源 ID，为实际要发送的完整上下文（含 assistant）创建短期授权，再调用
 `POST /api/v1/extractions`。详细请求及本地模型配置见 [V0.2 使用说明](docs/V0.2_MEMORY_ENGINE.md)。
-Spring Boot 本地启动不会自动读取 `.env`；Compose 会读取它的变量。
+当前使用 Mac 远程 Compose 部署时，模型配置来自 Mac 进程环境或项目现有 `.env`，由 Compose 传入 Ubuntu 容器；不代表 Ubuntu 有同一文件。修改配置不会自动更新正在运行的容器，应用配置变更仍需明确部署授权。
 
 ## V0.2.1 记忆质量评估
+
+集成评估优先在 GitHub Actions 运行；手动运行需先确认 Ubuntu 测试进程及隔离 Engine，不能仅依据 Mac CLI Context。
 
 新增 66 个虚构多轮案例、独立参考标注与固定 Mock 快照、分阶段评分、JSON/Markdown 报告及 Baseline 回归比较。默认离线，不需要 API Key。规则提取器可以在同一测试集上独立实测；真实模型评估需显式开启并审核数据摘要。
 
@@ -129,10 +149,12 @@ bash scripts/evaluate-memory.sh offline
 bash scripts/evaluate-memory.sh rules
 ```
 
-报告写入 `target/evaluation/`。Mock 分数不代表真实 LLM 质量；当前工程参考答案仍待独立人工审核。使用方式、Live 授权和 Java21 Docker 命令见 [评估指南](evaluation/README.md)，指标定义与边界见 [V0.2.1 设计](docs/V0.2.1_MEMORY_EVALUATION.md)。现有 API、业务数据库结构与隐私授权保持兼容。
+报告写入 `target/evaluation/`。Mock 分数不代表真实 LLM 质量；当前工程参考答案仍待独立人工审核。使用方式、Live 授权及隔离测试要求见 [评估指南](evaluation/README.md)，指标定义与边界见 [V0.2.1 设计](docs/V0.2.1_MEMORY_EVALUATION.md)。现有 API、业务数据库结构与隐私授权保持兼容。
 
 ## 设计文档
 
+- [长期开发、测试与部署约定](AGENTS.md)
+- [Mac → Ubuntu 远程部署与环境指南](docs/DEPLOYMENT.md)
 - [V0.2.1 评估设计、评分定义与 Baseline](docs/V0.2.1_MEMORY_EVALUATION.md)
 - [V0.2 模块设计、配置与 API 使用](docs/V0.2_MEMORY_ENGINE.md)
 - [本次验证记录](docs/VERIFICATION.md)

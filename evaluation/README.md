@@ -10,35 +10,28 @@
 
 ## 默认离线运行
 
-需要 Java 21、Maven、Docker；执行前用 `mvn -v` 确认 Maven 使用 Java 21。
+需要 Java 21、Maven 和隔离 Docker。**优先由 GitHub Actions 执行集成评估**；下列命令仅在 CI 或已确认 Engine 访问及数据库隔离的 Ubuntu 测试进程运行。Mac 仅运行普通单元测试，不能仅凭 CLI 的 `mirror-ubuntu` Context 认定 Testcontainers 已正确连接。完整环境规则见 [远程部署与测试约定](../docs/DEPLOYMENT.md#测试与-cicd)。执行前用 `mvn -v` 确认 Maven 使用 Java 21。
 
 ```bash
 bash scripts/evaluate-memory.sh offline
 bash scripts/evaluate-memory.sh rules
 # CI：全部单元测试、原 V0.1/V0.2 集成测试及两种离线评估
-mvn verify
+MIRROR_RUN_LIVE_LLM=false MIRROR_EVALUATION_LIVE_ENABLED=false mvn verify
 ```
 
 GitHub PR 与 main 推送会通过 `.github/workflows/memory-quality.yml` 自动执行 Java 21 / Maven verify。CI 显式关闭两个 Live 开关，并先检查 Docker；结束后上传虚构数据评估报告，保留 14 天。
 
 报告在 `target/evaluation/offline-mock/`、`target/evaluation/offline-rule/`，每种均有 `report.json` 与 `report.md`。默认不读取 `.env`，不需要模型 Key，不调用付费服务。集成测试在 Docker 不可用时会被跳过，跳过不是通过。
 
-本机 Maven 没有 Java 21 时，可显式选本机 Docker context；以下命令不会使用当前默认的远程 context：
-
-```bash
-docker --context desktop-linux run --rm \
-  -v "$PWD:/app" -v "$HOME/.m2:/root/.m2" \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -e TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal \
-  -e MIRROR_RUN_LIVE_LLM=false -e MIRROR_EVALUATION_LIVE_ENABLED=false \
-  -w /app maven:3.9.13-eclipse-temurin-21 mvn -q verify
-```
+本机缺少 Java 21 或无法连接目标 Engine 时，报告限制并使用已有 CI；不要启动 Mac Docker Desktop 或自动回退 `desktop-linux`。若需在 Ubuntu 执行测试，单独确认该机源码、Java 21 / Maven 与 Docker 访问，不假设存在 Mac 的源码路径、Maven 缓存或 `.env`。不要把 Mac 的 `docker run -v` 挂载命令直接用于远程 Engine。
 
 临时 pgvector PostgreSQL 数据库名固定以 `mirror_self_evaluation_` 开头；业务数据库名会被运行器拒绝。新数据库自动执行现有 Flyway V1/V2，结束后由 Testcontainers 回收，不执行业务数据删除或重置。
 
 ## 独立审核与 Live
 
 逐条检查原始消息、所选分支、expectedMemories、forbiddenClaims、引文偏移、时间和审核状态。修订标注时递增 datasetVersion，并经另一位评审确认。确认当前整个数据文件适合外发后，手工提供其 SHA-256，作为该次运行的外发审核凭据；内置 `PENDING_HUMAN_REVIEW` 不会被工具伪装成已审核。
+
+以下 Live 命令仅用于另行明确授权的隔离测试进程，不部署正式 API，也不能连接业务库。普通 PR CI 仍关闭 Live，不为其注入正式部署或模型密钥。
 
 真实评估可能每个非阻断案例产生多次提取、语义验证调用，且 repeatExtractions 会重放。**本次开发不默认运行 Live**。安全环境注入模型凭据后，另行明确启用：
 
