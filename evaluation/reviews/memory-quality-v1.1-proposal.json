@@ -1,0 +1,43 @@
+{
+  "proposalVersion": "1.0",
+  "status": "PROPOSED_NOT_APPLIED",
+  "reviewBasis": "AI_ASSISTED_REVIEW_NOT_INDEPENDENT_HUMAN_APPROVAL",
+  "sourceDataset": "evaluation/datasets/memory-quality-v1.json",
+  "sourceSha256": "b5801339e5a182dacbfd1563a67b86e66a4a6520c64d02757d3c986ac756a652",
+  "proposedDatasetVersion": "memory-quality-v1.1",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/datasetVersion",
+      "value": "memory-quality-v1.1"
+    },
+    {
+      "op": "replace",
+      "path": "/cases/31/expectedMemories/1/type",
+      "value": "FACT"
+    },
+    {
+      "op": "add",
+      "path": "/cases/21/forbiddenClaims/-",
+      "value": {
+        "claimId": "F2",
+        "kind": "UNSUPPORTED_CLAIM",
+        "phrases": [
+          "我已经决定去虚构的云港工作",
+          "我一定会去虚构的云港工作",
+          "我已经制定了去虚构的云港工作的计划"
+        ]
+      }
+    }
+  ],
+  "preserve": [
+    "all existing evidence offsets",
+    "MQ022 full conditional content and GOAL",
+    "MQ032 G1 KNOWLEDGE/HISTORICAL",
+    "MQ043 semantic aliases with literal production validation",
+    "MQ045 two OPINION golds",
+    "MQ047 USER_EXPLICIT/PENDING_REVIEW",
+    "old datasets and all old baselines"
+  ],
+  "humanApproval": null
+}

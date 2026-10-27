@@ -47,18 +47,14 @@ abstract class EvaluationIntegrationSupport {
         if(mode==MemoryEvaluationService.Mode.LIVE) {
             EvaluationSafety.requireLiveConsent(loaded,"true".equals(System.getenv("MIRROR_EVALUATION_LIVE_ENABLED")),
                     System.getenv("MIRROR_EVALUATION_APPROVED_DATASET_SHA256"));
-            String selected=System.getenv("MIRROR_EVALUATION_CASE_IDS");
-            if(selected!=null&&!selected.isBlank()) {
-                var ids=Set.of(selected.split(","));var d=loaded.dataset();
-                var cases=d.cases().stream().filter(c->ids.contains(c.caseId())).toList();
-                assertEquals(ids.size(),cases.size(),"unknown evaluation case IDs");
-                loaded=new DatasetLoader.Loaded(new EvaluationDataset(d.schemaVersion(),d.datasetVersion(),d.fictional(),
-                        d.goldProvenance(),d.humanReviewStatus(),cases),loaded.sha256());
-            }
+            loaded=EvaluationSelection.reviewed(loaded,System.getenv("MIRROR_EVALUATION_CASE_IDS"),
+                    System.getenv("MIRROR_EVALUATION_APPROVED_CASE_IDS"),
+                    "true".equals(System.getenv("MIRROR_EVALUATION_GOLD_REVIEWED")));
         }
         var service=new MemoryEvaluationService(sources,memories,extraction,authorization,jdbc,properties,gateway);
         var report=service.run(loaded,mode,"true".equals(System.getenv("MIRROR_EVALUATION_LIVE_ENABLED")),
-                System.getenv("MIRROR_EVALUATION_APPROVED_DATASET_SHA256"),git("rev-parse","HEAD"),!git("status","--porcelain","--", ".", ":!.vscode", ":!target").isBlank());
+                System.getenv("MIRROR_EVALUATION_APPROVED_DATASET_SHA256"),git("rev-parse","HEAD"),!git("status","--porcelain","--", ".", ":!.vscode", ":!target").isBlank(),
+                "true".equals(System.getenv("MIRROR_EVALUATION_GOLD_REVIEWED")));
         String folder=mode==MemoryEvaluationService.Mode.OFFLINE_MOCK?"offline-mock":mode==MemoryEvaluationService.Mode.OFFLINE_RULE?"offline-rule":"live";
         var writer=new EvaluationReportWriter();
         Path baseline=Path.of(System.getProperty("evaluation.baseline","evaluation/baselines/"+folder+"-v1.json"));
@@ -68,6 +64,7 @@ abstract class EvaluationIntegrationSupport {
         }
         Path output=Path.of(System.getProperty("evaluation.output","target/evaluation/"+folder));
         writer.write(report,output);
+        assertEquals(0,gateway.budgetDenied(),"Approved call budget exhausted; partial report saved, do not freeze as a complete baseline");
         if(Files.exists(baseline)) {
             var comparison=report.comparison();
             if(mode!=MemoryEvaluationService.Mode.LIVE) {

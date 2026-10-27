@@ -9,7 +9,8 @@ public record EvaluationReport(String reportVersion, String metricVersion, Run r
     public record Run(String mode, String datasetVersion, String datasetSha256, String goldProvenance,
             String humanReviewStatus, String model, String extractorVersion, String codeVersion,
             boolean workingTreeDirty, Instant startedAt, long elapsedMs, int modelCalls,
-            Long inputTokens, Long outputTokens, String usageAvailability) { }
+            Long inputTokens, Long outputTokens, String usageAvailability, Integer modelCallLimit,
+            int budgetDenied, boolean operatorReviewAttested) { }
     public record Metric(long numerator, long denominator, Double value) {
         public static Metric of(long numerator, long denominator) {
             if (numerator < 0 || denominator < 0 || numerator > denominator) throw new IllegalArgumentException("invalid metric counts");
@@ -29,9 +30,16 @@ public record EvaluationReport(String reportVersion, String metricVersion, Run r
     }
     public record StageScore(Counts counts, Map<String, Metric> metrics) { }
     public record Finding(String stage, EvaluationError kind, String memoryId, Integer predictionIndex) { }
+    public enum CandidateOutcome { CONFIRMED_TP, CONFIRMED_FP, PENDING_HUMAN_REVIEW }
+    public record EvidencePointer(String messageId,String role,int start,int end,boolean selected) { }
+    /** Safe reference metadata only; no generated content, quotations, prompts or provider responses. */
+    public record CandidateAudit(String stage,int index,CandidateOutcome outcome,String referenceMemoryId,
+            com.mirrorself.memory.MemoryType type,com.mirrorself.memory.AssertionOrigin origin,
+            com.mirrorself.memory.ExtractedMemory.TemporalScope temporalScope,com.mirrorself.memory.MemoryStatus status,
+            List<EvidencePointer> evidence,List<EvaluationError> errors) { }
     public record CaseResult(String caseId, List<String> categories, StageScore extracted, StageScore persisted,
             List<Finding> findings, Map<String,Integer> rejectedByStage, int replayChecks, int successfulReplays,
-            int modelCalls, int unauthorizedCalls, long elapsedMs, boolean correctEmptyResult) { }
+            int modelCalls, int unauthorizedCalls, long elapsedMs, boolean correctEmptyResult,List<CandidateAudit> candidates) { }
     public record Aggregate(StageScore extracted, StageScore persisted, Metric deduplicationAccuracy,
             Metric privacyViolationRate, int unauthorizedCalls, int policyViolations, int correctEmptyCases, int caseCount,
             Map<EvaluationError,Integer> errorCounts) { }

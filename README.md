@@ -151,6 +151,8 @@ bash scripts/evaluate-memory.sh rules
 
 报告写入 `target/evaluation/`。Mock 分数不代表真实 LLM 质量；当前工程参考答案仍待独立人工审核。使用方式、Live 授权及隔离测试要求见 [评估指南](evaluation/README.md)，指标定义与边界见 [V0.2.1 设计](docs/V0.2.1_MEMORY_EVALUATION.md)。现有 API、业务数据库结构与隐私授权保持兼容。
 
+V0.2.1-A 现有 [九例独立审核表](evaluation/reviews/v0.2.1-a-gold-review.md) 和 [小样本预检/执行指南](docs/V0.2.1-A_LIVE_PILOT.md)。当前未获得独立人审与付费批准，不执行 Live；Mac 可仅运行 `python3 scripts/live-pilot.py --dry-run` 查看计划。
+
 ## 设计文档
 
 - [长期开发、测试与部署约定](AGENTS.md)

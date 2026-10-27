@@ -11,6 +11,9 @@ case "$mode" in
     if [[ "${MIRROR_EVALUATION_LIVE_ENABLED:-false}" != true || "${MIRROR_MODEL_EGRESS_ENABLED:-false}" != true ]]; then
       echo 'Live evaluation requires explicit evaluation consent and model egress permission.' >&2; exit 2
     fi
+    if [[ "${MIRROR_EVALUATION_GOLD_REVIEWED:-false}" != true || -z "${MIRROR_EVALUATION_CASE_IDS:-}" || -z "${MIRROR_EVALUATION_APPROVED_CASE_IDS:-}" || -z "${MIRROR_EVALUATION_MAX_MODEL_CALLS:-}" ]]; then
+      echo 'Live evaluation needs explicit Gold review, requested/approved case scope, and an approved call limit.' >&2; exit 2
+    fi
     if [[ -z "${MIRROR_LLM_API_KEY:-}" || -z "${MIRROR_LLM_MODEL:-}" ]]; then
       echo 'Configure the model identifier and inject credentials through your secure environment.' >&2; exit 2
     fi
