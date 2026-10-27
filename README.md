@@ -1,4 +1,4 @@
-# Mirror Self / 镜像自我 — V0.2 第一阶段
+# Mirror Self / 镜像自我 — V0.2.1 记忆质量评估
 
 > **第一个可运行的记忆垂直切片**：保存 ChatGPT 原始消息 → 规则或 LLM 多轮提取候选记忆 → 保存 L0 证据关联 → 分级审核 → 本地检索 / 摘录式回答。
 
@@ -120,8 +120,20 @@ export MIRROR_MODEL_EGRESS_ENABLED=true
 `POST /api/v1/extractions`。详细请求及本地模型配置见 [V0.2 使用说明](docs/V0.2_MEMORY_ENGINE.md)。
 Spring Boot 本地启动不会自动读取 `.env`；Compose 会读取它的变量。
 
+## V0.2.1 记忆质量评估
+
+新增 66 个虚构多轮案例、独立参考标注与固定 Mock 快照、分阶段评分、JSON/Markdown 报告及 Baseline 回归比较。默认离线，不需要 API Key。规则提取器可以在同一测试集上独立实测；真实模型评估需显式开启并审核数据摘要。
+
+```bash
+bash scripts/evaluate-memory.sh offline
+bash scripts/evaluate-memory.sh rules
+```
+
+报告写入 `target/evaluation/`。Mock 分数不代表真实 LLM 质量；当前工程参考答案仍待独立人工审核。使用方式、Live 授权和 Java21 Docker 命令见 [评估指南](evaluation/README.md)，指标定义与边界见 [V0.2.1 设计](docs/V0.2.1_MEMORY_EVALUATION.md)。现有 API、业务数据库结构与隐私授权保持兼容。
+
 ## 设计文档
 
+- [V0.2.1 评估设计、评分定义与 Baseline](docs/V0.2.1_MEMORY_EVALUATION.md)
 - [V0.2 模块设计、配置与 API 使用](docs/V0.2_MEMORY_ENGINE.md)
 - [本次验证记录](docs/VERIFICATION.md)
 - [架构决策 ADR](docs/ADR.md)
