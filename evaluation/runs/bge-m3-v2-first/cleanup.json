@@ -1,0 +1,16 @@
+{
+  "runId": "m2a-67ba99e5ecc849b3",
+  "remainingRunContainerIds": [],
+  "temporaryDirectoryExists": false,
+  "cleanupExitCode": 0,
+  "preservedContainerIds": {
+    "mirror-embed-test-api": "0787a313ebaf",
+    "mirror-embed-test-db": "7aacb09cadb1",
+    "mirror-self-api-1": "40ef77369ea6",
+    "mirror-self-db-1": "688a1676e381"
+  },
+  "usedExistingTestDatabase": false,
+  "businessDatabaseAccessed": false,
+  "businessVolumesMounted": false,
+  "modelServiceChanged": false
+}

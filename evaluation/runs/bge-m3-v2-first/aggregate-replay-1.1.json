@@ -1,0 +1,1622 @@
+{
+  "condition": "OFFLINE_AGGREGATE_REPLAY_OF_REAL_RETRIEVAL",
+  "sourceReportSha256": "9e250a8ca96421317bcb20b22ac21470f6b259170b87146c543349fd47b18b5d",
+  "sourceCodeRevision": "c5546af2bdec74789b395b5ca6fccd99e181628c",
+  "aggregateVersion": "evidence-rules-1.1",
+  "perEvidenceJudgements": "UNCHANGED_FROM_FIRST_RUN_evidence-rules-1",
+  "datasetSha256": "4b0cde4f771356ea86c2bf70cfab27703c7bf7d06bbebb7acd308482526f2ad4",
+  "referenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
+  "newModelRequests": 0,
+  "retrievalMetricsChanged": false,
+  "formalBaseline": false,
+  "modes": [
+    {
+      "replayCorrect": 36,
+      "mode": "KEYWORD",
+      "cases": [
+        {
+          "replayedAggregate": {
+            "relation": "REFUTES",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q01"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q02"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q03"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q04"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q05"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q06"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q07"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q08"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q09"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q10"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q11"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q12"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "RECORDED_CONFLICT_REQUIRES_REVIEW"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q13"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q14"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q15"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q16"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q17"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q18"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q19"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q20"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q21"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q22"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q23"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q24"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "RECORDED_CONFLICT_REQUIRES_REVIEW"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q25"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q26"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q27"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q28"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q29"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q30"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q31"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q32"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "REFUTES",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "REFUTES",
+          "caseId": "R2Q33"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q34"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q35"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q36"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q37"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q38"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q39"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q40"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q41"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q42"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q43"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q44"
+        }
+      ],
+      "total": 44,
+      "originalCorrect": 34
+    },
+    {
+      "replayCorrect": 38,
+      "mode": "VECTOR",
+      "cases": [
+        {
+          "replayedAggregate": {
+            "relation": "REFUTES",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q01"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q02"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q03"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q04"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q05"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q06"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q07"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q08"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q09"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q10"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q11"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q12"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "RECORDED_CONFLICT_REQUIRES_REVIEW"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q13"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q14"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q15"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q16"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q17"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q18"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q19"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q20"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q21"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q22"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q23"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q24"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q25"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q26"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q27"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q28"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q29"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q30"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q31"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q32"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "REFUTES",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "REFUTES",
+          "caseId": "R2Q33"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q34"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q35"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q36"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q37"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q38"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q39"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q40"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q41"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q42"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q43"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q44"
+        }
+      ],
+      "total": 44,
+      "originalCorrect": 35
+    },
+    {
+      "replayCorrect": 38,
+      "mode": "HYBRID",
+      "cases": [
+        {
+          "replayedAggregate": {
+            "relation": "REFUTES",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q01"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q02"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q03"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q04"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q05"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q06"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q07"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q08"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q09"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q10"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q11"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q12"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "RECORDED_CONFLICT_REQUIRES_REVIEW"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q13"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q14"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q15"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q16"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q17"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q18"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q19"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q20"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q21"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q22"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q23"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q24"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q25"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q26"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q27"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q28"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q29"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q30"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q31"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q32"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "REFUTES",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "REFUTES",
+          "caseId": "R2Q33"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q34"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q35"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q36"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q37"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q38"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "SUPPORTS",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "AT_EVIDENCE_TIME_ONLY"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "SUPPORTS",
+          "caseId": "R2Q39"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "CONFLICTING_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q40"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "REFUTES",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q41"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q42"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "SUPPORTS",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q43"
+        },
+        {
+          "replayedAggregate": {
+            "relation": "INSUFFICIENT_EVIDENCE",
+            "currentRecognition": "UNCONFIRMED",
+            "reasons": [
+              "NO_DIRECT_EVIDENCE"
+            ]
+          },
+          "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+          "originalAggregate": "INSUFFICIENT_EVIDENCE",
+          "caseId": "R2Q44"
+        }
+      ],
+      "total": 44,
+      "originalCorrect": 35
+    }
+  ]
+}

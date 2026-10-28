@@ -1,0 +1,29 @@
+{
+  "runId": "m2a-67ba99e5ecc849b3",
+  "remoteFolder": "/tmp/mirror-self-m2a-XO5aQpwa",
+  "head": "c5546af2bdec74789b395b5ca6fccd99e181628c",
+  "archiveSha256": "c220cc02ca3ae7e7253a4826793ac9953cab67f1fe55099d2428588142fffb7a",
+  "captureStartedMacUtc": "2026-10-28T12:15:48.533126+00:00",
+  "target": "confirmed Ubuntu mirror-ubuntu Engine; pinned local BGE-M3; new Testcontainers only",
+  "formalDatabaseAccess": false,
+  "deployment": false,
+  "runtimeContainer": "mirror-m2a-67ba99e5ecc849b3",
+  "exitCode": 0,
+  "elapsedSeconds": 624.175,
+  "captureFinishedMacUtc": "2026-10-28T12:26:13.040807+00:00",
+  "cleanupExitCode": 0,
+  "modelRequestBudget": 400,
+  "usedExistingTestDatabase": false,
+  "usedProductionVolume": false,
+  "wallClockAdjusted": false,
+  "realEmbeddingRequests": 298,
+  "status": "COMPLETE",
+  "ollamaVersion": "0.40.12",
+  "vmLogicalCpus": 16,
+  "testRunnerLimits": {
+    "cpus": 2,
+    "memory": "2GiB",
+    "modelServer": "existing host Ollama, not capped by runner container"
+  },
+  "runtimeLaunch": "Host Python preflight followed by temporary Java21/Maven container; native --execute script not used because host Maven is containerized."
+}
