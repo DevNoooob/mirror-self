@@ -96,31 +96,22 @@ public class MemoryRepository {
     }
 
     public List<MemoryView> search(UUID owner, String query, int limit) {
-        if (query == null || query.isBlank()) throw new IllegalArgumentException("query cannot be blank");
-        if (limit < 1 || limit > 30) throw new IllegalArgumentException("limit must be between 1 and 30");
-        List<String> terms = SearchTerms.from(query);
-        if (terms.isEmpty()) return List.of();
-        List<Object> args = new ArrayList<>();
-        List<String> cases = new ArrayList<>();
-        List<String> filters = new ArrayList<>();
-        for (String term : terms) {
-            String condition = "content ILIKE ? ESCAPE '!'";
-            cases.add("(CASE WHEN " + condition + " THEN 1 ELSE 0 END)");
-            args.add("%" + escapeLike(term) + "%");
-        }
-        args.add(owner);
-        for (String term : terms) {
-            filters.add("content ILIKE ? ESCAPE '!'");
-            args.add("%" + escapeLike(term) + "%");
-        }
-        args.add(limit);
-        String sql = """
-                SELECT id,memory_type,content,assertion_origin,status,sensitivity,occurred_at,
-                temporal_scope,extractor_version,model_id,
-                """ + String.join(" + ", cases) + " AS score " + """
-                FROM memory_item WHERE owner_id=? AND status='ACTIVE' AND (
-                """ + String.join(" OR ", filters) + ") ORDER BY score DESC, created_at DESC LIMIT ?";
-        return withEvidence(owner, jdbc.query(sql, this::map, args.toArray()));
+        if(query==null || query.isBlank()) throw new IllegalArgumentException("query cannot be blank");
+        if(limit<1 || limit>30) throw new IllegalArgumentException("limit must be between 1 and 30");
+        var ranked=new com.mirrorself.retrieval.RetrievalRepository(jdbc).keyword(owner,query,limit);
+        return retrievable(owner,ranked.stream().map(com.mirrorself.retrieval.RetrievalRepository.Ranked::id).toList());
+    }
+
+    public List<MemoryView> retrievable(UUID owner,List<UUID> ids) {
+        if(ids.isEmpty()) return List.of();
+        var args=new ArrayList<Object>();args.add(owner);args.addAll(ids);
+        var rows=withEvidence(owner,jdbc.query("""
+            SELECT m.id,m.memory_type,m.content,m.assertion_origin,m.status,m.sensitivity,m.occurred_at,
+                m.temporal_scope,m.extractor_version,m.model_id FROM memory_item m WHERE m.owner_id=? AND
+            """+com.mirrorself.retrieval.RetrievalVisibility.SQL+" AND m.id IN ("
+                +String.join(",",java.util.Collections.nCopies(ids.size(),"?"))+")",this::map,args.toArray()));
+        var byId=rows.stream().collect(java.util.stream.Collectors.toMap(MemoryView::id,m->m));
+        return ids.stream().map(byId::get).filter(java.util.Objects::nonNull).toList();
     }
 
     public MemoryStatus review(UUID owner, UUID id, ReviewDecision decision) {
@@ -183,9 +174,6 @@ public class MemoryRepository {
         return populated;
     }
 
-    private static String escapeLike(String s) {
-        return s.replace("!", "!!").replace("%", "!%").replace("_", "!_");
-    }
     private static OffsetDateTime pgTime(Instant time) {
         return time == null ? null : OffsetDateTime.ofInstant(time, ZoneOffset.UTC);
     }

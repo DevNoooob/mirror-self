@@ -50,3 +50,13 @@ L2 identity_claim ← identity_evidence
 `V2__intelligent_extraction.sql` 仅新增任务、任务来源及云端授权表，为 memory_item 追加提取指纹、
 时间语义和提取器/模型/任务追踪字段。复用 memory_relation 的 CONTRADICTS，不改写 V1 或旧记录内容。
 升级测试先在临时数据库执行 V1、写入虚构旧来源/记忆/证据，再执行 V2 并核对原数据保留。
+
+## V0.2.2-M1 增量（V3）
+
+`V3__embedding_retrieval.sql` 复用 `memory_embedding.vector_value vector(1024)`，追加 `model_version`、`memory_revision`，将目标唯一键扩为 owner + target + model + version；历史行保留并标记 `legacy`。`memory_item.embedding_revision` 用作并发写回检查。新增 `embedding_job` 仅存状态、计数和固定错误码，无输入正文。
+
+数据库触发器在 L1 内容/状态/隐私/类型/时间语义变更、证据增加/修改/删除、L0 正文/角色/隐私/owner 变更时递增修订并删除该记忆所有版本向量。外键继续处理记忆/来源删除；删除部分证据也使旧向量失效。新索引写入先锁定 L1 行，并重新核对 owner、修订和检索可见性。生成期间发生撤回或证据变化的结果不能写回。
+
+关键词、向量、索引选择和最终证据装载都使用 `RetrievalVisibility.SQL`：ACTIVE + NORMAL + 至少一条证据 + 所有证据同 owner、PRIVATE、user、逐字引用仍存在。敏感记忆即使审核通过也不进入本阶段通用检索；后续若增加显式授权查询需单独设计。原 owner 记忆管理列表仍可查看待审核/敏感内容。
+
+向量检索用 `<=>` 计算余弦距离，MATERIALIZED 预过滤后精确排序；M1 保留原 HNSW 索引但暂不使用近似检索，避免小候选集过滤后的召回损失。未来大库优化需先测量，不能移除权限过滤。V3 只在隔离测试库验证，正式库迁移需备份与独立部署授权。

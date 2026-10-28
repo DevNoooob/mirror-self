@@ -1,0 +1,914 @@
+{
+  "reportVersion": "retrieval-offline-1.0",
+  "datasetSha256": "68bfe39236a72c7704ba959a0c3fb780e7219a70a8eb309533ab526985b3a4b3",
+  "dataset": "retrieval-fictional-v1",
+  "fixtureVersion": "lexicon-controlled-v1",
+  "codeRevision": "089b6402d1d34689c54145e8130e867c584cb534",
+  "runtime": "21.0.12.1",
+  "environment": "GitHub Actions isolated PostgreSQL/pgvector",
+  "k": 3,
+  "candidateLimit": 100,
+  "rrfConstant": 60,
+  "minimumCosineSimilarity": 0.35,
+  "realModelCalls": 0,
+  "corpusRows": 18,
+  "eligibleIndexedRows": 9,
+  "queryCount": 20,
+  "limitations": [
+    "Controlled lexicon fixture; does not measure a real embedding model.",
+    "Negated query RQ20 deliberately exposes relevance errors; evidence correctness does not imply relevance.",
+    "Tiny corpus; latency is not a production capacity benchmark. Mac/Ubuntu business DB not accessed."
+  ],
+  "modes": [
+    {
+      "mode": "KEYWORD",
+      "recallAt3": 0.6111111111111112,
+      "mrr": 0.6666666666666666,
+      "ndcgAt3": 0.643017178110108,
+      "positiveQueries": 9,
+      "emptyQueries": 11,
+      "correctEmptyQueries": 10,
+      "evidenceCorrect": 7,
+      "evidenceTotal": 7,
+      "evidenceAccuracy": 1.0,
+      "latencySamples": 100,
+      "p50Ms": 0.371497,
+      "p95Ms": 2.49929,
+      "cases": [
+        {
+          "caseId": "RQ01",
+          "coverage": "keyword",
+          "rankedIds": [
+            "R01"
+          ],
+          "expectedIds": {
+            "R01": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ02",
+          "coverage": "semantic",
+          "rankedIds": [],
+          "expectedIds": {
+            "R02": 3
+          },
+          "metrics": {
+            "recallAtK": 0.0,
+            "reciprocalRank": 0.0,
+            "ndcgAtK": 0.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ03",
+          "coverage": "historical",
+          "rankedIds": [
+            "R03"
+          ],
+          "expectedIds": {
+            "R03": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ04",
+          "coverage": "source-time",
+          "rankedIds": [
+            "R04"
+          ],
+          "expectedIds": {
+            "R04": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ05",
+          "coverage": "negation-preserved",
+          "rankedIds": [
+            "R05"
+          ],
+          "expectedIds": {
+            "R05": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ06",
+          "coverage": "keyword",
+          "rankedIds": [
+            "R06"
+          ],
+          "expectedIds": {
+            "R06": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ07",
+          "coverage": "semantic",
+          "rankedIds": [],
+          "expectedIds": {
+            "R07": 3
+          },
+          "metrics": {
+            "recallAtK": 0.0,
+            "reciprocalRank": 0.0,
+            "ndcgAtK": 0.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ08",
+          "coverage": "semantic",
+          "rankedIds": [],
+          "expectedIds": {
+            "R08": 3
+          },
+          "metrics": {
+            "recallAtK": 0.0,
+            "reciprocalRank": 0.0,
+            "ndcgAtK": 0.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ09",
+          "coverage": "multiple",
+          "rankedIds": [
+            "R18"
+          ],
+          "expectedIds": {
+            "R01": 2,
+            "R18": 3
+          },
+          "metrics": {
+            "recallAtK": 0.5,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 0.787154602990972,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ10",
+          "coverage": "assistant-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ11",
+          "coverage": "pending-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ12",
+          "coverage": "rejected-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ13",
+          "coverage": "retracted-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ14",
+          "coverage": "sensitive-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ15",
+          "coverage": "restricted-source-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ16",
+          "coverage": "owner-isolation",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ17",
+          "coverage": "deleted-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ18",
+          "coverage": "deleted-source-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ19",
+          "coverage": "no-match",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ20",
+          "coverage": "negation-query-limitation",
+          "rankedIds": [
+            "R05"
+          ],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": false
+          }
+        }
+      ]
+    },
+    {
+      "mode": "VECTOR",
+      "recallAt3": 1.0,
+      "mrr": 1.0,
+      "ndcgAt3": 0.981554581377572,
+      "positiveQueries": 9,
+      "emptyQueries": 11,
+      "correctEmptyQueries": 10,
+      "evidenceCorrect": 12,
+      "evidenceTotal": 12,
+      "evidenceAccuracy": 1.0,
+      "latencySamples": 100,
+      "p50Ms": 1.637492,
+      "p95Ms": 2.822376,
+      "cases": [
+        {
+          "caseId": "RQ01",
+          "coverage": "keyword",
+          "rankedIds": [
+            "R01",
+            "R18"
+          ],
+          "expectedIds": {
+            "R01": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ02",
+          "coverage": "semantic",
+          "rankedIds": [
+            "R02"
+          ],
+          "expectedIds": {
+            "R02": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ03",
+          "coverage": "historical",
+          "rankedIds": [
+            "R03"
+          ],
+          "expectedIds": {
+            "R03": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ04",
+          "coverage": "source-time",
+          "rankedIds": [
+            "R04"
+          ],
+          "expectedIds": {
+            "R04": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ05",
+          "coverage": "negation-preserved",
+          "rankedIds": [
+            "R05"
+          ],
+          "expectedIds": {
+            "R05": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ06",
+          "coverage": "keyword",
+          "rankedIds": [
+            "R06"
+          ],
+          "expectedIds": {
+            "R06": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ07",
+          "coverage": "semantic",
+          "rankedIds": [
+            "R07"
+          ],
+          "expectedIds": {
+            "R07": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ08",
+          "coverage": "semantic",
+          "rankedIds": [
+            "R08"
+          ],
+          "expectedIds": {
+            "R08": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ09",
+          "coverage": "multiple",
+          "rankedIds": [
+            "R01",
+            "R18"
+          ],
+          "expectedIds": {
+            "R01": 2,
+            "R18": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 0.8339912323981489,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ10",
+          "coverage": "assistant-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ11",
+          "coverage": "pending-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ12",
+          "coverage": "rejected-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ13",
+          "coverage": "retracted-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ14",
+          "coverage": "sensitive-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ15",
+          "coverage": "restricted-source-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ16",
+          "coverage": "owner-isolation",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ17",
+          "coverage": "deleted-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ18",
+          "coverage": "deleted-source-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ19",
+          "coverage": "no-match",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ20",
+          "coverage": "negation-query-limitation",
+          "rankedIds": [
+            "R05"
+          ],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": false
+          }
+        }
+      ]
+    },
+    {
+      "mode": "HYBRID",
+      "recallAt3": 1.0,
+      "mrr": 1.0,
+      "ndcgAt3": 1.0,
+      "positiveQueries": 9,
+      "emptyQueries": 11,
+      "correctEmptyQueries": 10,
+      "evidenceCorrect": 12,
+      "evidenceTotal": 12,
+      "evidenceAccuracy": 1.0,
+      "latencySamples": 100,
+      "p50Ms": 1.898232,
+      "p95Ms": 2.618543,
+      "cases": [
+        {
+          "caseId": "RQ01",
+          "coverage": "keyword",
+          "rankedIds": [
+            "R01",
+            "R18"
+          ],
+          "expectedIds": {
+            "R01": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ02",
+          "coverage": "semantic",
+          "rankedIds": [
+            "R02"
+          ],
+          "expectedIds": {
+            "R02": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ03",
+          "coverage": "historical",
+          "rankedIds": [
+            "R03"
+          ],
+          "expectedIds": {
+            "R03": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ04",
+          "coverage": "source-time",
+          "rankedIds": [
+            "R04"
+          ],
+          "expectedIds": {
+            "R04": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ05",
+          "coverage": "negation-preserved",
+          "rankedIds": [
+            "R05"
+          ],
+          "expectedIds": {
+            "R05": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ06",
+          "coverage": "keyword",
+          "rankedIds": [
+            "R06"
+          ],
+          "expectedIds": {
+            "R06": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ07",
+          "coverage": "semantic",
+          "rankedIds": [
+            "R07"
+          ],
+          "expectedIds": {
+            "R07": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ08",
+          "coverage": "semantic",
+          "rankedIds": [
+            "R08"
+          ],
+          "expectedIds": {
+            "R08": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ09",
+          "coverage": "multiple",
+          "rankedIds": [
+            "R18",
+            "R01"
+          ],
+          "expectedIds": {
+            "R01": 2,
+            "R18": 3
+          },
+          "metrics": {
+            "recallAtK": 1.0,
+            "reciprocalRank": 1.0,
+            "ndcgAtK": 1.0,
+            "correctEmpty": false
+          }
+        },
+        {
+          "caseId": "RQ10",
+          "coverage": "assistant-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ11",
+          "coverage": "pending-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ12",
+          "coverage": "rejected-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ13",
+          "coverage": "retracted-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ14",
+          "coverage": "sensitive-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ15",
+          "coverage": "restricted-source-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ16",
+          "coverage": "owner-isolation",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ17",
+          "coverage": "deleted-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ18",
+          "coverage": "deleted-source-excluded",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ19",
+          "coverage": "no-match",
+          "rankedIds": [],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": true
+          }
+        },
+        {
+          "caseId": "RQ20",
+          "coverage": "negation-query-limitation",
+          "rankedIds": [
+            "R05"
+          ],
+          "expectedIds": {},
+          "metrics": {
+            "recallAtK": null,
+            "reciprocalRank": null,
+            "ndcgAtK": null,
+            "correctEmpty": false
+          }
+        }
+      ]
+    }
+  ],
+  "baselineKind": "OFFLINE_CONTROLLED_MOCK_ONLY",
+  "sourceRunUrl": "https://github.com/DevNoooob/mirror-self/actions/runs/40665268514",
+  "sourceHeadRevision": "6930c609ee72f617cafafebb32f49bf7a85612ae",
+  "sourceReportSha256": "1981a4ebeefc9f47e1cb0a2a505879409289217200576b0fef69fb3e2c0a8d9d"
+}

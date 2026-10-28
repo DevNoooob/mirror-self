@@ -170,3 +170,8 @@ V0.2.1-A 现有 [九例独立审核表](evaluation/reviews/v0.2.1-a-gold-review.
 本版由单用户、私有部署开始；对外共享相关表只是未来架构占位，不代表已经具备安全的对外分享能力。
 
 V0.2.1-B 已完成一次独立授权的九例真实 Pilot，原始脱敏资料见 [历史观测归档](evaluation/runs/deepseek-flash-nine-v1.1-first/README.md)。此前“未执行 Live”的准备材料保留为历史；本次 V0.2.1-C 没有新调用、正式基线或部署。[离线诊断与冻结准备](docs/V0.2.1-C_DIAGNOSTICS.md)说明重放独立指标、类型规范和时间限制。
+
+## V0.2.2-M1：Embedding 与混合检索
+
+保留 `/api/v1/retrieval` 数组和 `/api/v1/ask` 格式，新增可解释的关键词/向量/RRF 检索和显式增量索引任务。真实 Embedding 默认关闭；不下载模型，不支持云端外发。
+配置、生命周期、API、离线复现与限制见 [混合检索指南](docs/V0.2.2-M1_RETRIEVAL.md)。正式部署仍须独立授权，按 [远程部署约定](docs/DEPLOYMENT.md) 执行；本阶段不会自动部署或校准 Ubuntu 时钟。

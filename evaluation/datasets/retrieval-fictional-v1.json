@@ -1,0 +1,428 @@
+{
+  "version": "retrieval-fictional-v1",
+  "annotationStatus": "SYNTHETIC_EXPECTATIONS_NOT_HUMAN_REVIEWED",
+  "fixtureVersion": "lexicon-controlled-v1",
+  "note": "Controlled lexicon vectors test infrastructure only; no real embedding quality claim. Negative query intentionally exposes lexical/vector negation limitations.",
+  "memories": [
+    {
+      "id": "R01",
+      "owner": "A",
+      "text": "I commute by bicycle.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R02",
+      "owner": "A",
+      "text": "I enjoy hiking on weekends.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R03",
+      "owner": "A",
+      "text": "In 2020 I lived in Cedar Bay.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "HISTORICAL",
+      "deleted": false
+    },
+    {
+      "id": "R04",
+      "owner": "A",
+      "text": "At the source date I live in Maple Port.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R05",
+      "owner": "A",
+      "text": "I do not drink coffee.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R06",
+      "owner": "A",
+      "text": "I prefer tea in the afternoon.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R07",
+      "owner": "A",
+      "text": "I am learning Spanish.",
+      "type": "KNOWLEDGE",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R08",
+      "owner": "A",
+      "text": "I hope to write a novel.",
+      "type": "GOAL",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R09",
+      "owner": "A",
+      "text": "You could try kayaking.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "assistant",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R10",
+      "owner": "A",
+      "text": "I am a patient negotiator.",
+      "type": "THOUGHT_PROCESS",
+      "status": "PENDING_REVIEW",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R11",
+      "owner": "A",
+      "text": "I enjoy fencing.",
+      "type": "FACT",
+      "status": "REJECTED",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R12",
+      "owner": "A",
+      "text": "I practice archery.",
+      "type": "FACT",
+      "status": "RETRACTED",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R13",
+      "owner": "A",
+      "text": "My fictional health marker is violet.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "SENSITIVE",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R14",
+      "owner": "A",
+      "text": "I collect rare stamps.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "RESTRICTED",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R15",
+      "owner": "B",
+      "text": "I enjoy skiing.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    },
+    {
+      "id": "R16",
+      "owner": "A",
+      "text": "I play badminton.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": true
+    },
+    {
+      "id": "R17",
+      "owner": "A",
+      "text": "I swim in a pool.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": true
+    },
+    {
+      "id": "R18",
+      "owner": "A",
+      "text": "I enjoy cycling during holidays.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false
+    }
+  ],
+  "queries": [
+    {
+      "id": "RQ01",
+      "text": "bicycle",
+      "relevance": {
+        "R01": 3
+      },
+      "coverage": "keyword"
+    },
+    {
+      "id": "RQ02",
+      "text": "trekking",
+      "relevance": {
+        "R02": 3
+      },
+      "coverage": "semantic"
+    },
+    {
+      "id": "RQ03",
+      "text": "Cedar Bay",
+      "relevance": {
+        "R03": 3
+      },
+      "coverage": "historical"
+    },
+    {
+      "id": "RQ04",
+      "text": "Maple Port",
+      "relevance": {
+        "R04": 3
+      },
+      "coverage": "source-time"
+    },
+    {
+      "id": "RQ05",
+      "text": "coffee",
+      "relevance": {
+        "R05": 3
+      },
+      "coverage": "negation-preserved"
+    },
+    {
+      "id": "RQ06",
+      "text": "tea",
+      "relevance": {
+        "R06": 3
+      },
+      "coverage": "keyword"
+    },
+    {
+      "id": "RQ07",
+      "text": "foreign language study",
+      "relevance": {
+        "R07": 3
+      },
+      "coverage": "semantic"
+    },
+    {
+      "id": "RQ08",
+      "text": "authoring fiction",
+      "relevance": {
+        "R08": 3
+      },
+      "coverage": "semantic"
+    },
+    {
+      "id": "RQ09",
+      "text": "cycling",
+      "relevance": {
+        "R01": 2,
+        "R18": 3
+      },
+      "coverage": "multiple"
+    },
+    {
+      "id": "RQ10",
+      "text": "kayaking",
+      "relevance": {},
+      "coverage": "assistant-excluded"
+    },
+    {
+      "id": "RQ11",
+      "text": "patient negotiator",
+      "relevance": {},
+      "coverage": "pending-excluded"
+    },
+    {
+      "id": "RQ12",
+      "text": "fencing",
+      "relevance": {},
+      "coverage": "rejected-excluded"
+    },
+    {
+      "id": "RQ13",
+      "text": "archery",
+      "relevance": {},
+      "coverage": "retracted-excluded"
+    },
+    {
+      "id": "RQ14",
+      "text": "health marker",
+      "relevance": {},
+      "coverage": "sensitive-excluded"
+    },
+    {
+      "id": "RQ15",
+      "text": "rare stamps",
+      "relevance": {},
+      "coverage": "restricted-source-excluded"
+    },
+    {
+      "id": "RQ16",
+      "text": "skiing",
+      "relevance": {},
+      "coverage": "owner-isolation"
+    },
+    {
+      "id": "RQ17",
+      "text": "badminton",
+      "relevance": {},
+      "coverage": "deleted-excluded"
+    },
+    {
+      "id": "RQ18",
+      "text": "pool",
+      "relevance": {},
+      "coverage": "deleted-source-excluded"
+    },
+    {
+      "id": "RQ19",
+      "text": "astronomy telescope",
+      "relevance": {},
+      "coverage": "no-match"
+    },
+    {
+      "id": "RQ20",
+      "text": "I drink coffee",
+      "relevance": {},
+      "coverage": "negation-query-limitation"
+    }
+  ],
+  "lexicon": [
+    [
+      "bicycle",
+      "cycling",
+      "bike commute"
+    ],
+    [
+      "hiking",
+      "trekking"
+    ],
+    [
+      "cedar bay",
+      "former residence"
+    ],
+    [
+      "maple port",
+      "current residence"
+    ],
+    [
+      "coffee"
+    ],
+    [
+      "tea"
+    ],
+    [
+      "spanish",
+      "foreign language study"
+    ],
+    [
+      "novel",
+      "authoring fiction"
+    ],
+    [
+      "kayaking"
+    ],
+    [
+      "patient negotiator"
+    ],
+    [
+      "fencing"
+    ],
+    [
+      "archery"
+    ],
+    [
+      "health marker"
+    ],
+    [
+      "rare stamps"
+    ],
+    [
+      "skiing"
+    ],
+    [
+      "badminton"
+    ],
+    [
+      "pool"
+    ],
+    [
+      "astronomy telescope"
+    ]
+  ]
+}
