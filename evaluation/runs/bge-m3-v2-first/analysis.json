@@ -1,0 +1,272 @@
+{
+  "status": "COMPLETE",
+  "reportVersion": "retrieval-quality-2.0",
+  "runId": "64f58769-d2c0-47dc-9f1b-f792b10b87a4",
+  "condition": "REAL_LOCAL_BGE_M3",
+  "formalBaseline": false,
+  "datasetVersion": "retrieval-fictional-v2",
+  "datasetSha256": "4b0cde4f771356ea86c2bf70cfab27703c7bf7d06bbebb7acd308482526f2ad4",
+  "referenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
+  "referenceReviewStatus": "SYNTHETIC_REFERENCE_PENDING_HUMAN_REVIEW",
+  "model": {
+    "id": "bge-m3",
+    "version": "ollama-790764642607"
+  },
+  "modelDigest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+  "modelDigestVerifiedBeforeAndAfter": true,
+  "judgeVersion": "evidence-rules-1",
+  "codeRevision": "c5546af2bdec74789b395b5ca6fccd99e181628c",
+  "java": "21.0.10",
+  "wallClockUtcUnverified": "2026-10-28T12:26:11.137927176Z",
+  "latencyClock": "MONOTONIC_NANOTIME",
+  "database": "mirror_self_evaluation_retrieval_m2a",
+  "queryCount": 44,
+  "memoryFixtures": 42,
+  "eligibleMemoriesAfterDeletion": 30,
+  "k": 3,
+  "rrfConstant": 60,
+  "candidateLimit": 100,
+  "minimumCosineSimilarity": 0.35,
+  "repeats": 3,
+  "indexingEmbeddingRequests": 32,
+  "embeddingRequests": 298,
+  "realEmbeddingRequests": 298,
+  "providerFailures": 0,
+  "cloudCalls": 0,
+  "privacyViolations": 0,
+  "evidenceErrors": 0,
+  "modelErrors": [],
+  "limitations": [
+    "Synthetic reference has not had independent human review.",
+    "BGE measures relevance; evidence judgement uses bounded abstaining rules, not BGE entailment.",
+    "Reference relevance includes refutation; v1 Mock scores are not comparable.",
+    "SOURCE_TIME is not present endorsement. Conflicts do not cause automatic memory updates.",
+    "Warm retrieval latency includes provider and database; not a throughput benchmark.",
+    "Ubuntu wall clock is unverified; no formal baseline freeze. No production database or API deployment."
+  ],
+  "sourceReportSha256": "9e250a8ca96421317bcb20b22ac21470f6b259170b87146c543349fd47b18b5d",
+  "oracleJudge": {
+    "correct": 47,
+    "total": 70,
+    "accuracy": 0.6714285714285714,
+    "directCorrect": 20,
+    "directTotal": 26,
+    "supportsRefutesAccuracy": 0.7692307692307693
+  },
+  "modes": [
+    {
+      "mode": "KEYWORD",
+      "positiveQueries": 37,
+      "emptyQueries": 7,
+      "correctEmpty": 4,
+      "correctEmptyRate": 0.5714285714285714,
+      "recallAt3": 0.6036036036036035,
+      "mrr": 0.7567567567567568,
+      "ndcgAt3": 0.6256295917368888,
+      "precisionAt3": 0.36936936936936937,
+      "evidenceCorrect": 77,
+      "evidenceTotal": 77,
+      "evidenceAccuracy": 1.0,
+      "relationAccuracy": 0.7142857142857143,
+      "relationCorrect": 55,
+      "relationTotal": 77,
+      "supportsRefutesAccuracy": 0.875,
+      "directCorrect": 14,
+      "directTotalRetrieved": 16,
+      "referenceDirectTotal": 26,
+      "endToEndDirectRecall": 0.5384615384615384,
+      "falseDirectDecisions": 0,
+      "aggregateAccuracy": 0.7727272727272727,
+      "temporalOverclaims": 0,
+      "timingSamples": 132,
+      "p50Ms": 2.173619,
+      "p95Ms": 4.855525,
+      "embeddingRequestsInMeasuredQueries": 0
+    },
+    {
+      "mode": "VECTOR",
+      "positiveQueries": 37,
+      "emptyQueries": 7,
+      "correctEmpty": 0,
+      "correctEmptyRate": 0.0,
+      "recallAt3": 0.9414414414414415,
+      "mrr": 0.9594594594594594,
+      "ndcgAt3": 0.9386330951293858,
+      "precisionAt3": 0.5675675675675675,
+      "evidenceCorrect": 132,
+      "evidenceTotal": 132,
+      "evidenceAccuracy": 1.0,
+      "relationAccuracy": 0.75,
+      "relationCorrect": 99,
+      "relationTotal": 132,
+      "supportsRefutesAccuracy": 0.7692307692307693,
+      "directCorrect": 20,
+      "directTotalRetrieved": 26,
+      "referenceDirectTotal": 26,
+      "endToEndDirectRecall": 0.7692307692307693,
+      "falseDirectDecisions": 0,
+      "aggregateAccuracy": 0.7954545454545454,
+      "temporalOverclaims": 0,
+      "timingSamples": 132,
+      "p50Ms": 42.134451,
+      "p95Ms": 81.616671,
+      "embeddingRequestsInMeasuredQueries": 132
+    },
+    {
+      "mode": "HYBRID",
+      "positiveQueries": 37,
+      "emptyQueries": 7,
+      "correctEmpty": 0,
+      "correctEmptyRate": 0.0,
+      "recallAt3": 0.9009009009009009,
+      "mrr": 0.9009009009009009,
+      "ndcgAt3": 0.8747662570274523,
+      "precisionAt3": 0.5585585585585585,
+      "evidenceCorrect": 132,
+      "evidenceTotal": 132,
+      "evidenceAccuracy": 1.0,
+      "relationAccuracy": 0.7348484848484849,
+      "relationCorrect": 97,
+      "relationTotal": 132,
+      "supportsRefutesAccuracy": 0.8,
+      "directCorrect": 20,
+      "directTotalRetrieved": 25,
+      "referenceDirectTotal": 26,
+      "endToEndDirectRecall": 0.7692307692307693,
+      "falseDirectDecisions": 0,
+      "aggregateAccuracy": 0.7954545454545454,
+      "temporalOverclaims": 0,
+      "timingSamples": 132,
+      "p50Ms": 40.08995,
+      "p95Ms": 63.875536,
+      "embeddingRequestsInMeasuredQueries": 132
+    }
+  ],
+  "retrievalErrors": {
+    "KEYWORD": {
+      "missingReferenceItems": 29,
+      "extraReturnedItems": 36
+    },
+    "VECTOR": {
+      "missingReferenceItems": 7,
+      "extraReturnedItems": 69
+    },
+    "HYBRID": {
+      "missingReferenceItems": 8,
+      "extraReturnedItems": 70
+    }
+  },
+  "directJudgeErrors": [
+    {
+      "caseId": "R2Q03",
+      "memoryId": "R19",
+      "expected": "REFUTES",
+      "actual": "RELATED_ONLY",
+      "reasons": [
+        "NO_DIRECT_MATCH_ABSTAIN"
+      ]
+    },
+    {
+      "caseId": "R2Q05",
+      "memoryId": "R20",
+      "expected": "SUPPORTS",
+      "actual": "RELATED_ONLY",
+      "reasons": [
+        "NO_DIRECT_MATCH_ABSTAIN"
+      ]
+    },
+    {
+      "caseId": "R2Q19",
+      "memoryId": "R07",
+      "expected": "SUPPORTS",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "NO_DIRECT_MATCH_ABSTAIN"
+      ]
+    },
+    {
+      "caseId": "R2Q32",
+      "memoryId": "R39",
+      "expected": "SUPPORTS",
+      "actual": "RELATED_ONLY",
+      "reasons": [
+        "PROPOSITION_UNRESOLVED"
+      ]
+    },
+    {
+      "caseId": "R2Q41",
+      "memoryId": "R25",
+      "expected": "REFUTES",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "CONTRADICTION_RECORDED_NO_AUTOMATIC_RESOLUTION"
+      ]
+    },
+    {
+      "caseId": "R2Q43",
+      "memoryId": "R38",
+      "expected": "SUPPORTS",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "PROPOSITION_UNRESOLVED"
+      ]
+    }
+  ],
+  "aggregateBug": {
+    "cause": "Unrelated RELATED_ONLY records with conflict markers vetoed direct evidence for another proposition.",
+    "fix": "Only direct SUPPORTS/REFUTES evidence for the tested proposition can invoke the recorded-conflict veto.",
+    "verification": "OFFLINE_REPLAY_ONLY_NO_NEW_MODEL_CALLS",
+    "perEvidenceRelationsChanged": false,
+    "retrievalMetricsChanged": false,
+    "replay": [
+      {
+        "replayCorrect": 36,
+        "mode": "KEYWORD",
+        "total": 44,
+        "originalCorrect": 34
+      },
+      {
+        "replayCorrect": 38,
+        "mode": "VECTOR",
+        "total": 44,
+        "originalCorrect": 35
+      },
+      {
+        "replayCorrect": 38,
+        "mode": "HYBRID",
+        "total": 44,
+        "originalCorrect": 35
+      }
+    ]
+  },
+  "manualReviewOpenItems": [
+    {
+      "cases": [
+        "R2Q13"
+      ],
+      "issue": "Which message time is intended? Reference selects revised record but question does not specify an exact message/date. Preserve v2 and adjudicate in a new version."
+    },
+    {
+      "cases": [
+        "R2Q11",
+        "R2Q23",
+        "R2Q42"
+      ],
+      "issue": "Broad multi-fact relevance coverage, study versus goal and intention versus actual writing need independent human review."
+    },
+    {
+      "cases": [
+        "R2Q01",
+        "R2Q33"
+      ],
+      "issue": "Grade-1 topical alternatives versus direct evidence should be calibrated; default unlisted relation may under-annotate topical memories."
+    }
+  ],
+  "nextStage": [
+    "Human-review v2 reference before any formal baseline or consolidation quality gate.",
+    "Calibrate no-evidence rejection on a NEW held-out set; preserve this 0/7 empty-result observation.",
+    "Evaluate stopwords/tokenization and multilingual fusion weights on held-out data; do not tune this report retroactively.",
+    "Keep polarity/time/condition/self-report distinctions and preserve evidence IDs; consolidation proposals require review, never overwrite confirmed memory.",
+    "Improve entailment coverage independently from embedding recall; BGE does not supply NLI support labels."
+  ]
+}

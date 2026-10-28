@@ -112,3 +112,27 @@ mvn --batch-mode --no-transfer-progress verify
 受控 lexicon Mock 只验证检索基础设施及评分实现，**不代表 bge-m3、DeepSeek 或任何真实 Embedding 的语义质量**。数据为新建虚构预期，不声称完成人工独立标注。完整配置、风险见 [M1指南](../docs/V0.2.2-M1_RETRIEVAL.md)。
 
 首次离线控制基线保存在 `baselines/retrieval-offline-v1.json`，包含来源CI run/head、原报告SHA和每例排名。回归测试校验数据SHA、三模式质量指标和确定性排名；延迟仅记录、不设硬阈值。它只固定当前离线fixture行为，不冻结或替代任何Live结果。
+
+## V0.2.2-M2-A 本地真实模型观察
+
+输入 `datasets/retrieval-fictional-v2.json`、独立参考 `references/retrieval-reference-v2.json`、固定执行契约 `plans/bge-m3-retrieval-v2.json`。44个查询、42条虚构记忆；参考在人机模型运行前固定，状态为待人工独立复核，不声称人类审核完成。
+
+```bash
+# Mac / CI，绝不调用本地或云模型
+python3 scripts/local-retrieval.py --dry-run
+# CI仅运行哈希fixture与原M1受控baseline，LocalBgeRetrievalIT明确跳过
+mvn --batch-mode --no-transfer-progress verify
+```
+
+Ubuntu已确认隔离的Java21/Maven进程、Docker socket、已安装且摘要匹配的BGE-M3中：
+
+```bash
+MIRROR_RUN_LOCAL_RETRIEVAL=true \
+MIRROR_ISOLATED_TEST_ENVIRONMENT=new-testcontainers \
+TESTCONTAINERS_HOST_OVERRIDE=127.0.0.1 \
+python3 scripts/local-retrieval.py --execute
+```
+
+运行进程必须能在自己的127.0.0.1:11434访问已有Ollama；Docker化测试进程可在已授权隔离运行中使用host network，不能新增公网绑定或部署正式API。Testcontainers新库5432只绑定宿主loopback，不使用现有55432测试库或正式5432。没有可用Docker/JDK21/模型摘要则明确失败，不回退到业务库、Mock或云服务。输入/参考/模型/环境不能静默变化；同一临时checkout仅允许一次显式execute，失败需审查后创建新的隔离运行。
+
+报告：`target/evaluation/retrieval-bge-m3-v2/report.{json,md}`；CI哈希fixture为 `retrieval-hash-v2`。原 `baselines/retrieval-offline-v1.json` 保持不变。v2把反驳证据计为相关，不得将v1/v2分数差异解读成模型提升。详见 [证据与时间契约](../docs/V0.2.2-M2A_EVALUATION.md) 和 [逐项参考审阅表](reviews/retrieval-v2-reference-review.md)。

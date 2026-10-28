@@ -175,3 +175,7 @@ V0.2.1-B 已完成一次独立授权的九例真实 Pilot，原始脱敏资料�
 
 保留 `/api/v1/retrieval` 数组和 `/api/v1/ask` 格式，新增可解释的关键词/向量/RRF 检索和显式增量索引任务。真实 Embedding 默认关闭；不下载模型，不支持云端外发。
 配置、生命周期、API、离线复现与限制见 [混合检索指南](docs/V0.2.2-M1_RETRIEVAL.md)。正式部署仍须独立授权，按 [远程部署约定](docs/DEPLOYMENT.md) 执行；本阶段不会自动部署或校准 Ubuntu 时钟。
+
+## V0.2.2-M2-A：本地模型评估与证据关系
+
+新增44条中英文虚构查询、独立版本化参考，以及 SUPPORTS / REFUTES / RELATED_ONLY / INSUFFICIENT_EVIDENCE 判断契约。真实本地 BGE-M3 测试默认关闭，和原受控 Mock 基线分别保存；不改变 `/ask` 或记忆状态。配置、指标、复现和限制见 [M2-A 评估指南](docs/V0.2.2-M2A_EVALUATION.md)。
