@@ -1,0 +1,198 @@
+{
+  "status": "PROPOSAL_ONLY_NOT_APPROVED_BASELINE",
+  "readyToFreeze": false,
+  "originalReportPath": "evaluation/runs/deepseek-flash-nine-v1.1-first/report.json",
+  "originalReportSha256": "7a235c7e76eb7db8e9956e0e8330d3cbe2d619dd6e1e871b14fa29907f448bb6",
+  "datasetPath": "evaluation/datasets/memory-quality-v1.1.json",
+  "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+  "caseIds": [
+    "MQ001",
+    "MQ019",
+    "MQ022",
+    "MQ025",
+    "MQ032",
+    "MQ043",
+    "MQ045",
+    "MQ047",
+    "MQ054"
+  ],
+  "historicalRun": {
+    "mode": "LIVE",
+    "datasetVersion": "memory-quality-v1.1",
+    "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+    "goldProvenance": "ENGINEERING_CURATED_INDEPENDENT_OF_EVALUATED_MODEL",
+    "humanReviewStatus": "PENDING_HUMAN_REVIEW",
+    "model": "deepseek-flash",
+    "extractorVersion": "llm-0.2.0-prompt1-validator2",
+    "codeVersion": "48bd9137adac7bfdeed4148ac29aecf4ec6541e6",
+    "workingTreeDirty": false,
+    "startedAt": "2026-10-27T15:11:23.889195942Z",
+    "elapsedMs": 51957,
+    "modelCalls": 31,
+    "inputTokens": null,
+    "outputTokens": null,
+    "usageAvailability": "not_exposed_by_ModelGateway",
+    "modelCallLimit": 36,
+    "budgetDenied": 0,
+    "operatorReviewAttested": true
+  },
+  "provider": "DeepSeek",
+  "endpoint": "https://api.deepseek.com/v1",
+  "configuredModelAlias": "deepseek-flash",
+  "immutableProviderModelVersion": null,
+  "providerVersionAvailability": "Not exposed by existing gateway; alias is not an immutable model snapshot",
+  "firstPassMetrics": {
+    "extracted": {
+      "counts": {
+        "tp": 8,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 9,
+        "gold": 9,
+        "validEvidence": 9,
+        "attributionErrors": 0,
+        "temporalCorrect": 9,
+        "temporalAssessed": 9,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "metrics": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "f1": {
+          "numerator": 16,
+          "denominator": 18,
+          "value": 0.8888888888888888
+        },
+        "evidenceAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "attributionErrorRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "temporalAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "reviewPolicyAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "unsupportedMemoryRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "resolvedCoverage": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        }
+      }
+    },
+    "persisted": {
+      "counts": {
+        "tp": 8,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 9,
+        "gold": 9,
+        "validEvidence": 9,
+        "attributionErrors": 0,
+        "temporalCorrect": 9,
+        "temporalAssessed": 9,
+        "reviewCorrect": 9,
+        "reviewAssessed": 9,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "metrics": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "f1": {
+          "numerator": 16,
+          "denominator": 18,
+          "value": 0.8888888888888888
+        },
+        "evidenceAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "attributionErrorRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "temporalAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "reviewPolicyAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "unsupportedMemoryRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "resolvedCoverage": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        }
+      }
+    }
+  },
+  "legacyReplayMetric": {
+    "numerator": 5,
+    "denominator": 7,
+    "value": 0.7142857142857143
+  },
+  "blockingLimitations": [
+    "Historical replay payload/inserted counts and row sets were not retained; 5/7 cannot establish actual duplicate insertions.",
+    "Historical UTC wall clock is untrusted; current NTP diagnosis cannot supply a valid retrospective constant correction.",
+    "No permission to freeze a baseline has been granted."
+  ],
+  "additionalLimitations": [
+    "Only nine human-reviewed normal authorized fictional cases",
+    "One stochastic run",
+    "Tokens and billing not exposed",
+    "No immutable provider model snapshot recorded",
+    "First-write persistence snapshot precedes replay"
+  ],
+  "proposedDecision": "Retain as historical pilot observation. Require explicit user decision acknowledging limitations, or separately authorized future measurement after clock verification and replay diagnostics.",
+  "originalReportWillBeRewritten": false,
+  "goldWillBeModified": false,
+  "scoringWillBeModified": false,
+  "baselineWillBeCreatedAutomatically": false
+}

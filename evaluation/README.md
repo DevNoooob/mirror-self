@@ -88,3 +88,9 @@ bash scripts/evaluate-memory.sh rules -Devaluation.output=target/evaluation/rule
 MQ045 句界修复后，默认 Mock 回归使用新增的 `baselines/offline-mock-v0.2.1-a.json`，来自 GitHub Actions 实际执行；只改变 MQ045 的存储结果，不改变 Gold 或 Mock 快照。旧 `offline-mock-v1.json` 和 `offline-rule-v1.json` 保留，规则仍使用原基线。指定旧 Mock 基线会输出真实差异并按确定性门槛失败，这是有意的兼容性变化，不代表付费模型测量。
 
 指标口径保持 memory-quality-1.0；报告 1.1 的审计元数据不作为评分算法变化。数据集 v1.1 已单独定稿，但这些旧基线仍属于 v1，不改写或冒充为 v1.1 的性能成绩。不同数据 SHA 的比较将被标为不兼容，不输出模型改进 delta。
+
+## V0.2.1-C：重放诊断与历史观测
+
+首次九例 Live 的 [原始资料](runs/deepseek-flash-nine-v1.1-first/README.md)按字节保存，尚未冻结基线。新报告1.2增加 replay-1.0：模型输出一致性与数据库行集合幂等性独立统计；旧5/7及评分不被改写。CLASSIFICATION_CONFLICT 阻断同命题/同证据的跨类型重放，保护已审核记录。
+
+详见 [离线诊断与冻结方案](../docs/V0.2.1-C_DIAGNOSTICS.md)、[六类规范 types1](../docs/MEMORY_TYPES.md)。本次不调用模型；冻结提案仍为未批准且未就绪。
