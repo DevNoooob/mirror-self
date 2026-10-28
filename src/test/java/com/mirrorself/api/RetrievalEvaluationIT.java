@@ -117,6 +117,22 @@ class RetrievalEvaluationIT extends ExtractionPostgresTestSupport {
         report.put("limitations",List.of("Controlled lexicon fixture; does not measure a real embedding model.",
             "Negated query RQ20 deliberately exposes relevance errors; evidence correctness does not imply relevance.",
             "Tiny corpus; latency is not a production capacity benchmark. Mac/Ubuntu business DB not accessed."));report.put("modes",modes);
+        // Compare only deterministic retrieval quality/IDs. Timing is observational, never a gate.
+        var baseline=JsonParser.parseString(Files.readString(Path.of("evaluation/baselines/retrieval-offline-v1.json"))).getAsJsonObject();
+        assertEquals(baseline.get("datasetSha256").getAsString(),report.get("datasetSha256"));
+        assertEquals("OFFLINE_CONTROLLED_MOCK_ONLY",baseline.get("baselineKind").getAsString());
+        var actualModes=new Gson().toJsonTree(modes).getAsJsonArray();
+        for(int i=0;i<actualModes.size();i++) {
+            var expected=baseline.getAsJsonArray("modes").get(i).getAsJsonObject();var actual=actualModes.get(i).getAsJsonObject();
+            for(String key:List.of("mode","recallAt3","mrr","ndcgAt3","positiveQueries","emptyQueries","correctEmptyQueries", "evidenceAccuracy","evidenceTotal","evidenceCorrect"))
+                assertEquals(expected.get(key),actual.get(key),"offline quality regression "+key);
+            var expectedCases=expected.getAsJsonArray("cases");var actualCases=actual.getAsJsonArray("cases");
+            assertEquals(expectedCases.size(),actualCases.size());
+            for(int c=0;c<expectedCases.size();c++) {
+                assertEquals(expectedCases.get(c).getAsJsonObject().get("caseId"),actualCases.get(c).getAsJsonObject().get("caseId"));
+                assertEquals(expectedCases.get(c).getAsJsonObject().get("rankedIds"),actualCases.get(c).getAsJsonObject().get("rankedIds"));
+            }
+        }
         Path output=Path.of("target/evaluation/retrieval-offline-v1");Files.createDirectories(output);
         Files.writeString(output.resolve("report.json"),new GsonBuilder().setPrettyPrinting().serializeNulls().create().toJson(report)+"\n");
         StringBuilder markdown=new StringBuilder("# Fictional retrieval offline comparison\n\nControlled lexicon Mock; **zero real embedding calls**.\n\nDataset SHA-256: `"+Hashing.sha256(input)+"`\n\n| Mode | Recall@3 | MRR | nDCG@3 | Evidence | Correct empty | p50 ms | p95 ms |\n|---|---:|---:|---:|---:|---:|---:|---:|\n");

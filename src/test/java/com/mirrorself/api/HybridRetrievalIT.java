@@ -21,13 +21,13 @@ class HybridRetrievalIT extends ExtractionPostgresTestSupport {
         @Bean @Primary ControlledProvider embeddingFixture() {return new ControlledProvider();}
     }
     static class ControlledProvider implements EmbeddingProvider {
-        String version="v1"; Location location=Location.LOCAL;boolean fail=false;int calls;
+        String version="v1"; Location location=Location.LOCAL;boolean fail=false;int calls;int dimensions=1024;
         Runnable beforeReturn=()->{};
         @Override public Model model() {return new Model("controlled-offline",version);}
         @Override public Location location() {return location;}
         @Override public float[] embed(String text) {
             calls++;if(fail) throw new IllegalStateException("fictional-private-response");
-            beforeReturn.run();var v=new float[1024];v[text.contains("hiking")||text.contains("trekking")?0:1]=1;return v;
+            beforeReturn.run();var v=new float[dimensions];v[text.contains("hiking")||text.contains("trekking")?0:1]=1;return v;
         }
     }
     @Autowired ControlledProvider provider;
@@ -40,7 +40,7 @@ class HybridRetrievalIT extends ExtractionPostgresTestSupport {
     @org.springframework.boot.test.web.server.LocalServerPort int port;
     UUID owner;
     @BeforeEach void reset() { owner=UUID.randomUUID();provider.version="v1";provider.fail=false;provider.calls=0;
-        provider.location=EmbeddingProvider.Location.LOCAL;provider.beforeReturn=()->{}; }
+        provider.location=EmbeddingProvider.Location.LOCAL;provider.dimensions=1024;provider.beforeReturn=()->{}; }
     UUID add(String text) {return memories.addManual(owner,MemoryType.FACT,text,Sensitivity.NORMAL,Instant.parse("2024-01-01T00:00:00Z")).id();}
     int vectors() {return jdbc.queryForObject("SELECT count(*) FROM memory_embedding WHERE owner_id=?",Integer.class,owner);}
     @Test void incrementalJobsAreIdempotentAndVersionIsolated() {
@@ -94,6 +94,13 @@ class HybridRetrievalIT extends ExtractionPostgresTestSupport {
         provider.location=EmbeddingProvider.Location.CLOUD;int before=provider.calls;
         assertEquals("BLOCKED",indexing.run(owner,10).status());
         assertEquals("EGRESS_DENIED",retrieval.explain(owner,"hiking",10,RetrievalService.Mode.HYBRID).vectorStatus());assertEquals(before,provider.calls);
+    }
+    @Test void dimensionMismatchIsExplicitInJobsAndFallbackWithoutPersistingAnything() {
+        UUID id=add("I enjoy hiking.");provider.dimensions=768;
+        var job=indexing.run(owner,10);assertEquals("FAILED",job.status());assertEquals(1,job.failed());
+        assertEquals(List.of("DIMENSION_MISMATCH"),job.errorCodes());assertEquals(0,vectors());
+        var result=retrieval.explain(owner,"hiking",10,RetrievalService.Mode.HYBRID);
+        assertEquals("DIMENSION_MISMATCH",result.vectorStatus());assertEquals(id,result.hits().getFirst().memory().id());
     }
     @Test void concurrentSavesHaveOneWinnerAndDoNotDuplicateVectors() throws Exception {
         add("I enjoy hiking.");var model=provider.model();var target=embeddings.pending(owner,model,10).getFirst();

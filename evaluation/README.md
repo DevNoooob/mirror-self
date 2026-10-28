@@ -110,3 +110,5 @@ mvn --batch-mode --no-transfer-progress verify
 输出 `target/evaluation/retrieval-offline-v1/report.json` 与 `report.md`，CI 作为现有 `memory-quality-reports` artifact 保存。固定 K=3、候选池100、RRF常数60、余弦阈值0.35；九个正例宏平均 Recall@3/MRR/nDCG@3，11个空集案例单独统计准确空结果，证据正确率核对实际 L0 ID/role/逐字引用。RQ20 故意暴露否定查询的相关性缺陷，不通过改评分隐藏。时间使用单调计时统计100次/模式的p50/p95（每查询5次，暖身不计入），不能外推生产吞吐。
 
 受控 lexicon Mock 只验证检索基础设施及评分实现，**不代表 bge-m3、DeepSeek 或任何真实 Embedding 的语义质量**。数据为新建虚构预期，不声称完成人工独立标注。完整配置、风险见 [M1指南](../docs/V0.2.2-M1_RETRIEVAL.md)。
+
+首次离线控制基线保存在 `baselines/retrieval-offline-v1.json`，包含来源CI run/head、原报告SHA和每例排名。回归测试校验数据SHA、三模式质量指标和确定性排名；延迟仅记录、不设硬阈值。它只固定当前离线fixture行为，不冻结或替代任何Live结果。
