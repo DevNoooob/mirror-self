@@ -6,6 +6,10 @@ import java.util.*;
 public final class RetrievalMetrics {
     private RetrievalMetrics() { }
     public record Values(Double recallAtK,Double reciprocalRank,Double ndcgAtK,boolean correctEmpty) { }
+    public static double precisionAtK(List<String> ranked,Map<String,Integer> relevance,int k) {
+        if(k<1) throw new IllegalArgumentException("k must be positive");
+        return (double)ranked.stream().distinct().limit(k).filter(relevance::containsKey).count()/k;
+    }
     public static Values score(List<String> ranked,Map<String,Integer> relevance,int k) {
         if(k<1) throw new IllegalArgumentException("k must be positive");
         var hits=ranked.stream().distinct().limit(k).toList();
