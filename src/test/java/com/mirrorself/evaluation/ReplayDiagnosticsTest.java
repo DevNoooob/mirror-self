@@ -66,6 +66,15 @@ class ReplayDiagnosticsTest {
         var a=assess(first,next,List.of(candidate(MemoryType.FACT)),List.of(),List.of(row(other,MemoryType.FACT)),false);
         assertNull(a.modelOutputConsistent());assertFalse(a.databaseRowSetIdempotent());assertEquals(List.of(ROW.toString()),a.removedIds());
     }
+    @Test void unknownOrUnselectedEvidenceIsNotPresentedAsSelectedInTypeDriftAudit() {
+        UUID unknown=UUID.randomUUID();var refs=List.of(new ExtractedMemory.EvidenceRef(unknown,TEXT));
+        var x=new ExtractedMemory(MemoryType.FACT,TEXT,AssertionOrigin.USER_EXPLICIT,Sensitivity.NORMAL,ExtractedMemory.TemporalScope.SOURCE_TIME,refs);
+        var y=new ExtractedMemory(MemoryType.KNOWLEDGE,TEXT,AssertionOrigin.USER_EXPLICIT,Sensitivity.NORMAL,ExtractedMemory.TemporalScope.SOURCE_TIME,refs);
+        var ids=List.of(ROW.toString());var first=round(0,1,0,0,1,List.of("INVALID_EVIDENCE"),ids);
+        var a=assess(first,round(1,1,0,0,1,List.of("INVALID_EVIDENCE"),ids),List.of(x),List.of(y),List.of(row(ROW,MemoryType.FACT)),true);
+        var pointer=a.typeDrifts().getFirst().evidence().getFirst();assertFalse(pointer.selected());
+        assertEquals("unknown",pointer.messageId());assertEquals(-1,pointer.start());
+    }
     @Test void reportExtensionsContainNoTextQuotesOrContentHashesAndOldReportsStillRead() throws Exception {
         var ids=List.of(ROW.toString());var first=round(0,1,1,1,0,List.of(),ids);
         var a=assess(first,round(1,0,0,0,0,List.of(),ids),List.of(candidate(MemoryType.FACT)),List.of(),List.of(row(ROW,MemoryType.FACT)),true);

@@ -80,7 +80,7 @@ public final class MemoryEvaluationService {
             var firstRound=ReplayDiagnostics.round(0,firstJobs,trace.proposals,trace.rejectedCounts(),first);
             List<ReplayAttempt> replayDetails=new ArrayList<>();
             Map<UUID,SourceRepository.SourceView> sourceViews=new HashMap<>();
-            ids.values().forEach(id->sourceViews.put(id,sources.get(owner,id)));
+            selected.forEach(mid->{UUID id=ids.get(c.caseId()+":"+mid);sourceViews.put(id,sources.get(owner,id));});
             int replayChecks=0,successfulReplays=0;
             for(int replay=1;replay<c.repeatExtractions();replay++) {
                 int inserted=0,accepted=0;
