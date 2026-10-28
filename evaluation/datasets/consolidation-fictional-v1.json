@@ -1,0 +1,1027 @@
+{
+  "version": "consolidation-fictional-v1",
+  "fictional": true,
+  "annotationStatus": "SYNTHETIC_REFERENCE_PENDING_HUMAN_REVIEW",
+  "model": "CONTROLLED_STORED_VECTORS_ONLY",
+  "description": "Independent fictional relationship expectations. Vectors only recall a bounded pair; they do not encode the expected relation. CC16 is a valid unfamiliar paraphrase and may be missed by bounded rules.",
+  "gates": {
+    "minPrecision": 1.0,
+    "minRecall": 0.7,
+    "maxFalseSameAsRate": 0.0,
+    "minEvidenceAccuracy": 1.0,
+    "minReviewPolicyAccuracy": 1.0
+  },
+  "cases": [
+    {
+      "id": "CC01",
+      "coverage": "cross-language-negative-equivalence",
+      "left": {
+        "text": "我不喝咖啡。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "I do not drink coffee.",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "SAME_AS"
+    },
+    {
+      "id": "CC02",
+      "coverage": "opposite-polarity-same-time",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我不喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "CONTRADICTS"
+    },
+    {
+      "id": "CC03",
+      "coverage": "possible-evolution-across-time",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2022-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我不喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2025-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "EVOLVED_FROM",
+      "expectedFrom": "right"
+    },
+    {
+      "id": "CC04",
+      "coverage": "historical-source-time-in-one-message",
+      "left": {
+        "text": "我以前喜欢园艺。",
+        "type": "OPINION",
+        "scope": "HISTORICAL",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "shared",
+            "text": "我以前喜欢园艺。我现在不喜欢园艺。"
+          }
+        ]
+      },
+      "right": {
+        "text": "我现在不喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "shared",
+            "text": "我以前喜欢园艺。我现在不喜欢园艺。"
+          }
+        ]
+      },
+      "expectedRelation": "EVOLVED_FROM",
+      "expectedFrom": "right"
+    },
+    {
+      "id": "CC05",
+      "coverage": "independent-facts-same-source",
+      "left": {
+        "text": "我喜欢陶艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "shared",
+            "text": "我喜欢陶艺。我不喝咖啡。"
+          }
+        ]
+      },
+      "right": {
+        "text": "我不喝咖啡。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "shared",
+            "text": "我喜欢陶艺。我不喝咖啡。"
+          }
+        ]
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC06",
+      "coverage": "conditional-goal-not-completed-event",
+      "left": {
+        "text": "如果获得录取，我可能去月港学习。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我已经完成月港课程。",
+        "type": "EVENT",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC07",
+      "coverage": "same-complete-conditional-intent",
+      "left": {
+        "text": "如果获得录取，我可能去月港学习。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "如果获得录取，我可能去月港学习。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "SAME_AS"
+    },
+    {
+      "id": "CC08",
+      "coverage": "different-condition-protected",
+      "left": {
+        "text": "如果获得录取，我可能去月港学习。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "如果得到资助，我可能去月港学习。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC09",
+      "coverage": "self-report-not-objective-personality",
+      "left": {
+        "text": "我觉得自己很耐心。",
+        "type": "THOUGHT_PROCESS",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我是稳定的耐心型人格。",
+        "type": "FACT",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC10",
+      "coverage": "cross-language-reviewed-self-report",
+      "left": {
+        "text": "我觉得自己很耐心。",
+        "type": "THOUGHT_PROCESS",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "I consider myself patient.",
+        "type": "THOUGHT_PROCESS",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "SAME_AS"
+    },
+    {
+      "id": "CC11",
+      "coverage": "additional-verified-evidence",
+      "left": {
+        "text": "我不喝咖啡。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "shared",
+            "text": "我不喝咖啡。"
+          }
+        ]
+      },
+      "right": {
+        "text": "I do not drink coffee.",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "shared",
+            "text": "我不喝咖啡。"
+          },
+          {
+            "key": "extra",
+            "text": "I do not drink coffee."
+          }
+        ]
+      },
+      "expectedRelation": "SUPPORTS",
+      "expectedFrom": "right"
+    },
+    {
+      "id": "CC12",
+      "coverage": "reassertion-not-continuous-truth",
+      "left": {
+        "text": "我不喝咖啡。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2022-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "I do not drink coffee.",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2025-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "SUPPORTS",
+      "expectedFrom": "right"
+    },
+    {
+      "id": "CC13",
+      "coverage": "unknown-time-no-conflict-inference",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": null,
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我不喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": null,
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC14",
+      "coverage": "type-correction-separate",
+      "left": {
+        "text": "我使用Java。",
+        "type": "FACT",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我使用Java。",
+        "type": "KNOWLEDGE",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC15",
+      "coverage": "different-historical-events",
+      "left": {
+        "text": "In 2018 I lived in Amber Town.",
+        "type": "FACT",
+        "scope": "HISTORICAL",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "In 2020 I lived in Amber Town.",
+        "type": "FACT",
+        "scope": "HISTORICAL",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC16",
+      "coverage": "held-out-unsupported-paraphrase",
+      "left": {
+        "text": "我不喜欢重复劳动。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "I dislike monotonous tasks.",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": "SAME_AS"
+    },
+    {
+      "id": "CC17",
+      "coverage": "different-context-not-conflict",
+      "left": {
+        "text": "I like coffee at work.",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "I do not like coffee at home.",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC18",
+      "coverage": "assistant-not-user",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "assistant",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC19",
+      "coverage": "owner-isolation",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "B",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC20",
+      "coverage": "secret-excluded",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "SECRET",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC21",
+      "coverage": "restricted-source-excluded",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "RESTRICTED",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC22",
+      "coverage": "pending-inference-excluded",
+      "left": {
+        "text": "我觉得自己很耐心。",
+        "type": "THOUGHT_PROCESS",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我觉得自己很耐心。",
+        "type": "THOUGHT_PROCESS",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "PENDING_REVIEW",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "MODEL_INFERRED",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC23",
+      "coverage": "rejected-memory-excluded",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "REJECTED",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC24",
+      "coverage": "retracted-memory-excluded",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "RETRACTED",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC25",
+      "coverage": "deleted-memory-excluded",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [],
+        "deleted": true
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC26",
+      "coverage": "fabricated-l1-not-l0-supported",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "bad",
+            "text": "我不喜欢园艺。"
+          }
+        ]
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC27",
+      "coverage": "double-negation-not-equivalence",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我并非不喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC28",
+      "coverage": "partial-compound-not-equivalent",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺并且喜欢陶艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC29",
+      "coverage": "other-person-not-self",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我的朋友喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC30",
+      "coverage": "possible-not-definite",
+      "left": {
+        "text": "我可能写小说。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我希望写小说。",
+        "type": "GOAL",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "expectedRelation": null
+    },
+    {
+      "id": "CC31",
+      "coverage": "unmatched-source-time",
+      "left": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": []
+      },
+      "right": {
+        "text": "我喜欢园艺。",
+        "type": "OPINION",
+        "scope": "SOURCE_TIME",
+        "time": "2024-03-01T00:00:00Z",
+        "status": "ACTIVE",
+        "sensitivity": "NORMAL",
+        "role": "user",
+        "privacy": "PRIVATE",
+        "origin": "USER_EXPLICIT",
+        "owner": "A",
+        "sources": [
+          {
+            "key": "wrong-time",
+            "text": "我喜欢园艺。",
+            "time": "2020-01-01T00:00:00Z"
+          }
+        ]
+      },
+      "expectedRelation": null
+    }
+  ]
+}
