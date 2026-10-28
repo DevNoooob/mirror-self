@@ -1,0 +1,14 @@
+{
+  "temporaryMavenContainerRemoved": true,
+  "temporaryCheckoutRemoved": true,
+  "remainingTestcontainers": [],
+  "credentialFilesWritten": false,
+  "credentialProcessesExited": true,
+  "formalServicesModified": false,
+  "formalDatabaseAccessed": false,
+  "remainingRemoteVolumes": [
+    "mirror-self_pgdata"
+  ],
+  "temporaryTestVolumesRemain": false,
+  "businessVolumeModified": false
+}

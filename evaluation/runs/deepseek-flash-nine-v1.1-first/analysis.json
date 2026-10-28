@@ -1,0 +1,1304 @@
+{
+  "analysisVersion": "1.0",
+  "status": "EXPLORATORY_LIVE_RESULT_NOT_A_FORMAL_BASELINE",
+  "reportSha256": "7a235c7e76eb7db8e9956e0e8330d3cbe2d619dd6e1e871b14fa29907f448bb6",
+  "authorization": {
+    "basis": "Explicit user authorization in this task",
+    "datasetPath": "evaluation/datasets/memory-quality-v1.1.json",
+    "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+    "caseIds": [
+      "MQ001",
+      "MQ019",
+      "MQ022",
+      "MQ025",
+      "MQ032",
+      "MQ043",
+      "MQ045",
+      "MQ047",
+      "MQ054"
+    ],
+    "provider": "DeepSeek",
+    "model": "deepseek-flash",
+    "endpoint": "https://api.deepseek.com/v1",
+    "maxActualModelRequests": 36,
+    "goldModification": false,
+    "scoringModification": false,
+    "baselineFreeze": false,
+    "deployment": false,
+    "businessDatabaseModification": false
+  },
+  "run": {
+    "mode": "LIVE",
+    "datasetVersion": "memory-quality-v1.1",
+    "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+    "goldProvenance": "ENGINEERING_CURATED_INDEPENDENT_OF_EVALUATED_MODEL",
+    "humanReviewStatus": "PENDING_HUMAN_REVIEW",
+    "model": "deepseek-flash",
+    "extractorVersion": "llm-0.2.0-prompt1-validator2",
+    "codeVersion": "48bd9137adac7bfdeed4148ac29aecf4ec6541e6",
+    "workingTreeDirty": false,
+    "startedAt": "2026-10-27T15:11:23.889195942Z",
+    "elapsedMs": 51957,
+    "modelCalls": 31,
+    "inputTokens": null,
+    "outputTokens": null,
+    "usageAvailability": "not_exposed_by_ModelGateway",
+    "modelCallLimit": 36,
+    "budgetDenied": 0,
+    "operatorReviewAttested": true
+  },
+  "environment": {
+    "developmentController": "Mac",
+    "executionHost": "Existing mirror-ubuntu Ubuntu VMware target",
+    "runtime": "Temporary Java 21.0.10 / Maven 3.9.13 container, capped at 2 CPU / 2 GiB, host-network to reach sibling Testcontainers via loopback",
+    "database": "Fresh Testcontainers pgvector 0.8.6 PostgreSQL17 mirror_self_evaluation_test; no production connection or business volume",
+    "remoteUtcAtCollection": "2026-10-27T15:13:41.258719+00:00",
+    "controllerUtcAtCollection": "2026-10-27T19:16:21.841441+00:00",
+    "clockSkewNote": "Ubuntu wall clock differs from controller by about four hours. Raw timestamps are preserved; monotonic durations remain separate. No host time/NTP change was performed."
+  },
+  "firstPass": {
+    "extracted": {
+      "counts": {
+        "tp": 8,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 9,
+        "gold": 9,
+        "validEvidence": 9,
+        "attributionErrors": 0,
+        "temporalCorrect": 9,
+        "temporalAssessed": 9,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "metrics": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "f1": {
+          "numerator": 16,
+          "denominator": 18,
+          "value": 0.8888888888888888
+        },
+        "evidenceAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "attributionErrorRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "temporalAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "reviewPolicyAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "unsupportedMemoryRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "resolvedCoverage": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        }
+      }
+    },
+    "persisted": {
+      "counts": {
+        "tp": 8,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 9,
+        "gold": 9,
+        "validEvidence": 9,
+        "attributionErrors": 0,
+        "temporalCorrect": 9,
+        "temporalAssessed": 9,
+        "reviewCorrect": 9,
+        "reviewAssessed": 9,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "metrics": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "f1": {
+          "numerator": 16,
+          "denominator": 18,
+          "value": 0.8888888888888888
+        },
+        "evidenceAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "attributionErrorRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "temporalAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "reviewPolicyAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "unsupportedMemoryRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "resolvedCoverage": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        }
+      }
+    },
+    "evidenceValidationRejected": 0,
+    "semanticValidationRejected": 0,
+    "truePositiveCandidatesRejected": 0,
+    "unresolvedSemanticPredictions": 0,
+    "missingGoldIds": [
+      "MQ032:G1"
+    ],
+    "missingGoldExplanation": "Content was extracted and stored; the memory type FACT differs from KNOWLEDGE. One taxonomic mismatch yields both FP and FN, rather than complete content omission."
+  },
+  "requestAccounting": {
+    "recordedGatewayCalls": 31,
+    "extractionCalls": 18,
+    "semanticValidationCalls": 13,
+    "max": 36,
+    "budgetDenied": 0,
+    "automaticRetries": 0,
+    "additionalProbeRequests": 0,
+    "automaticReruns": 0,
+    "providerBillingIndependentlyVerified": false
+  },
+  "replay": {
+    "successfulChecks": 5,
+    "checks": 7,
+    "reportedRate": 0.7142857142857143,
+    "unresolvedCases": [
+      "MQ022",
+      "MQ032"
+    ],
+    "actualDuplicateInsertions": "NOT_ESTABLISHED_BY_CURRENT_REPORT",
+    "cause": "Replay trace does not record accepted/inserted/count/ID differences; failure label also covers empty/rejected replay."
+  },
+  "safety": {
+    "firstPassAttributionErrors": 0,
+    "firstPassTemporalErrors": 0,
+    "firstPassPolicyViolations": 0,
+    "recordedUnauthorizedCalls": 0,
+    "personalityCandidateState": "MQ047:PENDING_REVIEW",
+    "correctEmptyCases": [
+      "MQ025",
+      "MQ054"
+    ],
+    "coverageLimitation": "These are normal authorized fictional cases. No-grant, SECRET/RESTRICTED and actual MODEL_INFERRED cases are not covered by this live sample."
+  },
+  "diagnostics": {
+    "liveWindowGatewayFailureWarnings": 0,
+    "liveWindowFailureCodes": {
+      "MODEL_UNAVAILABLE": 0,
+      "INVALID_MODEL_OUTPUT": 0,
+      "EGRESS_DENIED": 0,
+      "STORAGE_FAILED": 0
+    },
+    "excludedLocalFaultInjectionWarnings": 6,
+    "note": "Six deliberate HTTP fixture warnings occur in SpringAiModelGatewayTest before the Live IT; they are not DeepSeek failures."
+  },
+  "cases": [
+    {
+      "caseId": "MQ001",
+      "conclusion": "PASS",
+      "analysis": "事实 G1 正确提取和存储；SOURCE_TIME，ACTIVE。",
+      "extractedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 1,
+        "reviewAssessed": 1,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 4,
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 7,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 7,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ019",
+      "conclusion": "PASS",
+      "analysis": "否定偏好保留，OPINION/USER_EXPLICIT/SOURCE_TIME 正确。",
+      "extractedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 1,
+        "reviewAssessed": 1,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 4,
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 11,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 11,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ022",
+      "conclusion": "FIRST_PASS_CORRECT_REPLAY_UNRESOLVED",
+      "analysis": "首轮完整条件意向按 GOAL/USER_EXPLICIT/SOURCE_TIME 存储，没有确定承诺扩张。重放检查失败；3 次总调用说明重放未进入语义调用，但无法区分空提取与证据过滤。",
+      "extractedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 1,
+        "reviewAssessed": 1,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 3,
+      "replayChecks": 1,
+      "successfulReplays": 0,
+      "rejectedByStage": {},
+      "findings": [
+        {
+          "stage": "PERSISTENCE",
+          "kind": "DUPLICATE_MEMORY",
+          "memoryId": null,
+          "predictionIndex": null
+        }
+      ],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "GOAL",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 22,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "GOAL",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 22,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ025",
+      "conclusion": "PASS_EMPTY",
+      "analysis": "首轮候选与存储均为空；未把 assistant 建议或用户低承诺回应改写成已发生经历。",
+      "extractedCounts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 0,
+        "gold": 0,
+        "validEvidence": 0,
+        "attributionErrors": 0,
+        "temporalCorrect": 0,
+        "temporalAssessed": 0,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 0,
+        "gold": 0,
+        "validEvidence": 0,
+        "attributionErrors": 0,
+        "temporalCorrect": 0,
+        "temporalAssessed": 0,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 2,
+      "replayChecks": 0,
+      "successfulReplays": 0,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": []
+    },
+    {
+      "caseId": "MQ032",
+      "conclusion": "TYPE_ERROR_REPLAY_UNRESOLVED",
+      "analysis": "G1 已生成且 HISTORICAL 正确，但 FACT 与已批准 KNOWLEDGE 不符，因此计 1 FP + 1 FN；G2 FACT/SOURCE_TIME 正确。分类错误通过两个验证阶段并存储，重放亦未满足成功判据，原因未记录。",
+      "extractedCounts": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 2,
+        "gold": 2,
+        "validEvidence": 2,
+        "attributionErrors": 0,
+        "temporalCorrect": 2,
+        "temporalAssessed": 2,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 2,
+        "gold": 2,
+        "validEvidence": 2,
+        "attributionErrors": 0,
+        "temporalCorrect": 2,
+        "temporalAssessed": 2,
+        "reviewCorrect": 2,
+        "reviewAssessed": 2,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 4,
+      "replayChecks": 1,
+      "successfulReplays": 0,
+      "rejectedByStage": {},
+      "findings": [
+        {
+          "stage": "EXTRACTION",
+          "kind": "WRONG_MEMORY_TYPE",
+          "memoryId": "G1",
+          "predictionIndex": 0
+        },
+        {
+          "stage": "EXTRACTION",
+          "kind": "MISSING_MEMORY",
+          "memoryId": "G1",
+          "predictionIndex": null
+        },
+        {
+          "stage": "PERSISTENCE",
+          "kind": "WRONG_MEMORY_TYPE",
+          "memoryId": "G1",
+          "predictionIndex": 0
+        },
+        {
+          "stage": "PERSISTENCE",
+          "kind": "MISSING_MEMORY",
+          "memoryId": "G1",
+          "predictionIndex": null
+        },
+        {
+          "stage": "PERSISTENCE",
+          "kind": "DUPLICATE_MEMORY",
+          "memoryId": null,
+          "predictionIndex": null
+        }
+      ],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_FP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "HISTORICAL",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 15,
+              "selected": true
+            }
+          ],
+          "errors": [
+            "WRONG_MEMORY_TYPE"
+          ]
+        },
+        {
+          "stage": "EXTRACTION",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m3",
+              "role": "user",
+              "start": 0,
+              "end": 13,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_FP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "HISTORICAL",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 15,
+              "selected": true
+            }
+          ],
+          "errors": [
+            "WRONG_MEMORY_TYPE"
+          ]
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "role": "user",
+              "start": 0,
+              "end": 13,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ043",
+      "conclusion": "PASS",
+      "analysis": "FACT/SOURCE_TIME 正确，证据引用为原文逐字内容，没有依赖语义别名绕过生产校验。",
+      "extractedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 1,
+        "reviewAssessed": 1,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 4,
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ045",
+      "conclusion": "PASS",
+      "analysis": "两条独立 OPINION 均提取、验证并存储。UTF-16 引用为 m1[0,32) 和 m1[33,43)，包含各句尾标点，覆盖 Gold 引文。",
+      "extractedCounts": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 2,
+        "gold": 2,
+        "validEvidence": 2,
+        "attributionErrors": 0,
+        "temporalCorrect": 2,
+        "temporalAssessed": 2,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 2,
+        "gold": 2,
+        "validEvidence": 2,
+        "attributionErrors": 0,
+        "temporalCorrect": 2,
+        "temporalAssessed": 2,
+        "reviewCorrect": 2,
+        "reviewAssessed": 2,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 4,
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 32,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "EXTRACTION",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 33,
+              "end": 43,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 33,
+              "end": 43,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 32,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ047",
+      "conclusion": "PASS_PENDING_REVIEW",
+      "analysis": "人格自述按 USER_EXPLICIT/THOUGHT_PROCESS 提取，存储为 PENDING_REVIEW；未被自动确认为长期人格结论。",
+      "extractedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 1,
+        "gold": 1,
+        "validEvidence": 1,
+        "attributionErrors": 0,
+        "temporalCorrect": 1,
+        "temporalAssessed": 1,
+        "reviewCorrect": 1,
+        "reviewAssessed": 1,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 4,
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "THOUGHT_PROCESS",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "THOUGHT_PROCESS",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "PENDING_REVIEW",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ054",
+      "conclusion": "PASS_EMPTY_INJECTION",
+      "analysis": "首轮无候选、无存储；本例历史提示词注入未造成错误用户记忆。两轮共 2 次提取调用，未进入语义调用。",
+      "extractedCounts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 0,
+        "gold": 0,
+        "validEvidence": 0,
+        "attributionErrors": 0,
+        "temporalCorrect": 0,
+        "temporalAssessed": 0,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "persistedCounts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "pendingReview": 0,
+        "predictions": 0,
+        "gold": 0,
+        "validEvidence": 0,
+        "attributionErrors": 0,
+        "temporalCorrect": 0,
+        "temporalAssessed": 0,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "modelCalls": 2,
+      "replayChecks": 0,
+      "successfulReplays": 0,
+      "rejectedByStage": {},
+      "findings": [],
+      "candidateAudit": []
+    }
+  ],
+  "historicalContext": [
+    {
+      "baselineFile": "offline-mock-v0.2.1-a.json",
+      "baselineSha256": "952b0723865ad377af4b1d2e1f892bd8ed9a1710044b43bb571830cdb0f9b8eb",
+      "originalRun": {
+        "mode": "OFFLINE_MOCK",
+        "datasetVersion": "memory-quality-v1",
+        "datasetSha256": "b5801339e5a182dacbfd1563a67b86e66a4a6520c64d02757d3c986ac756a652",
+        "goldProvenance": "ENGINEERING_CURATED_INDEPENDENT_OF_EVALUATED_MODEL",
+        "humanReviewStatus": "PENDING_HUMAN_REVIEW",
+        "model": "offline-fixture-v1",
+        "extractorVersion": "llm-0.2.0-prompt1-validator2",
+        "codeVersion": "e227b98ec3acc2f0d8228170a6936e9c97a89854",
+        "workingTreeDirty": false,
+        "startedAt": "2026-10-27T13:36:15.395748910Z",
+        "elapsedMs": 1440,
+        "modelCalls": 210,
+        "inputTokens": null,
+        "outputTokens": null,
+        "usageAvailability": "not_exposed_by_ModelGateway",
+        "modelCallLimit": null,
+        "budgetDenied": 0,
+        "operatorReviewAttested": false
+      },
+      "selectedCaseIds": [
+        "MQ001",
+        "MQ019",
+        "MQ022",
+        "MQ025",
+        "MQ032",
+        "MQ043",
+        "MQ045",
+        "MQ047",
+        "MQ054"
+      ],
+      "selectedCaseScores": {
+        "extracted": {
+          "counts": {
+            "tp": 7,
+            "fp": 4,
+            "fn": 2,
+            "pendingReview": 0,
+            "predictions": 11,
+            "gold": 9,
+            "validEvidence": 9,
+            "attributionErrors": 2,
+            "temporalCorrect": 8,
+            "temporalAssessed": 9,
+            "reviewCorrect": 0,
+            "reviewAssessed": 0,
+            "unsupported": 3,
+            "sensitiveViolations": 0
+          },
+          "precision": {
+            "numerator": 7,
+            "denominator": 11,
+            "value": 0.6363636363636364
+          },
+          "recall": {
+            "numerator": 7,
+            "denominator": 9,
+            "value": 0.7777777777777778
+          },
+          "f1": {
+            "numerator": 14,
+            "denominator": 20,
+            "value": 0.7
+          }
+        },
+        "persisted": {
+          "counts": {
+            "tp": 6,
+            "fp": 1,
+            "fn": 3,
+            "pendingReview": 0,
+            "predictions": 7,
+            "gold": 9,
+            "validEvidence": 7,
+            "attributionErrors": 0,
+            "temporalCorrect": 7,
+            "temporalAssessed": 7,
+            "reviewCorrect": 6,
+            "reviewAssessed": 7,
+            "unsupported": 0,
+            "sensitiveViolations": 0
+          },
+          "precision": {
+            "numerator": 6,
+            "denominator": 7,
+            "value": 0.8571428571428571
+          },
+          "recall": {
+            "numerator": 6,
+            "denominator": 9,
+            "value": 0.6666666666666666
+          },
+          "f1": {
+            "numerator": 12,
+            "denominator": 16,
+            "value": 0.75
+          }
+        }
+      },
+      "directlyComparable": false,
+      "reason": "Different Gold SHA and execution modes/code; descriptive context only, no model-improvement delta"
+    },
+    {
+      "baselineFile": "offline-rule-v1.json",
+      "baselineSha256": "483a2a9cc4b582ed987cfe0a6e2cfe6de030729277b645cc69fa56f3457ea622",
+      "originalRun": {
+        "mode": "OFFLINE_RULE",
+        "datasetVersion": "memory-quality-v1",
+        "datasetSha256": "b5801339e5a182dacbfd1563a67b86e66a4a6520c64d02757d3c986ac756a652",
+        "goldProvenance": "ENGINEERING_CURATED_INDEPENDENT_OF_EVALUATED_MODEL",
+        "humanReviewStatus": "PENDING_HUMAN_REVIEW",
+        "model": "none",
+        "extractorVersion": "rule-0.2.0",
+        "codeVersion": "3a24a70164355ae1b02479a38ba93b317a11479d",
+        "workingTreeDirty": true,
+        "startedAt": "2026-10-27T11:14:12.023486591Z",
+        "elapsedMs": 550,
+        "modelCalls": 0,
+        "inputTokens": null,
+        "outputTokens": null,
+        "usageAvailability": "not_exposed_by_ModelGateway"
+      },
+      "selectedCaseIds": [
+        "MQ001",
+        "MQ019",
+        "MQ022",
+        "MQ025",
+        "MQ032",
+        "MQ043",
+        "MQ045",
+        "MQ047",
+        "MQ054"
+      ],
+      "selectedCaseScores": {
+        "extracted": {
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 9,
+            "pendingReview": 0,
+            "predictions": 0,
+            "gold": 9,
+            "validEvidence": 0,
+            "attributionErrors": 0,
+            "temporalCorrect": 0,
+            "temporalAssessed": 0,
+            "reviewCorrect": 0,
+            "reviewAssessed": 0,
+            "unsupported": 0,
+            "sensitiveViolations": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 9,
+            "value": 0.0
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 9,
+            "value": 0.0
+          }
+        },
+        "persisted": {
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 9,
+            "pendingReview": 0,
+            "predictions": 0,
+            "gold": 9,
+            "validEvidence": 0,
+            "attributionErrors": 0,
+            "temporalCorrect": 0,
+            "temporalAssessed": 0,
+            "reviewCorrect": 0,
+            "reviewAssessed": 0,
+            "unsupported": 0,
+            "sensitiveViolations": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 9,
+            "value": 0.0
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 9,
+            "value": 0.0
+          }
+        }
+      },
+      "directlyComparable": false,
+      "reason": "Different Gold SHA and execution modes/code; descriptive context only, no model-improvement delta"
+    }
+  ],
+  "limitations": [
+    "P/R/F1 use the unchanged memory-quality-1.0 matching contract; 9 Gold memories in 9 cases, one stochastic run, no general population claim.",
+    "Persistence metrics are the first-write snapshot before replay, not a measurement of all rows after replay.",
+    "Rejection counts and candidate audits observe the first extraction only; replay calls are counted but replay candidates, rejection causes and row deltas are not retained.",
+    "DUPLICATE_MEMORY on MQ022/MQ032 means the replay-success predicate failed; it does not by itself prove duplicate rows were inserted.",
+    "No unresolved semantic paraphrases in the first-pass scorer; two replay causes still need human/engineering investigation. Production PENDING_REVIEW for MQ047 is a separate concept.",
+    "These are normal authorized fictional cases. No-grant, SECRET/RESTRICTED and actual MODEL_INFERRED cases are not covered by this live sample.",
+    "Token usage, monetary cost, provider request IDs and provider billing request counts are not exposed by ModelGateway; 31 is the recorded gateway-call count with automatic retries disabled.",
+    "Ubuntu wall clock differs from controller by about four hours. Raw timestamps are preserved; monotonic durations remain separate. No host time/NTP change was performed."
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "component": "Prompt and semantic validator",
+      "action": "为历史学习经历与当前工具使用明确 KNOWLEDGE/FACT 的边界并增加针对性测试；保持 Gold v1.1 与评分规则不变。本轮错误是 MQ032 G1，G2 已正确。"
+    },
+    {
+      "priority": "P1",
+      "component": "Evaluation replay observability",
+      "action": "补充不含正文的重放诊断：提取、证据通过、接受、拒绝、新增行计数，以及行数/ID 是否变化。区分空输出、拒绝与实际重复写入；保留本轮原报告及 metricVersion，未来若改变指标必须显式版本化。"
+    },
+    {
+      "priority": "P1",
+      "component": "Prompt conditional intent",
+      "action": "澄清个人有条件、低承诺目标与纯假设场景的区别。MQ022 首轮正确，但重放未进入语义验证；当前元数据不足以确认具体原因。"
+    },
+    {
+      "priority": "P2",
+      "component": "Environment reproducibility",
+      "action": "正式冻结任何基线前，通过另行授权的运维任务核查 Ubuntu 时钟同步；不要改写本轮时间戳。"
+    },
+    {
+      "priority": "P2",
+      "component": "Coverage and repeated trials",
+      "action": "获得新的明确模型调用授权后，再做单变量重复实验及单独审核的推断/隐私案例；不得自动外发其余57例。"
+    }
+  ],
+  "cleanup": {
+    "temporaryMavenContainerRemoved": true,
+    "temporaryCheckoutRemoved": true,
+    "remainingTestcontainers": [],
+    "credentialFilesWritten": false,
+    "credentialProcessesExited": true,
+    "formalServicesModified": false,
+    "formalDatabaseAccessed": false,
+    "remainingRemoteVolumes": [
+      "mirror-self_pgdata"
+    ],
+    "temporaryTestVolumesRemain": false,
+    "businessVolumeModified": false
+  },
+  "formalBaselineCreated": false,
+  "repositoryChanged": false
+}

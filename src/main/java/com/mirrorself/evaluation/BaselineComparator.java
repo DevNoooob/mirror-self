@@ -22,7 +22,7 @@ public final class BaselineComparator {
     }
     public EvaluationReport attach(EvaluationReport current,EvaluationReport baseline) {
         return new EvaluationReport(current.reportVersion(),current.metricVersion(),current.run(),current.overall(),
-                current.categories(),current.cases(),compare(baseline,current),current.optimizationPriorities());
+                current.categories(),current.cases(),compare(baseline,current),current.optimizationPriorities(),current.replaySummary(),current.replayDiagnostics());
     }
     private BaselineComparison incompatible(String reason) {return new BaselineComparison(false,reason,Map.of(),Map.of(),List.of(),List.of());}
     private Map<String,Double> deltas(Aggregate a,Aggregate b) {

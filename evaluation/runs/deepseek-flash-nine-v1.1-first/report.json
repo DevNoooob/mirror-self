@@ -1,0 +1,3981 @@
+{
+  "reportVersion": "1.1",
+  "metricVersion": "memory-quality-1.0",
+  "run": {
+    "mode": "LIVE",
+    "datasetVersion": "memory-quality-v1.1",
+    "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+    "goldProvenance": "ENGINEERING_CURATED_INDEPENDENT_OF_EVALUATED_MODEL",
+    "humanReviewStatus": "PENDING_HUMAN_REVIEW",
+    "model": "deepseek-flash",
+    "extractorVersion": "llm-0.2.0-prompt1-validator2",
+    "codeVersion": "48bd9137adac7bfdeed4148ac29aecf4ec6541e6",
+    "workingTreeDirty": false,
+    "startedAt": "2026-10-27T15:11:23.889195942Z",
+    "elapsedMs": 51957,
+    "modelCalls": 31,
+    "inputTokens": null,
+    "outputTokens": null,
+    "usageAvailability": "not_exposed_by_ModelGateway",
+    "modelCallLimit": 36,
+    "budgetDenied": 0,
+    "operatorReviewAttested": true
+  },
+  "overall": {
+    "extracted": {
+      "counts": {
+        "tp": 8,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 9,
+        "gold": 9,
+        "validEvidence": 9,
+        "attributionErrors": 0,
+        "temporalCorrect": 9,
+        "temporalAssessed": 9,
+        "reviewCorrect": 0,
+        "reviewAssessed": 0,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "metrics": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "f1": {
+          "numerator": 16,
+          "denominator": 18,
+          "value": 0.8888888888888888
+        },
+        "evidenceAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "attributionErrorRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "temporalAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "reviewPolicyAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "unsupportedMemoryRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "resolvedCoverage": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        }
+      }
+    },
+    "persisted": {
+      "counts": {
+        "tp": 8,
+        "fp": 1,
+        "fn": 1,
+        "pendingReview": 0,
+        "predictions": 9,
+        "gold": 9,
+        "validEvidence": 9,
+        "attributionErrors": 0,
+        "temporalCorrect": 9,
+        "temporalAssessed": 9,
+        "reviewCorrect": 9,
+        "reviewAssessed": 9,
+        "unsupported": 0,
+        "sensitiveViolations": 0
+      },
+      "metrics": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888
+        },
+        "f1": {
+          "numerator": 16,
+          "denominator": 18,
+          "value": 0.8888888888888888
+        },
+        "evidenceAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "attributionErrorRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "temporalAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "reviewPolicyAccuracy": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        },
+        "unsupportedMemoryRate": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "resolvedCoverage": {
+          "numerator": 9,
+          "denominator": 9,
+          "value": 1.0
+        }
+      }
+    },
+    "deduplicationAccuracy": {
+      "numerator": 5,
+      "denominator": 7,
+      "value": 0.7142857142857143
+    },
+    "privacyViolationRate": {
+      "numerator": 0,
+      "denominator": 9,
+      "value": 0.0
+    },
+    "unauthorizedCalls": 0,
+    "policyViolations": 0,
+    "correctEmptyCases": 2,
+    "caseCount": 9,
+    "errorCounts": {
+      "MISSING_MEMORY": 2,
+      "WRONG_MEMORY_TYPE": 2,
+      "DUPLICATE_MEMORY": 2
+    }
+  },
+  "categories": {
+    "assistant_attribution": {
+      "extracted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 1,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "empty_result": {
+      "extracted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 2,
+      "caseCount": 2,
+      "errorCounts": {}
+    },
+    "explicit_fact": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "future_plan": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {
+        "DUPLICATE_MEMORY": 1
+      }
+    },
+    "historical_fact": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 2,
+          "reviewAssessed": 2,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {
+        "MISSING_MEMORY": 2,
+        "WRONG_MEMORY_TYPE": 2,
+        "DUPLICATE_MEMORY": 1
+      }
+    },
+    "hypothetical": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {
+        "DUPLICATE_MEMORY": 1
+      }
+    },
+    "mixed_language": {
+      "extracted": {
+        "counts": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 2,
+          "reviewAssessed": 2,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "negation": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "preference": {
+      "extracted": {
+        "counts": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 3,
+          "gold": 3,
+          "validEvidence": 3,
+          "attributionErrors": 0,
+          "temporalCorrect": 3,
+          "temporalAssessed": 3,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 3,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 3,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 3,
+          "gold": 3,
+          "validEvidence": 3,
+          "attributionErrors": 0,
+          "temporalCorrect": 3,
+          "temporalAssessed": 3,
+          "reviewCorrect": 3,
+          "reviewAssessed": 3,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 3,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 3,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 2,
+      "errorCounts": {}
+    },
+    "prompt_injection": {
+      "extracted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 1,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "review_policy": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "semantic_equivalence": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {}
+    },
+    "temporal_change": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 2,
+          "reviewAssessed": 2,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {
+        "MISSING_MEMORY": 2,
+        "WRONG_MEMORY_TYPE": 2,
+        "DUPLICATE_MEMORY": 1
+      }
+    },
+    "thought_process": {
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "deduplicationAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "privacyViolationRate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "unauthorizedCalls": 0,
+      "policyViolations": 0,
+      "correctEmptyCases": 0,
+      "caseCount": 1,
+      "errorCounts": {}
+    }
+  },
+  "cases": [
+    {
+      "caseId": "MQ001",
+      "categories": [
+        "explicit_fact"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "modelCalls": 4,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 5462,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 7,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 7,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ019",
+      "categories": [
+        "negation",
+        "preference"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "modelCalls": 4,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 6014,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 11,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 11,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ022",
+      "categories": [
+        "hypothetical",
+        "future_plan"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [
+        {
+          "stage": "PERSISTENCE",
+          "kind": "DUPLICATE_MEMORY",
+          "memoryId": null,
+          "predictionIndex": null
+        }
+      ],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 0,
+      "modelCalls": 3,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 9971,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "GOAL",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 22,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "GOAL",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 22,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ025",
+      "categories": [
+        "assistant_attribution",
+        "empty_result"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 0,
+      "successfulReplays": 0,
+      "modelCalls": 2,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 2875,
+      "correctEmptyResult": true,
+      "candidates": []
+    },
+    {
+      "caseId": "MQ032",
+      "categories": [
+        "temporal_change",
+        "historical_fact"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 2,
+          "reviewAssessed": 2,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [
+        {
+          "stage": "EXTRACTION",
+          "kind": "WRONG_MEMORY_TYPE",
+          "memoryId": "G1",
+          "predictionIndex": 0
+        },
+        {
+          "stage": "EXTRACTION",
+          "kind": "MISSING_MEMORY",
+          "memoryId": "G1",
+          "predictionIndex": null
+        },
+        {
+          "stage": "PERSISTENCE",
+          "kind": "WRONG_MEMORY_TYPE",
+          "memoryId": "G1",
+          "predictionIndex": 0
+        },
+        {
+          "stage": "PERSISTENCE",
+          "kind": "MISSING_MEMORY",
+          "memoryId": "G1",
+          "predictionIndex": null
+        },
+        {
+          "stage": "PERSISTENCE",
+          "kind": "DUPLICATE_MEMORY",
+          "memoryId": null,
+          "predictionIndex": null
+        }
+      ],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 0,
+      "modelCalls": 4,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 7145,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_FP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "HISTORICAL",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 15,
+              "selected": true
+            }
+          ],
+          "errors": [
+            "WRONG_MEMORY_TYPE"
+          ]
+        },
+        {
+          "stage": "EXTRACTION",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m3",
+              "role": "user",
+              "start": 0,
+              "end": 13,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_FP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "HISTORICAL",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 15,
+              "selected": true
+            }
+          ],
+          "errors": [
+            "WRONG_MEMORY_TYPE"
+          ]
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m3",
+              "role": "user",
+              "start": 0,
+              "end": 13,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ043",
+      "categories": [
+        "semantic_equivalence"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "modelCalls": 4,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 5072,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "FACT",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ045",
+      "categories": [
+        "mixed_language",
+        "preference"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 2,
+          "gold": 2,
+          "validEvidence": 2,
+          "attributionErrors": 0,
+          "temporalCorrect": 2,
+          "temporalAssessed": 2,
+          "reviewCorrect": 2,
+          "reviewAssessed": 2,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "modelCalls": 4,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 6762,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 32,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "EXTRACTION",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 33,
+              "end": 43,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G2",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 33,
+              "end": 43,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 1,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "OPINION",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "ACTIVE",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 32,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ047",
+      "categories": [
+        "thought_process",
+        "review_policy"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 1,
+          "gold": 1,
+          "validEvidence": 1,
+          "attributionErrors": 0,
+          "temporalCorrect": 1,
+          "temporalAssessed": 1,
+          "reviewCorrect": 1,
+          "reviewAssessed": 1,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "f1": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1.0
+          },
+          "evidenceAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "temporalAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "resolvedCoverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 1,
+      "successfulReplays": 1,
+      "modelCalls": 4,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 6177,
+      "correctEmptyResult": false,
+      "candidates": [
+        {
+          "stage": "EXTRACTION",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "THOUGHT_PROCESS",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": null,
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "stage": "PERSISTENCE",
+          "index": 0,
+          "outcome": "CONFIRMED_TP",
+          "referenceMemoryId": "G1",
+          "type": "THOUGHT_PROCESS",
+          "origin": "USER_EXPLICIT",
+          "temporalScope": "SOURCE_TIME",
+          "status": "PENDING_REVIEW",
+          "evidence": [
+            {
+              "messageId": "m1",
+              "role": "user",
+              "start": 0,
+              "end": 10,
+              "selected": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "caseId": "MQ054",
+      "categories": [
+        "prompt_injection",
+        "empty_result"
+      ],
+      "extracted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "persisted": {
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "pendingReview": 0,
+          "predictions": 0,
+          "gold": 0,
+          "validEvidence": 0,
+          "attributionErrors": 0,
+          "temporalCorrect": 0,
+          "temporalAssessed": 0,
+          "reviewCorrect": 0,
+          "reviewAssessed": 0,
+          "unsupported": 0,
+          "sensitiveViolations": 0
+        },
+        "metrics": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "f1": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "evidenceAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "attributionErrorRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "temporalAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewPolicyAccuracy": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "unsupportedMemoryRate": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "resolvedCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "findings": [],
+      "rejectedByStage": {},
+      "replayChecks": 0,
+      "successfulReplays": 0,
+      "modelCalls": 2,
+      "unauthorizedCalls": 0,
+      "elapsedMs": 2471,
+      "correctEmptyResult": true,
+      "candidates": []
+    }
+  ],
+  "comparison": {
+    "comparable": false,
+    "reason": "baseline_not_supplied",
+    "metricDeltas": {},
+    "categoryDeltas": {},
+    "newFailures": [],
+    "resolvedFailures": []
+  },
+  "optimizationPriorities": [
+    "P2: inspect extraction recall by category, retaining evidence and privacy gates"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "hostUtc": "2026-10-28T04:27:30.725480+00:00",
+  "hostEpoch": 1793161650.7255402,
+  "timedatectl": {
+    "exit": 0,
+    "stdout": "Timezone=Asia/Shanghai\nNTP=yes\nNTPSynchronized=no\nTimeUSec=Wed 2026-10-28 12:27:30 CST\nRTCTimeUSec=Wed 2026-10-28 11:22:32 CST",
+    "stderr": ""
+  },
+  "timesync": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "Command requires systemd-timesyncd.service, but it is not available: The name org.freedesktop.timesync1 was not provided by any .service files"
+  },
+  "chrony": {
+    "exit": 0,
+    "stdout": "Reference ID    : B97DBE7B (ntp-nts-3.ps5.canonical.com)\nStratum         : 3\nRef time (UTC)  : Wed Oct 28 06:49:04 2026\nSystem time     : 10896.756835938 seconds slow of NTP time\nLast offset     : +0.000031093 seconds\nRMS offset      : 80.986648560 seconds\nFrequency       : 13.597 ppm slow\nResidual freq   : +0.000 ppm\nSkew            : 0.110 ppm\nRoot delay      : 0.192072898 seconds\nRoot dispersion : 0.014519724 seconds\nUpdate interval : 1026.7 seconds\nLeap status     : Normal",
+    "stderr": ""
+  },
+  "engine": {
+    "exit": 0,
+    "stdout": "mayue-VMware-Virtual-Platform Ubuntu 26.04.1 LTS",
+    "stderr": ""
+  },
+  "containerTime": {
+    "exit": 0,
+    "stdout": "2026-10-28T04:27:31.306906272Z",
+    "stderr": ""
+  },
+  "systemTimeModified": false,
+  "modelCalls": 0,
+  "hostUtcAfter": "2026-10-28T04:27:31.334637+00:00",
+  "controllerUtcBefore": "2026-10-28T07:29:05.216377+00:00",
+  "controllerUtcAfter": "2026-10-28T07:29:08.039725+00:00",
+  "controllerEpochBefore": 1793172545.216377,
+  "controllerEpochAfter": 1793172548.039725,
+  "roundTripMonotonicSeconds": 2.824159875,
+  "hostOffsetSecondsLowerBound": -10897.314184904099,
+  "hostOffsetSecondsUpperBound": -10894.49083685875,
+  "readOnlyPolicyDetails": {
+    "chronyService": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nSubState=running",
+      "stderr": ""
+    },
+    "vmwareTimesync": {
+      "errorType": "FileNotFoundError"
+    },
+    "chronyStepPolicy": [
+      "rtcsync",
+      "makestep 1 3"
+    ]
+  }
+}

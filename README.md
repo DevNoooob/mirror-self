@@ -151,7 +151,7 @@ bash scripts/evaluate-memory.sh rules
 
 报告写入 `target/evaluation/`。Mock 分数不代表真实 LLM 质量；当前仅指定九例在 v1.1 完成人工审核，其余 57 例未审。使用方式、Live 授权及隔离测试要求见 [评估指南](evaluation/README.md)，指标定义与边界见 [V0.2.1 设计](docs/V0.2.1_MEMORY_EVALUATION.md)。现有 API、业务数据库结构与隐私授权保持兼容。
 
-V0.2.1-A 现有 [九例独立审核表](evaluation/reviews/v0.2.1-a-gold-review.md) 和 [小样本预检/执行指南](docs/V0.2.1-A_LIVE_PILOT.md)。其中指定九例现已获用户人工审核并形成独立 Gold v1.1；其余 57 例未审，模型外发和付费批准仍未获得，不执行 Live。定稿内容见 [九例范围记录](evaluation/reviews/memory-quality-v1.1-reviewed.md)；Mac 可仅运行 `python3 scripts/live-pilot.py --dry-run` 查看计划。
+V0.2.1-A 现有 [九例独立审核表](evaluation/reviews/v0.2.1-a-gold-review.md) 和 [小样本预检/执行指南](docs/V0.2.1-A_LIVE_PILOT.md)。其中指定九例现已获用户人工审核并形成独立 Gold v1.1；其余 57 例未审；该准备阶段没有模型外发及付费批准。后续 V0.2.1-B 已获单独授权完成一次九例 Pilot，本次不重跑 Live。定稿内容见 [九例范围记录](evaluation/reviews/memory-quality-v1.1-reviewed.md)；Mac 可仅运行 `python3 scripts/live-pilot.py --dry-run` 查看计划。
 
 ## 设计文档
 
@@ -168,3 +168,5 @@ V0.2.1-A 现有 [九例独立审核表](evaluation/reviews/v0.2.1-a-gold-review.
 - [隐私、安全与已知边界](docs/SECURITY.md)
 
 本版由单用户、私有部署开始；对外共享相关表只是未来架构占位，不代表已经具备安全的对外分享能力。
+
+V0.2.1-B 已完成一次独立授权的九例真实 Pilot，原始脱敏资料见 [历史观测归档](evaluation/runs/deepseek-flash-nine-v1.1-first/README.md)。此前“未执行 Live”的准备材料保留为历史；本次 V0.2.1-C 没有新调用、正式基线或部署。[离线诊断与冻结准备](docs/V0.2.1-C_DIAGNOSTICS.md)说明重放独立指标、类型规范和时间限制。
