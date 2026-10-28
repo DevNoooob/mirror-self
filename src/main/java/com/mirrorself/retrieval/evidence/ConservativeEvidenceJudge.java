@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Decisions use user L0 quotations, never cosine scores or reference answers. */
 @Component
 public class ConservativeEvidenceJudge implements EvidenceSupportJudge {
-    public static final String VERSION="evidence-rules-1";
+    public static final String VERSION="evidence-rules-1.1";
     private static final Pattern YEAR=Pattern.compile("\\b(19[0-9]{2}|20[0-9]{2})\\b");
     private static final Set<String> STOP=Set.of("do","did","am","are","is","there","have","has","that","the","what","myself",
             "my","me","in","at","to","of","and","or","on","was","can","been","with","not","like","work","person","evidence");

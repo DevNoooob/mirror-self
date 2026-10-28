@@ -19,7 +19,8 @@ public interface EvidenceSupportJudge {
         boolean supports=evidence.stream().anyMatch(d->d.relation()==Relation.SUPPORTS);
         boolean refutes=evidence.stream().anyMatch(d->d.relation()==Relation.REFUTES);
         if(supports && refutes) return new Conclusion(Relation.INSUFFICIENT_EVIDENCE,"UNCONFIRMED",List.of("CONFLICTING_DIRECT_EVIDENCE"));
-        if((supports || refutes) && evidence.stream().anyMatch(d->d.proposition().requestedTime()!=RequestedTime.HISTORICAL
+        if((supports || refutes) && evidence.stream().anyMatch(d->(d.relation()==Relation.SUPPORTS || d.relation()==Relation.REFUTES)
+                && d.proposition().requestedTime()!=RequestedTime.HISTORICAL
                 && d.reasons().contains("CONTRADICTION_RECORDED_NO_AUTOMATIC_RESOLUTION")))
             return new Conclusion(Relation.INSUFFICIENT_EVIDENCE,"UNCONFIRMED",List.of("RECORDED_CONFLICT_REQUIRES_REVIEW"));
         if(supports || refutes) return new Conclusion(supports?Relation.SUPPORTS:Relation.REFUTES,"UNCONFIRMED",List.of("AT_EVIDENCE_TIME_ONLY"));

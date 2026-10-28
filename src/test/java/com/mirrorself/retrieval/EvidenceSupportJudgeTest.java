@@ -60,6 +60,11 @@ class EvidenceSupportJudgeTest {
         var marked=memory("我喜欢陶艺。","我喜欢陶艺。",MemoryType.OPINION,MemoryStatus.ACTIVE,"SOURCE_TIME","user",List.of(UUID.randomUUID()));
         assertEquals(Relation.INSUFFICIENT_EVIDENCE,judge.conclude(List.of(judge.assess("我喜欢陶艺吗？",marked))).relation());
     }
+    @Test void unrelatedConflictCannotVetoDirectEvidenceForTheTestedProposition() {
+        var direct=judge.assess("我喜欢陶艺吗？",normal("我不喜欢陶艺。"));
+        var unrelated=memory("我喜欢摄影。","我喜欢摄影。",MemoryType.OPINION,MemoryStatus.ACTIVE,"SOURCE_TIME","user",List.of(UUID.randomUUID()));
+        assertEquals(Relation.REFUTES,judge.conclude(List.of(direct,judge.assess("我喜欢陶艺吗？",unrelated))).relation());
+    }
     @Test void longEvidenceAbstainsWithoutThrowingOrTruncatingItsMeaning() {
         var m=normal("我喜欢陶艺。".repeat(200));
         assertEquals(Relation.INSUFFICIENT_EVIDENCE,judge.assess("我喜欢陶艺吗？",m).relation());
