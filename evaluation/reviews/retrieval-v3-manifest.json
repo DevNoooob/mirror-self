@@ -1,0 +1,29 @@
+{
+  "status": "REVISION_SCOPE_APPROVED_REFERENCE_REVIEW_PENDING",
+  "queryCount": 45,
+  "formalBaseline": false,
+  "modelEvaluationExecuted": false,
+  "datasetSha256": "aedb0a96d46dbcb06e5bee0481a3566855a55330fed842efd334db840035ab50",
+  "referenceSha256": "0b6404d8752737a8eb3477f0d08d47b8738c6d874da29644ec014b2aeb2649dd",
+  "sourceV2DatasetSha256": "4b0cde4f771356ea86c2bf70cfab27703c7bf7d06bbebb7acd308482526f2ad4",
+  "sourceV2ReferenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
+  "approvedScope": [
+    "R2Q11 rewrite",
+    "R2Q13 date only; affirmative/REFUTES preserved",
+    "R2Q23 rewrite",
+    "R2Q42 split",
+    "grade1 retained, separate metrics"
+  ],
+  "pending": [
+    "all final independent reference judgements",
+    "grade2 time-context review"
+  ],
+  "contract": {
+    "version": "retrieval-bands-3",
+    "primary": "grade3 only; related time evidence can remain PRIMARY without proving CURRENT",
+    "timeContext": "grade2 separately reported; requires independent human review",
+    "background": "grade1 retained and separately scored; never treated as direct support",
+    "supportAbility": "SUPPORTS/REFUTES evaluated separately from retrieval relevance; polarity/time/condition preserved",
+    "comparison": "Not directly comparable with v2 scores; no formal baseline before independent review"
+  }
+}

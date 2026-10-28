@@ -1,0 +1,935 @@
+{
+  "version": "retrieval-reference-v3",
+  "datasetVersion": "retrieval-fictional-v3",
+  "annotationStatus": "SYNTHETIC_REFERENCE_PENDING_HUMAN_REVIEW",
+  "createdBeforeModelExecution": true,
+  "defaultUnlistedRelation": "INSUFFICIENT_EVIDENCE",
+  "policy": "Grades describe relevance, not truth or support. REFUTES is a relevant answer. RELATED_ONLY may be highly relevant but insufficient for current-time claims. No current endorsement is established.",
+  "legacyDifference": "v1 RQ20 treated a negative memory as irrelevant to an affirmative query; v2 deliberately counts direct refutation as relevant. Do not compare v1/v2 scores as model improvement.",
+  "answers": [
+    {
+      "queryId": "R2Q01",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R19",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R20",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "REFUTES",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q01",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q02",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R19",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R20",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q02",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q03",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R19",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R20",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "REFUTES",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q03",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q04",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R19",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R20",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q04",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q05",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R20",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R19",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q05",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q06",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R21",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R22",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q06",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q07",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R21",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R22",
+          "relation": "RELATED_ONLY",
+          "grade": 2,
+          "relevanceBand": "TIME_CONTEXT_PENDING_REVIEW",
+          "humanReviewStatus": "PENDING_TIME_CONTEXT_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q07",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q08",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R22",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R21",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q08",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q09",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R23",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q09",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q10",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R23",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q10",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q11",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R23",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q11",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q12",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R24",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R25",
+          "relation": "RELATED_ONLY",
+          "grade": 2,
+          "relevanceBand": "TIME_CONTEXT_PENDING_REVIEW",
+          "humanReviewStatus": "PENDING_TIME_CONTEXT_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q12",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q13",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R25",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R24",
+          "relation": "RELATED_ONLY",
+          "grade": 2,
+          "relevanceBand": "TIME_CONTEXT_PENDING_REVIEW",
+          "humanReviewStatus": "PENDING_TIME_CONTEXT_REVIEW"
+        }
+      ],
+      "expectedAggregate": "REFUTES",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q13",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q14",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R24",
+          "relation": "RELATED_ONLY",
+          "grade": 2,
+          "relevanceBand": "TIME_CONTEXT_PENDING_REVIEW",
+          "humanReviewStatus": "PENDING_TIME_CONTEXT_REVIEW"
+        },
+        {
+          "memoryId": "R25",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q14",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q15",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R26",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q15",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q16",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R26",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q16",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q17",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q17",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q18",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R07",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R29",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q18",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q19",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R29",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R07",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q19",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q20",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R07",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R29",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q20",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q21",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R30",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q21",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q22",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R35",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R08",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q22",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q23",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R08",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R35",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q23",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q24",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R33",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R34",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q24",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q25",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R33",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R34",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q25",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q26",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R02",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R18",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R36",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q26",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q27",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q27",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q28",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q28",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q29",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q29",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q30",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q30",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q31",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q31",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q32",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R39",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q32",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q33",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R05",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R31",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R06",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R32",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "REFUTES",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q33",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q34",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R19",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q34",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q35",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R03",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R04",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q35",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q36",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R04",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R03",
+          "relation": "RELATED_ONLY",
+          "grade": 1,
+          "relevanceBand": "BACKGROUND",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q36",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q37",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R23",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q37",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q38",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R26",
+          "relation": "RELATED_ONLY",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q38",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q39",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R26",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q39",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q40",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R33",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R34",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q40",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q41",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R24",
+          "relation": "RELATED_ONLY",
+          "grade": 2,
+          "relevanceBand": "TIME_CONTEXT_PENDING_REVIEW",
+          "humanReviewStatus": "PENDING_TIME_CONTEXT_REVIEW"
+        },
+        {
+          "memoryId": "R25",
+          "relation": "REFUTES",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "REFUTES",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q41",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q42A",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R07",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R29",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q42",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q42B",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R08",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        },
+        {
+          "memoryId": "R35",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q42",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q43",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [
+        {
+          "memoryId": "R38",
+          "relation": "SUPPORTS",
+          "grade": 3,
+          "relevanceBand": "PRIMARY",
+          "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+        }
+      ],
+      "expectedAggregate": "SUPPORTS",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q43",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "queryId": "R2Q44",
+      "propositionNote": "Test the affirmative/negative proposition as phrased; relation is scoped to evidence time unless current is explicit.",
+      "relevant": [],
+      "expectedAggregate": "INSUFFICIENT_EVIDENCE",
+      "currentRecognition": "UNCONFIRMED",
+      "previousQueryId": "R2Q44",
+      "humanReviewStatus": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    }
+  ],
+  "revisionScopeStatus": "APPROVED_WITH_USER_CORRECTIONS",
+  "fullHumanReviewComplete": false,
+  "modelEvaluationExecuted": false,
+  "previousReferenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
+  "metricContract": {
+    "version": "retrieval-bands-3",
+    "primary": "grade3 only; related time evidence can remain PRIMARY without proving CURRENT",
+    "timeContext": "grade2 separately reported; requires independent human review",
+    "background": "grade1 retained and separately scored; never treated as direct support",
+    "supportAbility": "SUPPORTS/REFUTES evaluated separately from retrieval relevance; polarity/time/condition preserved",
+    "comparison": "Not directly comparable with v2 scores; no formal baseline before independent review"
+  }
+}
