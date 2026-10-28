@@ -221,7 +221,7 @@ class ConsolidationIT extends ExtractionPostgresTestSupport {
         report.put("evidenceAccuracy",(double)evidenceCorrect/evidenceTotal);report.put("reviewPolicyCorrect",policyCorrect);report.put("reviewPolicyTotal",policyTotal);report.put("reviewPolicyAccuracy",(double)policyCorrect/policyTotal);
         report.put("realModelRequests",0);report.put("scanModelRequests",0);report.put("humanReferenceReviewComplete",false);report.put("cases",rows);
         var output=java.nio.file.Path.of("target/evaluation/consolidation-offline-v1");java.nio.file.Files.createDirectories(output);
-        java.nio.file.Files.writeString(output.resolve("report.json"),new GsonBuilder().setPrettyPrinting().serializeNulls().create().toJson(report)+"\n");
+        java.nio.file.Files.writeString(output.resolve("report.json"),com.mirrorself.evaluation.EvaluationJson.GSON.toJson(report)+"\n");
         java.nio.file.Files.writeString(output.resolve("report.md"),String.format(java.util.Locale.ROOT,"# Consolidation offline observation%n%n31 fictional pairs; all eligible stored vectors deliberately identical. No real model calls.%n%nTP=%d FP=%d FN=%d%n%nPrecision=%.4f Recall=%.4f False SAME_AS rate=%.4f%n%nEvidence=%d/%d Review policy=%d/%d%n",tp,fp,fn,precision,recall,falseRate,evidenceCorrect,evidenceTotal,policyCorrect,policyTotal));
         var gates=data.getAsJsonObject("gates");assertTrue(precision>=gates.get("minPrecision").getAsDouble());assertTrue(recall>=gates.get("minRecall").getAsDouble());
         assertEquals(0,falseSame);assertEquals(evidenceTotal,evidenceCorrect);assertEquals(policyTotal,policyCorrect);

@@ -2,13 +2,13 @@
   "status": "SCOPE_APPROVED_WITH_CORRECTIONS_NOT_FINAL_REFERENCE_REVIEW",
   "sourceDatasetSha256": "4b0cde4f771356ea86c2bf70cfab27703c7bf7d06bbebb7acd308482526f2ad4",
   "sourceReferenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
-  "targetVersion": "retrieval-v3-proposal",
-  "reviewScope": "44 reviewed by agent for ambiguity; zero human approvals inferred",
+  "targetVersion": "retrieval-fictional-v3 / retrieval-reference-v3",
+  "reviewScope": "Revision scope approved by user with corrections; final reference judgements for all 45 queries remain pending independent human review.",
   "changes": [
     {
       "caseId": "R2Q11",
       "issue": "职业/学习考虑范围过宽；原参考漏掉同义英文写作愿望，却纳入描述性学习事实。",
-      "proposedQuestion": "我是否表示在获得奖学金的条件下，可能考虑去北岸市读研？",
+      "proposedQuestion": "我是否明确表示在获得奖学金的条件下，可能考虑去北岸市读研？",
       "proposedRelevant": [
         {
           "memoryId": "R23",
@@ -70,8 +70,8 @@
       "issue": "正在学习与正在写作混合；原参考将愿望当作正在写作的相关项，单条证据又无法支持整问。",
       "proposedSubqueries": [
         {
-          "id": "R3Q42A",
-          "question": "At the recorded message times, was I learning Spanish?",
+          "id": "R2Q42A",
+          "question": "At the recorded historical message times, was I learning Spanish?",
           "relevant": [
             {
               "memoryId": "R07",
@@ -86,7 +86,7 @@
           ]
         },
         {
-          "id": "R3Q42B",
+          "id": "R2Q42B",
           "question": "Had I expressed a wish to write a novel?",
           "relevant": [
             {
