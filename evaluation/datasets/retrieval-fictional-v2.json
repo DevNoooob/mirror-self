@@ -1,0 +1,914 @@
+{
+  "version": "retrieval-fictional-v2",
+  "fictional": true,
+  "parentDataset": "retrieval-fictional-v1",
+  "description": "Bilingual M2-A inputs. Evidence relevance includes direct counter-evidence. SOURCE_TIME never confirms present endorsement.",
+  "memories": [
+    {
+      "id": "R01",
+      "owner": "A",
+      "text": "I commute by bicycle.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I commute by bicycle."
+    },
+    {
+      "id": "R02",
+      "owner": "A",
+      "text": "I enjoy hiking on weekends.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I enjoy hiking on weekends."
+    },
+    {
+      "id": "R03",
+      "owner": "A",
+      "text": "In 2020 I lived in Cedar Bay.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "HISTORICAL",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "In 2020 I lived in Cedar Bay."
+    },
+    {
+      "id": "R04",
+      "owner": "A",
+      "text": "At the source date I live in Maple Port.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "At the source date I live in Maple Port."
+    },
+    {
+      "id": "R05",
+      "owner": "A",
+      "text": "I do not drink coffee.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I do not drink coffee."
+    },
+    {
+      "id": "R06",
+      "owner": "A",
+      "text": "I prefer tea in the afternoon.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I prefer tea in the afternoon."
+    },
+    {
+      "id": "R07",
+      "owner": "A",
+      "text": "I am learning Spanish.",
+      "type": "KNOWLEDGE",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I am learning Spanish."
+    },
+    {
+      "id": "R08",
+      "owner": "A",
+      "text": "I hope to write a novel.",
+      "type": "GOAL",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I hope to write a novel."
+    },
+    {
+      "id": "R09",
+      "owner": "A",
+      "text": "You could try kayaking.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "assistant",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "You could try kayaking."
+    },
+    {
+      "id": "R10",
+      "owner": "A",
+      "text": "I am a patient negotiator.",
+      "type": "THOUGHT_PROCESS",
+      "status": "PENDING_REVIEW",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I am a patient negotiator."
+    },
+    {
+      "id": "R11",
+      "owner": "A",
+      "text": "I enjoy fencing.",
+      "type": "FACT",
+      "status": "REJECTED",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I enjoy fencing."
+    },
+    {
+      "id": "R12",
+      "owner": "A",
+      "text": "I practice archery.",
+      "type": "FACT",
+      "status": "RETRACTED",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I practice archery."
+    },
+    {
+      "id": "R13",
+      "owner": "A",
+      "text": "My fictional health marker is violet.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "SENSITIVE",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "My fictional health marker is violet."
+    },
+    {
+      "id": "R14",
+      "owner": "A",
+      "text": "I collect rare stamps.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "RESTRICTED",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I collect rare stamps."
+    },
+    {
+      "id": "R15",
+      "owner": "B",
+      "text": "I enjoy skiing.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I enjoy skiing."
+    },
+    {
+      "id": "R16",
+      "owner": "A",
+      "text": "I play badminton.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": true,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I play badminton."
+    },
+    {
+      "id": "R17",
+      "owner": "A",
+      "text": "I swim in a pool.",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": true,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I swim in a pool."
+    },
+    {
+      "id": "R18",
+      "owner": "A",
+      "text": "I enjoy cycling during holidays.",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-05-01T00:00:00Z",
+      "sourceText": "I enjoy cycling during holidays."
+    },
+    {
+      "id": "R19",
+      "owner": "A",
+      "text": "我不喜欢重复劳动。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我不喜欢重复劳动。"
+    },
+    {
+      "id": "R20",
+      "owner": "A",
+      "text": "我喜欢需要创造力的工作。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我喜欢需要创造力的工作。"
+    },
+    {
+      "id": "R21",
+      "owner": "A",
+      "text": "我以前住在松河市。",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "HISTORICAL",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我以前住在松河市。"
+    },
+    {
+      "id": "R22",
+      "owner": "A",
+      "text": "我住在海岚市。",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我住在海岚市。"
+    },
+    {
+      "id": "R23",
+      "owner": "A",
+      "text": "如果拿到奖学金，我可能考虑去北岸市读研究生。",
+      "type": "GOAL",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "如果拿到奖学金，我可能考虑去北岸市读研究生。"
+    },
+    {
+      "id": "R24",
+      "owner": "A",
+      "text": "我以前喜欢热闹的工作环境。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "HISTORICAL",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2022-04-01T00:00:00Z",
+      "sourceText": "我以前喜欢热闹的工作环境。"
+    },
+    {
+      "id": "R25",
+      "owner": "A",
+      "text": "我不喜欢热闹的工作环境。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2025-01-01T00:00:00Z",
+      "sourceText": "我不喜欢热闹的工作环境。"
+    },
+    {
+      "id": "R26",
+      "owner": "A",
+      "text": "我觉得自己很耐心。",
+      "type": "THOUGHT_PROCESS",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我觉得自己很耐心。"
+    },
+    {
+      "id": "R27",
+      "owner": "A",
+      "text": "建议你每天跑步。",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "assistant",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "建议你每天跑步。"
+    },
+    {
+      "id": "R28",
+      "owner": "A",
+      "text": "用户可能很外向。",
+      "type": "THOUGHT_PROCESS",
+      "status": "PENDING_REVIEW",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "MODEL_INFERRED",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我周末参加聚会。"
+    },
+    {
+      "id": "R29",
+      "owner": "A",
+      "text": "我正在学习西班牙语。",
+      "type": "KNOWLEDGE",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我正在学习西班牙语。"
+    },
+    {
+      "id": "R30",
+      "owner": "A",
+      "text": "我使用 Java 开发后端。",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我使用 Java 开发后端。"
+    },
+    {
+      "id": "R31",
+      "owner": "A",
+      "text": "我不喝咖啡。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我不喝咖啡。"
+    },
+    {
+      "id": "R32",
+      "owner": "A",
+      "text": "我更喜欢茶。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我更喜欢茶。"
+    },
+    {
+      "id": "R33",
+      "owner": "A",
+      "text": "我喜欢园艺。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我喜欢园艺。"
+    },
+    {
+      "id": "R34",
+      "owner": "A",
+      "text": "我不喜欢园艺。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我不喜欢园艺。"
+    },
+    {
+      "id": "R35",
+      "owner": "A",
+      "text": "我希望有一天写一本小说。",
+      "type": "GOAL",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我希望有一天写一本小说。"
+    },
+    {
+      "id": "R36",
+      "owner": "A",
+      "text": "我周末常去徒步。",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我周末常去徒步。"
+    },
+    {
+      "id": "R37",
+      "owner": "A",
+      "text": "我不喜欢通勤堵车。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我不喜欢通勤堵车。"
+    },
+    {
+      "id": "R38",
+      "owner": "A",
+      "text": "我已经完成陶艺课程。",
+      "type": "KNOWLEDGE",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "HISTORICAL",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我已经完成陶艺课程。"
+    },
+    {
+      "id": "R39",
+      "owner": "A",
+      "text": "我认为可靠性比速度更重要。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我认为可靠性比速度更重要。"
+    },
+    {
+      "id": "R40",
+      "owner": "A",
+      "text": "我的测试代号是霜桥。",
+      "type": "FACT",
+      "status": "ACTIVE",
+      "sensitivity": "SENSITIVE",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我的测试代号是霜桥。"
+    },
+    {
+      "id": "R41",
+      "owner": "B",
+      "text": "我喜欢滑雪。",
+      "type": "OPINION",
+      "status": "ACTIVE",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我喜欢滑雪。"
+    },
+    {
+      "id": "R42",
+      "owner": "A",
+      "text": "我目前住在银湾市。",
+      "type": "FACT",
+      "status": "RETRACTED",
+      "sensitivity": "NORMAL",
+      "role": "user",
+      "sourcePrivacy": "PRIVATE",
+      "temporalScope": "SOURCE_TIME",
+      "deleted": false,
+      "origin": "USER_EXPLICIT",
+      "occurredAt": "2024-09-01T00:00:00Z",
+      "sourceText": "我目前住在银湾市。"
+    }
+  ],
+  "queries": [
+    {
+      "id": "R2Q01",
+      "owner": "A",
+      "text": "我喜欢重复劳动吗？",
+      "category": "negation"
+    },
+    {
+      "id": "R2Q02",
+      "owner": "A",
+      "text": "我不喜欢重复劳动吗？",
+      "category": "negative-proposition"
+    },
+    {
+      "id": "R2Q03",
+      "owner": "A",
+      "text": "我喜欢机械重复的工作吗？",
+      "category": "chinese-paraphrase"
+    },
+    {
+      "id": "R2Q04",
+      "owner": "A",
+      "text": "我现在还喜欢重复劳动吗？",
+      "category": "current-unconfirmed"
+    },
+    {
+      "id": "R2Q05",
+      "owner": "A",
+      "text": "我喜欢有创造性的工作吗？",
+      "category": "chinese-paraphrase"
+    },
+    {
+      "id": "R2Q06",
+      "owner": "A",
+      "text": "我以前住在松河市吗？",
+      "category": "historical"
+    },
+    {
+      "id": "R2Q07",
+      "owner": "A",
+      "text": "我现在还住在松河市吗？",
+      "category": "historical-vs-current"
+    },
+    {
+      "id": "R2Q08",
+      "owner": "A",
+      "text": "在消息时点我住在海岚市吗？",
+      "category": "source-time"
+    },
+    {
+      "id": "R2Q09",
+      "owner": "A",
+      "text": "我是否已经决定去北岸市读研？",
+      "category": "conditional-intent"
+    },
+    {
+      "id": "R2Q10",
+      "owner": "A",
+      "text": "如果拿到奖学金我一定去北岸市读研吗？",
+      "category": "conditional-vs-commitment"
+    },
+    {
+      "id": "R2Q11",
+      "owner": "A",
+      "text": "我的职业或学习考虑有哪些？",
+      "category": "multi-fact"
+    },
+    {
+      "id": "R2Q12",
+      "owner": "A",
+      "text": "我以前喜欢热闹的工作环境吗？",
+      "category": "historical-preference"
+    },
+    {
+      "id": "R2Q13",
+      "owner": "A",
+      "text": "在消息时点我喜欢热闹的工作环境吗？",
+      "category": "revised-preference"
+    },
+    {
+      "id": "R2Q14",
+      "owner": "A",
+      "text": "我现在喜欢热闹的工作环境吗？",
+      "category": "current-endorsement-unknown"
+    },
+    {
+      "id": "R2Q15",
+      "owner": "A",
+      "text": "我是否自认为很耐心？",
+      "category": "self-report"
+    },
+    {
+      "id": "R2Q16",
+      "owner": "A",
+      "text": "我已经被证明具有稳定耐心人格吗？",
+      "category": "personality-overreach"
+    },
+    {
+      "id": "R2Q17",
+      "owner": "A",
+      "text": "我一定是外向型人格吗？",
+      "category": "pending-inference-excluded"
+    },
+    {
+      "id": "R2Q18",
+      "owner": "A",
+      "text": "我学过哪些语言？",
+      "category": "broad-knowledge"
+    },
+    {
+      "id": "R2Q19",
+      "owner": "A",
+      "text": "我正在学习西班牙语吗？",
+      "category": "knowledge"
+    },
+    {
+      "id": "R2Q20",
+      "owner": "A",
+      "text": "我精通西班牙语吗？",
+      "category": "proficiency-overreach"
+    },
+    {
+      "id": "R2Q21",
+      "owner": "A",
+      "text": "我使用Java开发后端吗？",
+      "category": "current-usage-at-source"
+    },
+    {
+      "id": "R2Q22",
+      "owner": "A",
+      "text": "我已经成为小说家了吗？",
+      "category": "intention-vs-achievement"
+    },
+    {
+      "id": "R2Q23",
+      "owner": "A",
+      "text": "我有学习和写作方面的目标吗？",
+      "category": "multi-fact"
+    },
+    {
+      "id": "R2Q24",
+      "owner": "A",
+      "text": "我喜欢园艺吗？",
+      "category": "conflicting-records"
+    },
+    {
+      "id": "R2Q25",
+      "owner": "A",
+      "text": "我不喜欢园艺吗？",
+      "category": "conflicting-records"
+    },
+    {
+      "id": "R2Q26",
+      "owner": "A",
+      "text": "我周末有什么户外活动？",
+      "category": "multi-fact"
+    },
+    {
+      "id": "R2Q27",
+      "owner": "A",
+      "text": "我每天都跑步吗？",
+      "category": "assistant-attribution"
+    },
+    {
+      "id": "R2Q28",
+      "owner": "A",
+      "text": "我的代号是什么？",
+      "category": "sensitive-excluded"
+    },
+    {
+      "id": "R2Q29",
+      "owner": "A",
+      "text": "我喜欢滑雪吗？",
+      "category": "owner-isolation"
+    },
+    {
+      "id": "R2Q30",
+      "owner": "A",
+      "text": "我现在住在银湾市吗？",
+      "category": "retracted-excluded"
+    },
+    {
+      "id": "R2Q31",
+      "owner": "A",
+      "text": "我得过天文学奖吗？",
+      "category": "no-evidence"
+    },
+    {
+      "id": "R2Q32",
+      "owner": "A",
+      "text": "我重视可靠性吗？",
+      "category": "values-as-opinion"
+    },
+    {
+      "id": "R2Q33",
+      "owner": "A",
+      "text": "Do I drink coffee?",
+      "category": "english-negation"
+    },
+    {
+      "id": "R2Q34",
+      "owner": "A",
+      "text": "Do I dislike repetitive work?",
+      "category": "cross-lingual-negative"
+    },
+    {
+      "id": "R2Q35",
+      "owner": "A",
+      "text": "Did I live in Cedar Bay in 2020?",
+      "category": "historical-year"
+    },
+    {
+      "id": "R2Q36",
+      "owner": "A",
+      "text": "Do I still live in Maple Port?",
+      "category": "english-current-unconfirmed"
+    },
+    {
+      "id": "R2Q37",
+      "owner": "A",
+      "text": "Have I decided to attend graduate school in North Shore?",
+      "category": "cross-lingual-conditional"
+    },
+    {
+      "id": "R2Q38",
+      "owner": "A",
+      "text": "Am I a proven patient person?",
+      "category": "english-personality-overreach"
+    },
+    {
+      "id": "R2Q39",
+      "owner": "A",
+      "text": "Do I consider myself patient?",
+      "category": "cross-lingual-self-report"
+    },
+    {
+      "id": "R2Q40",
+      "owner": "A",
+      "text": "Do I like gardening?",
+      "category": "cross-lingual-conflict"
+    },
+    {
+      "id": "R2Q41",
+      "owner": "A",
+      "text": "Do I like noise at work?",
+      "category": "cross-lingual-revision"
+    },
+    {
+      "id": "R2Q42",
+      "owner": "A",
+      "text": "What languages am I learning and what am I writing?",
+      "category": "english-multi-fact"
+    },
+    {
+      "id": "R2Q43",
+      "owner": "A",
+      "text": "Have I completed a pottery course?",
+      "category": "cross-lingual-completed-learning"
+    },
+    {
+      "id": "R2Q44",
+      "owner": "A",
+      "text": "Is there evidence that I own a telescope?",
+      "category": "english-no-evidence"
+    }
+  ],
+  "contradictions": [
+    [
+      "R24",
+      "R25"
+    ],
+    [
+      "R33",
+      "R34"
+    ]
+  ]
+}

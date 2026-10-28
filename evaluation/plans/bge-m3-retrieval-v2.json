@@ -1,0 +1,27 @@
+{
+  "version": "bge-m3-retrieval-v2-plan-1",
+  "datasetPath": "evaluation/datasets/retrieval-fictional-v2.json",
+  "referencePath": "evaluation/references/retrieval-reference-v2.json",
+  "datasetSha256": "4b0cde4f771356ea86c2bf70cfab27703c7bf7d06bbebb7acd308482526f2ad4",
+  "referenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
+  "model": "bge-m3",
+  "modelVersion": "ollama-790764642607",
+  "modelDigest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "queryCount": 44,
+  "memories": 42,
+  "repeats": 3,
+  "maxEmbeddingRequests": 400,
+  "modes": [
+    "KEYWORD",
+    "VECTOR",
+    "HYBRID"
+  ],
+  "k": 3,
+  "rrfConstant": 60,
+  "candidateLimit": 100,
+  "minimumCosineSimilarity": 0.35,
+  "modelCalls": "LOCAL_ONLY_EXPLICIT_EXECUTE",
+  "database": "NEW_TESTCONTAINERS_ONLY",
+  "freeze": "INPUTS_AND_REFERENCE_BEFORE_FIRST_RUN_NOT_A_LIVE_BASELINE"
+}
