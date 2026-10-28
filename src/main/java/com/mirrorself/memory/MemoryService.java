@@ -45,6 +45,10 @@ public class MemoryService {
         for(var proposal:valid) {
             if(!validator.evidenceValid(owner,proposal,batch))
                 throw new com.mirrorself.model.ModelFailure(com.mirrorself.model.ModelFailure.Code.INVALID_EVIDENCE);
+            // Exact same proposition/evidence with a new type is a classification conflict.
+            // Reject the atomic batch; never overwrite or revive an already reviewed memory.
+            if(memories.hasTypeConflict(owner,proposal))
+                throw new com.mirrorself.model.ModelFailure(com.mirrorself.model.ModelFailure.Code.CLASSIFICATION_CONFLICT);
             for(var ref:proposal.evidence()) {
                 // Keep L0 present until the evidence insert commits; deletion uses the same row lock.
                 jdbc.queryForObject("SELECT id FROM source_record WHERE id=? AND owner_id=? FOR KEY SHARE",

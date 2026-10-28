@@ -46,7 +46,7 @@ public final class MemoryEvaluationService {
         if((mode==Mode.OFFLINE_RULE)!=(properties.mode()==ExtractionProperties.Mode.RULE))
             throw new IllegalArgumentException("evaluation mode and configured extractor differ");
         Instant started=Instant.now();long clock=System.nanoTime();int initialCalls=calls.calls();
-        List<CaseResult> results=new ArrayList<>();String extractorVersion=null,model=null;
+        List<CaseResult> results=new ArrayList<>();List<ReplayCase> replayCases=new ArrayList<>();String extractorVersion=null,model=null;
         for(var c:loaded.dataset().cases()) {
             long caseClock=System.nanoTime();int beforeCalls=calls.calls();UUID owner=UUID.randomUUID();
             List<ChatGptDecoder.Conversation> decoded=new ArrayList<>();
@@ -69,28 +69,39 @@ public final class MemoryEvaluationService {
                 List<UUID> selectedIds=selected.stream().map(id->ids.get(c.caseId()+":"+id)).toList();
                 grant=authorization.grant(owner,selectedIds,Instant.now().plusSeconds(600),c.egress()==EvaluationDataset.Egress.SENSITIVE_GRANT);
             }
-            Trace trace=new Trace(messageIds,c.messages());
+            Trace trace=new Trace(messageIds,c.messages());List<ExtractionJobRepository.Job> firstJobs=new ArrayList<>();
             for(var path:decoded.getFirst().paths()) {
                 if(path.isEmpty())continue;
                 var job=extraction.extract(owner,path.stream().map(ids::get).toList(),grant,trace);
-                extractorVersion=job.extractorVersion();model=job.model();
+                firstJobs.add(job);extractorVersion=job.extractorVersion();model=job.model();
             }
             List<MemoryRepository.MemoryView> first=memories.list(owner,null,200);
             Set<UUID> originalIds=new HashSet<>();first.forEach(m->originalIds.add(m.id()));
+            var firstRound=ReplayDiagnostics.round(0,firstJobs,trace.proposals,trace.rejectedCounts(),first);
+            List<ReplayAttempt> replayDetails=new ArrayList<>();
+            Map<UUID,SourceRepository.SourceView> sourceViews=new HashMap<>();
+            ids.values().forEach(id->sourceViews.put(id,sources.get(owner,id)));
             int replayChecks=0,successfulReplays=0;
             for(int replay=1;replay<c.repeatExtractions();replay++) {
                 int inserted=0,accepted=0;
+                var before=memories.list(owner,null,200);
+                Trace replayTrace=new Trace(messageIds,c.messages());List<ExtractionJobRepository.Job> replayJobs=new ArrayList<>();
                 for(var path:decoded.getFirst().paths())if(!path.isEmpty()) {
-                    var replayJob=extraction.extract(owner,path.stream().map(ids::get).toList(),grant);
+                    var replayJob=extraction.extract(owner,path.stream().map(ids::get).toList(),grant,replayTrace);
+                    replayJobs.add(replayJob);
                     inserted+=replayJob.newMemories();accepted+=replayJob.acceptedCount();
                 }
                 var after=memories.list(owner,null,200);
+                var round=ReplayDiagnostics.round(replay,replayJobs,replayTrace.proposals,replayTrace.rejectedCounts(),after);
+                replayDetails.add(ReplayDiagnostics.assess(firstRound,round,ReplayDiagnostics.ids(before),trace.proposals,replayTrace.proposals,
+                        trace.extractionComparable()&&replayTrace.extractionComparable(),after,sourceViews,messageIds));
                 if(!first.isEmpty()) {
                     replayChecks++;
                     if(accepted>0 && inserted==0 && after.size()==first.size() && after.stream().map(MemoryRepository.MemoryView::id)
                             .collect(java.util.stream.Collectors.toSet()).equals(originalIds))successfulReplays++;
                 }
             }
+            replayCases.add(new ReplayCase(c.caseId(),firstRound,List.copyOf(replayDetails)));
             var stored=first.stream().map(m->new EvaluationObservation.Prediction(m.type(),m.content(),m.origin(),m.sensitivity(),
                     ExtractedMemory.TemporalScope.valueOf(m.temporalScope()),m.status(),m.evidence().stream()
                     .map(e->new EvaluationObservation.Evidence(messageIds.getOrDefault(e.sourceId(),"unknown"),e.role(),e.excerpt())).toList())).toList();
@@ -109,8 +120,8 @@ public final class MemoryEvaluationService {
                 model,extractorVersion,safeCodeVersion(codeVersion),dirty,started,elapsed(clock),calls.calls()-initialCalls,
                 null,null,"not_exposed_by_ModelGateway",calls.callLimit(),calls.budgetDenied(),mode==Mode.LIVE&&reviewAttested);
         var overall=scorer.aggregate(results);
-        return new EvaluationReport("1.1",MemoryScorer.METRIC_VERSION,run,overall,categories,List.copyOf(results),
-                new BaselineComparison(false,"baseline_not_supplied",Map.of(),Map.of(),List.of(),List.of()),priorities(overall));
+        return new EvaluationReport("1.2",MemoryScorer.METRIC_VERSION,run,overall,categories,List.copyOf(results),
+                new BaselineComparison(false,"baseline_not_supplied",Map.of(),Map.of(),List.of(),List.of()),priorities(overall),ReplayDiagnostics.aggregate(replayCases),replayCases);
     }
     private static long elapsed(long started) { return TimeUnit.NANOSECONDS.toMillis(System.nanoTime()-started); }
     private static String safeCodeVersion(String code) { return code!=null&&code.matches("[a-f0-9]{7,40}")?code:"unknown"; }
@@ -141,6 +152,11 @@ public final class MemoryEvaluationService {
     private static final class Trace implements ExtractionObserver {
         final Map<UUID,String> ids;
         final List<EvaluationObservation.Prediction> raw=new ArrayList<>();
+        final List<ExtractedMemory> proposals=new ArrayList<>();
+        boolean extractionComparable() {return failures.stream().noneMatch(f->f.stage()==Stage.AUTHORIZATION||f.stage()==Stage.EXTRACTION);}
+        Map<String,Integer> rejectedCounts() {
+            Map<String,Integer> counts=new TreeMap<>();rejections.forEach(r->counts.merge(r.stage().name(),1,Integer::sum));return counts;
+        }
         final List<EvaluationObservation.Rejection> rejections=new ArrayList<>();
         final List<EvaluationObservation.Failure> failures=new ArrayList<>();
         final Map<ExtractedMemory,Integer> indexes=new IdentityHashMap<>();
@@ -149,6 +165,7 @@ public final class MemoryEvaluationService {
             this.ids=ids;messages.forEach(m->roles.put(m.messageId(),m.role()));
         }
         @Override public void extracted(List<SourceRepository.SourceView> batch,List<ExtractedMemory> candidates) {
+            proposals.addAll(candidates);
             for(var p:candidates) {
                 indexes.put(p,raw.size());
                 raw.add(new EvaluationObservation.Prediction(p.type(),p.content(),p.origin(),p.sensitivity(),p.temporalScope(),null,

@@ -1,0 +1,170 @@
+{
+  "tests": [
+    {
+      "name": "com.mirrorself.evaluation.BaselineAndReportTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.CandidateAuditTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.DatasetLoaderTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.EvaluationGatewayTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.EvaluationSafetyTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.EvaluationSelectionTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.GoldV11FinalizationTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.MemoryScorerTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.PilotGoldCompatibilityTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.ingestion.ChatGptDecoderTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.ingestion.ConversationBranchesTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.memory.LlmMemoryExtractorTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.memory.MemoryPolicyTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.memory.MemoryValidatorTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.memory.RuleBasedExtractorTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.memory.SearchTermsTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.memory.SourceConversationsTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.model.ModelAuthorizationTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.model.SpringAiModelGatewayTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.MemoryEvaluationLiveIT",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.mirrorself.evaluation.MemoryEvaluationOfflineIT",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "result": {
+    "phase": "live",
+    "exit": 0,
+    "elapsedSeconds": 62.136,
+    "credentialFilesWritten": false
+  },
+  "reportPath": "/tmp/mirror-self-live-pilot-1i0rakxs/checkout/target/evaluation/live-pilot/deepseek-flash-nine-v1.1/20261027T151114377514Z",
+  "remoteUtc": "2026-10-27T15:13:41.258719+00:00",
+  "codeVersion": "48bd9137adac7bfdeed4148ac29aecf4ec6541e6",
+  "workingTreeStatus": "",
+  "datasetSha256": "5d8dc6680c41b14bda2e455e827765131a7cdec34a143ba8b75bac790d5a9ac0",
+  "baselineCreated": false,
+  "controllerUtc": "2026-10-27T19:16:21.841441+00:00",
+  "testRuntime": {
+    "mavenVersion": "Apache Maven 3.9.13 (39d686bd50d8e054301e3a68ad44781df6f80dda)\nMaven home: /usr/share/maven\nJava version: 21.0.10, vendor: Eclipse Adoptium, runtime: /opt/java/openjdk\nDefault locale: en_US, platform encoding: UTF-8\nOS name: \"linux\", version: \"7.0.0-38-generic\", arch: \"amd64\", family: \"unix\"",
+    "codeVersion": "48bd9137adac7bfdeed4148ac29aecf4ec6541e6",
+    "container": "bc6c16e0d35de61d32d07a64f6eac8fbdaa7e82693a76fc913c929bb133c9881",
+    "runLabel": "mirror-self-live-pilot-1i0rakxs"
+  }
+}

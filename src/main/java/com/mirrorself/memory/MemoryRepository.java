@@ -71,6 +71,18 @@ public class MemoryRepository {
         return new Stored(id, !created.isEmpty(), actual);
     }
 
+    /** Called under the owner's write lock; no reclassification, merge or status change. */
+    public boolean hasTypeConflict(UUID owner, ExtractedMemory proposal) {
+        var key=MemoryIdentity.of(proposal);
+        var prior=withEvidence(owner,jdbc.query("""
+                SELECT id,memory_type,content,assertion_origin,status,sensitivity,occurred_at,
+                       temporal_scope,extractor_version,model_id
+                FROM memory_item WHERE owner_id=? AND content=? AND assertion_origin=?
+                    AND temporal_scope=? AND memory_type<>?
+                """,this::map,owner,proposal.content(),proposal.origin().name(),proposal.temporalScope().name(),proposal.type().name()));
+        return prior.stream().anyMatch(m->MemoryIdentity.of(m).equals(key));
+    }
+
     public List<MemoryView> list(UUID owner, MemoryStatus status, int max) {
         if (max < 1 || max > 200) throw new IllegalArgumentException("limit must be between 1 and 200");
         String sql = """

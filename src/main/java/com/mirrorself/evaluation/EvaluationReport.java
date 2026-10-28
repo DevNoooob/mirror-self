@@ -5,7 +5,26 @@ import java.util.*;
 
 public record EvaluationReport(String reportVersion, String metricVersion, Run run,
         Aggregate overall, Map<String, Aggregate> categories, List<CaseResult> cases,
-        BaselineComparison comparison, List<String> optimizationPriorities) {
+        BaselineComparison comparison, List<String> optimizationPriorities,
+        ReplaySummary replaySummary, List<ReplayCase> replayDiagnostics) {
+    public EvaluationReport {
+        replayDiagnostics=replayDiagnostics==null?List.of():List.copyOf(replayDiagnostics);
+    }
+    public EvaluationReport(String reportVersion,String metricVersion,Run run,Aggregate overall,
+            Map<String,Aggregate> categories,List<CaseResult> cases,BaselineComparison comparison,List<String> priorities) {
+        this(reportVersion,metricVersion,run,overall,categories,cases,comparison,priorities,null,List.of());
+    }
+    public record ReplaySummary(String contractVersion,Metric modelOutputConsistency,Metric databaseRowSetIdempotency,
+            int replayAttempts,int duplicateRowGroups,int typeDriftAttempts) { }
+    public record Round(int round,int extracted,int accepted,int inserted,int rejected,List<String> errorCodes,
+            List<String> jobStatuses,Map<String,Integer> rejectedByStage,List<String> memoryIds,int memoryCount) { }
+    public record TypeDrift(List<EvidencePointer> evidence,List<com.mirrorself.memory.MemoryType> types,boolean sameProposition) { }
+    public record DuplicateGroup(List<String> memoryIds,List<com.mirrorself.memory.MemoryType> types) { }
+    public record ReplayAttempt(Round result,List<String> beforeIds,List<String> addedIds,List<String> removedIds,
+            boolean idsEqualToFirst,boolean idsEqualToPrevious,Boolean modelOutputConsistent,
+            boolean databaseRowSetIdempotent,boolean legacyCheckApplicable,boolean legacyCheckPassed,
+            List<TypeDrift> typeDrifts,List<DuplicateGroup> exactDuplicateRows,List<String> reasons) { }
+    public record ReplayCase(String caseId,Round first,List<ReplayAttempt> replays) { }
     public record Run(String mode, String datasetVersion, String datasetSha256, String goldProvenance,
             String humanReviewStatus, String model, String extractorVersion, String codeVersion,
             boolean workingTreeDirty, Instant startedAt, long elapsedMs, int modelCalls,

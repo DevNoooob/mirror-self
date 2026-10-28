@@ -41,6 +41,27 @@ public final class EvaluationReportWriter {
                 .append(r.overall().deduplicationAccuracy().denominator()).append("; unauthorized gateway invocations: ")
                 .append(r.overall().unauthorizedCalls()).append("; policy violation events: ").append(r.overall().policyViolations()).append("; cases violating privacy/review policy: ")
                 .append(r.overall().privacyViolationRate().numerator()).append('/').append(r.overall().privacyViolationRate().denominator()).append(".\n\n");
+        if(r.replaySummary()!=null) {
+            var summary=r.replaySummary();
+            out.append("## Replay diagnostics (separate contract)\n\n")
+                .append("Contract: `").append(summary.contractVersion()).append("`. Legacy deduplication/DUPLICATE_MEMORY is a combined replay-success heuristic, NOT proof of duplicate rows. Original scoring is preserved.\n\n")
+                .append("Model output consistency: ").append(summary.modelOutputConsistency().numerator()).append('/').append(summary.modelOutputConsistency().denominator())
+                .append("; database row-set idempotency: ").append(summary.databaseRowSetIdempotency().numerator()).append('/').append(summary.databaseRowSetIdempotency().denominator())
+                .append("; observed exact duplicate groups: ").append(summary.duplicateRowGroups()).append(".\n\n")
+                .append("Row-set stability does not prove an accepted write exercised deduplication, nor compare every mutable field. Output comparison uses exact candidate text/evidence and all type/origin/time/sensitivity fields, independent of order.\n\n")
+                .append("| Case/round | Extracted/accepted/inserted/rejected | Errors | Before/after/initial IDs | Same model output | DB idempotent | Type drift | Actual duplicate groups | Reasons |\n|---|---|---|---|---|---|---|---|---|\n");
+            for(var c:r.replayDiagnostics()) {
+                out.append("| ").append(c.caseId()).append("/0 | ").append(c.first().extracted()).append('/').append(c.first().accepted()).append('/').append(c.first().inserted()).append('/').append(c.first().rejected())
+                    .append(" | ").append(c.first().errorCodes()).append(" | initial=").append(c.first().memoryIds()).append(" | N/A | N/A | N/A | N/A | first snapshot |\n");
+                for(var a:c.replays()) {
+                    var v=a.result();out.append("| ").append(c.caseId()).append('/').append(v.round()).append(" | ").append(v.extracted()).append('/').append(v.accepted()).append('/').append(v.inserted()).append('/').append(v.rejected())
+                        .append(" | ").append(v.errorCodes()).append(" | ").append(a.beforeIds()).append(" -> ").append(v.memoryIds()).append(" / first=").append(c.first().memoryIds())
+                        .append(" | ").append(a.modelOutputConsistent()).append(" | ").append(a.databaseRowSetIdempotent()).append(" | ").append(a.typeDrifts())
+                        .append(" | ").append(a.exactDuplicateRows()).append(" | ").append(a.reasons()).append(" |\n");
+                }
+            }
+            out.append("\nFirst-pass persistence metrics use the pre-replay snapshot. Replay diagnostics include every replay round; no source text, candidate body or content hashes are serialized.\n\n");
+        }
         out.append("## Category metrics\n\n| Category | Cases | Extracted P/R/F1 | Persisted P/R/F1 | Attribution errors | Temporal accuracy | Review accuracy | Unsupported rate |\n|---|---:|---|---|---|---|---|---|\n");
         r.categories().forEach((name,a)->out.append("| ").append(name).append(" | ").append(a.caseCount()).append(" | ")
                 .append(prf(a.extracted())).append(" | ").append(prf(a.persisted())).append(" | ")
