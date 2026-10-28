@@ -6,6 +6,8 @@ import java.util.*;
 import org.springframework.stereotype.Service;
 
 @Service
+@org.springframework.transaction.annotation.Transactional(readOnly=true,
+        isolation=org.springframework.transaction.annotation.Isolation.REPEATABLE_READ)
 public class RetrievalService {
     public enum Mode { KEYWORD, VECTOR, HYBRID }
     public record Hit(MemoryRepository.MemoryView memory,double score,List<String> methods,

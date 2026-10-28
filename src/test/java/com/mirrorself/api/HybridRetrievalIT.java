@@ -37,6 +37,7 @@ class HybridRetrievalIT extends ExtractionPostgresTestSupport {
     @Autowired MemoryRepository repository;
     @Autowired RetrievalService retrieval;
     @Autowired JdbcTemplate jdbc;
+    @Autowired org.springframework.transaction.PlatformTransactionManager transactions;
     @org.springframework.boot.test.web.server.LocalServerPort int port;
     UUID owner;
     @BeforeEach void reset() { owner=UUID.randomUUID();provider.version="v1";provider.fail=false;provider.calls=0;
@@ -94,6 +95,20 @@ class HybridRetrievalIT extends ExtractionPostgresTestSupport {
         provider.location=EmbeddingProvider.Location.CLOUD;int before=provider.calls;
         assertEquals("BLOCKED",indexing.run(owner,10).status());
         assertEquals("EGRESS_DENIED",retrieval.explain(owner,"hiking",10,RetrievalService.Mode.HYBRID).vectorStatus());assertEquals(before,provider.calls);
+    }
+    @Test void rankingAndEvidenceHydrationUseOneConsistentReadSnapshot() {
+        UUID id=add("I enjoy hiking.");indexing.run(owner,10);
+        provider.beforeReturn=()->{
+            provider.beforeReturn=()->{};
+            var concurrent=new org.springframework.transaction.support.TransactionTemplate(transactions);
+            concurrent.setPropagationBehavior(org.springframework.transaction.TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+            concurrent.executeWithoutResult(status->jdbc.update("UPDATE memory_item SET content='I write fiction.' WHERE id=?",id));
+        };
+        var during=retrieval.explain(owner,"hiking",10,RetrievalService.Mode.HYBRID);
+        assertEquals("I enjoy hiking.",during.hits().getFirst().memory().content());
+        assertEquals("I enjoy hiking.",during.hits().getFirst().memory().evidence().getFirst().excerpt());
+        assertEquals(0,vectors());
+        assertTrue(retrieval.explain(owner,"hiking",10,RetrievalService.Mode.HYBRID).hits().isEmpty());
     }
     @Test void dimensionMismatchIsExplicitInJobsAndFallbackWithoutPersistingAnything() {
         UUID id=add("I enjoy hiking.");provider.dimensions=768;
