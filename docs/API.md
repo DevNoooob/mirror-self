@@ -56,3 +56,7 @@
 新增来源元数据列表、提取任务执行/查询、逐来源模型出站授权/撤销。
 原有导入计数字段保留，新增 extractionJobIds；记忆读取追加 temporalScope、extractorVersion、modelId、conflicts。
 完整请求、状态与授权步骤见 [V0.2 API 使用说明](V0.2_MEMORY_ENGINE.md#api-使用)。
+
+## V0.2.2-M2-B 关系候选
+
+沿用 X-Mirror-Token 和 owner 配置，新增 POST `/api/v1/consolidation/jobs`、GET `/api/v1/consolidation/jobs/{id}`、GET `/api/v1/consolidation/candidates`、GET `/api/v1/consolidation/candidates/{id}`、POST `/api/v1/consolidation/candidates/{id}/review`。审核体需 decision 与 expectedVersion，返回 approvedEffect=RELATION_REVIEW_ONLY；不会修改原记忆。参数、错误及完整响应字段见 [M2-B API](V0.2.2-M2B_CONSOLIDATION.md#api)。

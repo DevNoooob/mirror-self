@@ -136,3 +136,9 @@ python3 scripts/local-retrieval.py --execute
 运行进程必须能在自己的127.0.0.1:11434访问已有Ollama；Docker化测试进程可在已授权隔离运行中使用host network，不能新增公网绑定或部署正式API。Testcontainers新库5432只绑定宿主loopback，不使用现有55432测试库或正式5432。没有可用Docker/JDK21/模型摘要则明确失败，不回退到业务库、Mock或云服务。输入/参考/模型/环境不能静默变化；同一临时checkout仅允许一次显式execute，失败需审查后创建新的隔离运行。
 
 报告：`target/evaluation/retrieval-bge-m3-v2/report.{json,md}`；CI哈希fixture为 `retrieval-hash-v2`。原 `baselines/retrieval-offline-v1.json` 保持不变。v2把反驳证据计为相关，不得将v1/v2分数差异解读成模型提升。详见 [证据与时间契约](../docs/V0.2.2-M2A_EVALUATION.md) 和 [逐项参考审阅表](reviews/retrieval-v2-reference-review.md)。
+
+## V0.2.2-M2-B 整合候选离线观察
+
+`datasets/consolidation-fictional-v1.json` 固定31对虚构参考，独立于M2-A/v3。CI `ConsolidationIT` 使用临时PostgreSQL及故意全部相同的Mock向量，验证召回→命题判断→待审持久化→审核/失效。输出 `target/evaluation/consolidation-offline-v1/report.json` 和 `report.md`，不调用真实模型、不替代BGE检索基线。门槛预先固定，保守弃答记漏检，错误SAME_AS门槛0。 [设计、复现与限制](../docs/V0.2.2-M2B_CONSOLIDATION.md)。
+
+v3输入45查询与独立参考已经按用户批准范围生成，SHA及逐条状态见 [参考复核表](reviews/retrieval-v3-review.md)。R2Q13保持肯定命题并保留反证；R2Q42拆为历史学习和写作愿望。grade1背景不删除、独立计分；grade2时间上下文待审；直接支持/反驳独立于检索相关性报告。全部参考仍PENDING，不能宣称HUMAN_REVIEWED或正式基线。尚未启用v3真实运行流程，旧v2预检及所有原始报告不变；不同版本分数不可直接作模型提升比较。
