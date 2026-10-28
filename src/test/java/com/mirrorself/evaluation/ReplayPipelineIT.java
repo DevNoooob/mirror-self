@@ -13,7 +13,8 @@ import org.springframework.context.annotation.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(properties={"mirror.owner-token=0123456789abcdef0123456789abcdef","mirror.extraction.mode=LLM",
-        "mirror.extraction.local=true","mirror.model-egress-enabled=false","mirror.extraction.model=controlled-offline","server.port=0"})
+        "mirror.extraction.local=true","mirror.model-egress-enabled=false","mirror.extraction.model=controlled-offline",
+        "mirror.extraction.base-url=http://127.0.0.1:9999/v1","mirror.extraction.api-key=","server.port=0"})
 @Import(ReplayPipelineIT.Configuration.class)
 class ReplayPipelineIT extends EvaluationIntegrationSupport {
     @TestConfiguration(proxyBeanMethods=false) static class Configuration {
