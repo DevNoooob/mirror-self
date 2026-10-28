@@ -94,3 +94,19 @@ MQ045 句界修复后，默认 Mock 回归使用新增的 `baselines/offline-moc
 首次九例 Live 的 [原始资料](runs/deepseek-flash-nine-v1.1-first/README.md)按字节保存，尚未冻结基线。新报告1.2增加 replay-1.0：模型输出一致性与数据库行集合幂等性独立统计；旧5/7及评分不被改写。CLASSIFICATION_CONFLICT 阻断同命题/同证据的跨类型重放，保护已审核记录。
 
 详见 [离线诊断与冻结方案](../docs/V0.2.1-C_DIAGNOSTICS.md)、[六类规范 types1](../docs/MEMORY_TYPES.md)。本次不调用模型；冻结提案仍为未批准且未就绪。
+
+## V0.2.2-M1 检索离线基线
+
+独立虚构数据 `datasets/retrieval-fictional-v1.json` 包含 18 个 L1/L0 样本、20 个查询和受控词义向量 fixture。使用真实 PostgreSQL/pgvector SQL 比较 KEYWORD / VECTOR / HYBRID，不生成答案。它与记忆提取 Gold v1/v1.1 和 DeepSeek Live 报告分开，不改变任何已有分数或基线。
+
+仅在 GitHub Actions 或已确认隔离的 Java 21 + Docker 测试进程：
+
+```bash
+mvn --batch-mode --no-transfer-progress -Dit.test=RetrievalEvaluationIT verify
+# 全量回归（推荐）
+mvn --batch-mode --no-transfer-progress verify
+```
+
+输出 `target/evaluation/retrieval-offline-v1/report.json` 与 `report.md`，CI 作为现有 `memory-quality-reports` artifact 保存。固定 K=3、候选池100、RRF常数60、余弦阈值0.35；九个正例宏平均 Recall@3/MRR/nDCG@3，11个空集案例单独统计准确空结果，证据正确率核对实际 L0 ID/role/逐字引用。RQ20 故意暴露否定查询的相关性缺陷，不通过改评分隐藏。时间使用单调计时统计100次/模式的p50/p95（每查询5次，暖身不计入），不能外推生产吞吐。
+
+受控 lexicon Mock 只验证检索基础设施及评分实现，**不代表 bge-m3、DeepSeek 或任何真实 Embedding 的语义质量**。数据为新建虚构预期，不声称完成人工独立标注。完整配置、风险见 [M1指南](../docs/V0.2.2-M1_RETRIEVAL.md)。
