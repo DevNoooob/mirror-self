@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties({MirrorProperties.class, com.mirrorself.config.ExtractionProperties.class})
+@EnableConfigurationProperties({MirrorProperties.class, com.mirrorself.config.ExtractionProperties.class, com.mirrorself.config.EmbeddingProperties.class})
 public class MirrorSelfApplication {
     public static void main(String[] args) {
         SpringApplication.run(MirrorSelfApplication.class, args);

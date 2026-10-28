@@ -28,3 +28,14 @@ mirror:
     timeout: ${MIRROR_LLM_TIMEOUT:30s}
     batch-chars: ${MIRROR_LLM_BATCH_CHARS:16000}
     batch-messages: ${MIRROR_LLM_BATCH_MESSAGES:30}
+  embedding:
+    mode: ${MIRROR_EMBEDDING_MODE:DISABLED}
+    base-url: ${MIRROR_EMBEDDING_BASE_URL:http://127.0.0.1:8090/v1}
+    api-key: ${MIRROR_EMBEDDING_API_KEY:}
+    model: ${MIRROR_EMBEDDING_MODEL:bge-m3}
+    version: ${MIRROR_EMBEDDING_VERSION:unconfigured}
+    timeout: ${MIRROR_EMBEDDING_TIMEOUT:15s}
+# Spring AI TRACE can include embedding inputs. Keep this provider logger disabled.
+logging:
+  level:
+    org.springframework.ai.openai.OpenAiEmbeddingModel: OFF

@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Deterministic V0.1 tokenizer. Indexed semantic search is intentionally deferred. */
+/** Deterministic keyword tokenizer, retained alongside semantic retrieval. */
 public final class SearchTerms {
     private static final Pattern TERMS = Pattern.compile("[a-zA-Z][a-zA-Z0-9+.#-]*|[\\p{IsHan}]{2,}");
     private SearchTerms() { }

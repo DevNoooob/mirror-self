@@ -32,6 +32,13 @@ public class RetrievalController {
         return service.retrieve(props.ownerId(), query, limit);
     }
 
+    @GetMapping("/retrieval/explain")
+    public RetrievalService.Result explain(@RequestParam String query,
+            @RequestParam(defaultValue="10") int limit,
+            @RequestParam(defaultValue="HYBRID") RetrievalService.Mode mode) {
+        return service.explain(props.ownerId(),query,limit,mode);
+    }
+
     @PostMapping("/ask")
     public RetrievalService.ExtractiveAnswer ask(@Valid @RequestBody AskRequest request) {
         return service.answer(props.ownerId(), request.question());
