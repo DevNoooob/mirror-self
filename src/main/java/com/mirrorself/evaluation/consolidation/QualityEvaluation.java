@@ -28,7 +28,8 @@ public class QualityEvaluation {
     private record Fixture(UUID owner,Map<String,UUID> ids,Map<UUID,QualityCorpus.Memory> definitions) { }
     public Map<String,Object> run(boolean real,boolean includeHoldout,CountedEmbeddingProvider provider) throws Exception {
         var loaded=QualityCorpus.load();
-        QualityCorpus.require(jdbc.queryForObject("SELECT count(*) FROM source_record",Long.class)==0&&jdbc.queryForObject("SELECT count(*) FROM memory_item",Long.class)==0);
+        QualityCorpus.require(jdbc.queryForObject("SELECT current_database()",String.class).startsWith("mirror_self_evaluation_qg_")&&jdbc.queryForObject("SELECT count(*) FROM identity_claim",Long.class)==0
+            &&jdbc.queryForObject("SELECT count(*) FROM source_record",Long.class)==0&&jdbc.queryForObject("SELECT count(*) FROM memory_item",Long.class)==0);
         var observations=new ArrayList<QualityScorer.Observation>();Fixture probe=null;long started=System.nanoTime();
         for(var c:loaded.inputs().cases()) {
             if(c.split().equals("HOLDOUT")&&!includeHoldout) continue;
@@ -85,13 +86,16 @@ public class QualityEvaluation {
             UUID anchorId=f.ids().get(anchor),partner=f.ids().get(anchor.equals("left")?"right":"left");var batch=recall.recall(f.owner(),anchorId,10,mode);
             if(batch==null) {queries.add(new QualityScorer.Query(anchor,List.of(),List.of(),List.of()));continue;}
             var keywords=retrieval.consolidationKeyword(f.owner(),anchorId,batch.anchor().memory().content(),100);var vector=retrieval.storedNeighbors(f.owner(),anchorId,model,100);
+            var rawIds=new HashSet<UUID>();keywords.forEach(v->rawIds.add(v.id()));vector.forEach(v->rawIds.add(v.id()));batch.neighbors().forEach(v->rawIds.add(v.target().memory().id()));
+            for(UUID id:rawIds) {
+                var definition=f.definitions().get(id);if(definition==null||!definition.owner().equals("A")) ownerErrors++;
+                if(definition==null||!eligible(definition)) privacyErrors++;
+            }
             if(vector.stream().limit(10).anyMatch(v->v.id().equals(partner))) vectorAtK=true;
             if(batch.neighbors().stream().anyMatch(v->v.target().memory().id().equals(partner))) atK=true;
             if(batch.neighbors().stream().limit(3).anyMatch(v->v.target().memory().id().equals(partner))) at3=true;
             queries.add(new QualityScorer.Query(anchor,keywords.stream().map(v->key(f,v.id())).toList(),vector.stream().map(v->key(f,v.id())).toList(),batch.neighbors().stream().map(v->key(f,v.target().memory().id())).toList()));
             for(var n:batch.neighbors()) {
-                var definition=f.definitions().get(n.target().memory().id());if(definition==null||!definition.owner().equals("A")) ownerErrors++;
-                if(definition==null||!eligible(definition)) privacyErrors++;
                 String b=key(f,n.target().memory().id());String pair=java.util.stream.Stream.of(anchor,b).sorted().collect(java.util.stream.Collectors.joining("/"));if(!seen.add(pair)) continue;
                 var outcome=writer.propose(f.owner(),batch,n);
                 if(outcome.candidateId()==null) {attempts.add(new QualityScorer.Attempt(anchor,b,null,null,outcome.reason(),0,0,true));continue;}
