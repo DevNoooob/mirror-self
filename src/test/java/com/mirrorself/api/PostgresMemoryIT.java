@@ -73,7 +73,7 @@ class PostgresMemoryIT {
         assertEquals("fictional original text",legacy.queryForObject("SELECT text_content FROM source_record WHERE id=?",String.class,source));
         assertEquals("fictional legacy memory",legacy.queryForObject("SELECT content FROM memory_item WHERE id=?",String.class,memory));
         assertEquals(1,legacy.queryForObject("SELECT count(*) FROM memory_evidence",Integer.class));
-        assertEquals(3,legacy.queryForObject("SELECT count(*) FROM flyway_schema_history WHERE success",Integer.class));
+        assertEquals(4,legacy.queryForObject("SELECT count(*) FROM flyway_schema_history WHERE success",Integer.class));
     }
 
     @Test void preservesEvidenceAvoidsDuplicatesAndDeletesDerivedMemory() {

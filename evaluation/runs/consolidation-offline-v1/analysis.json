@@ -1,0 +1,240 @@
+{
+  "kind": "OFFLINE_OBSERVATION_NOT_FORMAL_BASELINE",
+  "executedHead": "68af38927b0ca28031dcd57119c29859bbf8cc37",
+  "ciRunUrl": "https://github.com/DevNoooob/mirror-self/actions/runs/40732403937",
+  "environment": "GitHub Actions Ubuntu temporary runner; Java 21.0.13; PostgreSQL17.11 + pgvector0.8.6 Testcontainers; no business volumes",
+  "datasetSha256": "a7a9fadcf08efd859d0ebef5a7c889338eb8b8a47763a1cbed669aacf2c44d55",
+  "rawReportSha256": "ac4cdf90593887d73d22c71f7688e0959b284869887d81f3de9c3e7eda9a3ed2",
+  "engineVersion": "consolidation-rules-1",
+  "vectorCondition": "all-similar-adversarial/v1: every eligible 1024-d vector is [1,0,...]; no real model",
+  "queryPairs": 31,
+  "expectedRelations": 9,
+  "expectedNoRelation": 22,
+  "comparedDirectionalPairs": 46,
+  "metrics": {
+    "condition": "OFFLINE_ADVERSARIAL_ALL_SIMILAR_STORED_VECTORS",
+    "datasetSha256": "a7a9fadcf08efd859d0ebef5a7c889338eb8b8a47763a1cbed669aacf2c44d55",
+    "engineVersion": "consolidation-rules-1",
+    "tp": 8,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.8888888888888888,
+    "predictedSameAs": 3,
+    "falseSameAs": 0,
+    "falseSameAsRate": 0.0,
+    "evidenceCorrect": 17,
+    "evidenceTotal": 17,
+    "evidenceAccuracy": 1.0,
+    "reviewPolicyCorrect": 8,
+    "reviewPolicyTotal": 8,
+    "reviewPolicyAccuracy": 1.0,
+    "realModelRequests": 0,
+    "scanModelRequests": 0,
+    "humanReferenceReviewComplete": false,
+    "f1": 0.9411764705882353
+  },
+  "realModelRequests": 0,
+  "scanModelRequests": 0,
+  "humanReferenceReviewComplete": false,
+  "formalBaseline": false,
+  "failures": [
+    {
+      "caseId": "CC16",
+      "stage": "PROPOSITION_CLASSIFICATION",
+      "expected": "SAME_AS",
+      "actual": "ABSTAINED",
+      "reasonCode": "DIFFERENT_PROPOSITION_OR_CONTEXT",
+      "explanation": "Both directions recalled the pair. The bounded bilingual equivalence table does not normalize monotonous tasks to 重复劳动; no vector recall, persistence or review-policy failure."
+    }
+  ],
+  "review": {
+    "effect": "RELATION_REVIEW_ONLY",
+    "approvedDoesNotWrite": [
+      "L0",
+      "L1",
+      "memory_relation",
+      "L2"
+    ],
+    "verified": [
+      "optimistic review conflict",
+      "rejected candidate not revived",
+      "owner SQL and database guard",
+      "concurrent bounded scans",
+      "source/evidence/privacy/status/time/metadata invalidation",
+      "deletion cascade/partial evidence deletion",
+      "model version isolation",
+      "new vector epoch revisit",
+      "explicit validity range abstention"
+    ]
+  },
+  "tests": {
+    "unit": {
+      "passed": 130,
+      "failed": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "passed": 50,
+      "failed": 0,
+      "skipped": 3
+    },
+    "python": {
+      "passed": 15
+    },
+    "skipped": [
+      "MemoryEvaluationLiveIT",
+      "LiveModelIT",
+      "LocalBgeRetrievalIT"
+    ],
+    "consolidationIT": {
+      "passed": 12,
+      "elapsedSecondsIncludingSetup": 4.614
+    }
+  },
+  "knownLimits": [
+    "Small agent-authored references await independent human review.",
+    "No real BGE recall quality measured in M2-B.",
+    "Bounded parser misses unfamiliar paraphrases and complex time intervals.",
+    "Index epoch changes can increase bounded re-scans.",
+    "No process-crash job recovery or automatic relation graph maintenance.",
+    "SOURCE_TIME and self-report do not establish current endorsement or objective personality."
+  ],
+  "v3": {
+    "queries": 45,
+    "finalHumanReviewComplete": false,
+    "grade2ReviewPending": true,
+    "realModelEvaluationExecuted": false,
+    "formalBaseline": false
+  },
+  "examples": [
+    {
+      "caseId": "CC01",
+      "relation": "SAME_AS",
+      "left": "我不喝咖啡。",
+      "right": "I do not drink coffee.",
+      "direction": "SYMMETRIC",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "COMPLETE_CLAIM_POLARITY_QUALIFIERS_AND_TIME_MATCH"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "LEXICAL_EQUIVALENCE_REQUIRES_REVIEW"
+      ]
+    },
+    {
+      "caseId": "CC02",
+      "relation": "CONTRADICTS",
+      "left": "我喜欢园艺。",
+      "right": "我不喜欢园艺。",
+      "direction": "SYMMETRIC",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "SAME_POINT_OPPOSITE_EXPLICIT_POLARITY"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED"
+      ]
+    },
+    {
+      "caseId": "CC03",
+      "relation": "EVOLVED_FROM",
+      "left": "我喜欢园艺。",
+      "right": "我不喜欢园艺。",
+      "direction": "B_TO_A",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "DATED_OPPOSITE_EXPLICIT_ASSERTIONS"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "POSSIBLE_EVOLUTION_OR_MISSING_CONTEXT"
+      ]
+    },
+    {
+      "caseId": "CC04",
+      "relation": "EVOLVED_FROM",
+      "left": "我以前喜欢园艺。",
+      "right": "我现在不喜欢园艺。",
+      "direction": "A_TO_B",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "EXPLICIT_HISTORICAL_AND_SOURCE_TIME_CHANGE"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "POSSIBLE_EVOLUTION_NOT_CONFIRMED"
+      ]
+    },
+    {
+      "caseId": "CC07",
+      "relation": "SAME_AS",
+      "left": "如果获得录取，我可能去月港学习。",
+      "right": "如果获得录取，我可能去月港学习。",
+      "direction": "SYMMETRIC",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "COMPLETE_CLAIM_POLARITY_QUALIFIERS_AND_TIME_MATCH"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "INTENTION_OR_CONDITION_NOT_COMPLETION"
+      ]
+    },
+    {
+      "caseId": "CC10",
+      "relation": "SAME_AS",
+      "left": "我觉得自己很耐心。",
+      "right": "I consider myself patient.",
+      "direction": "SYMMETRIC",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "COMPLETE_CLAIM_POLARITY_QUALIFIERS_AND_TIME_MATCH"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "SELF_REPORT_ONLY_NOT_OBJECTIVE_PERSONALITY",
+        "LEXICAL_EQUIVALENCE_REQUIRES_REVIEW"
+      ]
+    },
+    {
+      "caseId": "CC11",
+      "relation": "SUPPORTS",
+      "left": "我不喝咖啡。",
+      "right": "I do not drink coffee.",
+      "direction": "A_TO_B",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "ADDITIONAL_VERIFIED_SOURCE_FOR_SAME_CLAIM"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "NO_PROOF_OF_CONTINUOUS_TRUTH"
+      ]
+    },
+    {
+      "caseId": "CC12",
+      "relation": "SUPPORTS",
+      "left": "我不喝咖啡。",
+      "right": "I do not drink coffee.",
+      "direction": "B_TO_A",
+      "reviewStatus": "PENDING_REVIEW",
+      "reasonCodes": [
+        "CONSISTENT_EXPLICIT_REASSERTION_AT_ANOTHER_TIME"
+      ],
+      "uncertainties": [
+        "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+        "CURRENT_ENDORSEMENT_UNCONFIRMED",
+        "NO_PROOF_OF_CONTINUOUS_TRUTH"
+      ]
+    }
+  ]
+}

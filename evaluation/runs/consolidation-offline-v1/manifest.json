@@ -1,0 +1,25 @@
+{
+  "kind": "OFFLINE_OBSERVATION_NOT_FORMAL_BASELINE",
+  "executedHead": "68af38927b0ca28031dcd57119c29859bbf8cc37",
+  "ciRunUrl": "https://github.com/DevNoooob/mirror-self/actions/runs/40732403937",
+  "environment": "GitHub Actions Ubuntu temporary runner; Java 21.0.13; PostgreSQL17.11 + pgvector0.8.6 Testcontainers; no business volumes",
+  "datasetSha256": "a7a9fadcf08efd859d0ebef5a7c889338eb8b8a47763a1cbed669aacf2c44d55",
+  "rawReportSha256": "ac4cdf90593887d73d22c71f7688e0959b284869887d81f3de9c3e7eda9a3ed2",
+  "engineVersion": "consolidation-rules-1",
+  "vectorCondition": "all-similar-adversarial/v1: every eligible 1024-d vector is [1,0,...]; no real model",
+  "realModelRequests": 0,
+  "formalBaseline": false,
+  "humanReferenceReviewComplete": false,
+  "filesSha256": {
+    "report.json": "ac4cdf90593887d73d22c71f7688e0959b284869887d81f3de9c3e7eda9a3ed2",
+    "report.md": "3ee8c3aba4bf191a168435bdcb780579bb9ba7c8292f885bf42db6667f51a66e",
+    "analysis.json": "6cecefac5f8a32f8abde079d7b2f822b67e4a3e056a4748c66acf6b4464cecf1",
+    "analysis.md": "1668157af871bf51b697983d1bb19928e47e4467e5b4941a0994358451f854e6"
+  },
+  "v3": {
+    "datasetSha256": "aedb0a96d46dbcb06e5bee0481a3566855a55330fed842efd334db840035ab50",
+    "referenceSha256": "0b6404d8752737a8eb3477f0d08d47b8738c6d874da29644ec014b2aeb2649dd",
+    "queryCount": 45,
+    "finalHumanReviewComplete": false
+  }
+}

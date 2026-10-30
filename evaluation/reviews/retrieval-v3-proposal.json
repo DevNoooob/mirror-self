@@ -1,0 +1,124 @@
+{
+  "status": "SCOPE_APPROVED_WITH_CORRECTIONS_NOT_FINAL_REFERENCE_REVIEW",
+  "sourceDatasetSha256": "4b0cde4f771356ea86c2bf70cfab27703c7bf7d06bbebb7acd308482526f2ad4",
+  "sourceReferenceSha256": "cd1c9933d61460657eaed2247b490ae502bc7fc7dbccbce8a0ffc1e83f1285b2",
+  "targetVersion": "retrieval-fictional-v3 / retrieval-reference-v3",
+  "reviewScope": "Revision scope approved by user with corrections; final reference judgements for all 45 queries remain pending independent human review.",
+  "changes": [
+    {
+      "caseId": "R2Q11",
+      "issue": "职业/学习考虑范围过宽；原参考漏掉同义英文写作愿望，却纳入描述性学习事实。",
+      "proposedQuestion": "我是否明确表示在获得奖学金的条件下，可能考虑去北岸市读研？",
+      "proposedRelevant": [
+        {
+          "memoryId": "R23",
+          "relation": "SUPPORTS",
+          "grade": 3
+        }
+      ],
+      "forbidden": [
+        "已经决定去读研",
+        "已经获得奖学金",
+        "已经入学"
+      ]
+    },
+    {
+      "caseId": "R2Q13",
+      "issue": "消息时点不唯一，R24为2022记录，R25为2025记录；不能暗选最新。",
+      "proposedQuestion": "根据 2025-01-01 的用户消息，当时我喜欢热闹的工作环境吗？",
+      "proposedRelevant": [
+        {
+          "memoryId": "R25",
+          "relation": "REFUTES",
+          "grade": 3
+        },
+        {
+          "memoryId": "R24",
+          "relation": "RELATED_ONLY",
+          "grade": 2
+        }
+      ],
+      "forbidden": [
+        "现在仍然不喜欢",
+        "旧观点从未存在"
+      ]
+    },
+    {
+      "caseId": "R2Q23",
+      "issue": "实际学习、升学条件意向、写作愿望不是同一种目标；原参考缺英文等价愿望。",
+      "proposedQuestion": "我是否表达过未来写小说的愿望？",
+      "proposedRelevant": [
+        {
+          "memoryId": "R08",
+          "relation": "SUPPORTS",
+          "grade": 3
+        },
+        {
+          "memoryId": "R35",
+          "relation": "SUPPORTS",
+          "grade": 3
+        }
+      ],
+      "forbidden": [
+        "正在写小说",
+        "小说已经完成",
+        "已经成为小说家"
+      ]
+    },
+    {
+      "caseId": "R2Q42",
+      "issue": "正在学习与正在写作混合；原参考将愿望当作正在写作的相关项，单条证据又无法支持整问。",
+      "proposedSubqueries": [
+        {
+          "id": "R2Q42A",
+          "question": "At the recorded historical message times, was I learning Spanish?",
+          "relevant": [
+            {
+              "memoryId": "R07",
+              "relation": "SUPPORTS",
+              "grade": 3
+            },
+            {
+              "memoryId": "R29",
+              "relation": "SUPPORTS",
+              "grade": 3
+            }
+          ]
+        },
+        {
+          "id": "R2Q42B",
+          "question": "Had I expressed a wish to write a novel?",
+          "relevant": [
+            {
+              "memoryId": "R08",
+              "relation": "SUPPORTS",
+              "grade": 3
+            },
+            {
+              "memoryId": "R35",
+              "relation": "SUPPORTS",
+              "grade": 3
+            }
+          ]
+        }
+      ],
+      "forbidden": [
+        "wish implies currently writing",
+        "one facet proves both facets"
+      ]
+    }
+  ],
+  "grade1PolicyProposal": "User approved keeping grade1 as separately evaluated background. Grade2 time context remains pending; final labels for all queries remain unconfirmed.",
+  "grade1AffectedCases": [
+    "R2Q01",
+    "R2Q02",
+    "R2Q03",
+    "R2Q04",
+    "R2Q05",
+    "R2Q06",
+    "R2Q08",
+    "R2Q33",
+    "R2Q35",
+    "R2Q36"
+  ]
+}

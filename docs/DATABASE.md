@@ -1,6 +1,6 @@
-# Database Schema V1
+# Database Schema V1–V4
 
-来源：`src/main/resources/db/migration/V1__memory_foundation.sql` 是唯一真实 DDL，本文是设计说明。
+来源：`src/main/resources/db/migration/V1__memory_foundation.sql` 及后续 Flyway 迁移是实际 DDL，本文是设计说明。
 
 ## 1. 数据层次
 
@@ -25,7 +25,7 @@ L2 identity_claim ← identity_evidence
 - `memory_evidence`: 关联多条原始消息与一条提取记忆。相同内容可出现不同证据；删除全部证据后删除相关 L1 记忆。
 - `memory_relation`: L1 关系 RELATED_TO/SUPPORTS/CONTRADICTS/EVOLVED_FROM，尚未建立自动管理流程。
 - `identity_claim` / `identity_evidence`: L2 九维认知判断和来自 L1 的证据。模型推断必须关联证据且进入 PENDING_REVIEW。
-- `memory_embedding`: 固定 `vector(1024)` 的占位结构，计划可用 `bge-m3` 等 1024 维模型；没有生成任务，现阶段为空。
+- `memory_embedding`: 固定 `vector(1024)`，V3已接入增量任务与模型版本隔离，支持经配置的本地BGE-M3。
 - `share_profile` / `share_grant`: 对外共享的未来数据结构；**不提供任何可用的共享 API**。
 - `ingestion_job`: 本次 ChatGPT 文件导入的进度/状态记录。
 - `audit_event`: 记录创建、审核、删除事件，不保存原始敏感正文。
@@ -33,7 +33,7 @@ L2 identity_claim ← identity_evidence
 ## 3. 索引与约束
 
 - PostgreSQL `pg_trgm` GIN 索引用于未来文本筛选优化。当前检索为简单关键词 `ILIKE`，中文两字片段召回质量有限。
-- pgvector HNSW 索引用于未来 1024 维近似向量检索；未接入 Embedding 模型。
+- pgvector HNSW 索引保留；当前混合检索使用权限预过滤后精确余弦排序。
 - 必要的 `owner_id` 与 `status` 条件必须写入每次查询 SQL，而不是只靠 prompt。
 - 删除 L0 时 `memory_evidence` 会自动级联，再删除失去全部证据的 L1 记忆；对 L2 推断判断采取保守清理策略。
 
@@ -60,3 +60,9 @@ L2 identity_claim ← identity_evidence
 关键词、向量、索引选择和最终证据装载都使用 `RetrievalVisibility.SQL`：ACTIVE + NORMAL + 至少一条证据 + 所有证据同 owner、PRIVATE、user、逐字引用仍存在。敏感记忆即使审核通过也不进入本阶段通用检索；后续若增加显式授权查询需单独设计。原 owner 记忆管理列表仍可查看待审核/敏感内容。
 
 向量检索用 `<=>` 计算余弦距离，MATERIALIZED 预过滤后精确排序；M1 保留原 HNSW 索引但暂不使用近似检索，避免小候选集过滤后的召回损失。未来大库优化需先测量，不能移除权限过滤。V3 只在隔离测试库验证，正式库迁移需备份与独立部署授权。
+
+## V0.2.2-M2-B 增量（V4）
+
+新增 `consolidation_candidate`（双 L1 复合owner外键、revision、方向、规则/模型版本、固定原因、不确定性及审核/失效状态）、`consolidation_cursor`、`consolidation_job`、`consolidation_vector_epoch`。每个候选初始 PENDING_REVIEW，唯一键为owner+规范UUID对+关系+双方revision；审核不修改原记忆或memory_relation。详情只装载当前仍可访问的L0/L1，不保存私人证据快照。
+
+新迁移扩展既有revision触发器至有效期/消息日期/来源元数据，变化使向量失效、候选STALE；删除L1级联删除候选并保留仅ID审计。新向量入库递增模型epoch，允许增量重扫。V1/V2/V3字节不改；正式业务库未迁移，未来须授权、备份、评估索引锁。详见 [M2-B设计与API](V0.2.2-M2B_CONSOLIDATION.md)。
