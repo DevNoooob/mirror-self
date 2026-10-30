@@ -22,7 +22,7 @@ class QualityGateOfflineIT extends QualityGateTestSupport {
     }
     @Autowired QualityEvaluation evaluation;@Autowired CountedEmbeddingProvider counted;
     @Test void observesDevelopmentOnlyWithoutTuningOrOpeningHoldout() throws Exception {
-        var result=evaluation.run(false,false,counted);assertFalse((Boolean)result.get("holdoutEvaluated"));assertFalse((Boolean)result.get("v03Ready"));
+        var result=evaluation.run(false,false,counted);assertHardSafety(result);assertFalse((Boolean)result.get("holdoutEvaluated"));assertFalse((Boolean)result.get("v03Ready"));
         assertEquals(0,result.get("realModelRequests"));assertEquals(0,counted.failures());assertTrue(counted.calls()<=300);
         // Observational CI checks plumbing and safety; --enforce separately fails quantitative gates.
     }

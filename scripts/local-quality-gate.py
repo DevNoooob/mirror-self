@@ -44,7 +44,7 @@ def main(argv=None):
  lock=ROOT/'target/qg-local-execute.lock';lock.parent.mkdir(parents=True,exist_ok=True)
  with lock.open('x') as f:f.write('Single scoped local evaluation; never retry automatically.\n')
  child={k:v for k,v in os.environ.items() if not (k.startswith('MIRROR_LLM_') or k.startswith('OPENAI_') or k.startswith('SPRING_AI_') or k in ['OLLAMA_API_KEY','MIRROR_EMBEDDING_API_KEY'])}
- child.update(MIRROR_EXTRACTION_MODE='RULE',MIRROR_MODEL_EGRESS_ENABLED='false',MIRROR_RUN_LIVE_LLM='false',MIRROR_EVALUATION_LIVE_ENABLED='false',MIRROR_RUN_LOCAL_RETRIEVAL='false',MIRROR_EMBEDDING_MODE='LOCAL',MIRROR_EMBEDDING_BASE_URL=p['endpoint'],MIRROR_EMBEDDING_MODEL=p['model'],MIRROR_EMBEDDING_VERSION=p['modelVersion'],MIRROR_EMBEDDING_API_KEY='',MIRROR_QG_RUN_ID=str(uuid.uuid4()))
+ child.update(MIRROR_EXTRACTION_MODE='RULE',MIRROR_MODEL_EGRESS_ENABLED='false',MIRROR_RUN_LIVE_LLM='false',MIRROR_EVALUATION_LIVE_ENABLED='false',MIRROR_RUN_LOCAL_RETRIEVAL='false',MIRROR_EMBEDDING_MODE='LOCAL',MIRROR_EMBEDDING_BASE_URL=p['endpoint'],MIRROR_EMBEDDING_MODEL=p['model'],MIRROR_EMBEDDING_VERSION=p['modelVersion'],MIRROR_EMBEDDING_API_KEY='',MIRROR_QG_RUN_ID=str(uuid.uuid4()),DOCKER_HOST='unix:///var/run/docker.sock',DOCKER_CONTEXT='default',TESTCONTAINERS_HOST_OVERRIDE='127.0.0.1',TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE='/var/run/docker.sock')
  command=['mvn','--batch-mode','--no-transfer-progress','-Dtest=QualityContractTest','-Dit.test=LocalQualityGateIT']
  if args.enforce:command.append('-Dmirror.qg.enforce=true')
  command.append('verify');summary.update(codeSha=code,remoteEnvironmentChecked=True);print(json.dumps(summary,indent=2),flush=True)

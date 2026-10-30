@@ -10,6 +10,7 @@ public final class QualityLiveAuthorization {
         boolean ok="true".equals(env.get("MIRROR_RUN_LOCAL_QG"))&&"new-testcontainers".equals(env.get("MIRROR_ISOLATED_TEST_ENVIRONMENT"))&&os.equals("Linux")&&javaVersion==21
             &&l.planSha256().equals(env.get("MIRROR_QG_APPROVED_PLAN_SHA"))&&l.plan().datasetSha256().equals(env.get("MIRROR_QG_APPROVED_DATASET_SHA"))
             &&l.plan().referenceSha256().equals(env.get("MIRROR_QG_APPROVED_REFERENCE_SHA"))&&l.plan().gateSha256().equals(env.get("MIRROR_QG_APPROVED_GATE_SHA"))
+            &&"unix:///var/run/docker.sock".equals(env.get("DOCKER_HOST"))&&"127.0.0.1".equals(env.get("TESTCONTAINERS_HOST_OVERRIDE"))
             &&code.matches("[a-f0-9]{40}")&&code.equals(env.get("MIRROR_QG_APPROVED_CODE_SHA"))
             &&"false".equals(env.get("MIRROR_MODEL_EGRESS_ENABLED"))&&"false".equals(env.get("MIRROR_RUN_LIVE_LLM"))&&"false".equals(env.get("MIRROR_EVALUATION_LIVE_ENABLED"))
             &&p.mode()==EmbeddingProperties.Mode.LOCAL&&p.baseUrl().equals(l.plan().endpoint())&&p.model().equals(l.plan().model())&&p.version().equals(l.plan().modelVersion())&&p.apiKey().isEmpty();

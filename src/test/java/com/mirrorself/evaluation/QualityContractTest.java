@@ -48,6 +48,7 @@ class QualityContractTest {
         env.putAll(Map.of("MIRROR_RUN_LOCAL_QG","true","MIRROR_ISOLATED_TEST_ENVIRONMENT","new-testcontainers","MIRROR_QG_APPROVED_PLAN_SHA",l.planSha256(),
             "MIRROR_QG_APPROVED_DATASET_SHA",l.plan().datasetSha256(),"MIRROR_QG_APPROVED_REFERENCE_SHA",l.plan().referenceSha256(),"MIRROR_QG_APPROVED_GATE_SHA",l.plan().gateSha256(),
             "MIRROR_QG_APPROVED_CODE_SHA","f".repeat(40),"MIRROR_MODEL_EGRESS_ENABLED","false","MIRROR_RUN_LIVE_LLM","false","MIRROR_EVALUATION_LIVE_ENABLED","false"));
+        env.put("DOCKER_HOST","unix:///var/run/docker.sock");env.put("TESTCONTAINERS_HOST_OVERRIDE","127.0.0.1");
         assertDoesNotThrow(()->QualityLiveAuthorization.check(l,p,env,"f".repeat(40),"Linux",21));
         env.put("MIRROR_QG_APPROVED_PLAN_SHA","changed");assertThrows(IllegalStateException.class,()->QualityLiveAuthorization.check(l,p,env,"f".repeat(40),"Linux",21));
         env.put("MIRROR_QG_APPROVED_PLAN_SHA",l.planSha256());env.put("SPRING_DATASOURCE_URL","jdbc:postgresql://fictional-business-host/db");

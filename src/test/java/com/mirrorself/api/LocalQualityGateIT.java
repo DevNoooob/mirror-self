@@ -27,7 +27,7 @@ class LocalQualityGateIT extends QualityGateTestSupport {
     @Test void evaluatesPinnedLocalModelOnlyWithFreshScopeApproval() throws Exception {
         var loaded=QualityCorpus.load();QualityLiveAuthorization.check(loaded,properties,System.getenv(),QualityLiveAuthorization.currentCode(),System.getProperty("os.name"),Runtime.version().feature());
         OllamaModelPin.verify(loaded.plan().model(),loaded.plan().modelDigest());
-        try {var result=evaluation.run(true,true,counted);assertTrue(counted.calls()>0);assertTrue(counted.calls()<=600);assertEquals(0,counted.failures());assertFalse((Boolean)result.get("formalBaseline"));}
+        try {var result=evaluation.run(true,true,counted);assertHardSafety(result);assertTrue(counted.calls()>0);assertTrue(counted.calls()<=600);assertEquals(0,counted.failures());assertFalse((Boolean)result.get("formalBaseline"));}
         finally {OllamaModelPin.verify(loaded.plan().model(),loaded.plan().modelDigest());}
     }
 }
