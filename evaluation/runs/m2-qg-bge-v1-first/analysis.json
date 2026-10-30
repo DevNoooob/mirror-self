@@ -1,0 +1,1405 @@
+{
+  "kind": "REAL_LOCAL_OBSERVATION_NOT_FORMAL_BASELINE",
+  "approvedCode": "0a4baa07e41891d61cd623d37d5931e80f596504",
+  "planSha256": "a14530ff4c27b9973ad8ab57fcd69adc468ce2e2aa81f5b4d4aebb7357a8de87",
+  "datasetSha256": "e2a932f3f5fc04d740b48d65dd93ea8bc6e8935c40e440578e23323ef18a4b3c",
+  "referenceSha256": "70a513fbb2d3595d3c587ac1e2ff3457ee69e22f2b0b3a2c2840fe43e2dec47c",
+  "gateSha256": "57ad19a948a7402fd376f75f39f9ab74a73675306641b380f3ce7ce93bc52c74",
+  "model": "bge-m3",
+  "modelVersion": "ollama-790764642607",
+  "modelDigest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+  "embeddingRequests": 588,
+  "queryEmbeddingRequests": 0,
+  "metadataVerificationGets": 4,
+  "providerFailures": 0,
+  "cloudCalls": 0,
+  "holdoutEvaluated": true,
+  "holdoutConsumedForFutureTuning": true,
+  "referenceHumanReviewComplete": false,
+  "formalBaseline": false,
+  "v03Ready": false,
+  "metrics": {
+    "DEV_KEYWORD": {
+      "cases": 60,
+      "positiveReferencePairs": 30,
+      "recalledPositivePairs": 25,
+      "candidateRecallAt10": 0.8333333333333334,
+      "candidateRecallAt3": 0.8333333333333334,
+      "vectorOnlyRecallAt10Diagnostic": 1.0,
+      "queryRecallAt10": 0.8333333333333334,
+      "queryRecallAt3": 0.8333333333333334,
+      "vectorQueryRecallAt10Diagnostic": 1.0,
+      "relationClassification": {
+        "recall": 1.0,
+        "f1": 1.0,
+        "precision": 1.0
+      },
+      "tp": 25,
+      "fp": 0,
+      "fn": 5,
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "conditionalClassificationRecall": 1.0,
+      "conditionalClassificationFn": 0,
+      "falseSameAs": 0,
+      "unrelatedLinks": 0,
+      "unrelatedOpportunities": 60,
+      "unrelatedLinkRate": 0.0,
+      "evidenceTotal": 55,
+      "evidenceErrors": 0,
+      "evidenceAccuracy": 1.0,
+      "ownerViolations": 0,
+      "privacyViolations": 0,
+      "reviewPolicyAccuracy": 1.0,
+      "conflictReviewAccuracy": 1.0,
+      "quantitativeGatePass": false,
+      "failedGates": [
+        "CANDIDATE_RECALL"
+      ]
+    },
+    "DEV_HYBRID": {
+      "cases": 60,
+      "positiveReferencePairs": 30,
+      "recalledPositivePairs": 30,
+      "candidateRecallAt10": 1.0,
+      "candidateRecallAt3": 1.0,
+      "vectorOnlyRecallAt10Diagnostic": 1.0,
+      "queryRecallAt10": 1.0,
+      "queryRecallAt3": 1.0,
+      "vectorQueryRecallAt10Diagnostic": 1.0,
+      "relationClassification": {
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091,
+        "precision": 1.0
+      },
+      "tp": 25,
+      "fp": 0,
+      "fn": 5,
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "conditionalClassificationRecall": 0.8333333333333334,
+      "conditionalClassificationFn": 5,
+      "falseSameAs": 0,
+      "unrelatedLinks": 0,
+      "unrelatedOpportunities": 339,
+      "unrelatedLinkRate": 0.0,
+      "evidenceTotal": 55,
+      "evidenceErrors": 0,
+      "evidenceAccuracy": 1.0,
+      "ownerViolations": 0,
+      "privacyViolations": 0,
+      "reviewPolicyAccuracy": 1.0,
+      "conflictReviewAccuracy": 1.0,
+      "quantitativeGatePass": true,
+      "failedGates": []
+    },
+    "HOLDOUT_KEYWORD": {
+      "cases": 60,
+      "positiveReferencePairs": 25,
+      "recalledPositivePairs": 15,
+      "candidateRecallAt10": 0.6,
+      "candidateRecallAt3": 0.6,
+      "vectorOnlyRecallAt10Diagnostic": 1.0,
+      "queryRecallAt10": 0.6,
+      "queryRecallAt3": 0.6,
+      "vectorQueryRecallAt10Diagnostic": 1.0,
+      "relationClassification": {
+        "recall": 1.0,
+        "f1": 1.0,
+        "precision": 1.0
+      },
+      "tp": 15,
+      "fp": 0,
+      "fn": 10,
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.7499999999999999,
+      "conditionalClassificationRecall": 1.0,
+      "conditionalClassificationFn": 0,
+      "falseSameAs": 0,
+      "unrelatedLinks": 0,
+      "unrelatedOpportunities": 82,
+      "unrelatedLinkRate": 0.0,
+      "evidenceTotal": 30,
+      "evidenceErrors": 0,
+      "evidenceAccuracy": 1.0,
+      "ownerViolations": 0,
+      "privacyViolations": 0,
+      "reviewPolicyAccuracy": 1.0,
+      "conflictReviewAccuracy": 1.0,
+      "quantitativeGatePass": false,
+      "failedGates": [
+        "CANDIDATE_RECALL",
+        "RELATION_RECALL",
+        "RELATION_F1"
+      ]
+    },
+    "HOLDOUT_HYBRID": {
+      "cases": 60,
+      "positiveReferencePairs": 25,
+      "recalledPositivePairs": 25,
+      "candidateRecallAt10": 1.0,
+      "candidateRecallAt3": 1.0,
+      "vectorOnlyRecallAt10Diagnostic": 1.0,
+      "queryRecallAt10": 1.0,
+      "queryRecallAt3": 1.0,
+      "vectorQueryRecallAt10Diagnostic": 1.0,
+      "relationClassification": {
+        "recall": 0.64,
+        "f1": 0.7804878048780487,
+        "precision": 1.0
+      },
+      "tp": 16,
+      "fp": 0,
+      "fn": 9,
+      "precision": 1.0,
+      "recall": 0.64,
+      "f1": 0.7804878048780487,
+      "conditionalClassificationRecall": 0.64,
+      "conditionalClassificationFn": 9,
+      "falseSameAs": 0,
+      "unrelatedLinks": 0,
+      "unrelatedOpportunities": 364,
+      "unrelatedLinkRate": 0.0,
+      "evidenceTotal": 32,
+      "evidenceErrors": 0,
+      "evidenceAccuracy": 1.0,
+      "ownerViolations": 0,
+      "privacyViolations": 0,
+      "reviewPolicyAccuracy": 1.0,
+      "conflictReviewAccuracy": 1.0,
+      "quantitativeGatePass": false,
+      "failedGates": [
+        "RELATION_RECALL",
+        "RELATION_F1"
+      ]
+    }
+  },
+  "perCaseErrors": [
+    {
+      "caseId": "QG0100",
+      "split": "DEV",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢安静的图书馆。",
+      "right": "I dislike quiet libraries.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d2",
+            "d0"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG0101",
+      "split": "DEV",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢慢节奏旅行。",
+      "right": "I dislike slow travel.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d0",
+            "d2",
+            "d1"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG0102",
+      "split": "DEV",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢手绘地图。",
+      "right": "I dislike handmade maps.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG0103",
+      "split": "DEV",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢深夜会议。",
+      "right": "I dislike late meetings.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG0104",
+      "split": "DEV",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢小组辩论。",
+      "right": "I dislike group debates.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG0100",
+      "split": "DEV",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢安静的图书馆。",
+      "right": "I dislike quiet libraries.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d2",
+            "d0"
+          ],
+          "fused": [
+            "left",
+            "d1",
+            "d2",
+            "d0"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG0101",
+      "split": "DEV",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢慢节奏旅行。",
+      "right": "I dislike slow travel.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d0",
+            "d2",
+            "d1"
+          ],
+          "fused": [
+            "left",
+            "d0",
+            "d2",
+            "d1"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG0102",
+      "split": "DEV",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢手绘地图。",
+      "right": "I dislike handmade maps.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG0103",
+      "split": "DEV",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢深夜会议。",
+      "right": "I dislike late meetings.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG0104",
+      "split": "DEV",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢小组辩论。",
+      "right": "I dislike group debates.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG1300",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我倾向于独自阅读诗歌。",
+      "right": "I prefer reading poetry alone.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d2",
+            "d0"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG2000",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我觉得自己很耐心。",
+      "right": "I consider myself patient.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG1301",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不爱参加喧闹的聚会。",
+      "right": "I avoid noisy parties.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG2001",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我觉得自己很好奇。",
+      "right": "I consider myself curious.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG1302",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我习惯先列提纲再写作。",
+      "right": "I usually outline before writing.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d0",
+            "d1",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG2002",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我觉得自己很谨慎。",
+      "right": "I consider myself careful.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG1303",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我偏好可重复使用的容器。",
+      "right": "I prefer reusable containers.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d0",
+            "d1",
+            "d2"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG2003",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我觉得自己很健谈。",
+      "right": "I consider myself talkative.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG1304",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我讨厌没有议程的会议。",
+      "right": "I dislike meetings without an agenda.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG2004",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我觉得自己很灵活。",
+      "right": "I consider myself flexible.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": []
+        }
+      ]
+    },
+    {
+      "caseId": "QG1300",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我倾向于独自阅读诗歌。",
+      "right": "I prefer reading poetry alone.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "UNRESOLVED_COMPLETE_PROPOSITION"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d2",
+            "d0"
+          ],
+          "fused": [
+            "right",
+            "d1",
+            "d2",
+            "d0"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "left",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG1301",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不爱参加喧闹的聚会。",
+      "right": "I avoid noisy parties.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "UNRESOLVED_COMPLETE_PROPOSITION"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d0"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "left",
+            "d2",
+            "d0",
+            "d1"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG2001",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我觉得自己很好奇。",
+      "right": "I consider myself curious.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG1302",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我习惯先列提纲再写作。",
+      "right": "I usually outline before writing.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "UNRESOLVED_COMPLETE_PROPOSITION"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "right",
+            "d0",
+            "d1"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d0",
+            "d1",
+            "d2"
+          ],
+          "fused": [
+            "left",
+            "d0",
+            "d1",
+            "d2"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG2002",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我觉得自己很谨慎。",
+      "right": "I consider myself careful.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d1",
+            "d0"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG1303",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我偏好可重复使用的容器。",
+      "right": "I prefer reusable containers.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "UNRESOLVED_COMPLETE_PROPOSITION"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d0",
+            "d1",
+            "d2"
+          ],
+          "fused": [
+            "right",
+            "d0",
+            "d1",
+            "d2"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG2003",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我觉得自己很健谈。",
+      "right": "I consider myself talkative.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG1304",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我讨厌没有议程的会议。",
+      "right": "I dislike meetings without an agenda.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "UNRESOLVED_COMPLETE_PROPOSITION"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "right",
+            "d2",
+            "d0",
+            "d1"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d2",
+            "d0",
+            "d1"
+          ],
+          "fused": [
+            "left",
+            "d2",
+            "d0",
+            "d1"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "QG2004",
+      "split": "HOLDOUT",
+      "mode": "HOLDOUT_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我觉得自己很灵活。",
+      "right": "I consider myself flexible.",
+      "expectedType": "SAME_AS",
+      "expectedFrom": null,
+      "targetReasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT"
+      ],
+      "queries": [
+        {
+          "anchor": "left",
+          "keyword": [],
+          "vector": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "right",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        },
+        {
+          "anchor": "right",
+          "keyword": [],
+          "vector": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ],
+          "fused": [
+            "left",
+            "d1",
+            "d0",
+            "d2"
+          ]
+        }
+      ]
+    }
+  ],
+  "result": "HOLDOUT_HYBRID fails frozen relation recall/F1 gates. BGE candidate recall succeeds within these small pools; classification coverage is the bottleneck.",
+  "runtime": {
+    "host": "authorized Ubuntu VMware test environment",
+    "java": "21.0.10",
+    "maven": "3.9.13",
+    "dockerEngine": "29.1.3",
+    "postgres": "17.11",
+    "pgvector": "0.8.6",
+    "runtimeImage": "sha256:850d3575de1cf32ee99e6da31acd943242113ee9b7d320564784a30b2f9b0a42",
+    "jvmCpuLimit": 2,
+    "jvmMemoryLimitBytes": 2147483648,
+    "modelProcessResources": "shared existing Ollama service; not isolated hardware",
+    "ollamaSoftwareVersion": "not additionally queried in order to respect four metadata GET budget",
+    "temporaryDatabase": "mirror_self_evaluation_qg_v1",
+    "databaseLoopbackPort": 32769,
+    "testClassSeconds": 32.81,
+    "evaluationMsMonotonic": 28879,
+    "coldBuildAndTestsSeconds": 526.069,
+    "wallClockTrusted": false,
+    "clockChanged": false
+  },
+  "tests": {
+    "ubuntuJava21ContractPassed": 5,
+    "ubuntuRealLocalIntegrationPassed": 1,
+    "skipped": 0,
+    "ciUnitPassed": 136,
+    "ciIntegrationPassed": 61,
+    "ciLiveSkipped": 4,
+    "pythonPassed": 21
+  },
+  "cleanup": {
+    "temporaryDirectoryRemoved": true,
+    "remainingContainersForRun": 0,
+    "explicitRemovedIds": [],
+    "businessVolumesTouched": false,
+    "modelWeightsRemoved": false,
+    "clockChanged": false
+  },
+  "limitations": [
+    "References remain agent-authored and require independent human review, including previously flagged QG1301.",
+    "Five-memory candidate pools cannot establish large-corpus or open-set quality.",
+    "Pre/post model digest matching does not prove no transient replacement during a shared-server run.",
+    "Clock trust not independently established; no formal baseline frozen.",
+    "No automatic graph, L2, merge, deployment or business DB operation.",
+    "Future tuning requires a new independent holdout, not re-reporting this consumed holdout."
+  ]
+}

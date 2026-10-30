@@ -102,3 +102,9 @@ v3已按批准范围创建45查询，全部最终人工参考仍待审、grade2�
 [DEV完整观察](../evaluation/runs/m2-qg-v1-dev-observation/analysis.md)：KEYWORD候选R@10=83.33%，未达冻结90%门禁；HYBRID相同向量Mock召回100%，分类R=83.33%，数值门禁通过但不代表BGE/留出验收。两模式均P100%/端到端R83.33%/F1 90.91%；错误SAME_AS/无关/owner/隐私/证据错误0。安全零容忍在观察模式也强制；人工审核、留出与本轮真实模型均未完成，V0.3准入false。
 
 全部旧数据/参考/报告及V1–V4按字节保留，未调用真实模型、访问业务库、部署或校时。
+
+## M2-QG 本轮已授权真实BGE执行
+
+批准代码 `0a4baa07e41891d61cd623d37d5931e80f596504`，固定计划a14530ff…：Ubuntu临时Java21.0.10/Maven3.9.13容器，独立Testcontainers PG17.11/pgvector0.8.6，5个契约+1个真实Live IT通过，0跳过。588次本地Embedding、4次摘要GET，0失败/云请求，前后完整digest匹配。新库127.0.0.1:32769，仅该临时库迁移V1–V5；未连接正式库、部署API或调整时钟。临时容器/目录已清理。
+
+[原始报告与逐例分析](../evaluation/runs/m2-qg-bge-v1-first/analysis.md)：DEV HYBRID P100/R83.33/F1 90.91%；HOLDOUT HYBRID P100/R64/F1 78.05%，真实候选均召回、规则覆盖不足。错误SAME_AS、无关、权限、证据违规0；人工参考未完成，正式Baseline和V0.3准入false。不能将BUILD SUCCESS误称质量门禁全部通过。

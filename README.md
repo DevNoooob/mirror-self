@@ -189,3 +189,5 @@ v3 检索参考已按批准范围生成45查询，全部参考仍待独立复核
 ## V0.2.2-M2-QG：质量门禁与本轮盲测准备
 
 新增[76项逐条人工审核材料](evaluation/reviews/m2-qg-human/cards.md)、120对独立参考的开发/留出集、分阶段召回/关系评分与零容忍门禁。默认只跑DEV Mock，本轮BGE必须另行批准固定SHA、模型和600次上限。用 `python3 scripts/local-quality-gate.py --dry-run` 离线检查；[运行/评分契约](docs/V0.2.2-M2_QG.md)和[V0.3已审核关系图提案](docs/V0.3_REVIEWED_RELATION_GRAPH.md)说明仍待人工和真实验收的范围。V5仅保护方向冲突，V4/旧参考和报告保留，不自动部署。
+
+本轮已单独授权完成 [真实BGE QG观察](evaluation/runs/m2-qg-bge-v1-first/analysis.md)：588次本地推理、0模型失败。留出候选R@10=100%，关系R64%/F1 78.05%未达门禁；安全违规0，人工参考仍待审核，V0.3准入与正式Baseline均未确认。
