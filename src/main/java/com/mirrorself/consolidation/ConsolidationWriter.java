@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ConsolidationWriter {
+    public static final String ENGINE_VERSION="consolidation-engine-2";
     public record Outcome(String kind,UUID candidateId,String reason) { }
     private final ConsolidationRepository repository;
     private final ConsolidationClassifier classifier;

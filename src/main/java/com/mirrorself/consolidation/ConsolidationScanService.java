@@ -23,9 +23,9 @@ public class ConsolidationScanService {
             throw new IllegalArgumentException("limit must be 1-50, neighbors 1-20 and mode required");
         long epoch=mode==ConsolidationRecall.Mode.HYBRID?recall.vectorEpoch(owner):0;
         UUID id=UUID.randomUUID();String[] model=recall.modelKey().split("\n",-1);
-        String key=Hashing.sha256(ConsolidationClassifier.VERSION+"\n"+recall.modelKey()+"\n"+mode+"\n"+neighbors);
+        String key=Hashing.sha256(ConsolidationWriter.ENGINE_VERSION+"\n"+ConsolidationClassifier.VERSION+"\n"+recall.modelKey()+"\n"+mode+"\n"+neighbors);
         jdbc.update("INSERT INTO consolidation_job(id,owner_id,status,scan_key,engine_version,mode,model_id,model_version,vector_epoch) VALUES(?,?,'RUNNING',?,?,?,?,?,?)",
-                id,owner,key,ConsolidationClassifier.VERSION,mode.name(),model[0],model[1],epoch);
+                id,owner,key,ConsolidationWriter.ENGINE_VERSION,mode.name(),model[0],model[1],epoch);
         int selected=0,processed=0,compared=0,created=0,existing=0,abstained=0,stale=0;
         Set<String> errors=new TreeSet<>();
         try {

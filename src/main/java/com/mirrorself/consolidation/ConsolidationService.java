@@ -14,7 +14,8 @@ public class ConsolidationService {
     public record Discovery(UUID anchorId,Double rrfScore,Integer keywordRank,Integer vectorRank,Double cosineSimilarity,int modelRequests,String truthSource) { }
     public record View(UUID id,ConsolidationRelation relation,String direction,String status,String validity,long reviewVersion,
         Side memoryA,Side memoryB,String engineVersion,String discoveryModelId,String discoveryModelVersion,
-        List<String> reasonCodes,List<String> uncertainties,Discovery discovery,String approvedEffect) { }
+        List<String> reasonCodes,List<String> uncertainties,Discovery discovery,String approvedEffect,
+        boolean approvalBlocked,List<ConsolidationRepository.RelationConflict> relationConflicts) { }
     private final ConsolidationRepository repository;
     public ConsolidationService(ConsolidationRepository repository) {this.repository=repository;}
     @Transactional(readOnly=true,isolation=Isolation.REPEATABLE_READ)
@@ -38,8 +39,13 @@ public class ConsolidationService {
         var byId=targets.stream().collect(java.util.stream.Collectors.toMap(t->t.memory().id(),t->t));
         if(byId.get(c.a()).revision()!=c.aRevision()||byId.get(c.b()).revision()!=c.bRevision())
             throw new IllegalArgumentException("candidate not found or no longer eligible");
+        var conflicts=repository.conflicts(owner,c);
+        var reasons=new ArrayList<>(c.reasons());var uncertainty=new ArrayList<>(c.uncertainties());
+        if(!conflicts.isEmpty()) {
+            reasons.add("RELATION_TYPE_CONFLICT");uncertainty.add("REJECT_CONFLICTING_HYPOTHESIS_BEFORE_APPROVAL");
+        }
         return new View(c.id(),c.relation(),c.direction(),c.status(),c.validity(),c.reviewVersion(),side(byId.get(c.a())),side(byId.get(c.b())),
-            c.engineVersion(),c.modelId(),c.modelVersion(),c.reasons(),c.uncertainties(),new Gson().fromJson(c.discovery(),Discovery.class),"RELATION_REVIEW_ONLY");
+            c.engineVersion(),c.modelId(),c.modelVersion(),List.copyOf(reasons),List.copyOf(uncertainty),new Gson().fromJson(c.discovery(),Discovery.class),"RELATION_REVIEW_ONLY",!conflicts.isEmpty(),conflicts);
     }
     private Side side(ConsolidationRepository.Target target) {
         var m=target.memory();return new Side(m.id(),target.revision(),m.type(),m.content(),m.origin(),m.status(),m.temporalScope(),m.occurredAt(),target.validFrom(),target.validTo(),target.supersededBy(),m.evidence(),m.extractorVersion(),m.modelId());
