@@ -142,3 +142,5 @@ python3 scripts/local-retrieval.py --execute
 `datasets/consolidation-fictional-v1.json` 固定31对虚构参考，独立于M2-A/v3。CI `ConsolidationIT` 使用临时PostgreSQL及故意全部相同的Mock向量，验证召回→命题判断→待审持久化→审核/失效。输出 `target/evaluation/consolidation-offline-v1/report.json` 和 `report.md`，不调用真实模型、不替代BGE检索基线。门槛预先固定，保守弃答记漏检，错误SAME_AS门槛0。 [设计、复现与限制](../docs/V0.2.2-M2B_CONSOLIDATION.md)。
 
 v3输入45查询与独立参考已经按用户批准范围生成，SHA及逐条状态见 [参考复核表](reviews/retrieval-v3-review.md)。R2Q13保持肯定命题并保留反证；R2Q42拆为历史学习和写作愿望。grade1背景不删除、独立计分；grade2时间上下文待审；直接支持/反驳独立于检索相关性报告。全部参考仍PENDING，不能宣称HUMAN_REVIEWED或正式基线。尚未启用v3真实运行流程，旧v2预检及所有原始报告不变；不同版本分数不可直接作模型提升比较。
+
+PR #11合并前修复继续使用原31对虚构数据，不修改参考、历史报告或门槛；新版报告独立输出至 `target/evaluation/consolidation-offline-v1-pr11-review-fixes/`（pipelineVersion=consolidation-engine-2）。`ConsolidationReviewRegressionIT`另测资格拥挤与引擎升级关系冲突；`ConsolidationCompatibilityTest`固定校验V4、v2/v3、31对参考及首次离线观察SHA。报告是新代码的离线回归，不与原始不同条件成绩包装为模型提升。

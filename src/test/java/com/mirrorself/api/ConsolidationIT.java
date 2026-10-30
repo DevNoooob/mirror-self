@@ -215,12 +215,12 @@ class ConsolidationIT extends ExtractionPostgresTestSupport {
                 "predicted",found.stream().map(ConsolidationService.View::relation).toList(),"job",job,"candidates",found));
         }
         double precision=(double)tp/(tp+fp),recall=(double)tp/(tp+fn),falseRate=predictedSame==0?0:(double)falseSame/predictedSame;
-        var report=new LinkedHashMap<String,Object>();report.put("condition","OFFLINE_ADVERSARIAL_ALL_SIMILAR_STORED_VECTORS");report.put("datasetSha256",Hashing.sha256(input));
+        var report=new LinkedHashMap<String,Object>();report.put("reportVersion","consolidation-offline-v1-pr11-review-fixes");report.put("pipelineVersion",ConsolidationWriter.ENGINE_VERSION);report.put("condition","OFFLINE_ADVERSARIAL_ALL_SIMILAR_STORED_VECTORS");report.put("datasetSha256",Hashing.sha256(input));
         report.put("engineVersion",ConsolidationClassifier.VERSION);report.put("tp",tp);report.put("fp",fp);report.put("fn",fn);report.put("precision",precision);report.put("recall",recall);
         report.put("predictedSameAs",predictedSame);report.put("falseSameAs",falseSame);report.put("falseSameAsRate",falseRate);report.put("evidenceCorrect",evidenceCorrect);report.put("evidenceTotal",evidenceTotal);
         report.put("evidenceAccuracy",(double)evidenceCorrect/evidenceTotal);report.put("reviewPolicyCorrect",policyCorrect);report.put("reviewPolicyTotal",policyTotal);report.put("reviewPolicyAccuracy",(double)policyCorrect/policyTotal);
         report.put("realModelRequests",0);report.put("scanModelRequests",0);report.put("humanReferenceReviewComplete",false);report.put("cases",rows);
-        var output=java.nio.file.Path.of("target/evaluation/consolidation-offline-v1");java.nio.file.Files.createDirectories(output);
+        var output=java.nio.file.Path.of("target/evaluation/consolidation-offline-v1-pr11-review-fixes");java.nio.file.Files.createDirectories(output);
         java.nio.file.Files.writeString(output.resolve("report.json"),com.mirrorself.evaluation.EvaluationJson.GSON.toJson(report)+"\n");
         java.nio.file.Files.writeString(output.resolve("report.md"),String.format(java.util.Locale.ROOT,"# Consolidation offline observation%n%n31 fictional pairs; all eligible stored vectors deliberately identical. No real model calls.%n%nTP=%d FP=%d FN=%d%n%nPrecision=%.4f Recall=%.4f False SAME_AS rate=%.4f%n%nEvidence=%d/%d Review policy=%d/%d%n",tp,fp,fn,precision,recall,falseRate,evidenceCorrect,evidenceTotal,policyCorrect,policyTotal));
         var gates=data.getAsJsonObject("gates");assertTrue(precision>=gates.get("minPrecision").getAsDouble());assertTrue(recall>=gates.get("minRecall").getAsDouble());

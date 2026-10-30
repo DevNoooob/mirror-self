@@ -60,3 +60,5 @@
 ## V0.2.2-M2-B 关系候选
 
 沿用 X-Mirror-Token 和 owner 配置，新增 POST `/api/v1/consolidation/jobs`、GET `/api/v1/consolidation/jobs/{id}`、GET `/api/v1/consolidation/candidates`、GET `/api/v1/consolidation/candidates/{id}`、POST `/api/v1/consolidation/candidates/{id}/review`。审核体需 decision 与 expectedVersion，返回 approvedEffect=RELATION_REVIEW_ONLY；不会修改原记忆。参数、错误及完整响应字段见 [M2-B API](V0.2.2-M2B_CONSOLIDATION.md#api)。
+
+PR #11审核保护补充：整合候选详情/列表新增 `approvalBlocked` 与 `relationConflicts`。同一记忆对/双方修订的VALID异类关系在未被显式拒绝前阻止APPROVE，返回409及固定 `RELATION_TYPE_CONFLICT`；REJECT仍可用于解决未决冲突。已有APPROVED不被自动覆盖。详见 [冲突契约](V0.2.2-M2B_CONSOLIDATION.md#pr-11-合并前修复资格-top-k-与关系冲突)。
