@@ -66,3 +66,7 @@ L2 identity_claim ← identity_evidence
 新增 `consolidation_candidate`（双 L1 复合owner外键、revision、方向、规则/模型版本、固定原因、不确定性及审核/失效状态）、`consolidation_cursor`、`consolidation_job`、`consolidation_vector_epoch`。每个候选初始 PENDING_REVIEW，唯一键为owner+规范UUID对+关系+双方revision；审核不修改原记忆或memory_relation。详情只装载当前仍可访问的L0/L1，不保存私人证据快照。
 
 新迁移扩展既有revision触发器至有效期/消息日期/来源元数据，变化使向量失效、候选STALE；删除L1级联删除候选并保留仅ID审计。新向量入库递增模型epoch，允许增量重扫。V1/V2/V3字节不改；正式业务库未迁移，未来须授权、备份、评估索引锁。详见 [M2-B设计与API](V0.2.2-M2B_CONSOLIDATION.md)。
+
+## M2-QG 增量（V5）
+
+仅将consolidation_candidate幂等唯一约束扩为owner+记忆对+relation_type+direction+双方revision，同类型反方向假设不再被折叠；保留所有V4原始行和审核状态。V4文件不改，新增关系/方向冲突在应用锁及批准SQL中阻断。迁移会持DDL锁，未来正式运行需独立授权与备份，本次只在临时库验证。[方向与验收契约](V0.2.2-M2_QG.md)。

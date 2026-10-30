@@ -185,3 +185,7 @@ V0.2.1-B 已完成一次独立授权的九例真实 Pilot，原始脱敏资料�
 有界关键词/现存向量召回后，以完整 L0 命题验证 SAME_AS、SUPPORTS、CONTRADICTS、EVOLVED_FROM。所有候选待审；批准关系不会合并、覆盖、删除或重分类原记忆。扫描不调用模型；owner/隐私SQL过滤、证据修订失效与乐观审核保护默认启用。API、V4迁移兼容性、离线质量与限制见 [M2-B指南](docs/V0.2.2-M2B_CONSOLIDATION.md)。
 
 v3 检索参考已按批准范围生成45查询，全部参考仍待独立复核，grade2时间背景另审；[审核表与SHA](evaluation/reviews/retrieval-v3-review.md)。保留v2及首次真实报告，不以不同数据/口径分数声称模型提升。
+
+## V0.2.2-M2-QG：质量门禁与本轮盲测准备
+
+新增[76项逐条人工审核材料](evaluation/reviews/m2-qg-human/cards.md)、120对独立参考的开发/留出集、分阶段召回/关系评分与零容忍门禁。默认只跑DEV Mock，本轮BGE必须另行批准固定SHA、模型和600次上限。用 `python3 scripts/local-quality-gate.py --dry-run` 离线检查；[运行/评分契约](docs/V0.2.2-M2_QG.md)和[V0.3已审核关系图提案](docs/V0.3_REVIEWED_RELATION_GRAPH.md)说明仍待人工和真实验收的范围。V5仅保护方向冲突，V4/旧参考和报告保留，不自动部署。
