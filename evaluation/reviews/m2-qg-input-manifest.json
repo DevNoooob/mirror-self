@@ -1,0 +1,10 @@
+{
+  "datasetSha256": "e2a932f3f5fc04d740b48d65dd93ea8bc6e8935c40e440578e23323ef18a4b3c",
+  "referenceSha256": "70a513fbb2d3595d3c587ac1e2ff3457ee69e22f2b0b3a2c2840fe43e2dec47c",
+  "gateSha256": "57ad19a948a7402fd376f75f39f9ab74a73675306641b380f3ce7ce93bc52c74",
+  "planSha256": "a14530ff4c27b9973ad8ab57fcd69adc468ce2e2aa81f5b4d4aebb7357a8de87",
+  "modelExecuted": false,
+  "humanReviewComplete": false,
+  "holdoutEvaluated": false,
+  "createdBeforeEvaluation": true
+}
