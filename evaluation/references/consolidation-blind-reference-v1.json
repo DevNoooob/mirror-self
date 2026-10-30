@@ -1,0 +1,1089 @@
+{
+  "version": "consolidation-blind-reference-v1",
+  "datasetVersion": "consolidation-blind-v1",
+  "createdBeforeModelExecution": true,
+  "annotationStatus": "SYNTHETIC_REFERENCE_PENDING_HUMAN_REVIEW",
+  "defaultUnlistedRelation": null,
+  "answers": [
+    {
+      "caseId": "QG0100",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一消息日期、同一否定喜好命题的双语表达；词汇等价仍待人复核。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0200",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完整命题、极性、时间、条件及来源分别审核；相似度不作为关系证据。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0300",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "同一消息时点、相同完整对象、相反极性；不判断当前真相。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0400",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "较新消息明确表达相反偏好，只是可能演化，新→旧；不宣称持续或当前有效。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0500",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完全相同的条件和低承诺意向；不表示决定或完成。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0600",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "条件不同，不能视作同一完整命题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0700",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "同一来源内两条独立事实，不因共享证据合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0800",
+      "relation": "SUPPORTS",
+      "fromKey": "left",
+      "rationale": "左侧同一命题有右侧全部证据和另一条明确支持来源；左→右。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0900",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "右侧引文不在L0中，禁止关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1000",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "owner/隐私/状态资格禁止关系，即使文本完全相同。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1100",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "类型纠正需要独立审核，不生成等价关系掩盖类型差异。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1200",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "自我评价不能确认客观人格或稳定特征。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1300",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一时点的跨语言同义表达，未要求规则必须支持该语法；遗漏应作为分类覆盖问题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1400",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "英文同一时间的肯定与否定喜好，不可合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1500",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "同一消息明确过去与消息时点变化，消息日期相同不等于事实有效期相同；新→旧。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1600",
+      "relation": "SUPPORTS",
+      "fromKey": "right",
+      "rationale": "较新明确重申同一喜好；不能证明两条消息间持续成立。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1700",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "一个复合命题与一个单事实，保守不整合，不能把部分支持当完整等价。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1800",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "低承诺意向不能变成完成事件。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1900",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不同时段的历史居住事实可并存，不视作同一事件或直接冲突。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2000",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "已ACTIVE的显式人格自述的双语同义，仅自述，不是客观人格确认。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2100",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "无消息时间，不能确定相反偏好是否在同一范围或表示演化，允许弃答。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2200",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "助手/缺证/跨owner/相反L0/时间不匹配，不得提供有效关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2300",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不一定喜欢不等价于不喜欢；不能简化模态否定。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2400",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "共享摄影主题但完整对象不同，不能错误关联独立事实。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0101",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一消息日期、同一否定喜好命题的双语表达；词汇等价仍待人复核。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0201",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完整命题、极性、时间、条件及来源分别审核；相似度不作为关系证据。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0301",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "同一消息时点、相同完整对象、相反极性；不判断当前真相。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0401",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "较新消息明确表达相反偏好，只是可能演化，新→旧；不宣称持续或当前有效。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0501",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完全相同的条件和低承诺意向；不表示决定或完成。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0601",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "条件不同，不能视作同一完整命题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0701",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "同一来源内两条独立事实，不因共享证据合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0801",
+      "relation": "SUPPORTS",
+      "fromKey": "left",
+      "rationale": "左侧同一命题有右侧全部证据和另一条明确支持来源；左→右。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0901",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "右侧引文不在L0中，禁止关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1001",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "owner/隐私/状态资格禁止关系，即使文本完全相同。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1101",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "类型纠正需要独立审核，不生成等价关系掩盖类型差异。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1201",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "自我评价不能确认客观人格或稳定特征。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1301",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一时点的跨语言同义表达，未要求规则必须支持该语法；遗漏应作为分类覆盖问题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1401",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "英文同一时间的肯定与否定喜好，不可合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1501",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "同一消息明确过去与消息时点变化，消息日期相同不等于事实有效期相同；新→旧。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1601",
+      "relation": "SUPPORTS",
+      "fromKey": "right",
+      "rationale": "较新明确重申同一喜好；不能证明两条消息间持续成立。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1701",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "一个复合命题与一个单事实，保守不整合，不能把部分支持当完整等价。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1801",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "低承诺意向不能变成完成事件。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1901",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不同时段的历史居住事实可并存，不视作同一事件或直接冲突。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2001",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "已ACTIVE的显式人格自述的双语同义，仅自述，不是客观人格确认。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2101",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "无消息时间，不能确定相反偏好是否在同一范围或表示演化，允许弃答。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2201",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "助手/缺证/跨owner/相反L0/时间不匹配，不得提供有效关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2301",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不一定喜欢不等价于不喜欢；不能简化模态否定。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2401",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "共享摄影主题但完整对象不同，不能错误关联独立事实。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0102",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一消息日期、同一否定喜好命题的双语表达；词汇等价仍待人复核。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0202",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完整命题、极性、时间、条件及来源分别审核；相似度不作为关系证据。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0302",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "同一消息时点、相同完整对象、相反极性；不判断当前真相。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0402",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "较新消息明确表达相反偏好，只是可能演化，新→旧；不宣称持续或当前有效。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0502",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完全相同的条件和低承诺意向；不表示决定或完成。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0602",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "条件不同，不能视作同一完整命题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0702",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "同一来源内两条独立事实，不因共享证据合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0802",
+      "relation": "SUPPORTS",
+      "fromKey": "left",
+      "rationale": "左侧同一命题有右侧全部证据和另一条明确支持来源；左→右。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0902",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "右侧引文不在L0中，禁止关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1002",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "owner/隐私/状态资格禁止关系，即使文本完全相同。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1102",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "类型纠正需要独立审核，不生成等价关系掩盖类型差异。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1202",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "自我评价不能确认客观人格或稳定特征。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1302",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一时点的跨语言同义表达，未要求规则必须支持该语法；遗漏应作为分类覆盖问题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1402",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "英文同一时间的肯定与否定喜好，不可合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1502",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "同一消息明确过去与消息时点变化，消息日期相同不等于事实有效期相同；新→旧。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1602",
+      "relation": "SUPPORTS",
+      "fromKey": "right",
+      "rationale": "较新明确重申同一喜好；不能证明两条消息间持续成立。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1702",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "一个复合命题与一个单事实，保守不整合，不能把部分支持当完整等价。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1802",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "低承诺意向不能变成完成事件。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1902",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不同时段的历史居住事实可并存，不视作同一事件或直接冲突。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2002",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "已ACTIVE的显式人格自述的双语同义，仅自述，不是客观人格确认。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2102",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "无消息时间，不能确定相反偏好是否在同一范围或表示演化，允许弃答。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2202",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "助手/缺证/跨owner/相反L0/时间不匹配，不得提供有效关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2302",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不一定喜欢不等价于不喜欢；不能简化模态否定。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2402",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "共享摄影主题但完整对象不同，不能错误关联独立事实。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0103",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一消息日期、同一否定喜好命题的双语表达；词汇等价仍待人复核。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0203",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完整命题、极性、时间、条件及来源分别审核；相似度不作为关系证据。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0303",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "同一消息时点、相同完整对象、相反极性；不判断当前真相。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0403",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "较新消息明确表达相反偏好，只是可能演化，新→旧；不宣称持续或当前有效。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0503",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完全相同的条件和低承诺意向；不表示决定或完成。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0603",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "条件不同，不能视作同一完整命题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0703",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "同一来源内两条独立事实，不因共享证据合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0803",
+      "relation": "SUPPORTS",
+      "fromKey": "left",
+      "rationale": "左侧同一命题有右侧全部证据和另一条明确支持来源；左→右。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0903",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "右侧引文不在L0中，禁止关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1003",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "owner/隐私/状态资格禁止关系，即使文本完全相同。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1103",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "类型纠正需要独立审核，不生成等价关系掩盖类型差异。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1203",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "自我评价不能确认客观人格或稳定特征。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1303",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一时点的跨语言同义表达，未要求规则必须支持该语法；遗漏应作为分类覆盖问题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1403",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "英文同一时间的肯定与否定喜好，不可合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1503",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "同一消息明确过去与消息时点变化，消息日期相同不等于事实有效期相同；新→旧。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1603",
+      "relation": "SUPPORTS",
+      "fromKey": "right",
+      "rationale": "较新明确重申同一喜好；不能证明两条消息间持续成立。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1703",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "一个复合命题与一个单事实，保守不整合，不能把部分支持当完整等价。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1803",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "低承诺意向不能变成完成事件。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1903",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不同时段的历史居住事实可并存，不视作同一事件或直接冲突。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2003",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "已ACTIVE的显式人格自述的双语同义，仅自述，不是客观人格确认。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2103",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "无消息时间，不能确定相反偏好是否在同一范围或表示演化，允许弃答。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2203",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "助手/缺证/跨owner/相反L0/时间不匹配，不得提供有效关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2303",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不一定喜欢不等价于不喜欢；不能简化模态否定。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2403",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "共享摄影主题但完整对象不同，不能错误关联独立事实。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0104",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一消息日期、同一否定喜好命题的双语表达；词汇等价仍待人复核。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0204",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完整命题、极性、时间、条件及来源分别审核；相似度不作为关系证据。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0304",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "同一消息时点、相同完整对象、相反极性；不判断当前真相。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0404",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "较新消息明确表达相反偏好，只是可能演化，新→旧；不宣称持续或当前有效。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0504",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "完全相同的条件和低承诺意向；不表示决定或完成。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0604",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "条件不同，不能视作同一完整命题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0704",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "同一来源内两条独立事实，不因共享证据合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0804",
+      "relation": "SUPPORTS",
+      "fromKey": "left",
+      "rationale": "左侧同一命题有右侧全部证据和另一条明确支持来源；左→右。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG0904",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "右侧引文不在L0中，禁止关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1004",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "owner/隐私/状态资格禁止关系，即使文本完全相同。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1104",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "类型纠正需要独立审核，不生成等价关系掩盖类型差异。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1204",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "自我评价不能确认客观人格或稳定特征。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1304",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "同一时点的跨语言同义表达，未要求规则必须支持该语法；遗漏应作为分类覆盖问题。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1404",
+      "relation": "CONTRADICTS",
+      "fromKey": null,
+      "rationale": "英文同一时间的肯定与否定喜好，不可合并。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1504",
+      "relation": "EVOLVED_FROM",
+      "fromKey": "right",
+      "rationale": "同一消息明确过去与消息时点变化，消息日期相同不等于事实有效期相同；新→旧。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1604",
+      "relation": "SUPPORTS",
+      "fromKey": "right",
+      "rationale": "较新明确重申同一喜好；不能证明两条消息间持续成立。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1704",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "一个复合命题与一个单事实，保守不整合，不能把部分支持当完整等价。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1804",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "低承诺意向不能变成完成事件。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG1904",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不同时段的历史居住事实可并存，不视作同一事件或直接冲突。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2004",
+      "relation": "SAME_AS",
+      "fromKey": null,
+      "rationale": "已ACTIVE的显式人格自述的双语同义，仅自述，不是客观人格确认。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2104",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "无消息时间，不能确定相反偏好是否在同一范围或表示演化，允许弃答。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2204",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "助手/缺证/跨owner/相反L0/时间不匹配，不得提供有效关系。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2304",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "不一定喜欢不等价于不喜欢；不能简化模态否定。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    },
+    {
+      "caseId": "QG2404",
+      "relation": null,
+      "fromKey": null,
+      "rationale": "共享摄影主题但完整对象不同，不能错误关联独立事实。",
+      "unlistedPairs": "NONE",
+      "humanReviewStatus": "UNREVIEWED",
+      "currentEndorsement": "UNCONFIRMED"
+    }
+  ]
+}

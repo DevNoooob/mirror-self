@@ -23,6 +23,7 @@ jobs:
       MIRROR_MODEL_EGRESS_ENABLED: 'false'
       MIRROR_EMBEDDING_MODE: 'DISABLED'
       MIRROR_RUN_LOCAL_RETRIEVAL: 'false'
+      MIRROR_RUN_LOCAL_QG: 'false'
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -39,6 +40,7 @@ jobs:
           python3 -m unittest discover -s scripts/tests -p 'test_*.py'
           python3 scripts/live-pilot.py --dry-run
           python3 scripts/local-retrieval.py --dry-run
+          python3 scripts/local-quality-gate.py --dry-run
       - name: Verify existing features and offline quality baselines
         run: mvn --batch-mode --no-transfer-progress verify
       - name: Keep fictional evaluation reports

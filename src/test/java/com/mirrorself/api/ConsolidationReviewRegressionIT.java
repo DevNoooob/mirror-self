@@ -179,6 +179,28 @@ class ConsolidationReviewRegressionIT extends ExtractionPostgresTestSupport {
         response=client.send(request,java.net.http.HttpResponse.BodyHandlers.ofString());assertEquals(409,response.statusCode());
         assertTrue(response.body().contains("RELATION_TYPE_CONFLICT"));
     }
+    @Test void sameTypeOppositeDirectionsArePreservedAndCannotBothBeApproved() {
+        for(var type:List.of(ConsolidationRelation.SUPPORTS,ConsolidationRelation.EVOLVED_FROM)) {
+            for(boolean priorApproval:List.of(false,true)) {
+                var pair=pair(true);
+                java.util.function.Function<String,UUID> save=direction->new TransactionTemplate(transactions).execute(tx->{
+                    repository.lockMemories(pair.owner(),pair.a(),pair.b());
+                    var targets=repository.targets(pair.owner(),List.of(pair.a(),pair.b()));var byId=targets.stream().collect(java.util.stream.Collectors.toMap(t->t.memory().id(),t->t));
+                    return repository.save(pair.owner(),byId.get(pair.a()),byId.get(pair.b()),new ConsolidationClassifier.Proposal(type,direction,List.of("FICTIONAL_DIRECTION_PROBE"),List.of("CANDIDATE_ONLY_NO_MEMORY_CHANGE")),"fictional","v1",new JsonObject()).id();
+                });
+                UUID forward=save.apply("A_TO_B");if(priorApproval) service.review(pair.owner(),forward,ReviewDecision.APPROVE,1);
+                UUID reverse=save.apply("B_TO_A");assertNotEquals(forward,reverse);assertEquals(reverse,save.apply("B_TO_A"));
+                var view=service.get(pair.owner(),reverse);assertTrue(view.approvalBlocked());assertTrue(view.reasonCodes().contains("RELATION_DIRECTION_CONFLICT"));assertEquals("A_TO_B",view.relationConflicts().getFirst().direction());
+                assertTrue(assertThrows(IllegalStateException.class,()->service.review(pair.owner(),reverse,ReviewDecision.APPROVE,1)).getMessage().startsWith("RELATION_DIRECTION_CONFLICT"));
+                if(priorApproval) assertEquals("APPROVED",service.get(pair.owner(),forward).status());
+                else {
+                    assertThrows(IllegalStateException.class,()->service.review(pair.owner(),forward,ReviewDecision.APPROVE,1));
+                    service.review(pair.owner(),reverse,ReviewDecision.REJECT,1);assertEquals("APPROVED",service.review(pair.owner(),forward,ReviewDecision.APPROVE,1).status());
+                }
+                assertEquals(2,service.list(pair.owner(),null,10,0).size());assertEquals(0,jdbc.queryForObject("SELECT count(*) FROM memory_relation WHERE owner_id=?",Integer.class,pair.owner()));
+            }
+        }
+    }
     @Test void upgradeRevisitsPreviousCursorWithoutChangingMemoryRevision() {
         UUID owner=UUID.randomUUID(),anchor=seed(owner,"I do not drink coffee.");
         String oldKey=com.mirrorself.common.Hashing.sha256(ConsolidationClassifier.VERSION+"\n"+recall.modelKey()+"\nKEYWORD\n10");

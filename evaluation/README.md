@@ -144,3 +144,11 @@ python3 scripts/local-retrieval.py --execute
 v3输入45查询与独立参考已经按用户批准范围生成，SHA及逐条状态见 [参考复核表](reviews/retrieval-v3-review.md)。R2Q13保持肯定命题并保留反证；R2Q42拆为历史学习和写作愿望。grade1背景不删除、独立计分；grade2时间上下文待审；直接支持/反驳独立于检索相关性报告。全部参考仍PENDING，不能宣称HUMAN_REVIEWED或正式基线。尚未启用v3真实运行流程，旧v2预检及所有原始报告不变；不同版本分数不可直接作模型提升比较。
 
 PR #11合并前修复继续使用原31对虚构数据，不修改参考、历史报告或门槛；新版报告独立输出至 `target/evaluation/consolidation-offline-v1-pr11-review-fixes/`（pipelineVersion=consolidation-engine-2）。`ConsolidationReviewRegressionIT`另测资格拥挤与引擎升级关系冲突；`ConsolidationCompatibilityTest`固定校验V4、v2/v3、31对参考及首次离线观察SHA。报告是新代码的离线回归，不与原始不同条件成绩包装为模型提升。
+
+## M2-QG：冻结门禁与独立留出准备
+
+120对虚构输入、独立参考、DEV/HOLDOUT各60且场景族互斥，SHA和阈值在评估前固定。CI只跑DEV，分别报告KEYWORD/HYBRID及向量路诊断、完整关系/方向P/R/F1、安全/审核硬门禁和逐例弃答。观察模式CI通过不代表质量门禁、人工复核或真实模型通过；`--enforce`独立失败。没有按结果改答案。
+
+[逐项审核卡](reviews/m2-qg-human/cards.md)及决策模板不会自动标HUMAN_REVIEWED；[本轮预检/执行保护](../docs/V0.2.2-M2_QG.md)需新授权，旧M2-A授权无效。报告按运行UUID存入 `target/evaluation/m2-qg-v1/`，不会覆盖历史Mock/BGE报告。
+
+本轮已获独立授权完成真实BGE首次QG：588次推理、4次摘要核验GET、0失败/云请求。DEV/HOLDOUT完整结果见 [真实QG观察](runs/m2-qg-bge-v1-first/analysis.md)。留出HYBRID关系R64%/F1 78.05%未过门禁，尽管候选全部召回、安全违规0；人工参考未完成，非正式基线。原数据/参考/门槛SHA不变，已消费留出不得再作为后续调参的独立盲测，重跑需新授权。

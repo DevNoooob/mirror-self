@@ -1,0 +1,19 @@
+{
+  "version": "m2-quality-gate-v1",
+  "frozenBeforeEvaluation": true,
+  "candidateK": 10,
+  "alsoReportK": 3,
+  "minimumCandidateRecallAtK": 0.9,
+  "minimumPrecision": 0.95,
+  "minimumRecall": 0.8,
+  "minimumF1": 0.85,
+  "maximumFalseSameAs": 0,
+  "maximumUnrelatedLinks": 0,
+  "maximumOwnerViolations": 0,
+  "maximumPrivacyViolations": 0,
+  "maximumEvidenceErrors": 0,
+  "minimumConflictReviewAccuracy": 1.0,
+  "requireProviderFailuresZero": true,
+  "humanReviewRequiredForV03": true,
+  "notes": "Enforcement is separate from observational CI. Do not tune thresholds or references after scores; failed coverage blocks readiness, not report creation."
+}

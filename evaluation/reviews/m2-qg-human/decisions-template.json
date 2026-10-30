@@ -1,0 +1,468 @@
+{
+  "version": "m2-qg-human-review-v1",
+  "humanReviewComplete": false,
+  "inputSha256": {
+    "evaluation/datasets/retrieval-fictional-v3.json": "aedb0a96d46dbcb06e5bee0481a3566855a55330fed842efd334db840035ab50",
+    "evaluation/references/retrieval-reference-v3.json": "0b6404d8752737a8eb3477f0d08d47b8738c6d874da29644ec014b2aeb2649dd",
+    "evaluation/datasets/consolidation-fictional-v1.json": "a7a9fadcf08efd859d0ebef5a7c889338eb8b8a47763a1cbed669aacf2c44d55"
+  },
+  "reviewer": null,
+  "decisions": [
+    {
+      "id": "CC01",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC02",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC03",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC04",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC16",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q07",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q11",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q12",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q13",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q14",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q23",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q41",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q42A",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q42B",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC05",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC06",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC07",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC08",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC09",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC10",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC11",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC12",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC13",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC14",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC15",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC17",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC18",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC19",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC20",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC21",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC22",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC23",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC24",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC25",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC26",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC27",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC28",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC29",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC30",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "CC31",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q01",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q02",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q03",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q04",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q05",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q06",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q08",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q09",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q10",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q15",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q16",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q17",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q18",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q19",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q20",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q21",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q22",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q24",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q25",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q26",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q27",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q28",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q29",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q30",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q31",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q32",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q33",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q34",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q35",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q36",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q37",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q38",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q39",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q40",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q43",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    },
+    {
+      "id": "R2Q44",
+      "decision": "UNREVIEWED",
+      "proposedReference": null,
+      "reason": ""
+    }
+  ]
+}

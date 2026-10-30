@@ -1,0 +1,20 @@
+{
+  "kind": "POST_RUN_INDEPENDENCE_AUDIT_NO_RESCORE",
+  "normalization": "lowercase and remove whitespace/sentence punctuation; text signature only, not a semantic equivalence oracle",
+  "inputSha256": "e2a932f3f5fc04d740b48d65dd93ea8bc6e8935c40e440578e23323ef18a4b3c",
+  "newTextPairCount": 119,
+  "priorTextPairControls": [
+    {
+      "caseId": "QG2000",
+      "priorCaseId": "CC10",
+      "split": "HOLDOUT"
+    }
+  ],
+  "crossSplitWholePairOverlap": 0,
+  "crossSplitSingleSentenceOverlap": 5,
+  "referencesModified": false,
+  "scoresRecomputed": false,
+  "formalBaseline": false,
+  "requiresStrongerFutureHoldout": true,
+  "note": "The pre-run split was family-disjoint, not sentence/entity-disjoint. The old control was not separately labelled before execution; disclose it rather than silently exclude it. Keep v1 scores; build a new, more strongly deduplicated holdout for subsequent tuning."
+}

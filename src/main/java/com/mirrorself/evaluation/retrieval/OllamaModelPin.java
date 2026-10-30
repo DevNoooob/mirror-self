@@ -8,7 +8,8 @@ import java.time.Duration;
 /** Only metadata GET on a fixed local endpoint; never pulls models or calls cloud. */
 public final class OllamaModelPin {
     private OllamaModelPin() { }
-    public static void verify(RetrievalCorpus.Plan plan) {
+    public static void verify(RetrievalCorpus.Plan plan) {verify(plan.model(),plan.modelDigest());}
+    public static void verify(String model,String modelDigest) {
         try {
             var client=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER)
                     .proxy(new java.net.ProxySelector() {
@@ -21,7 +22,7 @@ public final class OllamaModelPin {
             boolean found=false;
             for(var element:JsonParser.parseString(response.body()).getAsJsonObject().getAsJsonArray("models")) {
                 var m=element.getAsJsonObject();
-                if((plan.model()+":latest").equals(m.get("name").getAsString()) && plan.modelDigest().equals(m.get("digest").getAsString())) found=true;
+                if((model+":latest").equals(m.get("name").getAsString()) && modelDigest.equals(m.get("digest").getAsString())) found=true;
             }
             if(!found) throw new IllegalStateException();
         } catch(Exception ex) {throw new IllegalStateException("local Ollama model digest preflight failed");}
