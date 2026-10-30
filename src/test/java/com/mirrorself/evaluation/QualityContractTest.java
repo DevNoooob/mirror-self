@@ -17,6 +17,20 @@ class QualityContractTest {
         assertEquals("a14530ff4c27b9973ad8ab57fcd69adc468ce2e2aa81f5b4d4aebb7357a8de87",l.planSha256());
         assertTrue(QualityCorpus.references(l).annotationStatus().contains("PENDING_HUMAN_REVIEW"));
     }
+    private static String signature(String a,String b) {
+        return java.util.stream.Stream.of(a,b).map(x->x.toLowerCase(java.util.Locale.ROOT).replaceAll("[\\s。.!?,，！？;；]", "")).sorted().collect(java.util.stream.Collectors.joining("\n"));
+    }
+    @Test void hasAtLeastHundredNewWholePairsAndNoCrossSplitWholePairReuse() throws Exception {
+        var l=QualityCorpus.load();var prior=new HashSet<String>();
+        var old=com.google.gson.JsonParser.parseString(java.nio.file.Files.readString(java.nio.file.Path.of("evaluation/datasets/consolidation-fictional-v1.json"))).getAsJsonObject();
+        for(var e:old.getAsJsonArray("cases")) {var c=e.getAsJsonObject();prior.add(signature(c.getAsJsonObject("left").get("text").getAsString(),c.getAsJsonObject("right").get("text").getAsString()));}
+        var dev=new HashSet<String>();var holdout=new HashSet<String>();int novel=0;
+        for(var c:l.inputs().cases()) {
+            var m=c.memories().stream().collect(java.util.stream.Collectors.toMap(QualityCorpus.Memory::key,x->x));String value=signature(m.get("left").content(),m.get("right").content());
+            if(!prior.contains(value)) novel++;(c.split().equals("DEV")?dev:holdout).add(value);
+        }
+        assertTrue(novel>=100);assertEquals(119,novel);assertTrue(Collections.disjoint(dev,holdout));
+    }
     QualityScorer.Observation observation(String id,boolean hit,ConsolidationRelation rel,String direction,int evidenceErrors,int owner) {
         var a=new QualityScorer.Attempt("left","right",rel,direction,rel==null?"UNRESOLVED_COMPLETE_PROPOSITION":"PROPOSED",rel==null?0:2,evidenceErrors,true);
         return new QualityScorer.Observation(id,"DEV","HYBRID",hit,hit,hit,List.of(),hit?List.of(a):List.of(),owner,0);
