@@ -16,7 +16,7 @@ public class ConsolidationRepository {
     public record Candidate(UUID id,UUID a,UUID b,long aRevision,long bRevision,ConsolidationRelation relation,String direction,
         String status,String validity,long reviewVersion,String engineVersion,String modelId,String modelVersion,
         List<String> reasons,List<String> uncertainties,JsonObject discovery) { }
-    public record RelationConflict(UUID candidateId,ConsolidationRelation relation,String status,String engineVersion) { }
+    public record RelationConflict(UUID candidateId,ConsolidationRelation relation,String status,String engineVersion,String direction) { }
     public record Saved(UUID id,boolean inserted) { }
     public record Anchor(UUID id,long revision) { }
     private final JdbcTemplate jdbc;
@@ -66,7 +66,7 @@ public class ConsolidationRepository {
             INSERT INTO consolidation_candidate(id,owner_id,memory_a_id,memory_b_id,a_revision,b_revision,
                 relation_type,direction,engine_version,discovery_model_id,discovery_model_version,reason_codes,uncertainties,discovery)
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?::jsonb,?::jsonb,?::jsonb)
-            ON CONFLICT(owner_id,memory_a_id,memory_b_id,relation_type,a_revision,b_revision) DO NOTHING RETURNING id
+            ON CONFLICT(owner_id,memory_a_id,memory_b_id,relation_type,direction,a_revision,b_revision) DO NOTHING RETURNING id
             """,(rs,n)->rs.getObject(1,UUID.class),UUID.randomUUID(),owner,a.memory().id(),b.memory().id(),a.revision(),b.revision(),
             p.relation().name(),p.direction(),ConsolidationWriter.ENGINE_VERSION,model,version,gson.toJson(p.reasons()),gson.toJson(p.uncertainties()),gson.toJson(discovery));
         if(!inserted.isEmpty()) {
@@ -76,8 +76,8 @@ public class ConsolidationRepository {
         }
         UUID id=jdbc.queryForObject("""
             SELECT id FROM consolidation_candidate WHERE owner_id=? AND memory_a_id=? AND memory_b_id=?
-                AND relation_type=? AND a_revision=? AND b_revision=?
-            """,UUID.class,owner,a.memory().id(),b.memory().id(),p.relation().name(),a.revision(),b.revision());
+                AND relation_type=? AND direction=? AND a_revision=? AND b_revision=?
+            """,UUID.class,owner,a.memory().id(),b.memory().id(),p.relation().name(),p.direction(),a.revision(),b.revision());
         return new Saved(id,false);
     }
     public Candidate get(UUID owner,UUID id) {
@@ -94,21 +94,26 @@ public class ConsolidationRepository {
     // Only current, owner-visible, non-dismissed hypotheses can block approval.
     public List<RelationConflict> conflicts(UUID owner,Candidate candidate) {
         if("REJECTED".equals(candidate.status())) return List.of();
-        return jdbc.query("SELECT c.id,c.relation_type,c.status,c.engine_version FROM consolidation_candidate c WHERE c.owner_id=? "
+        return jdbc.query("SELECT c.id,c.relation_type,c.status,c.engine_version,c.direction FROM consolidation_candidate c WHERE c.owner_id=? "
                 +"AND c.memory_a_id=? AND c.memory_b_id=? AND c.a_revision=? AND c.b_revision=? "
-                +"AND c.id<>? AND c.relation_type<>? AND c.status<>'REJECTED' AND "+CURRENT+" ORDER BY c.id",
-            (rs,n)->new RelationConflict(rs.getObject(1,UUID.class),ConsolidationRelation.valueOf(rs.getString(2)),rs.getString(3),rs.getString(4)),
-            owner,candidate.a(),candidate.b(),candidate.aRevision(),candidate.bRevision(),candidate.id(),candidate.relation().name());
+                +"AND c.id<>? AND (c.relation_type<>? OR c.direction<>?) AND c.status<>'REJECTED' AND "+CURRENT+" ORDER BY c.id",
+            (rs,n)->new RelationConflict(rs.getObject(1,UUID.class),ConsolidationRelation.valueOf(rs.getString(2)),rs.getString(3),rs.getString(4),rs.getString(5)),
+            owner,candidate.a(),candidate.b(),candidate.aRevision(),candidate.bRevision(),candidate.id(),candidate.relation().name(),candidate.direction());
     }
     public void review(UUID owner,Candidate before,ReviewDecision decision,long version) {
-        if(decision==ReviewDecision.APPROVE&&!conflicts(owner,before).isEmpty())
-            throw new IllegalStateException("RELATION_TYPE_CONFLICT: resolve conflicting hypotheses before approval");
+        var rivals=conflicts(owner,before);
+        if(decision==ReviewDecision.APPROVE&&!rivals.isEmpty()) {
+            String code=rivals.stream().anyMatch(r->r.relation()==before.relation()&&!r.direction().equals(before.direction()))
+                ?"RELATION_DIRECTION_CONFLICT":"RELATION_TYPE_CONFLICT";
+            throw new IllegalStateException(code+": resolve conflicting hypotheses before approval");
+        }
         int changed=jdbc.update("UPDATE consolidation_candidate c SET status=?,review_version=review_version+1,reviewed_at=now(),updated_at=now() "
             +"WHERE c.owner_id=? AND c.id=? AND c.status='PENDING_REVIEW' AND c.review_version=? AND "+CURRENT+"""
             AND (?='REJECT' OR NOT EXISTS(SELECT 1 FROM consolidation_candidate rival
                 WHERE rival.owner_id=c.owner_id AND rival.memory_a_id=c.memory_a_id AND rival.memory_b_id=c.memory_b_id
                   AND rival.a_revision=c.a_revision AND rival.b_revision=c.b_revision
-                  AND rival.validity='VALID' AND rival.status<>'REJECTED' AND rival.relation_type<>c.relation_type))
+                  AND rival.validity='VALID' AND rival.status<>'REJECTED'
+                  AND (rival.relation_type<>c.relation_type OR rival.direction<>c.direction)))
             """,
             decision==ReviewDecision.APPROVE?"APPROVED":"REJECTED",owner,before.id(),version,decision.name());
         if(changed!=1) throw new IllegalStateException("candidate changed; reload before review");

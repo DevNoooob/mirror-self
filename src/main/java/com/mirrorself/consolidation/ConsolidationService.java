@@ -42,7 +42,9 @@ public class ConsolidationService {
         var conflicts=repository.conflicts(owner,c);
         var reasons=new ArrayList<>(c.reasons());var uncertainty=new ArrayList<>(c.uncertainties());
         if(!conflicts.isEmpty()) {
-            reasons.add("RELATION_TYPE_CONFLICT");uncertainty.add("REJECT_CONFLICTING_HYPOTHESIS_BEFORE_APPROVAL");
+            if(conflicts.stream().anyMatch(r->r.relation()!=c.relation())) reasons.add("RELATION_TYPE_CONFLICT");
+            if(conflicts.stream().anyMatch(r->r.relation()==c.relation()&&!r.direction().equals(c.direction()))) reasons.add("RELATION_DIRECTION_CONFLICT");
+            uncertainty.add("REJECT_CONFLICTING_HYPOTHESIS_BEFORE_APPROVAL");
         }
         return new View(c.id(),c.relation(),c.direction(),c.status(),c.validity(),c.reviewVersion(),side(byId.get(c.a())),side(byId.get(c.b())),
             c.engineVersion(),c.modelId(),c.modelVersion(),List.copyOf(reasons),List.copyOf(uncertainty),new Gson().fromJson(c.discovery(),Discovery.class),"RELATION_REVIEW_ONLY",!conflicts.isEmpty(),conflicts);

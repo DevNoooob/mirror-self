@@ -73,7 +73,24 @@ class PostgresMemoryIT {
         assertEquals("fictional original text",legacy.queryForObject("SELECT text_content FROM source_record WHERE id=?",String.class,source));
         assertEquals("fictional legacy memory",legacy.queryForObject("SELECT content FROM memory_item WHERE id=?",String.class,memory));
         assertEquals(1,legacy.queryForObject("SELECT count(*) FROM memory_evidence",Integer.class));
-        assertEquals(4,legacy.queryForObject("SELECT count(*) FROM flyway_schema_history WHERE success",Integer.class));
+        assertEquals(5,legacy.queryForObject("SELECT count(*) FROM flyway_schema_history WHERE success",Integer.class));
+    }
+
+    @Test void v5PreservesV4ApprovedHypothesisWhileAllowingOppositeDirection() throws Exception {
+        String name="qg_upgrade_"+UUID.randomUUID().toString().replace("-","");
+        try(var connection=java.sql.DriverManager.getConnection(postgres.getJdbcUrl(),postgres.getUsername(),postgres.getPassword());var statement=connection.createStatement()) {statement.execute("CREATE DATABASE "+name);}
+        String url=postgres.getJdbcUrl().replace("/mirror_self","/"+name);var config=org.flywaydb.core.Flyway.configure().dataSource(url,postgres.getUsername(),postgres.getPassword());config.target("4").load().migrate();
+        var j=new org.springframework.jdbc.core.JdbcTemplate(new org.springframework.jdbc.datasource.DriverManagerDataSource(url,postgres.getUsername(),postgres.getPassword()));
+        UUID owner=UUID.randomUUID(),source=UUID.randomUUID(),a=UUID.fromString("00000000-0000-0000-0000-000000000001"),b=UUID.fromString("00000000-0000-0000-0000-000000000002"),id=UUID.randomUUID();
+        j.update("INSERT INTO source_record(id,owner_id,source_system,source_locator,role,raw_message,text_content,content_hash) VALUES(?,?,'CHATGPT','upgrade','user','{}','fictional evidence',repeat('a',64))",source,owner);
+        for(UUID m:java.util.List.of(a,b)) {j.update("INSERT INTO memory_item(id,owner_id,memory_type,content,assertion_origin,status,sensitivity,dedupe_key) VALUES(?,?,'FACT','fictional evidence','USER_EXPLICIT','ACTIVE','NORMAL',?)",m,owner,m.toString());j.update("INSERT INTO memory_evidence(memory_id,source_id,excerpt) VALUES(?,?,'fictional evidence')",m,source);}
+        j.update("INSERT INTO consolidation_candidate(id,owner_id,memory_a_id,memory_b_id,a_revision,b_revision,relation_type,direction,engine_version,discovery_model_id,discovery_model_version,reason_codes,uncertainties,discovery) SELECT ?,?,?,?,a.embedding_revision,b.embedding_revision,'SUPPORTS','A_TO_B','old','mock','v1','[]','[]','{}' FROM memory_item a,memory_item b WHERE a.id=? AND b.id=?",id,owner,a,b,a,b);
+        j.update("UPDATE consolidation_candidate SET status='APPROVED',review_version=2 WHERE id=?",id);
+        String before=j.queryForObject("SELECT to_jsonb(c)::text FROM consolidation_candidate c WHERE id=?",String.class,id);
+        org.flywaydb.core.Flyway.configure().dataSource(url,postgres.getUsername(),postgres.getPassword()).load().migrate();
+        assertEquals(before,j.queryForObject("SELECT to_jsonb(c)::text FROM consolidation_candidate c WHERE id=?",String.class,id));
+        j.update("INSERT INTO consolidation_candidate(id,owner_id,memory_a_id,memory_b_id,a_revision,b_revision,relation_type,direction,engine_version,discovery_model_id,discovery_model_version,reason_codes,uncertainties,discovery) SELECT ?,owner_id,memory_a_id,memory_b_id,a_revision,b_revision,relation_type,'B_TO_A','new',discovery_model_id,discovery_model_version,reason_codes,uncertainties,discovery FROM consolidation_candidate WHERE id=?",UUID.randomUUID(),id);
+        assertEquals(2,j.queryForObject("SELECT count(*) FROM consolidation_candidate",Integer.class));
     }
 
     @Test void preservesEvidenceAvoidsDuplicatesAndDeletesDerivedMemory() {
