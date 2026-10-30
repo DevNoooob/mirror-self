@@ -1,0 +1,204 @@
+{
+  "condition": "ADVERSARIAL_IDENTICAL_1024D_FIXTURE",
+  "ciRun": "https://github.com/DevNoooob/mirror-self/actions/runs/41043599934",
+  "sourceHead": "c329e4182a8c4bf1d513c89503767eea8d6604e3",
+  "testedMergeRevision": "366ffbae20932a5b1eae3d97f221544c5b2e8e42",
+  "datasetSha256": "e2a932f3f5fc04d740b48d65dd93ea8bc6e8935c40e440578e23323ef18a4b3c",
+  "referenceSha256": "70a513fbb2d3595d3c587ac1e2ff3457ee69e22f2b0b3a2c2840fe43e2dec47c",
+  "gateSha256": "57ad19a948a7402fd376f75f39f9ab74a73675306641b380f3ce7ce93bc52c74",
+  "planSha256": "a14530ff4c27b9973ad8ab57fcd69adc468ce2e2aa81f5b4d4aebb7357a8de87",
+  "realModelRequests": 0,
+  "holdoutEvaluated": false,
+  "humanReviewComplete": false,
+  "formalBaseline": false,
+  "v03Ready": false,
+  "metrics": {
+    "DEV_KEYWORD": {
+      "cases": 60,
+      "positiveReferencePairs": 30,
+      "recalledPositivePairs": 25,
+      "candidateRecallAt10": 0.8333333333333334,
+      "candidateRecallAt3": 0.8333333333333334,
+      "vectorOnlyRecallAt10Diagnostic": 1.0,
+      "queryRecallAt10": 0.8333333333333334,
+      "queryRecallAt3": 0.8333333333333334,
+      "vectorQueryRecallAt10Diagnostic": 1.0,
+      "relationClassification": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "tp": 25,
+      "fp": 0,
+      "fn": 5,
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "conditionalClassificationRecall": 1.0,
+      "conditionalClassificationFn": 0,
+      "falseSameAs": 0,
+      "unrelatedLinks": 0,
+      "unrelatedOpportunities": 60,
+      "unrelatedLinkRate": 0.0,
+      "evidenceTotal": 55,
+      "evidenceErrors": 0,
+      "evidenceAccuracy": 1.0,
+      "ownerViolations": 0,
+      "privacyViolations": 0,
+      "reviewPolicyAccuracy": 1.0,
+      "conflictReviewAccuracy": 1.0,
+      "quantitativeGatePass": false,
+      "failedGates": [
+        "CANDIDATE_RECALL"
+      ]
+    },
+    "DEV_HYBRID": {
+      "cases": 60,
+      "positiveReferencePairs": 30,
+      "recalledPositivePairs": 30,
+      "candidateRecallAt10": 1.0,
+      "candidateRecallAt3": 1.0,
+      "vectorOnlyRecallAt10Diagnostic": 1.0,
+      "queryRecallAt10": 1.0,
+      "queryRecallAt3": 0.9666666666666667,
+      "vectorQueryRecallAt10Diagnostic": 1.0,
+      "relationClassification": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "tp": 25,
+      "fp": 0,
+      "fn": 5,
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "conditionalClassificationRecall": 0.8333333333333334,
+      "conditionalClassificationFn": 5,
+      "falseSameAs": 0,
+      "unrelatedLinks": 0,
+      "unrelatedOpportunities": 350,
+      "unrelatedLinkRate": 0.0,
+      "evidenceTotal": 55,
+      "evidenceErrors": 0,
+      "evidenceAccuracy": 1.0,
+      "ownerViolations": 0,
+      "privacyViolations": 0,
+      "reviewPolicyAccuracy": 1.0,
+      "conflictReviewAccuracy": 1.0,
+      "quantitativeGatePass": true,
+      "failedGates": []
+    }
+  },
+  "failures": [
+    {
+      "caseId": "QG0100",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢安静的图书馆。",
+      "right": "I dislike quiet libraries.",
+      "reasonCodes": []
+    },
+    {
+      "caseId": "QG0101",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢慢节奏旅行。",
+      "right": "I dislike slow travel.",
+      "reasonCodes": []
+    },
+    {
+      "caseId": "QG0102",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢手绘地图。",
+      "right": "I dislike handmade maps.",
+      "reasonCodes": []
+    },
+    {
+      "caseId": "QG0103",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢深夜会议。",
+      "right": "I dislike late meetings.",
+      "reasonCodes": []
+    },
+    {
+      "caseId": "QG0104",
+      "mode": "DEV_KEYWORD",
+      "stage": "CANDIDATE_RECALL",
+      "left": "我不喜欢小组辩论。",
+      "right": "I dislike group debates.",
+      "reasonCodes": []
+    },
+    {
+      "caseId": "QG0100",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢安静的图书馆。",
+      "right": "I dislike quiet libraries.",
+      "reasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT",
+        "TYPE_CORRECTION_REQUIRES_SEPARATE_REVIEW"
+      ]
+    },
+    {
+      "caseId": "QG0101",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢慢节奏旅行。",
+      "right": "I dislike slow travel.",
+      "reasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT",
+        "TYPE_CORRECTION_REQUIRES_SEPARATE_REVIEW"
+      ]
+    },
+    {
+      "caseId": "QG0102",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢手绘地图。",
+      "right": "I dislike handmade maps.",
+      "reasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT",
+        "TYPE_CORRECTION_REQUIRES_SEPARATE_REVIEW"
+      ]
+    },
+    {
+      "caseId": "QG0103",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢深夜会议。",
+      "right": "I dislike late meetings.",
+      "reasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT",
+        "TYPE_CORRECTION_REQUIRES_SEPARATE_REVIEW"
+      ]
+    },
+    {
+      "caseId": "QG0104",
+      "mode": "DEV_HYBRID",
+      "stage": "RELATION_CLASSIFICATION",
+      "left": "我不喜欢小组辩论。",
+      "right": "I dislike group debates.",
+      "reasonCodes": [
+        "DIFFERENT_PROPOSITION_OR_CONTEXT",
+        "TYPE_CORRECTION_REQUIRES_SEPARATE_REVIEW"
+      ]
+    }
+  ],
+  "safetyAssertions": "Mandatory even without --enforce: false SAME_AS/unrelated/owner/privacy/evidence errors zero, review policy/conflict review one",
+  "knownLimits": [
+    "All vectors deliberately identical; not BGE semantic measurements.",
+    "References are agent-authored pending independent human review.",
+    "Pair pools have only five memories, not production scale.",
+    "KEYWORD fails the frozen recall gate; HYBRID Mock passing does not certify real model or heldout readiness.",
+    "New-reference concerns recorded separately without changing labels."
+  ],
+  "tests": {
+    "unitPassed": 136,
+    "integrationPassed": 61,
+    "integrationSkipped": 4,
+    "pythonPassed": 21
+  }
+}

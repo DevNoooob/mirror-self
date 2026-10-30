@@ -94,3 +94,11 @@ v3已按批准范围创建45查询，全部最终人工参考仍待审、grade2�
 [CI 41036371289](https://github.com/DevNoooob/mirror-self/actions/runs/41036371289)，head `7b7dba4e7a6406a6fd8aab53dd7db64f71c613a6`：Java21单元131通过，隔离集成58通过/3个真实模型入口跳过，Python15通过；新增资格拥挤/关系冲突回归8项通过。Mac实际JDK27只运行离线单元，不冒称Mac Java21。
 
 [独立新版报告](../evaluation/runs/consolidation-offline-v1-pr11-review-fixes/analysis.md)保留固定31对的原参考；P100%/R88.89%、错误SAME_AS0/3，与首次观察相同。旧报告及V4、v2/v3 SHA逐字节校验通过。没有新真实模型/正式Baseline/Schema迁移或Ubuntu业务库操作。
+
+## M2-QG 开发集与方向保护验收
+
+[CI 41043599934](https://github.com/DevNoooob/mirror-self/actions/runs/41043599934)，source head `c329e4182a8c4bf1d513c89503767eea8d6604e3`：Java21单元136通过，集成61通过/4个真实模型入口跳过，Python21通过。Mac实际JDK27只运行离线单元。V4→V5批准行保留及双向审核保护通过，只在临时库执行。
+
+[DEV完整观察](../evaluation/runs/m2-qg-v1-dev-observation/analysis.md)：KEYWORD候选R@10=83.33%，未达冻结90%门禁；HYBRID相同向量Mock召回100%，分类R=83.33%，数值门禁通过但不代表BGE/留出验收。两模式均P100%/端到端R83.33%/F1 90.91%；错误SAME_AS/无关/owner/隐私/证据错误0。安全零容忍在观察模式也强制；人工审核、留出与本轮真实模型均未完成，V0.3准入false。
+
+全部旧数据/参考/报告及V1–V4按字节保留，未调用真实模型、访问业务库、部署或校时。

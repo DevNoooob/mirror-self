@@ -1,0 +1,19 @@
+{
+  "sourceHead": "c329e4182a8c4bf1d513c89503767eea8d6604e3",
+  "testedMergeRevision": "366ffbae20932a5b1eae3d97f221544c5b2e8e42",
+  "ciRun": "https://github.com/DevNoooob/mirror-self/actions/runs/41043599934",
+  "modelRequests": 0,
+  "holdoutEvaluated": false,
+  "humanReviewComplete": false,
+  "formalBaseline": false,
+  "filesSha256": {
+    "report.json": "2e081ae1afda4515717e599ffc1bcb8f56d60e3e0768ce6a3f50c6b8160ca06e",
+    "report.md": "59f97b8c02c75dbc256131afe6a8363b41d218b1ebc78d89df67a084e9296f51",
+    "analysis.json": "c782b9f4795e5f259d29749efda783b5115a3ebcb1a4cd4434e6131b22175a44",
+    "analysis.md": "fd739ab6058626a24a734250a029a98bef6d75279c0362897f023b2eb4a8ddea"
+  },
+  "datasetSha256": "e2a932f3f5fc04d740b48d65dd93ea8bc6e8935c40e440578e23323ef18a4b3c",
+  "referenceSha256": "70a513fbb2d3595d3c587ac1e2ff3457ee69e22f2b0b3a2c2840fe43e2dec47c",
+  "gateSha256": "57ad19a948a7402fd376f75f39f9ab74a73675306641b380f3ce7ce93bc52c74",
+  "planSha256": "a14530ff4c27b9973ad8ab57fcd69adc468ce2e2aa81f5b4d4aebb7357a8de87"
+}
