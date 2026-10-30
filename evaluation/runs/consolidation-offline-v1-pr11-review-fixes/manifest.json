@@ -1,0 +1,36 @@
+{
+  "reportVersion": "consolidation-offline-v1-pr11-review-fixes",
+  "formalBaseline": false,
+  "humanReferenceReviewComplete": false,
+  "executedHead": "7b7dba4e7a6406a6fd8aab53dd7db64f71c613a6",
+  "ciRunUrl": "https://github.com/DevNoooob/mirror-self/actions/runs/41036371289",
+  "environment": "GitHub Actions temporary Linux runner; Java21; Testcontainers PostgreSQL17/pgvector; no business database",
+  "pipelineVersion": "consolidation-engine-2",
+  "classifierVersion": "consolidation-rules-1",
+  "condition": "OFFLINE_ADVERSARIAL_ALL_SIMILAR_STORED_VECTORS",
+  "datasetSha256": "a7a9fadcf08efd859d0ebef5a7c889338eb8b8a47763a1cbed669aacf2c44d55",
+  "referenceChanged": false,
+  "realModelRequests": 0,
+  "oldObservationPreserved": "evaluation/runs/consolidation-offline-v1",
+  "filesSha256": {
+    "report.json": "d890bbd3c7dff0e7d896fba8bb407e3caeb1926740dc5ea0a9377a96d5ad0813",
+    "report.md": "3ee8c3aba4bf191a168435bdcb780579bb9ba7c8292f885bf42db6667f51a66e"
+  },
+  "tests": {
+    "unitPassed": 131,
+    "integrationPassed": 58,
+    "integrationSkipped": 3,
+    "pythonPassed": 15,
+    "newReviewRegressionPassed": 8
+  },
+  "metrics": {
+    "tp": 8,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.8888888888888888,
+    "falseSameAsRate": 0.0,
+    "evidenceAccuracy": 1.0,
+    "reviewPolicyAccuracy": 1.0
+  }
+}
