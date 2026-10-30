@@ -29,7 +29,7 @@ public class ConsolidationRecall {
         if(anchors.isEmpty()) return null;
         var anchor=anchors.getFirst();var model=embedding.model();
         String query=anchor.memory().content();if(query.length()>1000) query=query.substring(0,1000); // recall hint only; classifier checks full original.
-        var keywords=retrieval.keyword(owner,query,100).stream().filter(r->!r.id().equals(anchorId)).toList();
+        var keywords=retrieval.consolidationKeyword(owner,anchorId,query,100);
         var vectors=mode==Mode.HYBRID?retrieval.storedNeighbors(owner,anchorId,model,100):List.<RetrievalRepository.Ranked>of();
         var ranked=RrfRanking.rank(keywords,vectors).stream().limit(limit).toList();
         var targets=candidates.targets(owner,ranked.stream().map(RrfRanking.Score::id).toList());
