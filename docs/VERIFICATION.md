@@ -80,3 +80,11 @@ bash scripts/smoke-domain.sh
 历史验证当时使用 Docker 的 Java21 Maven 容器挂载原源码及 Maven缓存，提供 Docker socket 和 TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal。
 默认测试的虚构数据只进入临时数据库和本地模拟服务，未导出真实私人历史。
 真实模型验收需显式设置相应模型配置及 MIRROR_RUN_LIVE_LLM=true，见 V0.2_MEMORY_ENGINE.md。
+
+## V0.2.2-M2-B：隔离候选整合验收
+
+[CI 40732403937](https://github.com/DevNoooob/mirror-self/actions/runs/40732403937)，head `68af38927b0ca28031dcd57119c29859bbf8cc37`：Java21单元130通过，集成50通过/3个真实模型入口跳过，Python预检15通过。Mac离线单元实际JDK27，不能冒称Mac Java21。V4只在CI临时数据库执行，V1→V4虚构旧数据保留验证通过。
+
+[31对离线观察](../evaluation/runs/consolidation-offline-v1/analysis.md)：Precision100%、Recall88.89%、错误SAME_AS0/3、证据17/17、审核策略8/8。所有测试向量故意相同，0真实模型调用，不是BGE质量或正式基线。未知跨语言同义表达CC16被命题规则漏检，参考不改。首轮Gson报告日期序列化错误已修复，完整重跑通过。
+
+v3已按批准范围创建45查询，全部最终人工参考仍待审、grade2另审。未改v2/首次真实报告、未连接Ubuntu业务库、未部署/合并/校时。

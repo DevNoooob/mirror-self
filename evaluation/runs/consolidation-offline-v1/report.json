@@ -1,0 +1,1446 @@
+{
+  "condition": "OFFLINE_ADVERSARIAL_ALL_SIMILAR_STORED_VECTORS",
+  "datasetSha256": "a7a9fadcf08efd859d0ebef5a7c889338eb8b8a47763a1cbed669aacf2c44d55",
+  "engineVersion": "consolidation-rules-1",
+  "tp": 8,
+  "fp": 0,
+  "fn": 1,
+  "precision": 1.0,
+  "recall": 0.8888888888888888,
+  "predictedSameAs": 3,
+  "falseSameAs": 0,
+  "falseSameAsRate": 0.0,
+  "evidenceCorrect": 17,
+  "evidenceTotal": 17,
+  "evidenceAccuracy": 1.0,
+  "reviewPolicyCorrect": 8,
+  "reviewPolicyTotal": 8,
+  "reviewPolicyAccuracy": 1.0,
+  "realModelRequests": 0,
+  "scanModelRequests": 0,
+  "humanReferenceReviewComplete": false,
+  "cases": [
+    {
+      "job": {
+        "id": "4729b7ee-091e-49c8-afc5-4476af02714e",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC01",
+      "coverage": "cross-language-negative-equivalence",
+      "expected": "SAME_AS",
+      "candidates": [
+        {
+          "id": "98b7c96f-8e06-4d5b-917f-14986c25b13f",
+          "relation": "SAME_AS",
+          "direction": "SYMMETRIC",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "85db85bd-3b74-46bc-b636-92ce4c1b4dd8",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我不喝咖啡。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "7d1517f5-0b19-4508-9cb0-51ba6317d15d",
+                "locator": "CC01:aa874ac7-08c6-42d3-994f-b636df80d54a",
+                "excerpt": "我不喝咖啡。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "a5e895aa-aac4-4377-b4d7-196878f9536b",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "I do not drink coffee.",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "e49e31c7-22a3-44b0-8968-9b3c4626beeb",
+                "locator": "CC01:b0f8fc6d-ff18-49c6-b243-ed349610c005",
+                "excerpt": "I do not drink coffee.",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "COMPLETE_CLAIM_POLARITY_QUALIFIERS_AND_TIME_MATCH"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "LEXICAL_EQUIVALENCE_REQUIRES_REVIEW"
+          ],
+          "discovery": {
+            "anchorId": "85db85bd-3b74-46bc-b636-92ce4c1b4dd8",
+            "rrfScore": 0.01639344262295082,
+            "keywordRank": null,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "SAME_AS"
+      ]
+    },
+    {
+      "job": {
+        "id": "68de59e7-55de-4783-92e9-df863587c051",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC02",
+      "coverage": "opposite-polarity-same-time",
+      "expected": "CONTRADICTS",
+      "candidates": [
+        {
+          "id": "4be0df72-ba64-4169-baf4-f382fbd8bde6",
+          "relation": "CONTRADICTS",
+          "direction": "SYMMETRIC",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "953c0c5f-9cde-49dd-a5b6-e8ecf6d8668b",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我不喜欢园艺。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "4ab4a12c-3b8f-449e-97ed-5e54dc86979b",
+                "locator": "CC02:3fc8e008-198f-4f56-9a6e-796827418928",
+                "excerpt": "我不喜欢园艺。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "c00890a4-1bf1-434b-9ce4-2ce394720f34",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我喜欢园艺。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "0fd29117-7422-4bd7-bc77-7cf739ad7256",
+                "locator": "CC02:5d689f81-6e42-4d76-8d67-e07d43370153",
+                "excerpt": "我喜欢园艺。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "SAME_POINT_OPPOSITE_EXPLICIT_POLARITY"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED"
+          ],
+          "discovery": {
+            "anchorId": "c00890a4-1bf1-434b-9ce4-2ce394720f34",
+            "rrfScore": 0.03278688524590164,
+            "keywordRank": 1,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "CONTRADICTS"
+      ]
+    },
+    {
+      "job": {
+        "id": "85621737-ddc6-4b77-a58b-1846d7cd395e",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC03",
+      "coverage": "possible-evolution-across-time",
+      "expected": "EVOLVED_FROM",
+      "candidates": [
+        {
+          "id": "a483c30f-fb97-4d2e-ab5b-b90c416537de",
+          "relation": "EVOLVED_FROM",
+          "direction": "B_TO_A",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "b5a7128a-736e-499b-a283-63163b338279",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我喜欢园艺。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2022-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "a49b4371-46ab-4c35-a80d-f050e1eb9316",
+                "locator": "CC03:d53c98eb-5b39-401a-ab5d-44cd5779055c",
+                "excerpt": "我喜欢园艺。",
+                "role": "user",
+                "occurredAt": "2022-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "cb644e8e-022a-489d-b88a-1821053fc305",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我不喜欢园艺。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2025-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "3dc65287-6825-41e9-9269-a39cad244b25",
+                "locator": "CC03:9aa89ed1-1fff-4f96-9caa-525b9472d239",
+                "excerpt": "我不喜欢园艺。",
+                "role": "user",
+                "occurredAt": "2025-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "DATED_OPPOSITE_EXPLICIT_ASSERTIONS"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "POSSIBLE_EVOLUTION_OR_MISSING_CONTEXT"
+          ],
+          "discovery": {
+            "anchorId": "b5a7128a-736e-499b-a283-63163b338279",
+            "rrfScore": 0.03278688524590164,
+            "keywordRank": 1,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "EVOLVED_FROM"
+      ]
+    },
+    {
+      "job": {
+        "id": "3f606643-36d1-4e9b-a3fb-90da858d1817",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC04",
+      "coverage": "historical-source-time-in-one-message",
+      "expected": "EVOLVED_FROM",
+      "candidates": [
+        {
+          "id": "24fad1d4-6f72-42ea-b880-74218d38d17f",
+          "relation": "EVOLVED_FROM",
+          "direction": "A_TO_B",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "89c95c5e-a0ea-4ed0-b227-60d355bf72ea",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我现在不喜欢园艺。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "73baa99c-a5ab-41e5-b012-89be17210283",
+                "locator": "CC04:e56f32bc-e0ec-46bc-84e6-63e903e94e94",
+                "excerpt": "我以前喜欢园艺。我现在不喜欢园艺。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "df5c7fcb-65c4-409b-bbcb-dff4c038708e",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我以前喜欢园艺。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "HISTORICAL",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "73baa99c-a5ab-41e5-b012-89be17210283",
+                "locator": "CC04:e56f32bc-e0ec-46bc-84e6-63e903e94e94",
+                "excerpt": "我以前喜欢园艺。我现在不喜欢园艺。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "EXPLICIT_HISTORICAL_AND_SOURCE_TIME_CHANGE"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "POSSIBLE_EVOLUTION_NOT_CONFIRMED"
+          ],
+          "discovery": {
+            "anchorId": "df5c7fcb-65c4-409b-bbcb-dff4c038708e",
+            "rrfScore": 0.03278688524590164,
+            "keywordRank": 1,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "EVOLVED_FROM"
+      ]
+    },
+    {
+      "job": {
+        "id": "d09eba0d-1ee2-46d5-aaa0-ae2269d99a75",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC05",
+      "coverage": "independent-facts-same-source",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "075b275c-7e80-45d9-96ca-ca2ff9b59ab4",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC06",
+      "coverage": "conditional-goal-not-completed-event",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "da4d11f7-342e-4fd0-838e-df0e8ee5aef9",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC07",
+      "coverage": "same-complete-conditional-intent",
+      "expected": "SAME_AS",
+      "candidates": [
+        {
+          "id": "4b3494c0-0f97-4b1a-bd5d-b68ff310b413",
+          "relation": "SAME_AS",
+          "direction": "SYMMETRIC",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "24079206-68e5-48f3-b7be-f0afd7c8e581",
+            "revision": 1,
+            "type": "GOAL",
+            "content": "如果获得录取，我可能去月港学习。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "c782a3fb-0faf-4e71-839c-36a9768dbab1",
+                "locator": "CC07:86b37539-446a-479e-a659-f5bffc6e636e",
+                "excerpt": "如果获得录取，我可能去月港学习。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "f6780152-425b-4cb9-aba4-bcac4fc94f86",
+            "revision": 1,
+            "type": "GOAL",
+            "content": "如果获得录取，我可能去月港学习。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "547747b4-d904-4f69-a06b-22f0ca2489d0",
+                "locator": "CC07:c36e3dc4-f41b-47b8-9f00-957cc37e8af0",
+                "excerpt": "如果获得录取，我可能去月港学习。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "COMPLETE_CLAIM_POLARITY_QUALIFIERS_AND_TIME_MATCH"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "INTENTION_OR_CONDITION_NOT_COMPLETION"
+          ],
+          "discovery": {
+            "anchorId": "24079206-68e5-48f3-b7be-f0afd7c8e581",
+            "rrfScore": 0.03278688524590164,
+            "keywordRank": 1,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "SAME_AS"
+      ]
+    },
+    {
+      "job": {
+        "id": "c294355f-0e9c-4dda-b419-bd6fcc1222fe",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC08",
+      "coverage": "different-condition-protected",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "ab5755d6-ca83-4e5b-a5c0-ec7eda982aa9",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC09",
+      "coverage": "self-report-not-objective-personality",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "d162e661-57a9-4fe5-ba6a-a423fdb9ebe2",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC10",
+      "coverage": "cross-language-reviewed-self-report",
+      "expected": "SAME_AS",
+      "candidates": [
+        {
+          "id": "7d94d106-4686-4727-bab9-80b5ed9d7721",
+          "relation": "SAME_AS",
+          "direction": "SYMMETRIC",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "c18e85d7-967a-48e4-8a85-eeb6552a8394",
+            "revision": 1,
+            "type": "THOUGHT_PROCESS",
+            "content": "I consider myself patient.",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "ccac5d2f-a6b3-45f9-8933-6932fce208d8",
+                "locator": "CC10:f99d3bdd-5538-43f0-b56b-414c6ade4368",
+                "excerpt": "I consider myself patient.",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "c53e36c0-6f33-41b0-950f-a24d65e2dfc2",
+            "revision": 1,
+            "type": "THOUGHT_PROCESS",
+            "content": "我觉得自己很耐心。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "2ede5bf4-9a7e-4d64-a249-2476c9d6d0ed",
+                "locator": "CC10:b3b77453-364d-46a4-93a9-7f8183888d6b",
+                "excerpt": "我觉得自己很耐心。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "COMPLETE_CLAIM_POLARITY_QUALIFIERS_AND_TIME_MATCH"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "SELF_REPORT_ONLY_NOT_OBJECTIVE_PERSONALITY",
+            "LEXICAL_EQUIVALENCE_REQUIRES_REVIEW"
+          ],
+          "discovery": {
+            "anchorId": "c53e36c0-6f33-41b0-950f-a24d65e2dfc2",
+            "rrfScore": 0.01639344262295082,
+            "keywordRank": null,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "SAME_AS"
+      ]
+    },
+    {
+      "job": {
+        "id": "2fe198c8-3bf6-4004-9065-f5dabf27e218",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC11",
+      "coverage": "additional-verified-evidence",
+      "expected": "SUPPORTS",
+      "candidates": [
+        {
+          "id": "25a494b7-e2d9-4d88-88f9-5d4f026e807d",
+          "relation": "SUPPORTS",
+          "direction": "A_TO_B",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "2186f54c-e830-4da2-a59f-5ae99e9a61ca",
+            "revision": 2,
+            "type": "OPINION",
+            "content": "I do not drink coffee.",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "2788ce04-8bad-4971-b3d5-d33280ea257f",
+                "locator": "CC11:cef35964-95f7-40f1-b1df-0ebcae53279f",
+                "excerpt": "我不喝咖啡。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              },
+              {
+                "sourceId": "b353dead-d2db-4bba-9ac3-3cf1e076a225",
+                "locator": "CC11:f1281bc7-57c6-4a60-af0a-8786ddd09cbc",
+                "excerpt": "I do not drink coffee.",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "56eb4fba-9a68-4285-aee7-90f233e37870",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我不喝咖啡。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2024-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "2788ce04-8bad-4971-b3d5-d33280ea257f",
+                "locator": "CC11:cef35964-95f7-40f1-b1df-0ebcae53279f",
+                "excerpt": "我不喝咖啡。",
+                "role": "user",
+                "occurredAt": "2024-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "ADDITIONAL_VERIFIED_SOURCE_FOR_SAME_CLAIM"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "NO_PROOF_OF_CONTINUOUS_TRUTH"
+          ],
+          "discovery": {
+            "anchorId": "56eb4fba-9a68-4285-aee7-90f233e37870",
+            "rrfScore": 0.01639344262295082,
+            "keywordRank": null,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "SUPPORTS"
+      ]
+    },
+    {
+      "job": {
+        "id": "8cfb246b-6920-4eb0-8f7e-3737154132f8",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 1,
+        "existing": 1,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC12",
+      "coverage": "reassertion-not-continuous-truth",
+      "expected": "SUPPORTS",
+      "candidates": [
+        {
+          "id": "87813d27-d376-416d-936a-d2083e46b423",
+          "relation": "SUPPORTS",
+          "direction": "B_TO_A",
+          "status": "PENDING_REVIEW",
+          "validity": "VALID",
+          "reviewVersion": 1,
+          "memoryA": {
+            "id": "5363887a-68be-4a18-8df4-c5b2eb48b2db",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "我不喝咖啡。",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2022-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "6fab3e25-d280-4c5d-82f8-aff0caaeb049",
+                "locator": "CC12:c522a665-3a68-4626-a48b-a98a3af1c9f7",
+                "excerpt": "我不喝咖啡。",
+                "role": "user",
+                "occurredAt": "2022-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "memoryB": {
+            "id": "582a33e9-8b1c-4294-b514-d8d8e62dc80d",
+            "revision": 1,
+            "type": "OPINION",
+            "content": "I do not drink coffee.",
+            "origin": "USER_EXPLICIT",
+            "status": "ACTIVE",
+            "temporalScope": "SOURCE_TIME",
+            "occurredAt": "2025-03-01T00:00:00Z",
+            "validFrom": null,
+            "validTo": null,
+            "supersededBy": null,
+            "evidence": [
+              {
+                "sourceId": "dab32dd3-4608-4ca6-99b6-86875ebc64a9",
+                "locator": "CC12:a68e61a2-48d4-4887-b795-b3215c426b5b",
+                "excerpt": "I do not drink coffee.",
+                "role": "user",
+                "occurredAt": "2025-03-01T00:00:00Z"
+              }
+            ],
+            "extractorVersion": null,
+            "modelId": null
+          },
+          "engineVersion": "consolidation-rules-1",
+          "discoveryModelId": "all-similar-adversarial",
+          "discoveryModelVersion": "v1",
+          "reasonCodes": [
+            "CONSISTENT_EXPLICIT_REASSERTION_AT_ANOTHER_TIME"
+          ],
+          "uncertainties": [
+            "CANDIDATE_ONLY_NO_MEMORY_CHANGE",
+            "CURRENT_ENDORSEMENT_UNCONFIRMED",
+            "NO_PROOF_OF_CONTINUOUS_TRUTH"
+          ],
+          "discovery": {
+            "anchorId": "5363887a-68be-4a18-8df4-c5b2eb48b2db",
+            "rrfScore": 0.01639344262295082,
+            "keywordRank": null,
+            "vectorRank": 1,
+            "cosineSimilarity": 1.0,
+            "modelRequests": 0,
+            "truthSource": "VERIFIED_L0_PROPOSITIONS_NOT_VECTOR_SCORE"
+          },
+          "approvedEffect": "RELATION_REVIEW_ONLY"
+        }
+      ],
+      "predicted": [
+        "SUPPORTS"
+      ]
+    },
+    {
+      "job": {
+        "id": "1091b5b0-d588-4aa2-9cd8-d14d8995f8fa",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC13",
+      "coverage": "unknown-time-no-conflict-inference",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "b836ea2a-d013-4419-aae2-0be5f5c1dcdd",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC14",
+      "coverage": "type-correction-separate",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "338fcd26-ea79-4f18-b885-031dc9f7ee71",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC15",
+      "coverage": "different-historical-events",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "0e90955b-8b9f-4534-9294-163ca1859531",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC16",
+      "coverage": "held-out-unsupported-paraphrase",
+      "expected": "SAME_AS",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "ee0e3400-5f3c-4000-bff0-8f33f2dc1de6",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC17",
+      "coverage": "different-context-not-conflict",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "a56e2c64-db94-4c11-ae4e-a9c7b80b83df",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC18",
+      "coverage": "assistant-not-user",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "3b8b0cd5-91d8-4d84-85a0-38db56a9c963",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC19",
+      "coverage": "owner-isolation",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "a073e06a-8149-4fab-af36-f780890358ac",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC20",
+      "coverage": "secret-excluded",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "5d2f1e1c-a971-4f3b-8b8b-9a4d9f713c24",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC21",
+      "coverage": "restricted-source-excluded",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "a0d33340-f88d-44a2-9201-5e737d6450a7",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC22",
+      "coverage": "pending-inference-excluded",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "384e7709-461e-4a9b-8d00-6410533b7894",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC23",
+      "coverage": "rejected-memory-excluded",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "9264e017-4803-495b-8842-f57601425294",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC24",
+      "coverage": "retracted-memory-excluded",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "ac15e9ed-76d9-4c7b-b2e6-7ed0a8dee13f",
+        "status": "COMPLETE",
+        "selected": 1,
+        "processed": 1,
+        "comparedPairs": 0,
+        "created": 0,
+        "existing": 0,
+        "abstained": 0,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 1
+      },
+      "caseId": "CC25",
+      "coverage": "deleted-memory-excluded",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "76217a7e-1662-43b9-a8f5-386a8517c144",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC26",
+      "coverage": "fabricated-l1-not-l0-supported",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "297d2c80-8ff6-4396-bae8-a0c73ebc7536",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC27",
+      "coverage": "double-negation-not-equivalence",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "54ffc60d-044d-44b1-9a27-ab968d5c5cea",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC28",
+      "coverage": "partial-compound-not-equivalent",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "e7972eed-d9ae-4f1c-812b-7bdfd1e2065b",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC29",
+      "coverage": "other-person-not-self",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "cc4444ba-c676-4aff-8567-7d8e81ddc3e7",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC30",
+      "coverage": "possible-not-definite",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    },
+    {
+      "job": {
+        "id": "1586ec00-a115-407a-b956-4c1f664c8952",
+        "status": "COMPLETE",
+        "selected": 2,
+        "processed": 2,
+        "comparedPairs": 2,
+        "created": 0,
+        "existing": 0,
+        "abstained": 2,
+        "stale": 0,
+        "engineVersion": "consolidation-rules-1",
+        "mode": "HYBRID",
+        "modelId": "all-similar-adversarial",
+        "modelVersion": "v1",
+        "errorCodes": [],
+        "modelRequests": 0,
+        "vectorEpoch": 2
+      },
+      "caseId": "CC31",
+      "coverage": "unmatched-source-time",
+      "expected": "NONE",
+      "candidates": [],
+      "predicted": []
+    }
+  ]
+}
